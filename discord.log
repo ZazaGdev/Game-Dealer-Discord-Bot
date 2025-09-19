@@ -141,3 +141,100 @@
 [2025-09-19 04:31:44] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
 [2025-09-19 04:32:25] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
 [2025-09-19 04:32:25] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+2025-09-19 05:30:39,317 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:30:39,318 INFO:discord.client: logging in using static token
+2025-09-19 05:30:40,586 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: f0c27505f014b700b2fa35cffc6e8f00).
+2025-09-19 05:30:42,589 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:30:42,589 WARNING:GameDealer: DISCORD_CHANNEL_ID not set; skipping startup message.
+2025-09-19 05:31:41,551 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:31:41,552 INFO:discord.client: logging in using static token
+2025-09-19 05:31:43,039 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: d2866bda3be3a97c7cc656eecb755588).
+2025-09-19 05:31:45,049 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:31:45,049 WARNING:GameDealer: DISCORD_CHANNEL_ID not set; skipping startup message.
+2025-09-19 05:32:26,581 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:32:26,582 INFO:discord.client: logging in using static token
+2025-09-19 05:32:27,981 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 0f29a75feffd92de38735e658e02d190).
+2025-09-19 05:32:29,984 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:32:30,333 INFO:GameDealer: Startup message sent to channel test-messages
+2025-09-19 05:32:58,295 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:32:58,296 INFO:discord.client: logging in using static token
+2025-09-19 05:32:59,437 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 066273dddc5e6efc44da224a5cd170ea).
+2025-09-19 05:33:01,446 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:33:01,690 ERROR:GameDealer: Could not fetch channel 1418065913554534483: 404 Not Found (error code: 10003): Unknown Channel
+2025-09-19 05:33:20,237 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:33:20,238 INFO:discord.client: logging in using static token
+2025-09-19 05:33:21,566 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 145e367ca9bd65943a419291d5f21a4b).
+2025-09-19 05:33:23,568 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:33:23,896 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 05:40:13,999 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "deals" is not found
+2025-09-19 05:40:24,643 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:40:24,644 INFO:discord.client: logging in using static token
+2025-09-19 05:40:25,745 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: e2c806dea78789a6548b8eb81c03c124).
+2025-09-19 05:40:27,750 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:40:28,007 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 05:40:35,059 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "deals" is not found
+2025-09-19 05:41:46,591 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "deals" is not found
+2025-09-19 05:41:50,590 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:41:50,592 INFO:discord.client: logging in using static token
+2025-09-19 05:41:51,877 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: ea42d3543cf9fd35858e708def3236f0).
+2025-09-19 05:41:53,896 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:41:54,186 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 05:44:13,291 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:45:42,194 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:45:45,778 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:46:33,113 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:46:33,115 INFO:discord.client: logging in using static token
+2025-09-19 05:46:34,257 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: c8f6dc4e1c02c2269f128ed49571fa5b).
+2025-09-19 05:46:36,259 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:46:36,500 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 05:50:49,466 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:51:34,195 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:52:25,844 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:53:34,668 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "deal" is not found
+2025-09-19 05:54:39,274 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "test_deal" is not found
+2025-09-19 05:54:52,917 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:54:59,694 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "send_deal_to_discord" is not found
+2025-09-19 05:55:03,163 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:55:58,130 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:56:15,331 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:56:21,930 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "test_deal" is not found
+2025-09-19 05:56:36,163 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:56:36,164 INFO:GameDealer: Starting Discord bot...
+2025-09-19 05:56:36,164 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
+2025-09-19 05:56:36,165 INFO:discord.client: logging in using static token
+2025-09-19 05:56:37,454 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 3254d6d7fd295ab41d019637c7bc5067).
+2025-09-19 05:56:39,457 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 05:56:39,720 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 05:56:50,912 INFO:GameDealer: Deal message sent to channel logs
+2025-09-19 05:57:10,217 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "send_dial" is not found
+2025-09-19 05:57:32,098 INFO:GameDealer: Deal message sent to channel logs
+2025-09-19 05:58:03,550 ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "test_dial" is not found
+2025-09-19 05:58:17,872 INFO:GameDealer: Deal message sent to channel logs
+2025-09-19 05:58:43,536 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:59:22,370 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:59:50,991 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:59:56,792 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 05:59:56,793 INFO:GameDealer: Starting Discord bot...
+2025-09-19 05:59:56,793 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
+2025-09-19 05:59:56,794 INFO:discord.client: logging in using static token
+2025-09-19 05:59:58,008 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 7e6ca929303acecdcb9e8a2867d4d5a4).
+2025-09-19 06:00:00,015 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 06:00:00,350 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 06:00:19,888 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-19 06:00:19,889 INFO:GameDealer: Starting Discord bot...
+2025-09-19 06:00:19,889 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
+2025-09-19 06:00:19,889 INFO:discord.client: logging in using static token
+2025-09-19 06:00:21,085 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: e53d29646e377e61988d874a0a424a00).
+2025-09-19 06:00:23,088 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-19 06:00:23,405 INFO:GameDealer: Startup message sent to channel logs
+2025-09-19 06:00:32,645 INFO:GameDealer: Deal message sent to channel results
+2025-09-19 06:00:47,978 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
