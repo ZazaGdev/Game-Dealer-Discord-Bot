@@ -93,3 +93,49 @@
 [2025-09-19 04:19:09] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
 [2025-09-19 04:19:50] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
 [2025-09-19 04:19:50] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:20:31] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:20:31] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:21:12] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:21:13] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:21:54] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:21:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:22:35] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:22:35] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:23:16] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:23:16] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:23:57] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:23:58] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:24:39] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:24:39] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:25:20] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:25:20] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:26:01] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:26:01] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:26:42] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:26:43] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:27:24] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:27:24] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:28:05] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
+[2025-09-19 04:28:05] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:28:17] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 7, 'd': None}
+[2025-09-19 04:28:17] [DEBUG   ] discord.gateway: Received RECONNECT opcode.
+[2025-09-19 04:28:17] [DEBUG   ] discord.client: Got a request to RESUME the websocket.
+[2025-09-19 04:28:17] [DEBUG   ] discord.client: Dispatching event disconnect
+[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: Created websocket connected to wss://gateway-us-east1-b.discord.gg
+[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 10, 'd': {'heartbeat_interval': 41250, '_trace': ['["gateway-prd-arm-us-east1-b-pxrw",{"micros":0.0}]']}}
+[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: Shard ID None has sent the RESUME payload.
+[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'RESUMED', 's': 7, 'op': 0, 'd': {'_trace': ['["gateway-prd-arm-us-east1-b-pxrw",{"micros":3955,"calls":["id_created",{"micros":0,"calls":[]},"session_lookup_time",{"micros":1427,"calls":[]},"session_lookup_finished",{"micros":7,"calls":[]},"discord-sessions-prd-2-139",{"micros":24}]}]']}}
+[2025-09-19 04:28:18] [DEBUG   ] discord.client: Dispatching event socket_event_type
+[2025-09-19 04:28:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session b8abfa9a5db885fcff3c41252dac7fcb.
+[2025-09-19 04:28:18] [DEBUG   ] discord.client: Dispatching event resumed
+[2025-09-19 04:28:59] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
+[2025-09-19 04:28:59] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:29:40] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
+[2025-09-19 04:29:40] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:30:21] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
+[2025-09-19 04:30:22] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:31:03] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
+[2025-09-19 04:31:03] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-09-19 04:31:44] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
+[2025-09-19 04:31:44] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
