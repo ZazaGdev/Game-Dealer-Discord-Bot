@@ -32,7 +32,10 @@ class HttpClient:
                         raise aiohttp.ClientResponseError(resp.request_info, resp.history, status=resp.status)
                     resp.raise_for_status()
                     return await resp.json()
-            except (aiohttp.ClientError, asyncio.TimeoutError):
+            except aiohttp.ClientResponseError as e:
+                if 400 <= e.status < 500:
+                    raise  # don't retry client errors
+            except (aiohttp.ClientConnectionError, asyncio.TimeoutError):
                 if attempt == retries:
                     raise
                 # capped exponential backoff with jitter
