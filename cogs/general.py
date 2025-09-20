@@ -6,16 +6,16 @@ from utils.embeds import make_startup_embed, make_deal_embed
 class General(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        # Quick aliases to values you set on bot in main.py
         self.log = getattr(bot, 'log', None)
         self.deals_channel_id = getattr(bot, 'deals_channel_id', 0)
         self.log_channel_id = getattr(bot, 'log_channel_id', 0)
         self.bot_ready = False
+        self._announced_once = False
 
     # --- listeners ---
     @commands.Cog.listener()
     async def on_ready(self):
-        if getattr(self, "_announced_once", False):
+        if self._announced_once:
             return
         self._announced_once = True
         self.bot_ready = True
@@ -60,7 +60,7 @@ class General(commands.Cog):
         """Show information about game deals"""
         await ctx.send("Here are today's game deals! Use `!test_deal` to see a sample deal.")
 
-    @commands.command(aliases=['test_deals', 'testdeal'])  # ← Added aliases to fix your issue
+    @commands.command(aliases=['test_deals', 'testdeal'])
     async def test_deal(self, ctx: commands.Context):
         """Test the send_deal_to_discord function with sample data"""
         test_data = {
@@ -79,6 +79,19 @@ class General(commands.Cog):
             await ctx.send("✅ Test deal sent successfully!")
         else:
             await ctx.send("❌ Failed to send test deal. Check logs for details.")
+
+    @commands.command()
+    async def info(self, ctx: commands.Context):
+        """Show bot information"""
+        embed = discord.Embed(
+            title="🤖 GameDealer Bot Info",
+            color=0x00ff00
+        )
+        embed.add_field(name="Servers", value=len(self.bot.guilds), inline=True)
+        embed.add_field(name="Users", value=sum(g.member_count for g in self.bot.guilds if g.member_count), inline=True)
+        embed.add_field(name="Commands", value=len(self.bot.commands), inline=True)
+        embed.set_footer(text=f"Requested by {ctx.author}")
+        await ctx.send(embed=embed)
 
     # --- helper used by webhook & commands ---
     async def send_deal_to_discord(self, deal_data: dict) -> bool:
@@ -111,7 +124,6 @@ class General(commands.Cog):
             if self.log:
                 self.log.exception(f"Failed to send deal message: {e}")
             return False
-
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(General(bot))

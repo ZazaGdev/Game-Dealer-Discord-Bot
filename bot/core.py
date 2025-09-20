@@ -25,15 +25,35 @@ class GameDealerBot(commands.Bot):
             self.itad_client = ITADClient(api_key=itad_api_key)
 
     async def setup_hook(self) -> None:
-        # Load cogs
-        try:
-            await self.load_extension("cogs.general")
-            await self.load_extension("cogs.deals")
+        # Load cogs with individual error handling
+        cogs_to_load = ["cogs.general", "cogs.deals"]
+        
+        for cog in cogs_to_load:
+            try:
+                await self.load_extension(cog)
+                if self.log:
+                    self.log.info(f"Successfully loaded {cog}")
+            except Exception as e:
+                if self.log:
+                    self.log.error(f"Failed to load {cog}: {e}")
+        
+        # List loaded cogs
+        if self.log:
+            loaded_cogs = [cog.qualified_name for cog in self.cogs.values()]
+            self.log.info(f"Loaded cogs: {', '.join(loaded_cogs) if loaded_cogs else 'None'}")
+
+    async def on_command_error(self, ctx: commands.Context, error: commands.CommandError):
+        """Global error handler for commands"""
+        if isinstance(error, commands.CommandNotFound):
+            await ctx.send(f"❌ Command `{ctx.invoked_with}` not found. Type `!help` for available commands.")
+        elif isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send(f"❌ Missing required argument: {error.param.name}")
+        elif isinstance(error, commands.BadArgument):
+            await ctx.send(f"❌ Invalid argument provided.")
+        else:
             if self.log:
-                self.log.info("Loaded cogs successfully")
-        except Exception as e:
-            if self.log:
-                self.log.error(f"Failed to load cogs: {e}")
+                self.log.error(f"Unhandled command error: {error}")
+            await ctx.send("❌ An unexpected error occurred.")
 
     async def close(self) -> None:
         # Close ITAD client
@@ -92,7 +112,7 @@ class GameDealerBot(commands.Bot):
         except Exception as e:
             if self.log:
                 self.log.error(f"Error fetching deals: {e}")
-            await ctx.send("❌ Error occurred while fetching deals.")
+            await ctx.send(f"❌ Error occurred while fetching deals: {str(e)}")
 
 # Factory function that main.py expects
 def create_bot(*, log=None, log_channel_id: int = 0, deals_channel_id: int = 0, itad_api_key: str | None = None) -> GameDealerBot:

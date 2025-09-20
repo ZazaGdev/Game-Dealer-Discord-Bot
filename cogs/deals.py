@@ -1,9 +1,7 @@
 # cogs/deals.py
 import discord
 from discord.ext import commands
-from typing import List
 from utils.embeds import make_deal_embed
-from models import Deal
 
 class Deals(commands.Cog):
     """Advanced deal commands using ITAD API"""
@@ -27,7 +25,8 @@ class Deals(commands.Cog):
             limit = 25
             await ctx.send("⚠️ Limit capped at 25 deals.")
         
-        await ctx.send(f"🔍 Searching for {limit} deals with minimum {min_discount}% discount...")
+        # Send initial message
+        search_msg = await ctx.send(f"🔍 Searching for {limit} deals with minimum {min_discount}% discount...")
         
         try:
             deals = await self.bot.itad_client.fetch_deals(
@@ -36,7 +35,7 @@ class Deals(commands.Cog):
             )
             
             if not deals:
-                await ctx.send(f"❌ No deals found with {min_discount}% minimum discount")
+                await search_msg.edit(content=f"❌ No deals found with {min_discount}% minimum discount")
                 return
             
             # Create a comprehensive embed showing multiple deals
@@ -61,20 +60,20 @@ class Deals(commands.Cog):
                     inline=False
                 )
             
-            if len(deals) > 10:
-                embed.set_footer(text=f"Showing 10 of {len(deals)} deals • Use !post_best to share the top deal")
-            else:
-                embed.set_footer(text="Use !post_best to share the top deal")
+            embed.set_footer(text="Use !post_best to share the top deal")
             
-            await ctx.send(embed=embed)
+            # Edit the original message with results
+            await search_msg.edit(content="✅ Search completed!", embed=embed)
             
             # Store deals for other commands to use
             self.bot._last_deals = deals
             
+        except ValueError as e:
+            await search_msg.edit(content=f"❌ Configuration error: {str(e)}")
         except Exception as e:
             if self.log:
                 self.log.error(f"Error searching deals: {e}")
-            await ctx.send("❌ Error occurred while searching for deals.")
+            await search_msg.edit(content=f"❌ Error occurred while searching for deals: {str(e)}")
     
     @commands.command()
     async def post_best(self, ctx: commands.Context):
@@ -110,53 +109,6 @@ class Deals(commands.Cog):
     async def top_deals(self, ctx: commands.Context, count: int = 5):
         """Get top deals quickly"""
         await self.search_deals.invoke(ctx, min_discount=60, limit=count)
-    
-    @commands.command()
-    async def mega_deals(self, ctx: commands.Context):
-        """Get deals with 80%+ discount"""
-        await self.search_deals.invoke(ctx, min_discount=80, limit=15)
-    
-    @commands.command()
-    async def bulk_post(self, ctx: commands.Context, count: int = 3):
-        """
-        Post multiple top deals to deals channel
-        Usage: !bulk_post 5
-        """
-        if not hasattr(self.bot, '_last_deals') or not self.bot._last_deals:
-            await ctx.send("❌ No deals found. Use `!search_deals` first.")
-            return
-        
-        if count > 10:
-            count = 10
-            await ctx.send("⚠️ Limiting to 10 deals max.")
-        
-        await ctx.send(f"🔄 Posting top {count} deals to deals channel...")
-        
-        posted = 0
-        general_cog = self.bot.get_cog("General")
-        
-        if not general_cog:
-            await ctx.send("❌ Could not access deals posting functionality.")
-            return
-        
-        for deal in self.bot._last_deals[:count]:
-            deal_dict = {
-                "title": deal["title"],
-                "price": deal["price"],
-                "store": deal["store"],
-                "url": deal.get("url", ""),
-                "discount": deal.get("discount"),
-                "original_price": deal.get("original_price")
-            }
-            
-            success = await general_cog.send_deal_to_discord(deal_dict)
-            if success:
-                posted += 1
-            
-            # Small delay to avoid rate limits
-            await ctx.typing()
-        
-        await ctx.send(f"✅ Successfully posted {posted}/{count} deals!")
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Deals(bot))

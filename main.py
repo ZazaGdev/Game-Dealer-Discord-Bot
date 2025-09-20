@@ -1,4 +1,4 @@
-# main.py (complete version)
+# main.py
 import os
 import logging
 import threading
@@ -10,7 +10,7 @@ import asyncio
 
 from bot import create_bot 
 
-# --- config & logging ---
+# --- Configuration & Logging ---
 load_dotenv()
 setup_logging()
 
@@ -20,9 +20,9 @@ DEALS_CHANNEL_ID = int(os.getenv("DEALS_CHANNEL_ID", LOG_CHANNEL_ID))
 ITAD_API_KEY = os.getenv("ITAD_API_KEY")
 
 log = logging.getLogger("GameDealer")
-app = FastAPI()
+app = FastAPI(title="GameDealer Webhook Server")
 
-# --- create the bot from our core module ---
+# --- Create Bot Instance ---
 bot = create_bot(
     log=log,
     log_channel_id=LOG_CHANNEL_ID,
@@ -30,9 +30,10 @@ bot = create_bot(
     itad_api_key=ITAD_API_KEY
 )
 
-# --- FastAPI webhook ---
+# --- FastAPI Webhook Endpoints ---
 @app.post("/itad-webhook")
 async def itad_webhook(request: Request):
+    """Handle incoming ITAD webhooks"""
     headers = request.headers
     event = headers.get("ITAD-Event")
     hook_id = headers.get("ITAD-Hook-ID")
@@ -58,6 +59,7 @@ async def itad_webhook(request: Request):
             "original_price": body.get("original_price", ""),
         }
 
+        # Send deal to Discord if bot is ready
         if bot.loop and bot.loop.is_running():
             asyncio.create_task(bot.send_deal(deal_data))
         else:
@@ -68,24 +70,36 @@ async def itad_webhook(request: Request):
     else:
         return JSONResponse({"status": "unknown_event"}, status_code=200)
 
-# --- run uvicorn in a thread, then bot.run(TOKEN) as before ---
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "bot_ready": bot.is_ready()}
+
+# --- Application Startup ---
 def run_fastapi():
     """Run FastAPI server in a separate thread"""
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+    uvicorn.run(
+        app, 
+        host="0.0.0.0", 
+        port=8000, 
+        log_level="info",
+        access_log=False  # Reduce log noise
+    )
 
 def main():
-    """Main entry point"""
+    """Main entry point for the application"""
+    # Validate required environment variables
     if not TOKEN:
         log.error("DISCORD_TOKEN is missing in your environment (.env).")
         return
-    
-    # Start FastAPI server in background thread
+
+    # Start FastAPI webhook server in background
     log.info("Starting FastAPI webhook server...")
     fastapi_thread = threading.Thread(target=run_fastapi, daemon=True)
     fastapi_thread.start()
     
-    # Start Discord bot (blocking)
+    # Start Discord bot (this blocks)
     log.info("Starting Discord bot...")
     log.info("FastAPI webhook server running on http://0.0.0.0:8000")
     
