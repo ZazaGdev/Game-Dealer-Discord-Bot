@@ -238,3 +238,10 @@ discord.ext.commands.errors.CommandNotFound: Command "test_dial" is not found
 2025-09-19 06:00:23,405 INFO:GameDealer: Startup message sent to channel logs
 2025-09-19 06:00:32,645 INFO:GameDealer: Deal message sent to channel results
 2025-09-19 06:00:47,978 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-21 02:16:32,773 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2025-09-21 02:16:32,783 INFO:GameDealer: Starting Discord bot...
+2025-09-21 02:16:32,783 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
+2025-09-21 02:16:32,784 INFO:discord.client: logging in using static token
+2025-09-21 02:16:34,060 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 362810e19abbfe82560e04023c04db0d).
+2025-09-21 02:16:36,094 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-21 02:16:36,541 INFO:GameDealer: Startup message sent to channel logs
