@@ -53,32 +53,62 @@ class Deals(commands.Cog):
                 await search_msg.edit(content=error_msg)
                 return
             
-            # Create a comprehensive embed showing multiple deals
-            embed = discord.Embed(
-                title=f"🎮 Found {len(deals)} Great Deals!",
-                description=f"Minimum discount: {min_discount}%",
-                color=0x00ff00,
-                timestamp=ctx.message.created_at
-            )
+            # Create embeds for all deals, splitting if necessary due to Discord limits
+            embeds_data = []
+            deals_per_embed = 10  # Discord embed field limit is 25, but we want readability
             
-            # Add top deals as fields
-            for i, deal in enumerate(deals[:10]):  # Show max 10 in embed
-                discount_text = f" ({deal.get('discount', 'N/A')})" if deal.get('discount') else ""
-                value = f"**{deal['price']}** at {deal['store']}{discount_text}"
+            for page in range(0, len(deals), deals_per_embed):
+                page_deals = deals[page:page + deals_per_embed]
+                page_num = (page // deals_per_embed) + 1
+                total_pages = (len(deals) + deals_per_embed - 1) // deals_per_embed
                 
-                if deal.get('url'):
-                    value += f"\n[🔗 Get Deal]({deal['url']})"
-                
-                embed.add_field(
-                    name=f"{i+1}. {deal['title'][:45]}{'...' if len(deal['title']) > 45 else ''}",
-                    value=value,
-                    inline=False
+                embed = discord.Embed(
+                    title=f"🎮 Found {len(deals)} Great Deals!" + (f" (Page {page_num}/{total_pages})" if total_pages > 1 else ""),
+                    description=f"Minimum discount: {min_discount}%" + (f" • Store: **{store}**" if store else ""),
+                    color=0x00ff00,
+                    timestamp=ctx.message.created_at
                 )
+                
+                # Add deals as fields for this page
+                for i, deal in enumerate(page_deals):
+                    global_index = page + i + 1
+                    discount_text = f" ({deal.get('discount', 'N/A')})" if deal.get('discount') else ""
+                    
+                    # Create a more compact value to fit more information
+                    price_info = f"**{deal['price']}**"
+                    if deal.get('original_price'):
+                        price_info += f" ~~{deal['original_price']}~~"
+                    
+                    value = f"{price_info} at {deal['store']}{discount_text}"
+                    
+                    if deal.get('url'):
+                        value += f"\n[🔗 Get Deal]({deal['url']})"
+                    
+                    # Truncate title if too long
+                    title = deal['title']
+                    if len(title) > 45:
+                        title = title[:42] + "..."
+                    
+                    embed.add_field(
+                        name=f"{global_index}. {title}",
+                        value=value,
+                        inline=False
+                    )
+                
+                if page_num == 1:
+                    embed.set_footer(text="Use !post_best to share the top deal" + (f" • {total_pages} pages total" if total_pages > 1 else ""))
+                else:
+                    embed.set_footer(text=f"Page {page_num} of {total_pages}")
+                
+                embeds_data.append(embed)
             
-            embed.set_footer(text="Use !post_best to share the top deal")
+            # Send the first embed by editing the search message
+            await search_msg.edit(content="✅ Search completed!", embed=embeds_data[0])
             
-            # Edit the original message with results
-            await search_msg.edit(content="✅ Search completed!", embed=embed)
+            # Send additional embeds as separate messages if needed
+            if len(embeds_data) > 1:
+                for embed in embeds_data[1:]:
+                    await ctx.send(embed=embed)
             
             # Store deals for other commands to use
             self.bot._last_deals = deals

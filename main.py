@@ -4,6 +4,7 @@ import asyncio
 import logging
 from dotenv import load_dotenv
 from config.app_config import load_config
+from config.logging_config import setup_logging
 from bot.core import create_bot
 
 async def main():
@@ -14,20 +15,8 @@ async def main():
     # Initialize config
     config = load_config()
     
-    # Setup logging - use the logs directory
-    import os
-    log_dir = "logs"
-    os.makedirs(log_dir, exist_ok=True)
-    
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.FileHandler(os.path.join(log_dir, 'discord.log'), encoding='utf-8'),
-            logging.StreamHandler()
-        ]
-    )
-    log = logging.getLogger(__name__)
+    # Setup logging using config module
+    log = setup_logging(level=logging.INFO)
     
     log.info("Starting GameDealer bot (scheduled mode with timer system)...")
     

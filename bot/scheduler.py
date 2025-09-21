@@ -12,6 +12,7 @@ class DealScheduler:
         self.bot = bot
         self.log = log
         self.daily_deals_enabled = True
+        self.last_deal_time = None  # Track last execution to prevent rapid repeats
         
     def start_scheduler(self):
         """Start the scheduled tasks"""
@@ -31,6 +32,14 @@ class DealScheduler:
         if not self.daily_deals_enabled:
             return
             
+        # Prevent rapid execution (minimum 23 hours between runs)
+        from datetime import datetime, timedelta
+        now = datetime.now()
+        if self.last_deal_time and (now - self.last_deal_time) < timedelta(hours=23):
+            self.log.debug(f"Skipping daily deal fetch - last run was {self.last_deal_time}")
+            return
+            
+        self.last_deal_time = now
         self.log.info("Starting daily deal fetch...")
         
         try:
