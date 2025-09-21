@@ -15,12 +15,28 @@ class ITADClient:
     async def close(self) -> None:
         await self.http.close()
 
-    async def fetch_deals(self, *, min_discount: int = 60, limit: int = 10) -> List[Deal]:
+    async def fetch_deals(self, *, min_discount: int = 60, limit: int = 10, store_filter: str = None, log_full_response: bool = False) -> List[Deal]:
         """
         Fetch deals using the correct ITAD API endpoints
+        
+        Args:
+            min_discount: Minimum discount percentage (default: 60)
+            limit: Maximum number of deals to return (default: 10)
+            store_filter: Filter by specific store name (e.g. "Steam", "Epic Game Store") 
+            log_full_response: Whether to log full API response to api_responses.json
         """
         if not self.api_key:
             raise ValueError("ITAD API key is required")
+
+        # Convert store name to shop ID if store_filter is provided
+        shop_ids = None
+        if store_filter:
+            shop_id = self._get_shop_id(store_filter)
+            if shop_id:
+                shop_ids = [shop_id]
+            else:
+                # If store not found, return empty list rather than error
+                return []
 
         # Use the correct ITAD API endpoint - deals/v2
         params: Dict[str, Any] = {
@@ -31,10 +47,18 @@ class ITADClient:
             "nondeals": "false",  # Only deals, not regular prices (as string)
             "mature": "false",  # No mature content (as string)
         }
+        
+        # Add shop filter if specified
+        if shop_ids:
+            params["shops"] = ",".join(map(str, shop_ids))
 
         try:
             # Use the correct endpoint for deals list
             data = await self.http.get_json(f"{self.BASE}/deals/v2", params=params)
+            
+            # Log full API responses when requested (typically from Discord commands)
+            if log_full_response:
+                await self._log_full_api_response(data, params, store_filter)
             
             # Optional: Log API responses for debugging (controlled by environment variable)
             import os
@@ -160,3 +184,101 @@ class ITADClient:
         """Extract deal URL from v2 API"""
         deal = item.get("deal", {})
         return deal.get("url", "")
+    
+    def _matches_store_filter(self, store_name: str, store_filter: str) -> bool:
+        """Check if store name matches the filter (case-insensitive partial match)"""
+        return store_filter.lower() in store_name.lower()
+    
+    def _get_shop_id(self, store_name: str) -> Optional[int]:
+        """
+        Convert store name to shop ID based on ITAD API mappings
+        
+        Args:
+            store_name: Store name (case-insensitive)
+            
+        Returns:
+            Shop ID if found, None otherwise
+        """
+        # Mapping of store names to shop IDs (from ITAD API /service/shops/v1)
+        store_mappings = {
+            "steam": 61,
+            "epic game store": 16,
+            "epic": 16,  # Common abbreviation
+            "gog": 35,
+            "gog.com": 35,
+            "fanatical": 6,
+            "humble store": 37,
+            "humble": 37,  # Common abbreviation
+            "green man gaming": 36,
+            "gmg": 36,  # Common abbreviation
+            "origin": 4,
+            "uplay": 1,
+            "ubisoft connect": 1,  # Updated name
+            "microsoft store": 47,
+            "xbox": 47,  # Common association
+            "playstation store": 43,
+            "psn": 43,  # Common abbreviation
+            "nintendo eshop": 49,
+            "nintendo": 49,  # Common abbreviation
+            "battle.net": 2,
+            "blizzard": 2,  # Common association
+            "itch.io": 11,
+            "itch": 11,  # Common abbreviation
+            "direct2drive": 7,
+            "gamersgate": 9,
+            "indiegala": 13,
+            "chrono.gg": 44,
+            "chrono": 44,  # Common abbreviation
+            "wingamestore": 14,
+            "dlgamer": 15,
+            "nuuvem": 12,
+            "gamefly": 10,
+            "g2a": 8,
+            "kinguin": 20,
+            "cdkeys": 21,
+            "2game": 22,
+            "gamivo": 23,
+            "eneba": 46,
+        }
+        
+        # Normalize store name for lookup
+        normalized_name = store_name.lower().strip()
+        return store_mappings.get(normalized_name)
+
+    async def _log_full_api_response(self, data: Dict, params: Dict, store_filter: str = None) -> None:
+        """Log full API response to api_responses.json for Discord command analysis"""
+        import json
+        import os
+        from datetime import datetime
+        
+        log_dir = "logs"
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        
+        # Create detailed log entry with full response data
+        log_entry = {
+            "timestamp": datetime.now().isoformat(),
+            "source": "discord_command",
+            "endpoint": "/deals/v2",
+            "request_params": {k: v for k, v in params.items() if k != "key"},  # Don't log API key
+            "store_filter": store_filter,
+            "response": data,  # Full response data
+            "summary": {
+                "total_items": len(data.get("list", [])) if isinstance(data, dict) else 0,
+                "has_more": data.get("hasMore", False) if isinstance(data, dict) else False,
+                "next_offset": data.get("nextOffset") if isinstance(data, dict) else None
+            }
+        }
+        
+        # Write to file with pretty formatting
+        with open(f"{log_dir}/api_responses.json", "w", encoding="utf-8") as f:
+            json.dump(log_entry, f, indent=2, ensure_ascii=False)
+    
+    def get_available_stores(self) -> list:
+        """Return a list of common store names for filtering"""
+        return [
+            "Steam", "Epic Game Store", "GOG", "Humble Bundle", 
+            "Fanatical", "Green Man Gaming", "GamesPlanet", 
+            "Ubisoft Store", "Origin", "Microsoft Store",
+            "PlayStation Store", "Nintendo eShop"
+        ]

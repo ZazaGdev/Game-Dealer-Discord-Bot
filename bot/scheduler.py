@@ -38,10 +38,11 @@ class DealScheduler:
                 self.log.error("ITAD client not available for daily deals")
                 return
             
-            # Fetch good deals (60% discount minimum)
+            # Fetch good deals (60% discount minimum) with full response logging
             deals = await self.bot.itad_client.fetch_deals(
-                min_discount=60,
-                limit=10
+                min_discount=30,  # Lower threshold to find more deals
+                limit=10,
+                log_full_response=True  # Log daily scheduled fetches too
             )
             
             if not deals:

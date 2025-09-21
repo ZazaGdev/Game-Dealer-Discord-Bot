@@ -1,0 +1,619 @@
+{
+  "timestamp": "2025-09-21T05:28:26.556438",
+  "source": "discord_command",
+  "endpoint": "/deals/v2",
+  "request_params": {
+    "offset": 0,
+    "limit": 10,
+    "sort": "-cut",
+    "nondeals": "false",
+    "mature": "false"
+  },
+  "store_filter": null,
+  "response": {
+    "nextOffset": 10,
+    "hasMore": true,
+    "list": [
+      {
+        "id": "018d937e-fa59-735e-aba7-44858c0c2c52",
+        "slug": "project-winter",
+        "title": "Project Winter",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/boxart.jpg?t=1758294373",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner145.jpg?t=1758294373",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner300.jpg?t=1758294373",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner400.jpg?t=1758294373",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner600.jpg?t=1758294374"
+        },
+        "deal": {
+          "shop": {
+            "id": 16,
+            "name": "Epic Game Store"
+          },
+          "price": {
+            "amount": 0,
+            "amountInt": 0,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": null,
+          "historyLow": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 16,
+              "name": "Epic"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-09-18T17:32:19+02:00",
+          "expiry": "2025-09-25T17:00:00+02:00",
+          "url": "https://itad.link/019934db-f7e5-70d3-b283-dc75274f1c63/"
+        }
+      },
+      {
+        "id": "01989d94-8b70-70ae-9beb-ad06af3183dc",
+        "slug": "ultimate-content-creator-hyper-sounds-bundle",
+        "title": "Ultimate Content Creator Hyper Sounds Bundle",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01989d94-8b70-70ae-9beb-ad06af3183dc/banner145.jpg?t=1754990713",
+          "banner300": "https://assets.isthereanydeal.com/01989d94-8b70-70ae-9beb-ad06af3183dc/banner300.jpg?t=1754990713",
+          "banner400": "https://assets.isthereanydeal.com/01989d94-8b70-70ae-9beb-ad06af3183dc/banner400.jpg?t=1754990713"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 600,
+            "amountInt": 60000,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-08-12T11:20:19+02:00",
+          "expiry": "2025-10-07T09:00:00+02:00",
+          "url": "https://itad.link/01989d94-8a8f-71e1-8094-177b177dc738/"
+        }
+      },
+      {
+        "id": "018d937e-f9ba-71d2-997f-2fdc6f3793a0",
+        "slug": "samorost-2",
+        "title": "Samorost 2",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/boxart.jpg?t=1757929813",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner145.jpg?t=1757929814",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner300.jpg?t=1757929814",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner400.jpg?t=1757929814",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner600.jpg?t=1757929815"
+        },
+        "deal": {
+          "shop": {
+            "id": 16,
+            "name": "Epic Game Store"
+          },
+          "price": {
+            "amount": 0,
+            "amountInt": 0,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 16,
+              "name": "Epic"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-09-18T17:32:58+02:00",
+          "expiry": "2025-09-25T17:00:00+02:00",
+          "url": "https://itad.link/018d959c-5c4b-7391-94a9-996f19f473a0/"
+        }
+      },
+      {
+        "id": "018d937f-675b-708f-9581-026a9dcbdefb",
+        "slug": "online-tutor-python-programming-bundle",
+        "title": "Online Tutor-Python Programming Bundle",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-675b-708f-9581-026a9dcbdefb/banner145.jpg",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-675b-708f-9581-026a9dcbdefb/banner300.jpg",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-675b-708f-9581-026a9dcbdefb/banner400.jpg"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 3202.64,
+            "amountInt": 320264,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [],
+          "timestamp": "2025-02-13T16:30:19+01:00",
+          "expiry": null,
+          "url": "https://itad.link/018d9386-a6f9-73dd-9091-85ea13813f7c/"
+        }
+      },
+      {
+        "id": "018d937f-642b-7283-8572-693651d87c06",
+        "slug": "easy-game-engine-elearning-bundle",
+        "title": "Easy Game Engine eLearning Bundle",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-642b-7283-8572-693651d87c06/banner145.jpg",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-642b-7283-8572-693651d87c06/banner300.jpg",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-642b-7283-8572-693651d87c06/banner400.jpg"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 7.99,
+            "amountInt": 799,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 2082.75,
+            "amountInt": 208275,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 7.99,
+            "amountInt": 799,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 7.99,
+            "amountInt": 799,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 7.99,
+            "amountInt": 799,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 7.99,
+            "amountInt": 799,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [],
+          "timestamp": "2024-02-11T00:32:30+01:00",
+          "expiry": null,
+          "url": "https://itad.link/018d9386-5517-70c7-8690-b77e14667936/"
+        }
+      },
+      {
+        "id": "018d937f-5f5b-718e-9d2d-93d6eeaf4889",
+        "slug": "cloud-and-network-certification-elearning-bundle",
+        "title": "Cloud & Network Certification eLearning Bundle",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-5f5b-718e-9d2d-93d6eeaf4889/banner145.jpg",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-5f5b-718e-9d2d-93d6eeaf4889/banner300.jpg",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-5f5b-718e-9d2d-93d6eeaf4889/banner400.jpg"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 1264.23,
+            "amountInt": 126423,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [],
+          "timestamp": "2024-02-11T00:32:23+01:00",
+          "expiry": null,
+          "url": "https://itad.link/018d9386-3e92-7067-a021-df12d5240464/"
+        }
+      },
+      {
+        "id": "0199613d-f74f-713a-a6d7-3b783772ace1",
+        "slug": "manga-masterpieces-collection-by-ablaze",
+        "title": "Manga Masterpieces Collection by ABLAZE",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/0199613d-f74f-713a-a6d7-3b783772ace1/banner145.jpg?t=1758273304",
+          "banner300": "https://assets.isthereanydeal.com/0199613d-f74f-713a-a6d7-3b783772ace1/banner300.jpg?t=1758273304",
+          "banner400": "https://assets.isthereanydeal.com/0199613d-f74f-713a-a6d7-3b783772ace1/banner400.jpg?t=1758273304"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 67.96,
+            "amountInt": 6796,
+            "currency": "USD"
+          },
+          "cut": 99,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "flag": "N",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-09-19T11:11:19+02:00",
+          "expiry": "2025-11-14T09:00:00+01:00",
+          "url": "https://itad.link/0199613d-f69c-73e1-af08-90771269b245/"
+        }
+      },
+      {
+        "id": "01909d32-b0a7-732c-807f-13e48591662f",
+        "slug": "working-with-linux-bundle-3rd-edition",
+        "title": "Working With Linux Bundle 3rd Edition",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01909d32-b0a7-732c-807f-13e48591662f/banner145.jpg?t=1720624500",
+          "banner300": "https://assets.isthereanydeal.com/01909d32-b0a7-732c-807f-13e48591662f/banner300.jpg?t=1720624500",
+          "banner400": "https://assets.isthereanydeal.com/01909d32-b0a7-732c-807f-13e48591662f/banner400.jpg?t=1720624500"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 159.96,
+            "amountInt": 15996,
+            "currency": "USD"
+          },
+          "cut": 99,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2024-07-10T17:11:05+02:00",
+          "expiry": null,
+          "url": "https://itad.link/01909d32-affd-732b-8b71-b173e9a80928/"
+        }
+      },
+      {
+        "id": "0190310c-6c5e-700f-8502-6036ebebba39",
+        "slug": "data-science-bundle-3rd-edition",
+        "title": "Data Science Bundle 3rd Edition",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/0190310c-6c5e-700f-8502-6036ebebba39/banner145.jpg?t=1718810100",
+          "banner300": "https://assets.isthereanydeal.com/0190310c-6c5e-700f-8502-6036ebebba39/banner300.jpg?t=1718810100",
+          "banner400": "https://assets.isthereanydeal.com/0190310c-6c5e-700f-8502-6036ebebba39/banner400.jpg?t=1718810100"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 139.96,
+            "amountInt": 13996,
+            "currency": "USD"
+          },
+          "cut": 99,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2024-06-19T17:10:18+02:00",
+          "expiry": null,
+          "url": "https://itad.link/0190310c-6bff-70d7-891f-52842b44103e/"
+        }
+      },
+      {
+        "id": "018f10ac-e44b-7386-99b1-ce38173d7cc5",
+        "slug": "networking-bundle-2nd-edition",
+        "title": "Networking Bundle 2nd Edition",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f10ac-e44b-7386-99b1-ce38173d7cc5/banner145.jpg",
+          "banner300": "https://assets.isthereanydeal.com/018f10ac-e44b-7386-99b1-ce38173d7cc5/banner300.jpg",
+          "banner400": "https://assets.isthereanydeal.com/018f10ac-e44b-7386-99b1-ce38173d7cc5/banner400.jpg"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 157.96,
+            "amountInt": 15796,
+            "currency": "USD"
+          },
+          "cut": 99,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2024-04-24T17:15:19+02:00",
+          "expiry": null,
+          "url": "https://itad.link/018f10ac-e3a5-7220-b3a0-0a2e0a46bd54/"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "total_items": 10,
+    "has_more": true,
+    "next_offset": 10
+  }
+}

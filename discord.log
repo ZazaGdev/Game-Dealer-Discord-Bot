@@ -1,272 +1,35 @@
-[2025-09-19 03:59:53] [INFO    ] discord.client: logging in using static token
-[2025-09-19 03:59:53] [DEBUG   ] discord.http: GET https://discord.com/api/v10/users/@me with None has returned 200
-[2025-09-19 03:59:53] [DEBUG   ] discord.http: GET /users/@me has found its initial rate limit bucket hash (78bb8553d9352a5a2f89f9def401287a).
-[2025-09-19 03:59:53] [DEBUG   ] discord.http: GET https://discord.com/api/v10/users/@me has received {'id': '1418064164047294494', 'username': 'TestDev', 'avatar': None, 'discriminator': '9468', 'public_flags': 0, 'flags': 0, 'bot': True, 'banner': None, 'accent_color': None, 'global_name': None, 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None, 'mfa_enabled': False, 'locale': 'en-US', 'premium_type': 0, 'email': None, 'verified': True, 'bio': ''}
-[2025-09-19 03:59:53] [DEBUG   ] discord.http: GET https://discord.com/api/v10/oauth2/applications/@me with None has returned 200
-[2025-09-19 03:59:53] [DEBUG   ] discord.http: GET /oauth2/applications/@me has found its initial rate limit bucket hash (d28a133af187e91d71d96a223467ce49).
-[2025-09-19 03:59:53] [DEBUG   ] discord.http: GET https://discord.com/api/v10/oauth2/applications/@me has received {'id': '1418064164047294494', 'name': 'TestDev', 'icon': None, 'description': '', 'type': None, 'bot': {'id': '1418064164047294494', 'username': 'TestDev', 'avatar': None, 'discriminator': '9468', 'public_flags': 0, 'flags': 0, 'bot': True, 'banner': None, 'accent_color': None, 'global_name': None, 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None}, 'summary': '', 'is_monetized': False, 'is_verified': False, 'is_discoverable': False, 'bot_public': True, 'bot_require_code_grant': False, 'install_params': {'scopes': ['applications.commands'], 'permissions': '0'}, 'integration_types_config': {'0': {'oauth2_install_params': {'scopes': ['applications.commands'], 'permissions': '0'}}, '1': {'oauth2_install_params': {'scopes': ['applications.commands'], 'permissions': '0'}}}, 'verify_key': '7859f661c385b521d7505067d8361e81724c735977dec061cd4efd336b0a6505', 'flags': 557056, 'hook': True, 'storefront_available': False, 'redirect_uris': [], 'interactions_endpoint_url': None, 'role_connections_verification_url': None, 'owner': {'id': '1298356925381214301', 'username': 'zazagdev', 'avatar': '5445ffd7ffb201a98393cbdf684ea4b1', 'discriminator': '0', 'public_flags': 0, 'flags': 0, 'banner': None, 'accent_color': None, 'global_name': 'Zazagdev', 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None}, 'approximate_guild_count': 1, 'approximate_user_install_count': 0, 'approximate_user_authorization_count': 0, 'interactions_event_types': [], 'interactions_version': 1, 'explicit_content_filter': 0, 'rpc_application_state': 0, 'store_application_state': 1, 'verification_state': 1, 'integration_public': True, 'integration_require_code_grant': False, 'discoverability_state': 1, 'discovery_eligibility_flags': 224, 'monetization_state': 1, 'verification_eligibility_flags': 91036, 'monetization_eligibility_flags': 181988, 'team': None, 'internal_guild_restriction': 2, 'approved_consoles': [], 'pricing_localization_strategy': 'localized_price_sets'}
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: Created websocket connected to wss://gateway.discord.gg/
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 10, 'd': {'heartbeat_interval': 41250, '_trace': ['["gateway-prd-arm-us-east1-b-139v",{"micros":0.0}]']}}
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: Shard ID None has sent the IDENTIFY payload.
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'READY', 's': 1, 'op': 0, 'd': {'v': 10, 'user_settings': {}, 'user': {'verified': True, 'username': 'TestDev', 'primary_guild': None, 'mfa_enabled': False, 'id': '1418064164047294494', 'global_name': None, 'flags': 0, 'email': None, 'discriminator': '9468', 'clan': None, 'bot': True, 'avatar': None}, 'session_type': 'normal', 'session_id': 'b8abfa9a5db885fcff3c41252dac7fcb', 'resume_gateway_url': 'wss://gateway-us-east1-b.discord.gg', 'relationships': [], 'private_channels': [], 'presences': [], 'guilds': [{'unavailable': True, 'id': '1418065913554534483'}], 'guild_join_requests': [], 'geo_ordered_rtc_regions': ['tel-aviv', 'bucharest', 'dubai', 'warsaw', 'saudi-arabia'], 'game_relationships': [], 'auth': {}, 'application': {'id': '1418064164047294494', 'flags': 557056}, '_trace': ['["gateway-prd-arm-us-east1-b-139v",{"micros":128351,"calls":["id_created",{"micros":509,"calls":[]},"session_lookup_time",{"micros":3752,"calls":[]},"session_lookup_finished",{"micros":10,"calls":[]},"discord-sessions-prd-2-139",{"micros":123658,"calls":["start_session",{"micros":104208,"calls":["discord-api-rpc-87c46757b-dm5tp",{"micros":64589,"calls":["get_user",{"micros":11637},"get_guilds",{"micros":3654},"send_scheduled_deletion_message",{"micros":24},"guild_join_requests",{"micros":4593},"authorized_ip_coro",{"micros":18},"pending_payments",{"micros":27665},"apex_experiments",{"micros":3305},"user_activities",{"micros":7},"played_application_ids",{"micros":4}]}]},"starting_guild_connect",{"micros":29,"calls":[]},"presence_started",{"micros":13457,"calls":[]},"guilds_started",{"micros":69,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":5824,"calls":[]},"connect_finished",{"micros":5879,"calls":[]},"build_ready",{"micros":12,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']}}
-[2025-09-19 03:59:54] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 03:59:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b8abfa9a5db885fcff3c41252dac7fcb).
-[2025-09-19 03:59:54] [DEBUG   ] discord.client: Dispatching event connect
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'GUILD_CREATE', 's': 2, 'op': 0, 'd': {'max_members': 25000000, 'members': [{'user': {'username': 'TestDev', 'public_flags': 0, 'primary_guild': None, 'id': '1418064164047294494', 'global_name': None, 'display_name_styles': None, 'display_name': None, 'discriminator': '9468', 'collectibles': None, 'bot': True, 'avatar_decoration_data': None, 'avatar': None}, 'roles': ['1418066044454441104'], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-09-18T02:48:11.459000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}], 'home_header': None, 'emojis': [], 'roles': [{'version': 1758163660383, 'unicode_emoji': None, 'tags': {}, 'position': 0, 'permissions': '2248473465835073', 'name': '@everyone', 'mentionable': False, 'managed': False, 'id': '1418065913554534483', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 0}, 'color': 0}, {'version': 1758163691446, 'unicode_emoji': None, 'tags': {'bot_id': '1418064164047294494'}, 'position': 1, 'permissions': '563276639759424', 'name': 'TestDev', 'mentionable': False, 'managed': True, 'id': '1418066044454441104', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 0}, 'color': 0}], 'stickers': [], 'profile': None, 'application_command_counts': {}, 'activity_instances': [], 'vanity_url_code': None, 'explicit_content_filter': 0, 'discovery_splash': None, 'icon': None, 'id': '1418065913554534483', 'afk_timeout': 300, 'system_channel_flags': 0, 'incidents_data': None, 'name': 'testbot', 'stage_instances': [], 'lazy': True, 'preferred_locale': 'en-US', 'region': 'deprecated', 'presences': [], 'afk_channel_id': None, 'inventory_settings': None, 'large': False, 'guild_scheduled_events': [], 'features': [], 'threads': [], 'splash': None, 'banner': None, 'description': None, 'premium_features': None, 'voice_states': [], 'mfa_level': 0, 'verification_level': 0, 'nsfw': False, 'application_id': None, 'premium_subscription_count': 0, 'system_channel_id': '1418065914410045622', 'safety_alerts_channel_id': None, 'moderator_reporting': None, 'hub_type': None, 'public_updates_channel_id': None, 'premium_tier': 0, 'latest_onboarding_question_id': None, 'max_video_channel_users': 25, 'joined_at': '2025-09-18T02:48:11.459000+00:00', 'owner_configured_content_level': 0, 'max_stage_video_channel_users': 50, 'owner_id': '1298356925381214301', 'nsfw_level': 0, 'rules_channel_id': None, 'embedded_activities': [], 'soundboard_sounds': [], 'version': 1758163660408, 'channels': [{'version': 1758163660389, 'type': 4, 'position': 0, 'permission_overwrites': [], 'name': 'Text Channels', 'id': '1418065914410045620', 'flags': 0}, {'version': 1758163660392, 'type': 4, 'position': 0, 'permission_overwrites': [], 'name': 'Voice Channels', 'id': '1418065914410045621', 'flags': 0}, {'version': 1758163660398, 'type': 0, 'topic': None, 'rate_limit_per_user': 0, 'position': 0, 'permission_overwrites': [], 'parent_id': '1418065914410045620', 'name': 'general', 'last_message_id': '1418382093448118342', 'id': '1418065914410045622', 'icon_emoji': {'name': '👋', 'id': None}, 'flags': 0}, {'version': 1758163660404, 'user_limit': 0, 'type': 2, 'rtc_region': None, 'rate_limit_per_user': 0, 'position': 0, 'permission_overwrites': [], 'parent_id': '1418065914410045621', 'name': 'General', 'last_message_id': None, 'id': '1418065914410045623', 'icon_emoji': {'name': '🎙', 'id': None}, 'flags': 0, 'bitrate': 64000}], 'member_count': 2, 'unavailable': False, 'default_message_notifications': 0, 'premium_progress_bar_enabled': False}}
-[2025-09-19 03:59:54] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 03:59:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'GUILD_MEMBERS_CHUNK', 's': 3, 'op': 0, 'd': {'nonce': '3ff443592c9efb3a4a2459eaaedadfef', 'members': [{'user': {'username': 'zazagdev', 'public_flags': 0, 'primary_guild': None, 'id': '1298356925381214301', 'global_name': 'Zazagdev', 'display_name_styles': None, 'display_name': 'Zazagdev', 'discriminator': '0', 'collectibles': None, 'bot': False, 'avatar_decoration_data': None, 'avatar': '5445ffd7ffb201a98393cbdf684ea4b1'}, 'roles': [], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-09-18T02:47:40.298000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, {'user': {'username': 'TestDev', 'public_flags': 0, 'primary_guild': None, 'id': '1418064164047294494', 'global_name': None, 'display_name_styles': None, 'display_name': None, 'discriminator': '9468', 'collectibles': None, 'bot': True, 'avatar_decoration_data': None, 'avatar': None}, 'roles': ['1418066044454441104'], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-09-18T02:48:11.459000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}], 'guild_id': '1418065913554534483', 'chunk_index': 0, 'chunk_count': 1}}
-[2025-09-19 03:59:54] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 03:59:54] [DEBUG   ] discord.state: Processed a chunk for 2 members in guild ID 1418065913554534483.
-[2025-09-19 03:59:56] [DEBUG   ] discord.client: Dispatching event guild_available
-[2025-09-19 03:59:56] [DEBUG   ] discord.client: Dispatching event ready
-[2025-09-19 04:00:12] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 4, 'op': 0, 'd': {'user_id': '1298356925381214301', 'timestamp': 1758239898, 'member': {'user': {'username': 'zazagdev', 'public_flags': 0, 'primary_guild': None, 'id': '1298356925381214301', 'global_name': 'Zazagdev', 'display_name_styles': None, 'display_name': 'Zazagdev', 'discriminator': '0', 'collectibles': None, 'bot': False, 'avatar_decoration_data': None, 'avatar': '5445ffd7ffb201a98393cbdf684ea4b1'}, 'roles': [], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-09-18T02:47:40.298000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, 'channel_id': '1418065914410045622', 'guild_id': '1418065913554534483'}}
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event typing
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event raw_typing
-[2025-09-19 04:00:12] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2025-09-18T23:58:18.117000+00:00', 'pinned': False, 'nonce': '1418386157372178432', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-09-18T02:47:40.298000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, 'id': '1418385678630129796', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '!hello', 'components': [], 'channel_type': 0, 'channel_id': '1418065914410045622', 'author': {'username': 'zazagdev', 'public_flags': 0, 'primary_guild': None, 'id': '1298356925381214301', 'global_name': 'Zazagdev', 'display_name_styles': None, 'discriminator': '0', 'collectibles': None, 'clan': None, 'avatar_decoration_data': None, 'avatar': '5445ffd7ffb201a98393cbdf684ea4b1'}, 'attachments': [], 'guild_id': '1418065913554534483'}}
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event message
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event command
-[2025-09-19 04:00:12] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2025-09-18T23:58:18.396000+00:00', 'pinned': False, 'nonce': '10843321700124428665', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['1418066044454441104'], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-09-18T02:48:11.459000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, 'id': '1418385679800598639', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Hello zazagdev, pong!', 'components': [], 'channel_type': 0, 'channel_id': '1418065914410045622', 'author': {'username': 'TestDev', 'public_flags': 0, 'primary_guild': None, 'id': '1418064164047294494', 'global_name': None, 'display_name_styles': None, 'discriminator': '9468', 'collectibles': None, 'clan': None, 'bot': True, 'avatar_decoration_data': None, 'avatar': None}, 'attachments': [], 'guild_id': '1418065913554534483'}}
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event message
-[2025-09-19 04:00:12] [DEBUG   ] discord.http: POST https://discord.com/api/v10/channels/1418065914410045622/messages with {"content":"Hello zazagdev, pong!","components":[],"nonce":"10843321700124428665","enforce_nonce":true,"tts":false} has returned 200
-[2025-09-19 04:00:12] [DEBUG   ] discord.http: POST /channels/{channel_id}/messages has found its initial rate limit bucket hash (3df15bae86f6647dd4dfcbd5c6949480).
-[2025-09-19 04:00:12] [DEBUG   ] discord.http: POST https://discord.com/api/v10/channels/1418065914410045622/messages has received {'type': 0, 'content': 'Hello zazagdev, pong!', 'mentions': [], 'mention_roles': [], 'attachments': [], 'embeds': [], 'timestamp': '2025-09-18T23:58:18.396000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'id': '1418385679800598639', 'channel_id': '1418065914410045622', 'author': {'id': '1418064164047294494', 'username': 'TestDev', 'avatar': None, 'discriminator': '9468', 'public_flags': 0, 'flags': 0, 'bot': True, 'banner': None, 'accent_color': None, 'global_name': None, 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None}, 'pinned': False, 'mention_everyone': False, 'tts': False, 'nonce': '10843321700124428665'}
-[2025-09-19 04:00:12] [DEBUG   ] discord.client: Dispatching event command_completion
-[2025-09-19 04:00:35] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:00:35] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:01:16] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:01:16] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:01:57] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:01:57] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:02:39] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:02:39] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:03:20] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:03:20] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:04:01] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:04:01] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:04:42] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:04:42] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:05:24] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:05:24] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:06:05] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:06:05] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:06:46] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:06:46] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:07:27] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:07:27] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:08:09] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:08:09] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:08:50] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:08:50] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:09:31] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:09:31] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:10:12] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:10:12] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:10:54] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:10:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:11:35] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:11:35] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:12:16] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:12:16] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:12:57] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:12:57] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:13:39] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:13:39] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:14:20] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:14:20] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:15:01] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:15:01] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:15:42] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:15:42] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:16:24] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:16:24] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:17:05] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:17:05] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:17:46] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:17:46] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:18:27] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:18:27] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:19:09] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:19:09] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:19:50] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:19:50] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:20:31] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:20:31] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:21:12] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:21:13] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:21:54] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:21:54] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:22:35] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:22:35] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:23:16] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:23:16] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:23:57] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:23:58] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:24:39] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:24:39] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:25:20] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:25:20] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:26:01] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:26:01] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:26:42] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:26:43] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:27:24] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:27:24] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:28:05] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 6.
-[2025-09-19 04:28:05] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:28:17] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 7, 'd': None}
-[2025-09-19 04:28:17] [DEBUG   ] discord.gateway: Received RECONNECT opcode.
-[2025-09-19 04:28:17] [DEBUG   ] discord.client: Got a request to RESUME the websocket.
-[2025-09-19 04:28:17] [DEBUG   ] discord.client: Dispatching event disconnect
-[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: Created websocket connected to wss://gateway-us-east1-b.discord.gg
-[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 10, 'd': {'heartbeat_interval': 41250, '_trace': ['["gateway-prd-arm-us-east1-b-pxrw",{"micros":0.0}]']}}
-[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: Shard ID None has sent the RESUME payload.
-[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:28:18] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': 'RESUMED', 's': 7, 'op': 0, 'd': {'_trace': ['["gateway-prd-arm-us-east1-b-pxrw",{"micros":3955,"calls":["id_created",{"micros":0,"calls":[]},"session_lookup_time",{"micros":1427,"calls":[]},"session_lookup_finished",{"micros":7,"calls":[]},"discord-sessions-prd-2-139",{"micros":24}]}]']}}
-[2025-09-19 04:28:18] [DEBUG   ] discord.client: Dispatching event socket_event_type
-[2025-09-19 04:28:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session b8abfa9a5db885fcff3c41252dac7fcb.
-[2025-09-19 04:28:18] [DEBUG   ] discord.client: Dispatching event resumed
-[2025-09-19 04:28:59] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
-[2025-09-19 04:28:59] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:29:40] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
-[2025-09-19 04:29:40] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:30:21] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
-[2025-09-19 04:30:22] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:31:03] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
-[2025-09-19 04:31:03] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:31:44] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
-[2025-09-19 04:31:44] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-[2025-09-19 04:32:25] [DEBUG   ] discord.gateway: Keeping shard ID None websocket alive with sequence 7.
-[2025-09-19 04:32:25] [DEBUG   ] discord.gateway: For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
-2025-09-19 05:30:39,317 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:30:39,318 INFO:discord.client: logging in using static token
-2025-09-19 05:30:40,586 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: f0c27505f014b700b2fa35cffc6e8f00).
-2025-09-19 05:30:42,589 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:30:42,589 WARNING:GameDealer: DISCORD_CHANNEL_ID not set; skipping startup message.
-2025-09-19 05:31:41,551 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:31:41,552 INFO:discord.client: logging in using static token
-2025-09-19 05:31:43,039 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: d2866bda3be3a97c7cc656eecb755588).
-2025-09-19 05:31:45,049 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:31:45,049 WARNING:GameDealer: DISCORD_CHANNEL_ID not set; skipping startup message.
-2025-09-19 05:32:26,581 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:32:26,582 INFO:discord.client: logging in using static token
-2025-09-19 05:32:27,981 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 0f29a75feffd92de38735e658e02d190).
-2025-09-19 05:32:29,984 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:32:30,333 INFO:GameDealer: Startup message sent to channel test-messages
-2025-09-19 05:32:58,295 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:32:58,296 INFO:discord.client: logging in using static token
-2025-09-19 05:32:59,437 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 066273dddc5e6efc44da224a5cd170ea).
-2025-09-19 05:33:01,446 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:33:01,690 ERROR:GameDealer: Could not fetch channel 1418065913554534483: 404 Not Found (error code: 10003): Unknown Channel
-2025-09-19 05:33:20,237 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:33:20,238 INFO:discord.client: logging in using static token
-2025-09-19 05:33:21,566 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 145e367ca9bd65943a419291d5f21a4b).
-2025-09-19 05:33:23,568 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:33:23,896 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 05:40:13,999 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "deals" is not found
-2025-09-19 05:40:24,643 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:40:24,644 INFO:discord.client: logging in using static token
-2025-09-19 05:40:25,745 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: e2c806dea78789a6548b8eb81c03c124).
-2025-09-19 05:40:27,750 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:40:28,007 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 05:40:35,059 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "deals" is not found
-2025-09-19 05:41:46,591 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "deals" is not found
-2025-09-19 05:41:50,590 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:41:50,592 INFO:discord.client: logging in using static token
-2025-09-19 05:41:51,877 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: ea42d3543cf9fd35858e708def3236f0).
-2025-09-19 05:41:53,896 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:41:54,186 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 05:44:13,291 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:45:42,194 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:45:45,778 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:46:33,113 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:46:33,115 INFO:discord.client: logging in using static token
-2025-09-19 05:46:34,257 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: c8f6dc4e1c02c2269f128ed49571fa5b).
-2025-09-19 05:46:36,259 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:46:36,500 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 05:50:49,466 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:51:34,195 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:52:25,844 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:53:34,668 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "deal" is not found
-2025-09-19 05:54:39,274 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "test_deal" is not found
-2025-09-19 05:54:52,917 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:54:59,694 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "send_deal_to_discord" is not found
-2025-09-19 05:55:03,163 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:55:58,130 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:56:15,331 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:56:21,930 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "test_deal" is not found
-2025-09-19 05:56:36,163 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:56:36,164 INFO:GameDealer: Starting Discord bot...
-2025-09-19 05:56:36,164 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
-2025-09-19 05:56:36,165 INFO:discord.client: logging in using static token
-2025-09-19 05:56:37,454 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 3254d6d7fd295ab41d019637c7bc5067).
-2025-09-19 05:56:39,457 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 05:56:39,720 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 05:56:50,912 INFO:GameDealer: Deal message sent to channel logs
-2025-09-19 05:57:10,217 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "send_dial" is not found
-2025-09-19 05:57:32,098 INFO:GameDealer: Deal message sent to channel logs
-2025-09-19 05:58:03,550 ERROR:discord.ext.commands.bot: Ignoring exception in command None
-discord.ext.commands.errors.CommandNotFound: Command "test_dial" is not found
-2025-09-19 05:58:17,872 INFO:GameDealer: Deal message sent to channel logs
-2025-09-19 05:58:43,536 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:59:22,370 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:59:50,991 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:59:56,792 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 05:59:56,793 INFO:GameDealer: Starting Discord bot...
-2025-09-19 05:59:56,793 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
-2025-09-19 05:59:56,794 INFO:discord.client: logging in using static token
-2025-09-19 05:59:58,008 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 7e6ca929303acecdcb9e8a2867d4d5a4).
-2025-09-19 06:00:00,015 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 06:00:00,350 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 06:00:19,888 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-19 06:00:19,889 INFO:GameDealer: Starting Discord bot...
-2025-09-19 06:00:19,889 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
-2025-09-19 06:00:19,889 INFO:discord.client: logging in using static token
-2025-09-19 06:00:21,085 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: e53d29646e377e61988d874a0a424a00).
-2025-09-19 06:00:23,088 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-19 06:00:23,405 INFO:GameDealer: Startup message sent to channel logs
-2025-09-19 06:00:32,645 INFO:GameDealer: Deal message sent to channel results
-2025-09-19 06:00:47,978 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-21 02:16:32,773 WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
-2025-09-21 02:16:32,783 INFO:GameDealer: Starting Discord bot...
-2025-09-21 02:16:32,783 INFO:GameDealer: FastAPI webhook server running on http://0.0.0.0:8000
-2025-09-21 02:16:32,784 INFO:discord.client: logging in using static token
-2025-09-21 02:16:34,060 INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 362810e19abbfe82560e04023c04db0d).
-2025-09-21 02:16:36,094 INFO:GameDealer: Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-21 02:16:36,541 INFO:GameDealer: Startup message sent to channel logs
-2025-09-21 04:22:05,140 - __main__ - INFO - Starting GameDealer bot (scheduled mode with timer system)...
-2025-09-21 04:22:05,141 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
-2025-09-21 04:22:05,183 - __main__ - INFO - Deal scheduler started
-2025-09-21 04:22:05,183 - __main__ - INFO - Deal scheduler loaded successfully - daily deals at 9 AM
-2025-09-21 04:22:05,183 - discord.client - INFO - logging in using static token
-2025-09-21 04:22:05,777 - __main__ - INFO - Successfully loaded cogs.general
-2025-09-21 04:22:05,778 - __main__ - INFO - Successfully loaded cogs.deals
-2025-09-21 04:22:05,778 - __main__ - INFO - Loaded cogs: SchedulerCommands, General, Deals
-2025-09-21 04:22:06,323 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: cc497c3f4d1657f9f4b2d6b1a7bd70bd).
-2025-09-21 04:22:08,325 - __main__ - INFO - Bot ready, daily deal scheduler initialized
-2025-09-21 04:22:08,326 - __main__ - INFO - Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-21 04:22:08,654 - __main__ - INFO - Startup message sent to channel logs
-2025-09-21 04:22:23,169 - __main__ - INFO - Deal scheduler stopped
-2025-09-21 04:22:48,827 - __main__ - INFO - Starting GameDealer bot (scheduled mode with timer system)...
-2025-09-21 04:22:48,827 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
-2025-09-21 04:22:48,831 - __main__ - INFO - Deal scheduler started
-2025-09-21 04:22:48,831 - __main__ - INFO - Deal scheduler loaded successfully - daily deals at 9 AM
-2025-09-21 04:22:48,831 - discord.client - INFO - logging in using static token
-2025-09-21 04:22:49,331 - __main__ - INFO - Successfully loaded cogs.general
-2025-09-21 04:22:49,332 - __main__ - INFO - Successfully loaded cogs.deals
-2025-09-21 04:22:49,332 - __main__ - INFO - Loaded cogs: SchedulerCommands, General, Deals
-2025-09-21 04:22:49,890 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 366c48485a93f1e5aa1d60942d80a591).
-2025-09-21 04:22:51,909 - __main__ - INFO - Bot ready, daily deal scheduler initialized
-2025-09-21 04:22:51,909 - __main__ - INFO - Logged in as TestDev#9468 (id=1418064164047294494)
-2025-09-21 04:22:52,166 - __main__ - INFO - Startup message sent to channel logs
+2025-09-21 05:12:17,745 - __main__ - INFO - Starting GameDealer bot (scheduled mode with timer system)...
+2025-09-21 05:12:17,746 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-09-21 05:12:17,748 - __main__ - INFO - Deal scheduler started
+2025-09-21 05:12:17,748 - __main__ - INFO - Deal scheduler loaded successfully - daily deals at 9 AM
+2025-09-21 05:12:17,748 - discord.client - INFO - logging in using static token
+2025-09-21 05:12:18,278 - __main__ - INFO - Successfully loaded cogs.general
+2025-09-21 05:12:18,289 - __main__ - INFO - Successfully loaded cogs.deals
+2025-09-21 05:12:18,290 - __main__ - INFO - Loaded cogs: SchedulerCommands, General, Deals
+2025-09-21 05:12:18,921 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 6d39582bd417cc69316b151b9b66dc09).
+2025-09-21 05:12:20,963 - __main__ - INFO - Bot ready, daily deal scheduler initialized
+2025-09-21 05:12:20,963 - __main__ - INFO - Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-21 05:12:21,245 - __main__ - INFO - Startup message sent to channel logs
+2025-09-21 05:14:10,105 - __main__ - INFO - Starting daily deal fetch...
+2025-09-21 05:14:10,837 - __main__ - INFO - Deal message sent to channel results
+2025-09-21 05:14:10,837 - __main__ - INFO - Posted daily deal: Project Winter
+2025-09-21 05:14:33,953 - __main__ - INFO - Deal message sent to channel results
+2025-09-21 05:16:56,482 - __main__ - INFO - Bot shutdown - operation cancelled
+2025-09-21 05:16:56,483 - __main__ - INFO - Deal scheduler stopped
+2025-09-21 05:16:56,483 - __main__ - INFO - Bot shutdown complete
+2025-09-21 05:16:57,723 - __main__ - INFO - Starting GameDealer bot (scheduled mode with timer system)...
+2025-09-21 05:16:57,723 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-09-21 05:16:57,725 - __main__ - INFO - Deal scheduler started
+2025-09-21 05:16:57,725 - __main__ - INFO - Deal scheduler loaded successfully - daily deals at 9 AM
+2025-09-21 05:16:57,725 - discord.client - INFO - logging in using static token
+2025-09-21 05:16:58,412 - __main__ - INFO - Successfully loaded cogs.general
+2025-09-21 05:16:58,425 - __main__ - INFO - Successfully loaded cogs.deals
+2025-09-21 05:16:58,425 - __main__ - INFO - Loaded cogs: SchedulerCommands, General, Deals
+2025-09-21 05:16:59,100 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 358ec5f136e1f4d56183529a058b9d67).
+2025-09-21 05:17:01,107 - __main__ - INFO - Bot ready, daily deal scheduler initialized
+2025-09-21 05:17:01,107 - __main__ - INFO - Logged in as TestDev#9468 (id=1418064164047294494)
+2025-09-21 05:17:01,438 - __main__ - INFO - Startup message sent to channel logs
+2025-09-21 05:19:37,952 - __main__ - INFO - Deal message sent to channel results
+2025-09-21 05:27:38,736 - __main__ - INFO - Bot shutdown - operation cancelled
+2025-09-21 05:27:38,737 - __main__ - INFO - Deal scheduler stopped
+2025-09-21 05:27:38,737 - __main__ - INFO - Bot shutdown complete

@@ -14,12 +14,16 @@ async def main():
     # Initialize config
     config = load_config()
     
-    # Setup logging
+    # Setup logging - use the logs directory
+    import os
+    log_dir = "logs"
+    os.makedirs(log_dir, exist_ok=True)
+    
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler('discord.log'),
+            logging.FileHandler(os.path.join(log_dir, 'discord.log'), encoding='utf-8'),
             logging.StreamHandler()
         ]
     )
@@ -51,11 +55,16 @@ async def main():
         # Start the bot (this blocks until bot stops)
         await bot.start(config.discord_token)
     except KeyboardInterrupt:
-        log.info("Bot shutdown requested")
+        log.info("Bot shutdown requested by user")
+    except asyncio.CancelledError:
+        log.info("Bot shutdown - operation cancelled")
     except Exception as e:
         log.error(f"Bot error: {e}")
     finally:
-        await bot.close()
+        # Ensure proper cleanup
+        if not bot.is_closed():
+            await bot.close()
+        log.info("Bot shutdown complete")
 
 if __name__ == "__main__":
     asyncio.run(main())

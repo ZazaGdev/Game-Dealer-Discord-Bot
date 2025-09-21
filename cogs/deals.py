@@ -12,10 +12,12 @@ class Deals(commands.Cog):
         self.deals_channel_id = getattr(bot, 'deals_channel_id', 0)
     
     @commands.command(aliases=['search', 'find'])
-    async def search_deals(self, ctx: commands.Context, min_discount: int = 50, limit: int = 10):
+    async def search_deals(self, ctx: commands.Context, min_discount: int = 30, limit: int = 10, *, store: str = None):
         """
         Search for deals with custom filters
         Usage: !search_deals 70 15
+        Usage: !search_deals 50 10 Steam
+        Usage: !search_deals 60 5 Epic Game Store
         """
         if not self.bot.itad_client:
             await ctx.send("❌ ITAD API not configured. Please check your API key.")
@@ -25,17 +27,30 @@ class Deals(commands.Cog):
             limit = 25
             await ctx.send("⚠️ Limit capped at 25 deals.")
         
-        # Send initial message
-        search_msg = await ctx.send(f"🔍 Searching for {limit} deals with minimum {min_discount}% discount...")
+        # Build search message
+        search_text = f"🔍 Searching for {limit} deals with minimum {min_discount}% discount"
+        if store:
+            search_text += f" from **{store}**"
+        search_text += "..."
+        
+        search_msg = await ctx.send(search_text)
         
         try:
             deals = await self.bot.itad_client.fetch_deals(
                 min_discount=min_discount,
-                limit=limit
+                limit=limit,
+                store_filter=store,
+                log_full_response=True  # Always log full response for Discord commands
             )
             
             if not deals:
-                await search_msg.edit(content=f"❌ No deals found with {min_discount}% minimum discount")
+                error_msg = f"❌ No deals found with {min_discount}% minimum discount"
+                if store:
+                    error_msg += f" from **{store}**"
+                    error_msg += f"\n💡 Try:\n• Lower discount threshold (e.g., `!search_deals 10 10 {store}`)\n• Different store (`!list_stores` to see available)\n• Remove store filter (`!search_deals {min_discount} {limit}`)"
+                else:
+                    error_msg += f"\n💡 Try lowering the discount threshold (e.g., `!search_deals 10 {limit}`)"
+                await search_msg.edit(content=error_msg)
                 return
             
             # Create a comprehensive embed showing multiple deals
@@ -73,7 +88,16 @@ class Deals(commands.Cog):
         except Exception as e:
             if self.log:
                 self.log.error(f"Error searching deals: {e}")
-            await search_msg.edit(content=f"❌ Error occurred while searching for deals: {str(e)}")
+                import traceback
+                self.log.error(f"Full traceback: {traceback.format_exc()}")
+            # Show actual error for debugging
+            await search_msg.edit(content=f"❌ Error: {type(e).__name__}: {str(e)}")
+            # Also send traceback in a code block for debugging
+            import traceback
+            tb = traceback.format_exc()
+            if len(tb) > 1900:  # Discord message limit
+                tb = tb[-1900:]  # Show last 1900 chars
+            await ctx.send(f"```\n{tb}\n```")
     
     @commands.command()
     async def post_best(self, ctx: commands.Context):
@@ -106,9 +130,61 @@ class Deals(commands.Cog):
             await ctx.send("❌ Could not access deals posting functionality.")
     
     @commands.command(aliases=['top', 'best'])
-    async def top_deals(self, ctx: commands.Context, count: int = 5):
-        """Get top deals quickly"""
-        await self.search_deals.invoke(ctx, min_discount=60, limit=count)
+    async def top_deals(self, ctx: commands.Context, count: int = 5, *, store: str = None):
+        """Get top deals quickly with optional store filter"""
+        await self.search_deals.invoke(ctx, min_discount=30, limit=count, store=store)
+    
+    @commands.command(aliases=['stores'])
+    async def list_stores(self, ctx: commands.Context):
+        """List available stores for filtering"""
+        if not self.bot.itad_client:
+            await ctx.send("❌ ITAD API not configured.")
+            return
+        
+        stores = self.bot.itad_client.get_available_stores()
+        store_list = "\n".join([f"• {store}" for store in stores])
+        
+        embed = discord.Embed(
+            title="🏪 Available Stores for Filtering",
+            description=f"Use these store names with commands like `!search_deals 50 10 Steam`\n\n{store_list}",
+            color=0x3498DB
+        )
+        embed.set_footer(text="Store names are case-insensitive and support partial matching")
+        await ctx.send(embed=embed)
+    
+    @commands.command(aliases=['store_deals'])
+    async def deals_by_store(self, ctx: commands.Context, *, store_name: str):
+        """Find deals from a specific store
+        Usage: !deals_by_store Steam
+        Usage: !deals_by_store Epic Game Store
+        """
+        await self.search_deals.invoke(ctx, min_discount=20, limit=15, store=store_name)
+    
+    @commands.command()
+    async def test_api(self, ctx: commands.Context):
+        """Test the ITAD API connection"""
+        if not self.bot.itad_client:
+            await ctx.send("❌ ITAD API not configured.")
+            return
+            
+        try:
+            # Test basic API call
+            deals = await self.bot.itad_client.fetch_deals(
+                min_discount=10, 
+                limit=3, 
+                log_full_response=False
+            )
+            
+            if deals:
+                msg = f"✅ API working! Found {len(deals)} deals:\n"
+                for i, deal in enumerate(deals[:3]):
+                    msg += f"{i+1}. {deal['title'][:30]} at {deal['store']} ({deal.get('discount', 'N/A')})\n"
+                await ctx.send(msg)
+            else:
+                await ctx.send("⚠️ API connected but no deals found")
+                
+        except Exception as e:
+            await ctx.send(f"❌ API test failed: {str(e)}")
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Deals(bot))
