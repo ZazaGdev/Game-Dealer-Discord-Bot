@@ -1,114 +1,61 @@
-# main.py
+﻿# main.py - Simplified for scheduled requests with timer system
 import os
-import logging
-import threading
-from config.logging_config import setup_logging
-from dotenv import load_dotenv
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 import asyncio
+import logging
+from dotenv import load_dotenv
+from config.app_config import load_config
+from bot.core import create_bot
 
-from bot import create_bot 
-
-# --- Configuration & Logging ---
-load_dotenv()
-setup_logging()
-
-TOKEN = os.getenv("DISCORD_TOKEN")
-LOG_CHANNEL_ID = int(os.getenv("LOG_CHANNEL_ID", "0"))
-DEALS_CHANNEL_ID = int(os.getenv("DEALS_CHANNEL_ID", LOG_CHANNEL_ID))
-ITAD_API_KEY = os.getenv("ITAD_API_KEY")
-
-log = logging.getLogger("GameDealer")
-app = FastAPI(title="GameDealer Webhook Server")
-
-# --- Create Bot Instance ---
-bot = create_bot(
-    log=log,
-    log_channel_id=LOG_CHANNEL_ID,
-    deals_channel_id=DEALS_CHANNEL_ID,
-    itad_api_key=ITAD_API_KEY
-)
-
-# --- FastAPI Webhook Endpoints ---
-@app.post("/itad-webhook")
-async def itad_webhook(request: Request):
-    """Handle incoming ITAD webhooks"""
-    headers = request.headers
-    event = headers.get("ITAD-Event")
-    hook_id = headers.get("ITAD-Hook-ID")
-
-    try:
-        body = await request.json()
-    except Exception as e:
-        log.error(f"Failed to parse webhook body: {e}")
-        return JSONResponse({"error": "Invalid JSON"}, status_code=400)
-
-    log.info(f"Received ITAD webhook: event={event}, hook_id={hook_id}")
-
-    if event == "ping":
-        return JSONResponse({"status": "pong"}, status_code=200)
-
-    elif event == "deal":
-        deal_data = {
-            "title": body.get("title", "Unknown Game"),
-            "price": body.get("price", "Unknown"),
-            "store": body.get("store", "Unknown Store"),
-            "url": body.get("url", ""),
-            "discount": body.get("discount", ""),
-            "original_price": body.get("original_price", ""),
-        }
-
-        # Send deal to Discord if bot is ready
-        if bot.loop and bot.loop.is_running():
-            asyncio.create_task(bot.send_deal(deal_data))
-        else:
-            log.error("Bot event loop not available")
-
-        return JSONResponse({"status": "deal_processed"}, status_code=200)
-
-    else:
-        return JSONResponse({"status": "unknown_event"}, status_code=200)
-
-@app.get("/health")
-async def health_check():
-    """Health check endpoint"""
-    return {"status": "healthy", "bot_ready": bot.is_ready()}
-
-# --- Application Startup ---
-def run_fastapi():
-    """Run FastAPI server in a separate thread"""
-    import uvicorn
-    uvicorn.run(
-        app, 
-        host="0.0.0.0", 
-        port=8000, 
-        log_level="info",
-        access_log=False  # Reduce log noise
+async def main():
+    """Main entry point for scheduled deal fetching (no webhooks)"""
+    # Load environment variables
+    load_dotenv()
+    
+    # Initialize config
+    config = load_config()
+    
+    # Setup logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('discord.log'),
+            logging.StreamHandler()
+        ]
     )
-
-def main():
-    """Main entry point for the application"""
-    # Validate required environment variables
-    if not TOKEN:
+    log = logging.getLogger(__name__)
+    
+    log.info("Starting GameDealer bot (scheduled mode with timer system)...")
+    
+    # Validate configuration
+    if not config.discord_token:
         log.error("DISCORD_TOKEN is missing in your environment (.env).")
         return
-
-    # Start FastAPI webhook server in background
-    log.info("Starting FastAPI webhook server...")
-    fastapi_thread = threading.Thread(target=run_fastapi, daemon=True)
-    fastapi_thread.start()
     
-    # Start Discord bot (this blocks)
-    log.info("Starting Discord bot...")
-    log.info("FastAPI webhook server running on http://0.0.0.0:8000")
+    if not config.itad_api_key:
+        log.warning("ITAD_API_KEY is missing. Deal fetching will not work.")
+    
+    # Initialize bot
+    bot = create_bot(
+        log=log,
+        log_channel_id=config.log_channel_id,
+        deals_channel_id=config.deals_channel_id,
+        itad_api_key=config.itad_api_key
+    )
     
     try:
-        bot.run(TOKEN)
+        # Load the scheduler cog for automated deal posting
+        await bot.load_extension('bot.scheduler')
+        log.info("Deal scheduler loaded successfully - daily deals at 9 AM")
+        
+        # Start the bot (this blocks until bot stops)
+        await bot.start(config.discord_token)
     except KeyboardInterrupt:
-        log.info("Bot stopped by user")
+        log.info("Bot shutdown requested")
     except Exception as e:
-        log.error(f"Error running bot: {e}")
+        log.error(f"Bot error: {e}")
+    finally:
+        await bot.close()
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

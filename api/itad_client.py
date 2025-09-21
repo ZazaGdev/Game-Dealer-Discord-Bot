@@ -36,6 +36,27 @@ class ITADClient:
             # Use the correct endpoint for deals list
             data = await self.http.get_json(f"{self.BASE}/deals/v2", params=params)
             
+            # Optional: Log API responses for debugging (controlled by environment variable)
+            import os
+            if os.getenv("DEBUG_API_RESPONSES", "false").lower() == "true":
+                import json
+                log_dir = "logs"
+                if not os.path.exists(log_dir):
+                    os.makedirs(log_dir)
+                
+                with open(f"{log_dir}/api_responses.json", "a", encoding="utf-8") as f:
+                    timestamp = __import__("datetime").datetime.now().isoformat()
+                    log_entry = {
+                        "timestamp": timestamp,
+                        "endpoint": "/deals/v2",
+                        "params": {k: v for k, v in params.items() if k != "key"},  # Don't log API key
+                        "response_summary": {
+                            "items_count": len(data.get("list", [])) if isinstance(data, dict) else 0,
+                            "has_more": data.get("hasMore", False) if isinstance(data, dict) else False
+                        }
+                    }
+                    f.write(json.dumps(log_entry, indent=2) + "\n---\n")
+            
             deals: List[Deal] = []
             
             # Handle the v2 response structure
@@ -82,20 +103,48 @@ class ITADClient:
 
     def _get_store_v2(self, item: dict) -> str:
         """Extract store name from v2 API structure"""
+        # Based on actual API response: store is in item["deal"]["shop"]["name"]
+        deal = item.get("deal", {})
+        if isinstance(deal, dict):
+            shop = deal.get("shop", {})
+            if isinstance(shop, dict):
+                store_name = shop.get("name")
+                if store_name:
+                    return str(store_name)
+        
+        # Fallback: try direct shop object (older structure or different endpoint)
         shop = item.get("shop", {})
         if isinstance(shop, dict):
-            return shop.get("name", "Unknown Store")
+            store_name = shop.get("name") or shop.get("title") or shop.get("id")
+            if store_name:
+                return str(store_name)
+        
+        # Last resort fallbacks
+        if "store" in item:
+            return str(item["store"])
+        
         return "Unknown Store"
 
     def _get_prices_v2(self, item: dict) -> dict:
         """Extract current and original prices from v2 API"""
         deal = item.get("deal", {})
-        price_new = deal.get("price", {}).get("amount", 0)
-        price_old = deal.get("regular", {}).get("amount", 0)
-        currency = deal.get("price", {}).get("currency", "USD")
         
-        current = f"${price_new:.2f}" if isinstance(price_new, (int, float)) else "Unknown"
-        original = f"${price_old:.2f}" if isinstance(price_old, (int, float)) else None
+        # Get current price
+        price_data = deal.get("price", {})
+        price_new = price_data.get("amount", 0)
+        currency = price_data.get("currency", "USD")
+        
+        # Get regular/original price
+        regular_data = deal.get("regular", {})
+        price_old = regular_data.get("amount", 0)
+        
+        # Format prices
+        if currency == "USD":
+            current = f"${price_new:.2f}" if isinstance(price_new, (int, float)) else "Free" if price_new == 0 else "Unknown"
+            original = f"${price_old:.2f}" if isinstance(price_old, (int, float)) and price_old > 0 else None
+        else:
+            current = f"{price_new:.2f} {currency}" if isinstance(price_new, (int, float)) else "Free" if price_new == 0 else "Unknown"
+            original = f"{price_old:.2f} {currency}" if isinstance(price_old, (int, float)) and price_old > 0 else None
         
         return {"current": current, "original": original}
 
