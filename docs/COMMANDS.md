@@ -4,11 +4,17 @@
 
 GameDealer is a Discord bot that helps you find the best game deals from popular stores like Steam, Epic Games Store, and GOG. The bot uses a curated database of quality games and automatically prioritizes deals by discount percentage.
 
-## User Commands (Slash Commands)
+**Command Types Available:**
 
-### 🎮 Deal Search Commands
+-   **Slash Commands** (modern): `/command_name` - Type `/` and see autocomplete options
+-   **Traditional Prefix Commands**: `!command_name` - Classic text-based commands
 
-#### `/search_deals [amount]`
+## Deal Search Commands
+
+### 🎮 General Deal Search
+
+**Slash Command:** `/search_deals [amount]`  
+**Prefix Command:** `!search_deals [amount]`
 
 **Description:** Search for the best deals from Steam, Epic Games Store, and GOG (prioritized stores)
 
@@ -20,7 +26,7 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 
 -   Prioritizes Steam, Epic, and GOG stores
 -   Shows deals sorted by highest discount percentage
--   **Only displays games from curated priority database** (80+ quality games)
+-   **Only displays games from curated priority database** (1,173+ quality games)
 -   Displays results in paginated format (10 deals per page)
 -   Automatically filters out unknown or low-quality games
 
@@ -29,10 +35,14 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 ```
 /search_deals
 /search_deals amount:15
-/search_deals amount:25
+!search_deals
+!search_deals 15
 ```
 
-#### `/search_store [store] [amount]`
+### 🏪 Store-Specific Search
+
+**Slash Command:** `/search_store [store] [amount]`  
+**Prefix Command:** `!search_store [store] [amount]`
 
 **Description:** Search for best deals from a specific store
 
@@ -48,7 +58,19 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 -   **Only shows games from curated priority database**
 -   Filters out unknown games automatically
 
-#### `/priority_search [amount] [min_priority] [min_discount]`
+**Examples:**
+
+```
+/search_store store:Steam
+/search_store store:Epic amount:20
+!search_store Steam
+!search_store "Epic Games Store" 15
+```
+
+### 🎯 Priority Search (Curated Games Only)
+
+**Slash Command:** `/priority_search [amount] [min_priority] [min_discount] [store]`  
+**Prefix Command:** `!priority_search [amount] [min_priority] [min_discount] [store]`
 
 **Description:** 🎯 **STRICT PRIORITY SEARCH** - Search ONLY for deals from your curated priority games database
 
@@ -57,39 +79,38 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 -   `amount` (optional): Number of deals to show (1-25, default: 10)
 -   `min_priority` (optional): Minimum priority level (1-10, default: 5)
 -   `min_discount` (optional): Minimum discount percentage (1-100, default: 1)
+-   `store` (optional): Store name (e.g., Steam, Epic, GOG - searches all major stores if not specified)
 
 **Features:**
 
--   **100% CURATED**: Only returns games from the 873-game priority database
+-   **100% CURATED**: Only returns games from the 1,173-game priority database
+-   **Manual Matching**: Fetches all discounted games and matches against priority database
+-   **Store Filtering**: Search specific store or all major stores (Steam, Epic, GOG)
 -   **Priority-Based Sorting**: Games with higher priority scores rank higher
 -   **Quality Guaranteed**: Every result is a vetted, quality game
--   **Advanced Filtering**: Combine priority level and discount requirements
--   **Priority Indicators**: Shows priority levels and quality ratings
--   **Debug Information**: Displays matching scores and database stats
+-   **Advanced Filtering**: Combine priority level, discount, and store requirements
+-   **Detailed Information**: Shows category, notes, and priority indicators
+-   **Friendly Errors**: Clear messages when no matches are found
 
 **Examples:**
 
 ```
 /priority_search
 /priority_search amount:15 min_priority:7 min_discount:50
-/priority_search amount:20 min_priority:8
-/priority_search amount:5 min_priority:9 min_discount:75
+/priority_search amount:10 store:Steam
+/priority_search amount:20 min_priority:8 min_discount:30 store:Epic
+!priority_search
+!priority_search 15 7 50
+!priority_search 10 5 1 Steam
+!priority_search 20 8 30 "Epic Game Store"
 ```
 
 **Use Cases:**
-- Find high-quality games with substantial discounts
-- Discover AAA titles you might have missed
-- Filter by priority level to match your gaming preferences
-- Ensure every deal is for a proven, quality game
 
-**Examples:**
-
-```
-/search_store store:Steam
-/search_store store:Epic amount:20
-/search_store store:GOG amount:15
-/search_store store:"Epic Games Store" amount:10
-```
+-   Find high-quality games with substantial discounts
+-   Discover AAA titles you might have missed
+-   Filter by priority level to match your gaming preferences
+-   Ensure every deal is for a proven, quality game
 
 ### 🛠️ Utility Commands
 

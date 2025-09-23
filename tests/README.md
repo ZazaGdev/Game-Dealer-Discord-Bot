@@ -10,6 +10,7 @@ This directory contains all test files for the GameDealer bot project.
 -   **test_priority_sorting.py** - **Priority-based sorting verification** - Tests new sorting logic
 -   **test_priority_search.py** - **Priority search verification** - Tests strict priority filtering
 -   **test_database.py** - **Database loading test** - Verifies priority games database
+-   **test_api_logging.py** - **API logging test** - Verifies api_responses.json functionality
 
 ### Utility Test Files
 
@@ -26,16 +27,17 @@ Run the comprehensive test suite for complete validation:
 python tests/test_comprehensive.py
 ```
 
-### Legacy Individual Tests
+### Individual Tests
 
 Run specific test files for targeted testing:
 
 ```bash
 # From the project root directory
-python tests/test_api.py
-python tests/test_bot_fixes.py
-python tests/test_new_features.py
-python tests/test_search.py
+python tests/test_comprehensive.py      # Main test suite
+python tests/test_priority_sorting.py   # Priority sorting tests
+python tests/test_priority_search.py    # Priority search tests
+python tests/test_database.py          # Database loading tests
+python tests/test_api_logging.py       # API logging tests
 ```
 
 ### Debug Mode
@@ -76,6 +78,14 @@ For testing priority games database loading:
 
 ```bash
 python tests/test_database.py
+```
+
+### API Logging Test
+
+For testing api_responses.json functionality:
+
+```bash
+python tests/test_api_logging.py
 ```
 
 ### Pytest (Alternative)
