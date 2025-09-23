@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import List, Dict, Any, Optional
 from .http import HttpClient
 from models import Deal
-from utils.game_filters import GameQualityFilter
+from utils.game_filters import PriorityGameFilter
 
 class ITADClient:
     BASE = "https://api.isthereanydeal.com"
@@ -12,22 +12,24 @@ class ITADClient:
         headers = {}
         self.http = http or HttpClient(headers=headers)
         self.api_key = api_key
-        self.quality_filter = GameQualityFilter()
+        self.priority_filter = PriorityGameFilter()
 
     async def close(self) -> None:
         await self.http.close()
 
     async def fetch_deals(self, *, min_discount: int = 60, limit: int = 10, store_filter: str = None, 
-                         log_full_response: bool = False, quality_filter: bool = True) -> List[Deal]:
+                         log_full_response: bool = False, quality_filter: bool = True, 
+                         min_priority: int = 5) -> List[Deal]:
         """
-        Fetch deals using the correct ITAD API endpoints
+        Fetch deals using the correct ITAD API endpoints with priority-based filtering
         
         Args:
             min_discount: Minimum discount percentage (default: 60)
             limit: Maximum number of deals to return (default: 10)
             store_filter: Filter by specific store name (e.g. "Steam", "Epic Game Store") 
             log_full_response: Whether to log full API response to api_responses.json
-            quality_filter: Whether to filter for quality games only (default: True)
+            quality_filter: Whether to filter for priority games only (default: True)
+            min_priority: Minimum priority score for games (1-10, default: 5)
         """
         if not self.api_key:
             raise ValueError("ITAD API key is required")
@@ -43,10 +45,16 @@ class ITADClient:
                 return []
 
         # Use the correct ITAD API endpoint - deals/v2
+        # Fetch more deals when quality filtering is enabled to ensure we have enough after filtering
+        api_limit = limit
+        if quality_filter:
+            # Request 4-5x more deals to account for filtering
+            api_limit = min(limit * 5, 200)  # ITAD v2 allows up to 200
+        
         params: Dict[str, Any] = {
             "key": self.api_key,
             "offset": 0,
-            "limit": min(limit, 200),  # ITAD v2 allows up to 200
+            "limit": api_limit,
             "sort": "-cut",  # Sort by discount percentage descending  
             "nondeals": "false",  # Only deals, not regular prices (as string)
             "mature": "false",  # No mature content (as string)
@@ -93,6 +101,8 @@ class ITADClient:
             else:
                 raise ValueError("Unexpected API response format")
 
+            # First, collect all qualifying deals (discount threshold)
+            all_deals = []
             for item in deals_data:
                 # Parse deal data from the v2 API structure
                 title = self._get_title_v2(item)
@@ -103,10 +113,6 @@ class ITADClient:
 
                 # Only include deals that meet minimum discount
                 if discount_pct and discount_pct >= min_discount:
-                    # Apply quality filtering if enabled
-                    if quality_filter and not self.quality_filter.is_quality_game(title, store):
-                        continue
-                    
                     deal: Deal = {
                         "title": title,
                         "price": prices["current"],
@@ -115,9 +121,19 @@ class ITADClient:
                         "discount": f"{discount_pct}%" if discount_pct else None,
                         "original_price": prices["original"],
                     }
-                    deals.append(deal)
+                    all_deals.append(deal)
 
-            return deals[:limit]  # Ensure we don't exceed requested limit
+            # Apply priority filtering if enabled
+            if quality_filter:
+                deals = self.priority_filter.filter_deals_by_priority(
+                    all_deals, 
+                    min_priority=min_priority,
+                    max_results=limit
+                )
+            else:
+                deals = all_deals[:limit]  # Just limit without filtering
+
+            return deals
 
         except Exception as e:
             # Handle specific API errors

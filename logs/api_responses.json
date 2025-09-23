@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-09-23T09:14:30.180801",
+  "timestamp": "2025-09-23T09:48:13.349585",
   "source": "discord_command",
   "endpoint": "/deals/v2",
   "request_params": {
     "offset": 0,
-    "limit": 10,
+    "limit": 75,
     "sort": "-cut",
     "nondeals": "false",
     "mature": "false",
@@ -12,7 +12,7 @@
   },
   "store_filter": "Steam",
   "response": {
-    "nextOffset": 10,
+    "nextOffset": 75,
     "hasMore": true,
     "list": [
       {
@@ -640,12 +640,4221 @@
           "expiry": "2025-09-25T19:00:00+02:00",
           "url": "https://itad.link/0197341d-61ab-7053-8f4c-4e6d498f5524/"
         }
+      },
+      {
+        "id": "01972293-8226-7243-b23d-eca9f5ff07d9",
+        "slug": "livingbattle-guitar",
+        "title": "LivingBattle Guitar",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01972293-8226-7243-b23d-eca9f5ff07d9/banner145.jpg?t=1748631905",
+          "banner300": "https://assets.isthereanydeal.com/01972293-8226-7243-b23d-eca9f5ff07d9/banner300.jpg?t=1748631905",
+          "banner400": "https://assets.isthereanydeal.com/01972293-8226-7243-b23d-eca9f5ff07d9/banner400.jpg?t=1748631905",
+          "banner600": "https://assets.isthereanydeal.com/01972293-8226-7243-b23d-eca9f5ff07d9/banner600.jpg?t=1748631906"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01972293-8552-7096-b816-dff686c7eb8a/"
+        }
+      },
+      {
+        "id": "01971907-4592-714b-b264-3addd07ad7f8",
+        "slug": "livingbattle-ambulance",
+        "title": "LivingBattle Ambulance",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01971907-4592-714b-b264-3addd07ad7f8/banner145.jpg?t=1748520007",
+          "banner300": "https://assets.isthereanydeal.com/01971907-4592-714b-b264-3addd07ad7f8/banner300.jpg?t=1748520007",
+          "banner400": "https://assets.isthereanydeal.com/01971907-4592-714b-b264-3addd07ad7f8/banner400.jpg?t=1748520007",
+          "banner600": "https://assets.isthereanydeal.com/01971907-4592-714b-b264-3addd07ad7f8/banner600.jpg?t=1748520008"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01971908-9c4e-71cb-9bbd-1bcbe121394f/"
+        }
+      },
+      {
+        "id": "01971425-8271-718f-8540-e2ce642c5d8e",
+        "slug": "livingbattle-normal-m4a1",
+        "title": "LivingBattle Normal M4A1",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01971425-8271-718f-8540-e2ce642c5d8e/banner145.jpg?t=1748520006",
+          "banner300": "https://assets.isthereanydeal.com/01971425-8271-718f-8540-e2ce642c5d8e/banner300.jpg?t=1748520006",
+          "banner400": "https://assets.isthereanydeal.com/01971425-8271-718f-8540-e2ce642c5d8e/banner400.jpg?t=1748520006",
+          "banner600": "https://assets.isthereanydeal.com/01971425-8271-718f-8540-e2ce642c5d8e/banner600.jpg?t=1748520007"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01971426-d029-7283-a674-39092ed138f5/"
+        }
+      },
+      {
+        "id": "0195f759-5b79-7075-9120-34b363b73324",
+        "slug": "room-football-sun-shrine",
+        "title": "ROOM FOOTBALL - Sun Shrine",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/0195f759-5b79-7075-9120-34b363b73324/boxart.jpg?t=1745576408",
+          "banner145": "https://assets.isthereanydeal.com/0195f759-5b79-7075-9120-34b363b73324/banner145.jpg?t=1745576408",
+          "banner300": "https://assets.isthereanydeal.com/0195f759-5b79-7075-9120-34b363b73324/banner300.jpg?t=1745576408",
+          "banner400": "https://assets.isthereanydeal.com/0195f759-5b79-7075-9120-34b363b73324/banner400.jpg?t=1745576408",
+          "banner600": "https://assets.isthereanydeal.com/0195f759-5b79-7075-9120-34b363b73324/banner600.jpg?t=1745576409"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 199.99,
+            "amountInt": 19999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-10T19:18:30+02:00",
+          "expiry": "2025-09-24T19:00:00+02:00",
+          "url": "https://itad.link/01966c74-4985-70ac-a7e8-b48843041191/"
+        }
+      },
+      {
+        "id": "01961f79-8e33-700f-9818-d6e876c6fcbe",
+        "slug": "room-football-cursed-west",
+        "title": "ROOM FOOTBALL - Cursed West",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/01961f79-8e33-700f-9818-d6e876c6fcbe/boxart.jpg?t=1745576409",
+          "banner145": "https://assets.isthereanydeal.com/01961f79-8e33-700f-9818-d6e876c6fcbe/banner145.jpg?t=1745576410",
+          "banner300": "https://assets.isthereanydeal.com/01961f79-8e33-700f-9818-d6e876c6fcbe/banner300.jpg?t=1745576410",
+          "banner400": "https://assets.isthereanydeal.com/01961f79-8e33-700f-9818-d6e876c6fcbe/banner400.jpg?t=1745576410",
+          "banner600": "https://assets.isthereanydeal.com/01961f79-8e33-700f-9818-d6e876c6fcbe/banner600.jpg?t=1745576410"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 199.99,
+            "amountInt": 19999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-10T19:18:30+02:00",
+          "expiry": "2025-09-24T19:00:00+02:00",
+          "url": "https://itad.link/01966c74-4985-70ac-a7e8-b4884221b1e2/"
+        }
+      },
+      {
+        "id": "01934c12-e9a6-7336-98ff-bb6def8a39e4",
+        "slug": "livingbattle",
+        "title": "LivingBattle",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/01934c12-e9a6-7336-98ff-bb6def8a39e4/boxart.jpg?t=1757670027",
+          "banner145": "https://assets.isthereanydeal.com/01934c12-e9a6-7336-98ff-bb6def8a39e4/banner145.jpg?t=1757670028",
+          "banner300": "https://assets.isthereanydeal.com/01934c12-e9a6-7336-98ff-bb6def8a39e4/banner300.jpg?t=1757670028",
+          "banner400": "https://assets.isthereanydeal.com/01934c12-e9a6-7336-98ff-bb6def8a39e4/banner400.jpg?t=1757670028",
+          "banner600": "https://assets.isthereanydeal.com/01934c12-e9a6-7336-98ff-bb6def8a39e4/banner600.jpg?t=1757670028"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:34+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/019502fd-a58b-737f-a844-506530924adb/"
+        }
+      },
+      {
+        "id": "0192add2-d62d-73b7-a005-e9f5e4fc0503",
+        "slug": "ancient-ruins",
+        "title": "Ancient Ruins",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/0192add2-d62d-73b7-a005-e9f5e4fc0503/boxart.jpg?t=1732028153",
+          "banner145": "https://assets.isthereanydeal.com/0192add2-d62d-73b7-a005-e9f5e4fc0503/banner145.jpg?t=1732028153",
+          "banner300": "https://assets.isthereanydeal.com/0192add2-d62d-73b7-a005-e9f5e4fc0503/banner300.jpg?t=1732028153",
+          "banner400": "https://assets.isthereanydeal.com/0192add2-d62d-73b7-a005-e9f5e4fc0503/banner400.jpg?t=1732028153",
+          "banner600": "https://assets.isthereanydeal.com/0192add2-d62d-73b7-a005-e9f5e4fc0503/banner600.jpg?t=1732028154"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 39.99,
+            "amountInt": 3999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.66,
+            "amountInt": 66,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.66,
+            "amountInt": 66,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.66,
+            "amountInt": 66,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:02+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/01930bc1-2ffa-7379-935f-7b11fdee98c8/"
+        }
+      },
+      {
+        "id": "018d937f-7855-705c-baaa-7e1f146813e0",
+        "slug": "dawn-of-anarchy",
+        "title": "Dawn of Anarchy",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-7855-705c-baaa-7e1f146813e0/boxart.jpg?t=1747917901",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-7855-705c-baaa-7e1f146813e0/banner145.jpg?t=1747917901",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-7855-705c-baaa-7e1f146813e0/banner300.jpg?t=1747917901",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-7855-705c-baaa-7e1f146813e0/banner400.jpg?t=1747917901",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-7855-705c-baaa-7e1f146813e0/banner600.jpg?t=1747917902"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.24,
+            "amountInt": 124,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 24.99,
+            "amountInt": 2499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-16T17:18:25+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/01924922-25a5-7009-ad50-707ca97ff256/"
+        }
+      },
+      {
+        "id": "018f77ac-6293-72be-8f01-9378aea87db6",
+        "slug": "pyramid-game-ultra",
+        "title": "Pyramid Game Ultra",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f77ac-6293-72be-8f01-9378aea87db6/banner145.jpg?t=1755538015",
+          "banner300": "https://assets.isthereanydeal.com/018f77ac-6293-72be-8f01-9378aea87db6/banner300.jpg?t=1755538015",
+          "banner400": "https://assets.isthereanydeal.com/018f77ac-6293-72be-8f01-9378aea87db6/banner400.jpg?t=1755538015",
+          "banner600": "https://assets.isthereanydeal.com/018f77ac-6293-72be-8f01-9378aea87db6/banner600.jpg?t=1755538015"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 28.46,
+            "amountInt": 2846,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 569.95,
+            "amountInt": 56995,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 5.25,
+            "amountInt": 525,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 5.25,
+            "amountInt": 525,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 5.25,
+            "amountInt": 525,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 24.47,
+            "amountInt": 2447,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:22:21+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f77ac-6292-7096-8c85-958620ffa0c8/"
+        }
+      },
+      {
+        "id": "018f2fbc-6b56-7076-9899-a6568abb55ac",
+        "slug": "pyramid-game-ysbc-private",
+        "title": "Pyramid Game YSBC Private",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f2fbc-6b56-7076-9899-a6568abb55ac/banner145.jpg?t=1750766403",
+          "banner300": "https://assets.isthereanydeal.com/018f2fbc-6b56-7076-9899-a6568abb55ac/banner300.jpg?t=1750766403",
+          "banner400": "https://assets.isthereanydeal.com/018f2fbc-6b56-7076-9899-a6568abb55ac/banner400.jpg?t=1750766404",
+          "banner600": "https://assets.isthereanydeal.com/018f2fbc-6b56-7076-9899-a6568abb55ac/banner600.jpg?t=1750766404"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 199.99,
+            "amountInt": 19999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:13+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f77ac-4d3f-73a2-9cfc-853b8809595d/"
+        }
+      },
+      {
+        "id": "018f2fbc-6b45-7132-a290-71313293afa8",
+        "slug": "pyramid-game-ysbc-jade",
+        "title": "Pyramid Game YSBC Jade",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f2fbc-6b45-7132-a290-71313293afa8/banner145.jpg?t=1750860610",
+          "banner300": "https://assets.isthereanydeal.com/018f2fbc-6b45-7132-a290-71313293afa8/banner300.jpg?t=1750860610",
+          "banner400": "https://assets.isthereanydeal.com/018f2fbc-6b45-7132-a290-71313293afa8/banner400.jpg?t=1750860610",
+          "banner600": "https://assets.isthereanydeal.com/018f2fbc-6b45-7132-a290-71313293afa8/banner600.jpg?t=1750860610"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 7.49,
+            "amountInt": 749,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 149.99,
+            "amountInt": 14999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 7.49,
+            "amountInt": 749,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 7.49,
+            "amountInt": 749,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 7.49,
+            "amountInt": 749,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 7.49,
+            "amountInt": 749,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:13+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f77ac-4d3e-7274-aced-f18b851e0c12/"
+        }
+      },
+      {
+        "id": "018f2fae-b5ad-72a2-ba20-32f1171c9ac2",
+        "slug": "pyramid-game-ysbc-elite",
+        "title": "Pyramid Game YSBC Elite",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f2fae-b5ad-72a2-ba20-32f1171c9ac2/banner145.jpg?t=1750978824",
+          "banner300": "https://assets.isthereanydeal.com/018f2fae-b5ad-72a2-ba20-32f1171c9ac2/banner300.jpg?t=1750978824",
+          "banner400": "https://assets.isthereanydeal.com/018f2fae-b5ad-72a2-ba20-32f1171c9ac2/banner400.jpg?t=1750978824",
+          "banner600": "https://assets.isthereanydeal.com/018f2fae-b5ad-72a2-ba20-32f1171c9ac2/banner600.jpg?t=1750978824"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 5.49,
+            "amountInt": 549,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 109.99,
+            "amountInt": 10999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 4.99,
+            "amountInt": 499,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:13+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f77ac-4d3e-7274-aced-f18b8517bda9/"
+        }
+      },
+      {
+        "id": "018f2fae-b595-71b1-a8b5-62b30ee01149",
+        "slug": "pyramid-game-ysbc-premier",
+        "title": "Pyramid Game YSBC Premier",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f2fae-b595-71b1-a8b5-62b30ee01149/banner145.jpg?t=1750981215",
+          "banner300": "https://assets.isthereanydeal.com/018f2fae-b595-71b1-a8b5-62b30ee01149/banner300.jpg?t=1750981215",
+          "banner400": "https://assets.isthereanydeal.com/018f2fae-b595-71b1-a8b5-62b30ee01149/banner400.jpg?t=1750981215",
+          "banner600": "https://assets.isthereanydeal.com/018f2fae-b595-71b1-a8b5-62b30ee01149/banner600.jpg?t=1750981215"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 3.99,
+            "amountInt": 399,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 79.99,
+            "amountInt": 7999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 2.49,
+            "amountInt": 249,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 2.49,
+            "amountInt": 249,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 2.49,
+            "amountInt": 249,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 2.49,
+            "amountInt": 249,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:13+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f77ac-4d3d-7291-a32d-c2d49c249235/"
+        }
+      },
+      {
+        "id": "018f2fae-b57f-72b8-9d11-e13a3d66edcc",
+        "slug": "pyramid-game-ysbc-advance",
+        "title": "Pyramid Game YSBC Advance",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018f2fae-b57f-72b8-9d11-e13a3d66edcc/banner145.jpg?t=1750755001",
+          "banner300": "https://assets.isthereanydeal.com/018f2fae-b57f-72b8-9d11-e13a3d66edcc/banner300.jpg?t=1750755001",
+          "banner400": "https://assets.isthereanydeal.com/018f2fae-b57f-72b8-9d11-e13a3d66edcc/banner400.jpg?t=1750755001",
+          "banner600": "https://assets.isthereanydeal.com/018f2fae-b57f-72b8-9d11-e13a3d66edcc/banner600.jpg?t=1750755001"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 2.99,
+            "amountInt": 299,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 59.99,
+            "amountInt": 5999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:13+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f77ac-4d3c-72fc-847c-91b35622cc34/"
+        }
+      },
+      {
+        "id": "018ef1ab-673b-724a-b1f2-0e52ca1d2991",
+        "slug": "chamber-survival",
+        "title": "Chamber Survival",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018ef1ab-673b-724a-b1f2-0e52ca1d2991/boxart.jpg?t=1753134902",
+          "banner145": "https://assets.isthereanydeal.com/018ef1ab-673b-724a-b1f2-0e52ca1d2991/banner145.jpg?t=1753134902",
+          "banner300": "https://assets.isthereanydeal.com/018ef1ab-673b-724a-b1f2-0e52ca1d2991/banner300.jpg?t=1753134902",
+          "banner400": "https://assets.isthereanydeal.com/018ef1ab-673b-724a-b1f2-0e52ca1d2991/banner400.jpg?t=1753134902",
+          "banner600": "https://assets.isthereanydeal.com/018ef1ab-673b-724a-b1f2-0e52ca1d2991/banner600.jpg?t=1753134903"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-15T19:23:00+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018f3a19-467c-7041-98de-4c68dc0ad9d0/"
+        }
+      },
+      {
+        "id": "018d937e-f515-7380-a240-bbddb35e484d",
+        "slug": "you-don-t-know-jack-classic-pack",
+        "title": "YOU DON'T KNOW JACK Classic Pack",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f515-7380-a240-bbddb35e484d/banner145.jpg?t=1757957764",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f515-7380-a240-bbddb35e484d/banner300.jpg?t=1757957764",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f515-7380-a240-bbddb35e484d/banner400.jpg?t=1757957764",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f515-7380-a240-bbddb35e484d/banner600.jpg?t=1757957764"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 19.99,
+            "amountInt": 1999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-15T19:16:58+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-fbbc-7085-8dd8-b30dc40ba589/"
+        }
+      },
+      {
+        "id": "018d937f-2e47-712c-859b-59ca13a2cf22",
+        "slug": "unclaimed-world",
+        "title": "Unclaimed World",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-2e47-712c-859b-59ca13a2cf22/boxart.png?t=1731956735",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-2e47-712c-859b-59ca13a2cf22/banner145.jpg?t=1731956735",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-2e47-712c-859b-59ca13a2cf22/banner300.jpg?t=1731956735",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-2e47-712c-859b-59ca13a2cf22/banner400.jpg?t=1731956735",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-2e47-712c-859b-59ca13a2cf22/banner600.jpg?t=1731956736"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.84,
+            "amountInt": 84,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 16.99,
+            "amountInt": 1699,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.84,
+            "amountInt": 84,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.5,
+            "amountInt": 50,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.5,
+            "amountInt": 50,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.5,
+            "amountInt": 50,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:42+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-ebfa-7278-a4b1-f6645867bf3b/"
+        }
+      },
+      {
+        "id": "018d937f-55c0-7246-b7ef-b12424fa45e1",
+        "slug": "severed-steel",
+        "title": "Severed Steel",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-55c0-7246-b7ef-b12424fa45e1/boxart.jpg?t=1732822532",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-55c0-7246-b7ef-b12424fa45e1/banner145.jpg?t=1732822532",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-55c0-7246-b7ef-b12424fa45e1/banner300.jpg?t=1732822532",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-55c0-7246-b7ef-b12424fa45e1/banner400.jpg?t=1732822532",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-55c0-7246-b7ef-b12424fa45e1/banner600.jpg?t=1732822532"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.24,
+            "amountInt": 124,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 24.99,
+            "amountInt": 2499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.24,
+            "amountInt": 124,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.24,
+            "amountInt": 124,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.24,
+            "amountInt": 124,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.24,
+            "amountInt": 124,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-13T19:18:31+02:00",
+          "expiry": "2025-09-27T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c49a-712a-9f9f-962dfb8cfeb1/"
+        }
+      },
+      {
+        "id": "018d937e-febd-7051-9497-8e209aa5e2c6",
+        "slug": "seek-love-all-weapons",
+        "title": "Seek Love All Weapons",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937e-febd-7051-9497-8e209aa5e2c6/banner145.jpg?t=1732748519",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-febd-7051-9497-8e209aa5e2c6/banner300.jpg?t=1732748519",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-febd-7051-9497-8e209aa5e2c6/banner400.jpg?t=1732748519",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-febd-7051-9497-8e209aa5e2c6/banner600.jpg?t=1732748519"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 34.99,
+            "amountInt": 3499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:05+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c352-70b1-812a-49362a068d03/"
+        }
+      },
+      {
+        "id": "018d937e-f981-7249-a942-0f59be915177",
+        "slug": "seek-love-all-jetpacks",
+        "title": "Seek Love All Jetpacks",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f981-7249-a942-0f59be915177/banner145.jpg?t=1732860620",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f981-7249-a942-0f59be915177/banner300.jpg?t=1732860620",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f981-7249-a942-0f59be915177/banner400.jpg?t=1732860620",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f981-7249-a942-0f59be915177/banner600.jpg?t=1732860620"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 34.99,
+            "amountInt": 3499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:05+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c352-70b1-812a-493627b1edbb/"
+        }
+      },
+      {
+        "id": "018d937f-1547-7013-8131-530776f8b17b",
+        "slug": "seek-love-all-exceptional-functions",
+        "title": "Seek Love All Exceptional Functions",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-1547-7013-8131-530776f8b17b/banner145.jpg?t=1732745544",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-1547-7013-8131-530776f8b17b/banner300.jpg?t=1732745544",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-1547-7013-8131-530776f8b17b/banner400.jpg?t=1732745544",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-1547-7013-8131-530776f8b17b/banner600.jpg?t=1732745545"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 34.99,
+            "amountInt": 3499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:05+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c352-70b1-812a-493624ef32da/"
+        }
+      },
+      {
+        "id": "018d937e-f51d-706f-b5fb-f09a592b0911",
+        "slug": "seek-love-aggregate",
+        "title": "Seek Love Aggregate",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f51d-706f-b5fb-f09a592b0911/banner145.jpg?t=1755558018",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f51d-706f-b5fb-f09a592b0911/banner300.jpg?t=1755558018",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f51d-706f-b5fb-f09a592b0911/banner400.jpg?t=1755558018",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f51d-706f-b5fb-f09a592b0911/banner600.jpg?t=1755558018"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 7.08,
+            "amountInt": 708,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 142.46,
+            "amountInt": 14246,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.87,
+            "amountInt": 87,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.87,
+            "amountInt": 87,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 2.74,
+            "amountInt": 274,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 2.74,
+            "amountInt": 274,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:22:15+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c352-70b1-812a-4936230bd912/"
+        }
+      },
+      {
+        "id": "018d937f-0987-73b0-8e67-b53f65dfe886",
+        "slug": "seek-love",
+        "title": "Seek Love",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-0987-73b0-8e67-b53f65dfe886/boxart.jpg?t=1751006700",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-0987-73b0-8e67-b53f65dfe886/banner145.jpg?t=1751006700",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-0987-73b0-8e67-b53f65dfe886/banner300.jpg?t=1751006701",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-0987-73b0-8e67-b53f65dfe886/banner400.jpg?t=1751006701",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-0987-73b0-8e67-b53f65dfe886/banner600.jpg?t=1751006701"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 2.24,
+            "amountInt": 224,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 44.99,
+            "amountInt": 4499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:05+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c352-70b1-812a-4936222aa63b/"
+        }
+      },
+      {
+        "id": "018d937f-0894-72f4-bcad-bcf36a8c5bc7",
+        "slug": "professional-fishing-sakura-c-ryokan-spinning",
+        "title": "Professional Fishing: Sakura© Ryokan Spinning",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-0894-72f4-bcad-bcf36a8c5bc7/boxart.jpg?t=1732788133",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-0894-72f4-bcad-bcf36a8c5bc7/banner145.jpg?t=1732788133",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-0894-72f4-bcad-bcf36a8c5bc7/banner300.jpg?t=1732788133",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-0894-72f4-bcad-bcf36a8c5bc7/banner400.jpg?t=1732788134",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-0894-72f4-bcad-bcf36a8c5bc7/banner600.jpg?t=1732788135"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 19.99,
+            "amountInt": 1999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b24f-71df-b3fc-9bc07bbb94d1/"
+        }
+      },
+      {
+        "id": "018d937f-0398-711f-a876-a8aa6571e87b",
+        "slug": "professional-fishing-predator-bundle",
+        "title": "Professional Fishing - Predator Bundle",
+        "type": "package",
+        "mature": false,
+        "assets": {},
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.31,
+            "amountInt": 131,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 24.48,
+            "amountInt": 2448,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.31,
+            "amountInt": 131,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.31,
+            "amountInt": 131,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.31,
+            "amountInt": 131,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.31,
+            "amountInt": 131,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:49+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b24f-71df-b3fc-9bc07ad67d9f/"
+        }
+      },
+      {
+        "id": "018d937f-427d-7144-9ab1-6050967e61e6",
+        "slug": "nexomon-extinction",
+        "title": "Nexomon: Extinction",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-427d-7144-9ab1-6050967e61e6/boxart.jpg?t=1732753323",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-427d-7144-9ab1-6050967e61e6/banner145.jpg?t=1732753323",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-427d-7144-9ab1-6050967e61e6/banner300.jpg?t=1732753323",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-427d-7144-9ab1-6050967e61e6/banner400.jpg?t=1732753323",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-427d-7144-9ab1-6050967e61e6/banner600.jpg?t=1732753323"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 19.99,
+            "amountInt": 1999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "N",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-20T19:17:29+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-a28d-70b8-9bb2-a0c6b9fd0962/"
+        }
+      },
+      {
+        "id": "018d937f-0159-718a-935c-700f04dfd7e4",
+        "slug": "mugsters",
+        "title": "Mugsters",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-0159-718a-935c-700f04dfd7e4/boxart.jpg?t=1732738555",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-0159-718a-935c-700f04dfd7e4/banner145.jpg?t=1732738556",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-0159-718a-935c-700f04dfd7e4/banner300.jpg?t=1732738556",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-0159-718a-935c-700f04dfd7e4/banner400.jpg?t=1732738556",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-0159-718a-935c-700f04dfd7e4/banner600.jpg?t=1732738556"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 19.99,
+            "amountInt": 1999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.42,
+            "amountInt": 42,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.83,
+            "amountInt": 83,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.83,
+            "amountInt": 83,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-15T19:17:10+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-9ce3-70ad-acba-067fa545ec98/"
+        }
+      },
+      {
+        "id": "018d937f-3e12-72c7-8109-ab468fabe2d4",
+        "slug": "helheim-hassle",
+        "title": "Helheim Hassle",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-3e12-72c7-8109-ab468fabe2d4/boxart.jpg?t=1731609316",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-3e12-72c7-8109-ab468fabe2d4/banner145.jpg?t=1731609316",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-3e12-72c7-8109-ab468fabe2d4/banner300.jpg?t=1731609316",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-3e12-72c7-8109-ab468fabe2d4/banner400.jpg?t=1731609316",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-3e12-72c7-8109-ab468fabe2d4/banner600.jpg?t=1731609316"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 19.99,
+            "amountInt": 1999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:02+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-7396-73d0-b6b0-553af76683d2/"
+        }
+      },
+      {
+        "id": "018d937f-35e7-72ff-95cf-11c7817c0191",
+        "slug": "the-first-thrust-of-god-all-aircrafts",
+        "title": "The first thrust of God - All Aircrafts",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-35e7-72ff-95cf-11c7817c0191/banner145.jpg?t=1732829716",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-35e7-72ff-95cf-11c7817c0191/banner300.jpg?t=1732829716",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-35e7-72ff-95cf-11c7817c0191/banner400.jpg?t=1732829716",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-35e7-72ff-95cf-11c7817c0191/banner600.jpg?t=1732829717"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 34.99,
+            "amountInt": 3499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.76,
+            "amountInt": 76,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.76,
+            "amountInt": 76,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:20+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-63f5-701f-8ee1-313f249ff591/"
+        }
+      },
+      {
+        "id": "018d937f-0863-701c-bab7-e1c30a0e9eb3",
+        "slug": "the-first-thrust-of-god",
+        "title": "The first thrust of God",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-0863-701c-bab7-e1c30a0e9eb3/boxart.png?t=1741786203",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-0863-701c-bab7-e1c30a0e9eb3/banner145.jpg?t=1741786203",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-0863-701c-bab7-e1c30a0e9eb3/banner300.jpg?t=1741786203",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-0863-701c-bab7-e1c30a0e9eb3/banner400.jpg?t=1741786203",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-0863-701c-bab7-e1c30a0e9eb3/banner600.jpg?t=1741786204"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 34.99,
+            "amountInt": 3499,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.69,
+            "amountInt": 69,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.69,
+            "amountInt": 69,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:20+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-63f5-701f-8ee1-313f2458e20d/"
+        }
+      },
+      {
+        "id": "018d937f-1ee1-73be-a070-1d7779848372",
+        "slug": "fantasyland-all-heroes",
+        "title": "Fantasyland All Heroes",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-1ee1-73be-a070-1d7779848372/banner145.jpg?t=1732743953",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-1ee1-73be-a070-1d7779848372/banner300.jpg?t=1732743953",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-1ee1-73be-a070-1d7779848372/banner400.jpg?t=1732743953",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-1ee1-73be-a070-1d7779848372/banner600.jpg?t=1732743954"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 39.99,
+            "amountInt": 3999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.76,
+            "amountInt": 76,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.76,
+            "amountInt": 76,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:20+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-5ffe-7332-b690-c7d068cf322f/"
+        }
+      },
+      {
+        "id": "018d9645-113b-738c-ac04-3f55a7e910f1",
+        "slug": "fantasyland",
+        "title": "Fantasyland",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d9645-113b-738c-ac04-3f55a7e910f1/boxart.png?t=1741915805",
+          "banner145": "https://assets.isthereanydeal.com/018d9645-113b-738c-ac04-3f55a7e910f1/banner145.jpg?t=1741915805",
+          "banner300": "https://assets.isthereanydeal.com/018d9645-113b-738c-ac04-3f55a7e910f1/banner300.jpg?t=1741915805",
+          "banner400": "https://assets.isthereanydeal.com/018d9645-113b-738c-ac04-3f55a7e910f1/banner400.jpg?t=1741915805",
+          "banner600": "https://assets.isthereanydeal.com/018d9645-113b-738c-ac04-3f55a7e910f1/banner600.jpg?t=1741915806"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 39.99,
+            "amountInt": 3999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:20+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-5ffd-7060-9cf1-e5d91900c93a/"
+        }
+      },
+      {
+        "id": "018d937f-1050-7172-bf98-d2db171d2240",
+        "slug": "deadliest-catch-the-game",
+        "title": "Deadliest Catch: The Game",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-1050-7172-bf98-d2db171d2240/boxart.jpg?t=1732850447",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-1050-7172-bf98-d2db171d2240/banner145.jpg?t=1732850447",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-1050-7172-bf98-d2db171d2240/banner300.jpg?t=1732850447",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-1050-7172-bf98-d2db171d2240/banner400.jpg?t=1732850447",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-1050-7172-bf98-d2db171d2240/banner600.jpg?t=1732850447"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 19.99,
+            "amountInt": 1999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-493d-7368-a288-920f5f9e0584/"
+        }
+      },
+      {
+        "id": "018d937f-3641-72a7-ad03-30cdd4c81d3e",
+        "slug": "crazycar-images-and-music",
+        "title": "CrazyCar - Images and Music",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-3641-72a7-ad03-30cdd4c81d3e/banner145.jpg?t=1732783228",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-3641-72a7-ad03-30cdd4c81d3e/banner300.jpg?t=1732783228",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-3641-72a7-ad03-30cdd4c81d3e/banner400.jpg?t=1732783228",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-3641-72a7-ad03-30cdd4c81d3e/banner600.jpg?t=1732783229"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 39.99,
+            "amountInt": 3999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.29,
+            "amountInt": 29,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.29,
+            "amountInt": 29,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.69,
+            "amountInt": 69,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.69,
+            "amountInt": 69,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:20+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-436d-7164-a172-50ece5834317/"
+        }
+      },
+      {
+        "id": "018d937f-3135-710a-b47d-34b8491c2c33",
+        "slug": "crazycar",
+        "title": "CrazyCar",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-3135-710a-b47d-34b8491c2c33/boxart.png?t=1741902300",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-3135-710a-b47d-34b8491c2c33/banner145.jpg?t=1741902300",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-3135-710a-b47d-34b8491c2c33/banner300.jpg?t=1741902300",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-3135-710a-b47d-34b8491c2c33/banner400.jpg?t=1741902300",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-3135-710a-b47d-34b8491c2c33/banner600.jpg?t=1741902301"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 2.49,
+            "amountInt": 249,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 49.99,
+            "amountInt": 4999,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.71,
+            "amountInt": 71,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:20+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-436d-7164-a172-50ece376e981/"
+        }
+      },
+      {
+        "id": "018d937f-15a3-723e-8558-afb01bc7ff08",
+        "slug": "apillo-games",
+        "title": "Apillo Games",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-15a3-723e-8558-afb01bc7ff08/banner145.jpg?t=1755539147",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-15a3-723e-8558-afb01bc7ff08/banner300.jpg?t=1755539147",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-15a3-723e-8558-afb01bc7ff08/banner400.jpg?t=1755539147",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-15a3-723e-8558-afb01bc7ff08/banner600.jpg?t=1755539147"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 11.34,
+            "amountInt": 1134,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 227.94,
+            "amountInt": 22794,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.81,
+            "amountInt": 81,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.81,
+            "amountInt": 81,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 4.28,
+            "amountInt": 428,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 4.28,
+            "amountInt": 428,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:39+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-241b-7027-8003-e58fcfba8f76/"
+        }
+      },
+      {
+        "id": "019362d4-65bb-7220-bf37-9cc0ceb20d8b",
+        "slug": "pet-lands-world-crafter",
+        "title": "Pet Lands World Crafter",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/019362d4-65bb-7220-bf37-9cc0ceb20d8b/banner145.jpg?t=1755316205",
+          "banner300": "https://assets.isthereanydeal.com/019362d4-65bb-7220-bf37-9cc0ceb20d8b/banner300.jpg?t=1755316205",
+          "banner400": "https://assets.isthereanydeal.com/019362d4-65bb-7220-bf37-9cc0ceb20d8b/banner400.jpg?t=1755316205",
+          "banner600": "https://assets.isthereanydeal.com/019362d4-65bb-7220-bf37-9cc0ceb20d8b/banner600.jpg?t=1755316206"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.42,
+            "amountInt": 142,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 23.98,
+            "amountInt": 2398,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.42,
+            "amountInt": 142,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.42,
+            "amountInt": 142,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.42,
+            "amountInt": 142,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.42,
+            "amountInt": 142,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:03:30+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/019362d4-65ae-71b8-aa4a-874fee2f57de/"
+        }
+      },
+      {
+        "id": "019147f6-8e7a-73db-8c4f-d061cf7f7353",
+        "slug": "pet-lands",
+        "title": "Pet Lands",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/019147f6-8e7a-73db-8c4f-d061cf7f7353/boxart.jpg?t=1732879529",
+          "banner145": "https://assets.isthereanydeal.com/019147f6-8e7a-73db-8c4f-d061cf7f7353/banner145.jpg?t=1732879529",
+          "banner300": "https://assets.isthereanydeal.com/019147f6-8e7a-73db-8c4f-d061cf7f7353/banner300.jpg?t=1732879529",
+          "banner400": "https://assets.isthereanydeal.com/019147f6-8e7a-73db-8c4f-d061cf7f7353/banner400.jpg?t=1732879529",
+          "banner600": "https://assets.isthereanydeal.com/019147f6-8e7a-73db-8c4f-d061cf7f7353/banner600.jpg?t=1732879529"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:18:10+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/019362d1-ac8d-730c-ae61-ea77d401b236/"
+        }
+      },
+      {
+        "id": "0190a1f1-ad6f-7036-98b9-7e28e3be9c4f",
+        "slug": "world-crafter-td",
+        "title": "World Crafter TD",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/0190a1f1-ad6f-7036-98b9-7e28e3be9c4f/boxart.jpg?t=1732803713",
+          "banner145": "https://assets.isthereanydeal.com/0190a1f1-ad6f-7036-98b9-7e28e3be9c4f/banner145.jpg?t=1732803713",
+          "banner300": "https://assets.isthereanydeal.com/0190a1f1-ad6f-7036-98b9-7e28e3be9c4f/banner300.jpg?t=1732803713",
+          "banner400": "https://assets.isthereanydeal.com/0190a1f1-ad6f-7036-98b9-7e28e3be9c4f/banner400.jpg?t=1732803713",
+          "banner600": "https://assets.isthereanydeal.com/0190a1f1-ad6f-7036-98b9-7e28e3be9c4f/banner600.jpg?t=1732803713"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:18:10+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/01933e8e-3362-7022-9e5d-445fe4249863/"
+        }
+      },
+      {
+        "id": "018d937f-4ae7-702b-9683-cc6130497fdd",
+        "slug": "toy-tinker-simulator",
+        "title": "Toy Tinker Simulator",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-4ae7-702b-9683-cc6130497fdd/boxart.jpg?t=1753967723",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4ae7-702b-9683-cc6130497fdd/banner145.jpg?t=1753967723",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4ae7-702b-9683-cc6130497fdd/banner300.jpg?t=1753967723",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4ae7-702b-9683-cc6130497fdd/banner400.jpg?t=1753967723",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4ae7-702b-9683-cc6130497fdd/banner600.jpg?t=1753967724"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 12.99,
+            "amountInt": 1299,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.77,
+            "amountInt": 77,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:15:40+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-e4f5-711d-a79a-d45d6f7d6dcb/"
+        }
+      },
+      {
+        "id": "018d937f-5e3c-7050-bf41-9d592c11db09",
+        "slug": "toys-toys-toys",
+        "title": "Toys, Toys, Toys",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d592c11db09/banner145.jpg?t=1755292827",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d592c11db09/banner300.jpg?t=1755292827",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d592c11db09/banner400.jpg?t=1755292827",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d592c11db09/banner600.jpg?t=1755292828"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.49,
+            "amountInt": 149,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 25.18,
+            "amountInt": 2518,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.49,
+            "amountInt": 149,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.49,
+            "amountInt": 149,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.49,
+            "amountInt": 149,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.49,
+            "amountInt": 149,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:03:27+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-e4f5-711d-a79a-d45d697947e1/"
+        }
+      },
+      {
+        "id": "018d937f-5e3c-7050-bf41-9d5929b02886",
+        "slug": "smart-factory-tycoon",
+        "title": "Smart Factory Tycoon",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d5929b02886/boxart.jpg?t=1753967415",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d5929b02886/banner145.jpg?t=1753967415",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d5929b02886/banner300.jpg?t=1753967415",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d5929b02886/banner400.jpg?t=1753967415",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-5e3c-7050-bf41-9d5929b02886/banner600.jpg?t=1753967416"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:15:40+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-cb34-725e-864e-a0e8358766e5/"
+        }
+      },
+      {
+        "id": "018d937f-56e2-72ef-84a8-9bd5119e2fce",
+        "slug": "severed-steel-digital-deluxe-edition",
+        "title": "Severed Steel - Digital Deluxe Edition",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-56e2-72ef-84a8-9bd5119e2fce/boxart.jpg?t=1757783426",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-56e2-72ef-84a8-9bd5119e2fce/banner145.jpg?t=1757783426",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-56e2-72ef-84a8-9bd5119e2fce/banner300.jpg?t=1757783426",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-56e2-72ef-84a8-9bd5119e2fce/banner400.jpg?t=1757783426",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-56e2-72ef-84a8-9bd5119e2fce/banner600.jpg?t=1757783427"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 2.12,
+            "amountInt": 212,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 33.23,
+            "amountInt": 3323,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 2.12,
+            "amountInt": 212,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 2.12,
+            "amountInt": 212,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 2.12,
+            "amountInt": 212,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 2.12,
+            "amountInt": 212,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-13T19:03:25+02:00",
+          "expiry": "2025-09-27T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c49a-712a-9f9f-962e089575d3/"
+        }
+      },
+      {
+        "id": "018d937f-0df8-71bd-b7ae-279efc9c1ce0",
+        "slug": "professional-fishing-starter-kit-pro",
+        "title": "Professional Fishing: Starter Kit Pro",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-0df8-71bd-b7ae-279efc9c1ce0/boxart.jpg?t=1732747071",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-0df8-71bd-b7ae-279efc9c1ce0/banner145.jpg?t=1732747072",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-0df8-71bd-b7ae-279efc9c1ce0/banner300.jpg?t=1732747072",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-0df8-71bd-b7ae-279efc9c1ce0/banner400.jpg?t=1732747072",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-0df8-71bd-b7ae-279efc9c1ce0/banner600.jpg?t=1732747073"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b24f-71df-b3fc-9bc07e5532ff/"
+        }
+      },
+      {
+        "id": "018d937f-1e58-71e9-ba9b-42261a8cc25f",
+        "slug": "professional-fishing-catfish-kit",
+        "title": "Professional Fishing: Catfish Kit",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-1e58-71e9-ba9b-42261a8cc25f/boxart.jpg?t=1732804907",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-1e58-71e9-ba9b-42261a8cc25f/banner145.jpg?t=1732804907",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-1e58-71e9-ba9b-42261a8cc25f/banner300.jpg?t=1732804907",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-1e58-71e9-ba9b-42261a8cc25f/banner400.jpg?t=1732804907",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-1e58-71e9-ba9b-42261a8cc25f/banner600.jpg?t=1732804909"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 94,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b24f-71df-b3fc-9bc0793a8ec3/"
+        }
+      },
+      {
+        "id": "018d937f-4080-71bd-9208-7b9f28d7707b",
+        "slug": "ship-graveyard-simulator",
+        "title": "Ship Graveyard Simulator",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-4080-71bd-9208-7b9f28d7707b/boxart.jpg?t=1757586030",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4080-71bd-9208-7b9f28d7707b/banner145.jpg?t=1757586031",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4080-71bd-9208-7b9f28d7707b/banner300.jpg?t=1757586031",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4080-71bd-9208-7b9f28d7707b/banner400.jpg?t=1757586031",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4080-71bd-9208-7b9f28d7707b/banner600.jpg?t=1757586032"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.04,
+            "amountInt": 104,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 93,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.04,
+            "amountInt": 104,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-09T19:18:15+02:00",
+          "expiry": "2025-09-23T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c588-7068-8d95-215aef2567e0/"
+        }
+      },
+      {
+        "id": "018d937f-7867-71db-ba0b-3fd6e45d474a",
+        "slug": "recon-toys",
+        "title": "Recon Toys",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-7867-71db-ba0b-3fd6e45d474a/banner145.jpg?t=1755292826",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-7867-71db-ba0b-3fd6e45d474a/banner300.jpg?t=1755292826",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-7867-71db-ba0b-3fd6e45d474a/banner400.jpg?t=1755292826",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-7867-71db-ba0b-3fd6e45d474a/banner600.jpg?t=1755292827"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.92,
+            "amountInt": 192,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 28.47,
+            "amountInt": 2847,
+            "currency": "USD"
+          },
+          "cut": 93,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.92,
+            "amountInt": 192,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.92,
+            "amountInt": 192,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.92,
+            "amountInt": 192,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.92,
+            "amountInt": 192,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:03:28+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b6fd-71bd-902f-658a8effe135/"
+        }
+      },
+      {
+        "id": "018d937f-74bd-734d-a604-d8e0ef11ff87",
+        "slug": "hoversteppers",
+        "title": "Hoversteppers",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-74bd-734d-a604-d8e0ef11ff87/boxart.jpg?t=1732819621",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-74bd-734d-a604-d8e0ef11ff87/banner145.jpg?t=1732819621",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-74bd-734d-a604-d8e0ef11ff87/banner300.jpg?t=1732819621",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-74bd-734d-a604-d8e0ef11ff87/banner400.jpg?t=1732819621",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-74bd-734d-a604-d8e0ef11ff87/banner600.jpg?t=1732819622"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:18:10+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018f0a3d-286b-7043-9182-e147ce0ed769/"
+        }
+      },
+      {
+        "id": "018d937e-ff5b-73cc-9fcc-8a21d3f76f72",
+        "slug": "size-matters",
+        "title": "Size Matters",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-ff5b-73cc-9fcc-8a21d3f76f72/boxart.jpg?t=1753965614",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-ff5b-73cc-9fcc-8a21d3f76f72/banner145.jpg?t=1753965615",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-ff5b-73cc-9fcc-8a21d3f76f72/banner300.jpg?t=1753965615",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-ff5b-73cc-9fcc-8a21d3f76f72/banner400.jpg?t=1753965615",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-ff5b-73cc-9fcc-8a21d3f76f72/banner600.jpg?t=1753965615"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:15:40+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-ca5b-7277-a6f1-11aedadefd3b/"
+        }
+      },
+      {
+        "id": "018d937f-2b82-710b-be7f-7324ee285d2d",
+        "slug": "professional-fishing-starter-bundle",
+        "title": "Professional Fishing Starter Bundle",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-2b82-710b-be7f-7324ee285d2d/banner145.jpg?t=1733676001",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-2b82-710b-be7f-7324ee285d2d/banner300.jpg?t=1733676001",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-2b82-710b-be7f-7324ee285d2d/banner400.jpg?t=1733676001",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-2b82-710b-be7f-7324ee285d2d/banner600.jpg?t=1733676003"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.1,
+            "amountInt": 110,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 13.98,
+            "amountInt": 1398,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.1,
+            "amountInt": 110,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.1,
+            "amountInt": 110,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.1,
+            "amountInt": 110,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.1,
+            "amountInt": 110,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:03:14+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b24f-71df-b3fc-9bc07bc93a0f/"
+        }
+      },
+      {
+        "id": "018d937f-1aaa-739f-9f5c-ee24e4446d90",
+        "slug": "need-for-speed-heat-deluxe-edition",
+        "title": "Need for Speed™ Heat Deluxe Edition",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-1aaa-739f-9f5c-ee24e4446d90/boxart.jpg?t=1731431710",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-1aaa-739f-9f5c-ee24e4446d90/banner145.jpg?t=1731431710",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-1aaa-739f-9f5c-ee24e4446d90/banner300.jpg?t=1731431710",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-1aaa-739f-9f5c-ee24e4446d90/banner400.jpg?t=1731431710",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-1aaa-739f-9f5c-ee24e4446d90/banner600.jpg?t=1731431710"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 5.59,
+            "amountInt": 559,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 69.99,
+            "amountInt": 6999,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 3.49,
+            "amountInt": 349,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 3.49,
+            "amountInt": 349,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 3.49,
+            "amountInt": 349,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 4.89,
+            "amountInt": 489,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:16:44+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-a0f2-7257-a08d-0ed283741d06/"
+        }
+      },
+      {
+        "id": "018d937f-4646-7330-9c14-89458f8371ad",
+        "slug": "helheim-hassle-and-soundtrack",
+        "title": "Helheim Hassle + Soundtrack",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4646-7330-9c14-89458f8371ad/banner145.jpg?t=1755202518",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4646-7330-9c14-89458f8371ad/banner300.jpg?t=1755202518",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4646-7330-9c14-89458f8371ad/banner400.jpg?t=1755202519",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4646-7330-9c14-89458f8371ad/banner600.jpg?t=1755202519"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.78,
+            "amountInt": 178,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 22.48,
+            "amountInt": 2248,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.78,
+            "amountInt": 178,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.78,
+            "amountInt": 178,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.78,
+            "amountInt": 178,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.78,
+            "amountInt": 178,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-22T19:22:12+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-7396-73d0-b6b0-553b03277356/"
+        }
+      },
+      {
+        "id": "018d937f-40be-70df-afc4-14d10dd9b4f4",
+        "slug": "garbage",
+        "title": "Garbage",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-40be-70df-afc4-14d10dd9b4f4/boxart.jpg?t=1754412314",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-40be-70df-afc4-14d10dd9b4f4/banner145.jpg?t=1754412315",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-40be-70df-afc4-14d10dd9b4f4/banner300.jpg?t=1754412315",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-40be-70df-afc4-14d10dd9b4f4/banner400.jpg?t=1754412315",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-40be-70df-afc4-14d10dd9b4f4/banner600.jpg?t=1754412316"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.19,
+            "amountInt": 119,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.19,
+            "amountInt": 119,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.74,
+            "amountInt": 74,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-14T19:15:40+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-69fd-72f4-af77-ebf4700679c3/"
+        }
+      },
+      {
+        "id": "018d937e-f485-7153-9b9c-8daae1fd3ddb",
+        "slug": "drink-more-glurp",
+        "title": "Drink More Glurp",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-f485-7153-9b9c-8daae1fd3ddb/boxart.jpg?t=1731957410",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f485-7153-9b9c-8daae1fd3ddb/banner145.jpg?t=1731957410",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f485-7153-9b9c-8daae1fd3ddb/banner300.jpg?t=1731957410",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f485-7153-9b9c-8daae1fd3ddb/banner400.jpg?t=1731957410",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f485-7153-9b9c-8daae1fd3ddb/banner600.jpg?t=1731957410"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:02+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-52cd-72c7-8885-eb6954b950cd/"
+        }
+      },
+      {
+        "id": "018d937e-f527-717b-b2cf-ac30d68bc364",
+        "slug": "deadly-days",
+        "title": "Deadly Days",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-f527-717b-b2cf-ac30d68bc364/boxart.jpg?t=1739543102",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f527-717b-b2cf-ac30d68bc364/banner145.jpg?t=1739543102",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f527-717b-b2cf-ac30d68bc364/banner300.jpg?t=1739543102",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f527-717b-b2cf-ac30d68bc364/banner400.jpg?t=1739543102",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f527-717b-b2cf-ac30d68bc364/banner600.jpg?t=1739543103"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 11.99,
+            "amountInt": 1199,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "flag": "N",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:12+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-493f-714c-a074-7c5a924d50b5/"
+        }
+      },
+      {
+        "id": "018d937f-327c-70ea-8f55-32eccb116043",
+        "slug": "caveblazers",
+        "title": "Caveblazers",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-327c-70ea-8f55-32eccb116043/boxart.jpg?t=1731956492",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-327c-70ea-8f55-32eccb116043/banner145.jpg?t=1731956493",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-327c-70ea-8f55-32eccb116043/banner300.jpg?t=1731956493",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-327c-70ea-8f55-32eccb116043/banner400.jpg?t=1731956493",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-327c-70ea-8f55-32eccb116043/banner600.jpg?t=1731956493"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.39,
+            "amountInt": 39,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:13+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-3bbe-72e9-8564-ff7566d25b72/"
+        }
+      },
+      {
+        "id": "018d937e-f9e9-719b-be6d-2cebb948c391",
+        "slug": "brunch-club",
+        "title": "Brunch Club",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-f9e9-719b-be6d-2cebb948c391/boxart.jpg?t=1731961293",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f9e9-719b-be6d-2cebb948c391/banner145.jpg?t=1731961293",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f9e9-719b-be6d-2cebb948c391/banner300.jpg?t=1731961293",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f9e9-719b-be6d-2cebb948c391/banner400.jpg?t=1731961293",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f9e9-719b-be6d-2cebb948c391/banner600.jpg?t=1731961294"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 11.99,
+            "amountInt": 1199,
+            "currency": "USD"
+          },
+          "cut": 92,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.95,
+            "amountInt": 95,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:20:52+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-37b9-70c0-baf2-673f18fcc893/"
+        }
+      },
+      {
+        "id": "018d937e-f994-72e7-b365-18bff488a1bb",
+        "slug": "tower-of-time",
+        "title": "Tower of Time",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937e-f994-72e7-b365-18bff488a1bb/boxart.jpg?t=1758551722",
+          "banner145": "https://assets.isthereanydeal.com/018d937e-f994-72e7-b365-18bff488a1bb/banner145.jpg?t=1758551722",
+          "banner300": "https://assets.isthereanydeal.com/018d937e-f994-72e7-b365-18bff488a1bb/banner300.jpg?t=1758551722",
+          "banner400": "https://assets.isthereanydeal.com/018d937e-f994-72e7-b365-18bff488a1bb/banner400.jpg?t=1758551722",
+          "banner600": "https://assets.isthereanydeal.com/018d937e-f994-72e7-b365-18bff488a1bb/banner600.jpg?t=1758551723"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 2.24,
+            "amountInt": 224,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 24.99,
+            "amountInt": 2499,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.74,
+            "amountInt": 174,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.99,
+            "amountInt": 199,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-17T19:16:02+02:00",
+          "expiry": "2025-09-24T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-e3ed-7061-8dec-f306f4dead3b/"
+        }
+      },
+      {
+        "id": "018d937f-5f97-71ff-b66c-175e80150c06",
+        "slug": "suicide-guy-deluxe-plus",
+        "title": "Suicide Guy Deluxe Plus",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-5f97-71ff-b66c-175e80150c06/boxart.jpg?t=1731784503",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-5f97-71ff-b66c-175e80150c06/banner145.jpg?t=1731784503",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-5f97-71ff-b66c-175e80150c06/banner300.jpg?t=1731784503",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-5f97-71ff-b66c-175e80150c06/banner400.jpg?t=1731784503",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-5f97-71ff-b66c-175e80150c06/banner600.jpg?t=1731784504"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 8.99,
+            "amountInt": 899,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-15T19:22:59+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-d629-7249-ad1f-1c15aca58721/"
+        }
+      },
+      {
+        "id": "018d937f-42c2-73fd-9641-3d52fd0b8908",
+        "slug": "sizeable",
+        "title": "Sizeable",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-42c2-73fd-9641-3d52fd0b8908/boxart.jpg?t=1741082706",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-42c2-73fd-9641-3d52fd0b8908/banner145.jpg?t=1741082707",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-42c2-73fd-9641-3d52fd0b8908/banner300.jpg?t=1741082707",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-42c2-73fd-9641-3d52fd0b8908/banner400.jpg?t=1741082707",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-42c2-73fd-9641-3d52fd0b8908/banner600.jpg?t=1741082707"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-16T19:16:09+02:00",
+          "expiry": "2025-09-23T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-ca5b-7277-a6f1-11aed31575f1/"
+        }
+      },
+      {
+        "id": "018d937f-60c4-713b-9995-5297dcbfb1b8",
+        "slug": "ship-and-submarines-bundle",
+        "title": "SHIP & SUBMARINES BUNDLE",
+        "type": "package",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-60c4-713b-9995-5297dcbfb1b8/banner145.jpg?t=1755708022",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-60c4-713b-9995-5297dcbfb1b8/banner300.jpg?t=1755708022",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-60c4-713b-9995-5297dcbfb1b8/banner400.jpg?t=1755708022",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-60c4-713b-9995-5297dcbfb1b8/banner600.jpg?t=1755708022"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.45,
+            "amountInt": 145,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 16.13,
+            "amountInt": 1613,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.45,
+            "amountInt": 145,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.45,
+            "amountInt": 145,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.45,
+            "amountInt": 145,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.45,
+            "amountInt": 145,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-09T19:03:09+02:00",
+          "expiry": "2025-09-23T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-c58d-7377-9485-853a4c07f122/"
+        }
+      },
+      {
+        "id": "018d937f-4a05-717d-9dc3-29879e51243c",
+        "slug": "recon-control",
+        "title": "Recon Control",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-4a05-717d-9dc3-29879e51243c/boxart.jpg?t=1754390700",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4a05-717d-9dc3-29879e51243c/banner145.jpg?t=1754390701",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4a05-717d-9dc3-29879e51243c/banner300.jpg?t=1754390701",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4a05-717d-9dc3-29879e51243c/banner400.jpg?t=1754390701",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4a05-717d-9dc3-29879e51243c/banner600.jpg?t=1754390702"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.89,
+            "amountInt": 89,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": "S",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:15:40+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-b6fc-70b3-ae9b-aa63dfacdb82/"
+        }
+      },
+      {
+        "id": "018d937f-4410-7264-988b-403566327902",
+        "slug": "the-last-saviour",
+        "title": "The Last Saviour",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-4410-7264-988b-403566327902/boxart.jpg?t=1732776459",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4410-7264-988b-403566327902/banner145.jpg?t=1732776459",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4410-7264-988b-403566327902/banner300.jpg?t=1732776459",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4410-7264-988b-403566327902/banner400.jpg?t=1732776459",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4410-7264-988b-403566327902/banner600.jpg?t=1732776460"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 8.99,
+            "amountInt": 899,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.8,
+            "amountInt": 80,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-14T19:15:40+02:00",
+          "expiry": "2025-09-28T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-89c7-715d-9b35-7e07c08d6860/"
+        }
+      },
+      {
+        "id": "018d937f-03f1-7125-9694-5e1ec3db7248",
+        "slug": "the-juicer",
+        "title": "The Juicer",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-03f1-7125-9694-5e1ec3db7248/boxart.jpg?t=1732470302",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-03f1-7125-9694-5e1ec3db7248/banner145.jpg?t=1732470302",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-03f1-7125-9694-5e1ec3db7248/banner300.jpg?t=1732470302",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-03f1-7125-9694-5e1ec3db7248/banner400.jpg?t=1732470302",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-03f1-7125-9694-5e1ec3db7248/banner600.jpg?t=1732470303"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.98,
+            "amountInt": 98,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 10.99,
+            "amountInt": 1099,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.49,
+            "amountInt": 49,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.49,
+            "amountInt": 49,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.98,
+            "amountInt": 98,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.98,
+            "amountInt": 98,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-22T19:16:11+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-842a-7164-b43e-c5507f592b86/"
+        }
+      },
+      {
+        "id": "018d937f-4eef-73a5-aaed-0f890ce0a331",
+        "slug": "bots-are-stupid",
+        "title": "Bots Are Stupid",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-4eef-73a5-aaed-0f890ce0a331/boxart.jpg?t=1731953412",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4eef-73a5-aaed-0f890ce0a331/banner145.jpg?t=1731953412",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4eef-73a5-aaed-0f890ce0a331/banner300.jpg?t=1731953412",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4eef-73a5-aaed-0f890ce0a331/banner400.jpg?t=1731953412",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4eef-73a5-aaed-0f890ce0a331/banner600.jpg?t=1731953412"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 1.16,
+            "amountInt": 116,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 12.99,
+            "amountInt": 1299,
+            "currency": "USD"
+          },
+          "cut": 91,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1.16,
+            "amountInt": 116,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1.16,
+            "amountInt": 116,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1.16,
+            "amountInt": 116,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1.16,
+            "amountInt": 116,
+            "currency": "USD"
+          },
+          "flag": "N",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            },
+            {
+              "id": 3,
+              "name": "Linux"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:04+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/018d9386-35a7-7204-baa3-203f7ba72423/"
+        }
       }
     ]
   },
   "summary": {
-    "total_items": 10,
+    "total_items": 75,
     "has_more": true,
-    "next_offset": 10
+    "next_offset": 75
   }
 }

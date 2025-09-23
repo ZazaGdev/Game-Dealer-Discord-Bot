@@ -2,15 +2,18 @@
 
 ## Project Overview
 
-GameDealer is a Discord bot that fetches game deals from the IsThereAnyDeal (ITAD) API and provides scheduled deal notifications and manual search commands. The bot is designed for simplicity and reliability, focusing on scheduled operations without webhook complexity.
+GameDealer is a Discord bot that fetches game deals from the IsThereAnyDeal (ITAD) API using modern Discord slash commands. The bot features a curated game database for quality filtering, automatic deal scheduling, and prioritized store selection focusing on Steam, Epic Games Store, and GOG.
 
 ## Architecture
 
 ### Core Design Principles
 
+-   **Modern Slash Commands**: Full Discord slash command implementation with autocomplete
+-   **Curated Quality Filtering**: Database-driven game prioritization system
 -   **Scheduled Operations**: Daily deal fetching at 9 AM using Discord.py tasks
--   **Store Filtering**: Native ITAD API shop ID filtering for accurate results
--   **Error Transparency**: Real error messages instead of generic syntax help
+-   **Smart Store Prioritization**: Prefers Steam, Epic, GOG but includes other quality stores
+-   **Pagination Support**: Handles large result sets with multiple embed pages
+-   **Error Transparency**: Real error messages with helpful suggestions
 -   **Clean Logging**: Centralized logging to `logs/` directory
 -   **Modular Cogs**: Organized command modules for maintainability
 
@@ -21,24 +24,30 @@ GameDealer/
 ├── api/                    # External API integration
 │   ├── __init__.py
 │   ├── http.py            # HTTP client with retry logic
-│   └── itad_client.py     # ITAD API client with shop ID mapping
+│   └── itad_client.py     # ITAD API client with priority filtering
 │
 ├── bot/                   # Discord bot core
 │   ├── __init__.py
-│   ├── core.py           # Bot initialization and setup
+│   ├── core.py           # Bot initialization and slash command sync
 │   └── scheduler.py      # Daily deal scheduling system
 │
-├── cogs/                  # Discord command modules
+├── cogs/                  # Discord command modules (slash commands)
 │   ├── __init__.py
-│   ├── deals.py          # Deal search and filtering commands
-│   └── general.py        # Basic bot commands and utilities
+│   ├── deals.py          # Deal search commands with pagination
+│   └── general.py        # Utility commands (ping, help, info)
 │
 ├── config/                # Configuration management
 │   ├── __init__.py
 │   ├── app_config.py     # Environment variable loading
 │   └── logging_config.py # Logging setup utilities
 │
+├── data/                  # Game database
+│   └── priority_games.json # Curated game database with priority scores
+│
 ├── docs/                  # Documentation
+│   ├── COMMANDS.md       # Complete command documentation
+│   ├── PRIORITY_DATABASE_GUIDE.md # Game database management
+│   ├── TECHNICAL_DOCUMENTATION.md # This file
 │   └── api_templates.md  # ITAD API response examples
 │
 ├── logs/                  # Log files (auto-created)
@@ -49,20 +58,32 @@ GameDealer/
 │   ├── __init__.py
 │   └── models.py         # Deal data structure definitions
 │
-├── tests/                 # Test scripts
-│   ├── README.md
-│   ├── test_api.py       # Basic API connectivity tests
-│   ├── test_bot_fixes.py # Functionality validation tests
-│   ├── test_new_features.py # Feature testing
-│   └── test_search.py    # Search functionality tests
-│
-├── utils/                 # Utility functions
+├── utils/                 # Utility modules
 │   ├── __init__.py
-│   └── embeds.py         # Discord embed creation utilities
+│   ├── embeds.py         # Discord embed formatting
+│   └── game_filters.py   # Priority game filtering system
 │
-├── main.py               # Application entry point
+├── main.py               # Bot entry point
 ├── requirements.txt      # Python dependencies
-└── .env                  # Environment variables (create manually)
+└── README.md            # Project overview
+```
+
+│
+├── tests/ # Test scripts
+│ ├── README.md
+│ ├── test_api.py # Basic API connectivity tests
+│ ├── test_bot_fixes.py # Functionality validation tests
+│ ├── test_new_features.py # Feature testing
+│ └── test_search.py # Search functionality tests
+│
+├── utils/ # Utility functions
+│ ├── **init**.py
+│ └── embeds.py # Discord embed creation utilities
+│
+├── main.py # Application entry point
+├── requirements.txt # Python dependencies
+└── .env # Environment variables (create manually)
+
 ```
 
 ## Core Components
@@ -96,39 +117,52 @@ GameDealer/
 
 **Primary Functionality:**
 
--   Discord bot initialization and configuration
--   Cog loading with error handling
--   Global command error handling
--   ITAD client integration
+- Discord bot initialization with slash command support
+- Automatic command tree synchronization
+- Cog loading with error handling
+- ITAD client integration with priority filtering
 
 **Key Features:**
 
--   Automatic cog loading: `cogs.general`, `cogs.deals`
--   Error transparency in Discord commands
--   Clean shutdown handling
+- Automatic cog loading: `cogs.general`, `cogs.deals`
+- Slash command sync on startup
+- Clean shutdown handling
+- Priority game database integration
 
 ### 3. Deal Scheduler (`bot/scheduler.py`)
 
 **Primary Functionality:**
 
--   Daily deal posting at 9 AM
--   Administrative controls for scheduling
--   Deal fetching automation
+- Daily deal posting at 9 AM
+- Administrative controls for scheduling
+- Deal fetching automation
 
-**Key Commands:**
+**Key Commands (Text-based, Admin only):**
 
--   `!enable_daily_deals`: Enable automatic posting (admin)
--   `!disable_daily_deals`: Disable automatic posting (admin)
--   `!trigger_daily_deals`: Manual trigger (admin)
+- `!enable_daily_deals`: Enable automatic posting
+- `!disable_daily_deals`: Disable automatic posting
+- `!trigger_daily_deals`: Manual trigger
 
 ### 4. Deal Commands (`cogs/deals.py`)
 
 **Primary Functionality:**
 
--   Manual deal searching with filters
--   Store-specific deal queries
--   Deal posting to Discord channels
--   **Smart multi-embed handling for large result sets**
+- Modern slash command interface
+- Curated game database filtering
+- Smart pagination for large result sets
+- Store prioritization (Steam, Epic, GOG)
+
+**Key Slash Commands:**
+
+- `/search_deals [amount]`: Best deals from prioritized stores
+- `/search_store [store] [amount]`: Store-specific deal search
+
+**Advanced Features:**
+
+- **Pagination System**: Splits large results into 10-deal pages
+- **Smart Fetching**: Gets 5x requested amount to account for filtering
+- **Store Prioritization**: Prefers Steam/Epic/GOG, fills with quality alternatives
+- **Priority Filtering**: Uses curated database to show only quality games
 
 **Key Commands:**
 
@@ -147,10 +181,12 @@ GameDealer/
 **Usage Examples:**
 
 ```
-!search_deals 70 15                    # 15 deals with 70%+ discount
-!search_deals 50 20 Steam              # 20 Steam deals (multiple embeds if needed)
-!search_deals 60 25 Epic Game Store    # 25 Epic deals with smart pagination
-```
+
+!search_deals 70 15 # 15 deals with 70%+ discount
+!search_deals 50 20 Steam # 20 Steam deals (multiple embeds if needed)
+!search_deals 60 25 Epic Game Store # 25 Epic deals with smart pagination
+
+````
 
 **Multi-Embed Behavior:**
 
@@ -185,7 +221,7 @@ class Deal(TypedDict, total=False):
     url: str                     # Deal URL
     discount: Optional[str]      # Discount percentage
     original_price: Optional[str] # Original price (formatted)
-```
+````
 
 ## Configuration
 

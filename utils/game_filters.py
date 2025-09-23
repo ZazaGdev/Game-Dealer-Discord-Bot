@@ -1,196 +1,310 @@
 # utils/game_filters.py
 """
-Quality game filtering utilities for GameDealer bot.
-Helps filter out courses, tutorials, and non-game content to focus on actual games.
+Game quality filtering utilities for GameDealer bot.
+Uses a curated database of prioritized games for accurate filtering.
 """
+
+import json
+import os
+from typing import List, Dict, Any, Optional, Tuple
 import re
-from typing import List, Dict, Any, Optional
 
-class GameQualityFilter:
-    """Filters deals to focus on quality games rather than courses or non-game content"""
-    
-    # Quality stores that primarily sell games (not courses/software)
-    QUALITY_GAME_STORES = {
-        61: "Steam",              # Primary game platform
-        35: "GOG",                # DRM-free games  
-        16: "Epic Game Store",    # Major game platform
-        2: "GamesPlanet",         # Game focused
-        7: "Humble Store",        # Game bundles (though they sell courses too)
-        25: "Gamesload",          # Game retailer
-        3: "GreenManGaming",      # Game focused
-        1: "Direct2Drive",        # Game downloads
-        4: "GamersGate",          # Game retailer
-        37: "Nintendo eShop",     # Console games
-        68: "Microsoft Store",    # Console + PC games
-    }
-    
-    # Keywords that strongly indicate non-game content
-    NON_GAME_KEYWORDS = [
-        # Educational content
-        'course', 'tutorial', 'learn', 'training', 'education',
-        'masterclass', 'bootcamp', 'certification', 'study',
-        'lesson', 'workshop', 'seminar', 'class',
-        
-        # Programming/technical content
-        'python', 'javascript', 'programming', 'coding', 'development',
-        'web dev', 'software dev', 'data science', 'machine learning',
-        'unity tutorial', 'unreal tutorial', 'blender course',
-        
-        # Software/tools (not games)
-        'software', 'tool', 'plugin', 'asset pack', 'template',
-        'photoshop', 'adobe', 'office', 'productivity',
-        
-        # Business/professional content
-        'business', 'marketing', 'finance', 'accounting',
-        'project management', 'leadership', 'productivity'
-    ]
-    
-    # Patterns that indicate non-game content
-    NON_GAME_PATTERNS = [
-        r'\bhow\s+to\b',                          # "How to..."
-        r'\blearn\s+\w+\s+in\s+\d+',             # "Learn Python in 30"
-        r'\b\d+\s+(courses?|tutorials?)\b',      # "5 Courses", "10 Tutorials"
-        r'\bcomplete\s+\w+\s+course\b',          # "Complete Python Course"
-        r'\bfrom\s+zero\s+to\s+hero\b',         # "From Zero to Hero"
-        r'\bstep\s+by\s+step\b',                 # "Step by Step"
-        r'\bbeginners?\s+guide\b',               # "Beginners Guide"
-        r'\bmasterclass\s+in\b',                 # "Masterclass in..."
-        r'\bcertification\s+prep\b',             # "Certification Prep"
-        r'\b\d+\s+hours?\s+of\b',                # "20 Hours of..."
-    ]
-    
-    # Store IDs that often sell courses/non-game content (use with caution)
-    MIXED_CONTENT_STORES = {
-        6: "Fanatical",  # Sells both games and courses
-        7: "Humble",     # Humble Bundle - mixed content
-    }
 
-    @classmethod
-    def is_quality_game(cls, title: str, store_name: str = "", store_id: int = None) -> bool:
+class PriorityGameFilter:
+    """
+    Filters games based on a curated priority database.
+    This approach is more reliable than keyword filtering.
+    """
+    
+    def __init__(self, priority_db_path: str = None):
         """
-        Determine if this appears to be a quality game worth showing
+        Initialize the priority game filter.
         
         Args:
-            title: Game/item title
-            store_name: Store name (optional)
-            store_id: Store ID (optional)
-            
-        Returns:
-            True if this appears to be a quality game
+            priority_db_path: Path to the priority games JSON file
         """
-        # Filter 1: Remove obvious non-game content by title keywords
-        if cls._contains_non_game_keywords(title):
-            return False
+        if priority_db_path is None:
+            # Default path relative to project root
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            priority_db_path = os.path.join(project_root, "data", "priority_games.json")
         
-        # Filter 2: Remove items matching non-game patterns
-        if cls._matches_non_game_patterns(title):
-            return False
+        self.priority_db_path = priority_db_path
+        self.priority_games = self._load_priority_games()
+        
+    def _load_priority_games(self) -> List[Dict[str, Any]]:
+        """Load the priority games database from JSON file."""
+        try:
+            if not os.path.exists(self.priority_db_path):
+                print(f"Warning: Priority games database not found at {self.priority_db_path}")
+                return []
             
-        # Filter 3: Title length - very short titles often aren't games
-        if len(title.strip()) < 3:
-            return False
-            
-        # Filter 4: Store-based filtering (if store info available)
-        if store_id and cls._is_quality_game_store(store_id):
-            # If it's from a quality game store, more likely to be a game
+            with open(self.priority_db_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return data.get('games', [])
+        except Exception as e:
+            print(f"Error loading priority games database: {e}")
+            return []
+    
+    def reload_database(self) -> bool:
+        """Reload the priority games database. Returns True if successful."""
+        try:
+            self.priority_games = self._load_priority_games()
             return True
-        elif store_id and store_id in cls.MIXED_CONTENT_STORES:
-            # Mixed content stores need stricter filtering
-            return cls._passes_strict_filtering(title)
-        
-        # Default: assume it's a game if it passes other filters
-        return True
+        except Exception as e:
+            print(f"Error reloading priority games database: {e}")
+            return False
     
-    @classmethod
-    def _contains_non_game_keywords(cls, title: str) -> bool:
-        """Check if title contains keywords indicating non-game content"""
-        title_lower = title.lower()
-        
-        for keyword in cls.NON_GAME_KEYWORDS:
-            if keyword in title_lower:
-                return True
-        
-        return False
-    
-    @classmethod
-    def _matches_non_game_patterns(cls, title: str) -> bool:
-        """Check if title matches patterns indicating non-game content"""
-        title_lower = title.lower()
-        
-        for pattern in cls.NON_GAME_PATTERNS:
-            if re.search(pattern, title_lower):
-                return True
-                
-        return False
-    
-    @classmethod
-    def _is_quality_game_store(cls, store_id: int) -> bool:
-        """Check if store primarily sells quality games"""
-        return store_id in cls.QUALITY_GAME_STORES
-    
-    @classmethod
-    def _passes_strict_filtering(cls, title: str) -> bool:
-        """Apply stricter filtering for mixed-content stores"""
-        title_lower = title.lower()
-        
-        # Additional strict patterns for mixed stores
-        strict_patterns = [
-            r'\bundefined\b',                     # Often placeholder content
-            r'\b(mega|ultimate|complete)\s+pack\b',  # Often course bundles
-            r'\b\w+\s+(bundle|collection)\s+\d+\b', # "Course Bundle 5"
-            r'\bultimate\s+\w+\s+bundle\b',      # "Ultimate Learning Bundle"
-        ]
-        
-        for pattern in strict_patterns:
-            if re.search(pattern, title_lower):
-                return False
-                
-        return True
-    
-    @classmethod
-    def filter_deals(cls, deals: List[Dict[str, Any]], apply_store_filter: bool = True) -> List[Dict[str, Any]]:
+    def find_matching_games(self, game_title: str) -> List[Tuple[Dict[str, Any], float]]:
         """
-        Filter a list of deals to keep only quality games
+        Find games in the priority database that match the given title.
         
         Args:
-            deals: List of deal dictionaries
-            apply_store_filter: Whether to apply store-based filtering
+            game_title: The game title to search for
             
         Returns:
-            Filtered list of quality game deals
+            List of tuples (game_data, match_score) sorted by priority then match score
         """
-        quality_deals = []
+        if not self.priority_games:
+            return []
+        
+        matches = []
+        title_lower = game_title.lower().strip()
+        
+        for game in self.priority_games:
+            game_title_lower = game['title'].lower().strip()
+            
+            # Calculate match score
+            match_score = self._calculate_match_score(title_lower, game_title_lower)
+            
+            if match_score > 0:
+                matches.append((game, match_score))
+        
+        # Sort by priority (descending) then by match score (descending)
+        matches.sort(key=lambda x: (x[0]['priority'], x[1]), reverse=True)
+        
+        return matches
+    
+    def _calculate_match_score(self, search_title: str, db_title: str) -> float:
+        """
+        Calculate how well two titles match.
+        
+        Returns:
+            0.0: No match
+            0.1-0.5: Partial word match
+            0.6-0.8: Good partial match
+            0.9-1.0: Excellent match
+        """
+        # Exact match
+        if search_title == db_title:
+            return 1.0
+        
+        # One title contains the other completely
+        if db_title in search_title:
+            return 0.9
+        if search_title in db_title:
+            return 0.85
+        
+        # Split into words for word-based matching
+        search_words = set(re.findall(r'\w+', search_title))
+        db_words = set(re.findall(r'\w+', db_title))
+        
+        if not search_words or not db_words:
+            return 0.0
+        
+        # Calculate word overlap
+        common_words = search_words.intersection(db_words)
+        
+        if not common_words:
+            return 0.0
+        
+        # Score based on word overlap percentage
+        overlap_ratio = len(common_words) / min(len(search_words), len(db_words))
+        
+        if overlap_ratio >= 0.8:
+            return 0.8
+        elif overlap_ratio >= 0.6:
+            return 0.7
+        elif overlap_ratio >= 0.4:
+            return 0.6
+        elif overlap_ratio >= 0.2:
+            return 0.4
+        else:
+            return 0.1
+    
+    def is_priority_game(self, game_title: str, min_priority: int = 1, min_match_score: float = 0.6) -> bool:
+        """
+        Check if a game is in the priority database with sufficient priority and match score.
+        
+        Args:
+            game_title: The game title to check
+            min_priority: Minimum priority score required (1-10)
+            min_match_score: Minimum match score required (0.0-1.0)
+            
+        Returns:
+            True if the game meets the criteria
+        """
+        matches = self.find_matching_games(game_title)
+        
+        for game_data, match_score in matches:
+            if game_data['priority'] >= min_priority and match_score >= min_match_score:
+                return True
+        
+        return False
+    
+    def get_game_priority(self, game_title: str, min_match_score: float = 0.6) -> Optional[int]:
+        """
+        Get the priority score for a game.
+        
+        Args:
+            game_title: The game title to check
+            min_match_score: Minimum match score required
+            
+        Returns:
+            Priority score (1-10) or None if not found
+        """
+        matches = self.find_matching_games(game_title)
+        
+        for game_data, match_score in matches:
+            if match_score >= min_match_score:
+                return game_data['priority']
+        
+        return None
+    
+    def filter_deals_by_priority(self, deals: List[Dict[str, Any]], 
+                                min_priority: int = 5, 
+                                min_match_score: float = 0.6,
+                                max_results: int = None) -> List[Dict[str, Any]]:
+        """
+        Filter a list of deals to only include priority games.
+        
+        Args:
+            deals: List of deal dictionaries with 'title' key
+            min_priority: Minimum priority score required (1-10)
+            min_match_score: Minimum match score required (0.0-1.0)
+            max_results: Maximum number of results to return
+            
+        Returns:
+            Filtered list of deals, sorted by priority then original order
+        """
+        priority_deals = []
         
         for deal in deals:
-            title = deal.get('title', '')
-            store_name = deal.get('store', '')
-            store_id = deal.get('store_id')  # If available in deal data
+            game_title = deal.get('title', '')
+            matches = self.find_matching_games(game_title)
             
-            if cls.is_quality_game(title, store_name, store_id):
-                quality_deals.append(deal)
+            best_match = None
+            best_priority = 0
+            
+            for game_data, match_score in matches:
+                if (game_data['priority'] >= min_priority and 
+                    match_score >= min_match_score and 
+                    game_data['priority'] > best_priority):
+                    
+                    best_match = (game_data, match_score)
+                    best_priority = game_data['priority']
+            
+            if best_match:
+                # Add priority info to the deal
+                deal_copy = deal.copy()
+                deal_copy['_priority'] = best_match[0]['priority']
+                deal_copy['_match_score'] = best_match[1]
+                deal_copy['_priority_game'] = best_match[0]
+                priority_deals.append(deal_copy)
         
-        return quality_deals
+        # Sort by priority (descending), then by match score (descending)
+        priority_deals.sort(key=lambda x: (x['_priority'], x['_match_score']), reverse=True)
+        
+        if max_results:
+            priority_deals = priority_deals[:max_results]
+        
+        return priority_deals
     
-    @classmethod
-    def get_quality_store_ids(cls) -> List[int]:
-        """Get list of store IDs that primarily sell quality games"""
-        return list(cls.QUALITY_GAME_STORES.keys())
+    def get_database_stats(self) -> Dict[str, Any]:
+        """Get statistics about the priority games database."""
+        if not self.priority_games:
+            return {"total_games": 0, "priority_distribution": {}}
+        
+        priority_distribution = {}
+        categories = {}
+        
+        for game in self.priority_games:
+            priority = game.get('priority', 0)
+            category = game.get('category', 'Unknown')
+            
+            priority_distribution[priority] = priority_distribution.get(priority, 0) + 1
+            categories[category] = categories.get(category, 0) + 1
+        
+        return {
+            "total_games": len(self.priority_games),
+            "priority_distribution": priority_distribution,
+            "category_distribution": categories,
+            "database_path": self.priority_db_path
+        }
+
+
+# Convenience functions for backward compatibility and easy usage
+def is_priority_game(game_title: str, min_priority: int = 5) -> bool:
+    """
+    Quick check if a game is in the priority database.
     
-    @classmethod
-    def get_store_name_by_id(cls, store_id: int) -> Optional[str]:
-        """Get store name by ID from quality stores mapping"""
-        return cls.QUALITY_GAME_STORES.get(store_id)
+    Args:
+        game_title: The game title to check
+        min_priority: Minimum priority score required (1-10)
+        
+    Returns:
+        True if the game is a priority game
+    """
+    filter_obj = PriorityGameFilter()
+    return filter_obj.is_priority_game(game_title, min_priority)
 
 
-# Convenience functions for direct use
-def is_quality_game(title: str, store_name: str = "", store_id: int = None) -> bool:
-    """Convenience function to check if an item is a quality game"""
-    return GameQualityFilter.is_quality_game(title, store_name, store_id)
+def filter_priority_games(deals: List[Dict[str, Any]], 
+                         min_priority: int = 5, 
+                         max_results: int = None) -> List[Dict[str, Any]]:
+    """
+    Filter deals to only include priority games.
+    
+    Args:
+        deals: List of deal dictionaries
+        min_priority: Minimum priority score required (1-10)
+        max_results: Maximum number of results to return
+        
+    Returns:
+        Filtered and sorted list of priority game deals
+    """
+    filter_obj = PriorityGameFilter()
+    return filter_obj.filter_deals_by_priority(deals, min_priority, max_results=max_results)
 
-def filter_quality_games(deals: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Convenience function to filter deals for quality games"""
-    return GameQualityFilter.filter_deals(deals)
 
-def get_quality_store_ids() -> List[int]:
-    """Convenience function to get quality store IDs"""
-    return GameQualityFilter.get_quality_store_ids()
+def get_priority_score(game_title: str) -> Optional[int]:
+    """
+    Get the priority score for a game.
+    
+    Args:
+        game_title: The game title to check
+        
+    Returns:
+        Priority score (1-10) or None if not found
+    """
+    filter_obj = PriorityGameFilter()
+    return filter_obj.get_game_priority(game_title)
+
+
+# Legacy GameQualityFilter class for backward compatibility
+class GameQualityFilter:
+    """
+    Legacy class that now uses the priority-based filtering system.
+    Maintained for backward compatibility.
+    """
+    
+    def __init__(self):
+        self.priority_filter = PriorityGameFilter()
+    
+    def is_quality_game(self, title: str, store: str = None) -> bool:
+        """Check if a game is considered quality based on priority database."""
+        return self.priority_filter.is_priority_game(title, min_priority=4)  # Lower threshold for compatibility
+    
+    def is_quality_store(self, store: str) -> bool:
+        """Check if a store is considered quality - always returns True now."""
+        # Since we're using curated games, store quality is less important
+        return True

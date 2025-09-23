@@ -1,13 +1,15 @@
 # cogs/general.py
 import discord
 from discord.ext import commands
-from utils.embeds import make_startup_embed, make_deal_embed
+from discord import app_commands
+from utils.embeds import make_startup_embed
 
 class General(commands.Cog):
+    """Essential utility commands for GameDealer bot"""
+    
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.log = getattr(bot, 'log', None)
-        self.deals_channel_id = getattr(bot, 'deals_channel_id', 0)
         self.log_channel_id = getattr(bot, 'log_channel_id', 0)
         self.bot_ready = False
         self._announced_once = False
@@ -48,82 +50,72 @@ class General(commands.Cog):
             if self.log:
                 self.log.exception(f"Failed to send startup message: {e}")
 
-    # --- commands ---
-    @commands.command()
-    async def ping(self, ctx: commands.Context):
+    # --- essential commands ---
+    @app_commands.command(name="ping", description="Test bot responsiveness")
+    async def ping(self, interaction: discord.Interaction):
         """Test bot responsiveness"""
         latency = round(self.bot.latency * 1000)
-        await ctx.send(f"🏓 Pong! Latency: {latency}ms")
+        await interaction.response.send_message(f"🏓 Pong! Latency: {latency}ms")
 
-    @commands.command(aliases=['deal'])
-    async def deals(self, ctx: commands.Context):
-        """Show information about game deals"""
-        await ctx.send("Here are today's game deals! Use `!test_deal` to see a sample deal.")
-
-    @commands.command(aliases=['test_deals', 'testdeal'])
-    async def test_deal(self, ctx: commands.Context):
-        """Test the send_deal_to_discord function with sample data"""
-        test_data = {
-            "title": "Cyberpunk 2077",
-            "price": "$19.99",
-            "store": "Steam",
-            "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
-            "discount": "67%",
-            "original_price": "$59.99",
-        }
-
-        await ctx.send("🔄 Sending test deal...")
-        success = await self.send_deal_to_discord(test_data)
+    @app_commands.command(name="help", description="Show available commands")
+    async def help(self, interaction: discord.Interaction):
+        """Show available commands"""
+        embed = discord.Embed(
+            title="🎮 GameDealer Commands",
+            description="Find the best game deals from Steam, Epic & GOG!",
+            color=0x00ff00
+        )
         
-        if success:
-            await ctx.send("✅ Test deal sent successfully!")
-        else:
-            await ctx.send("❌ Failed to send test deal. Check logs for details.")
+        embed.add_field(
+            name="📊 Deal Commands",
+            value="• `/search_deals [amount]` - Best deals from Steam, Epic & GOG\n• `/search_store [store] [amount]` - Deals from specific store",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="💡 Examples",
+            value="• `/search_deals 15` - Get 15 best deals\n• `/search_store Steam 20` - Get 20 Steam deals\n• `/search_store Epic 10` - Get 10 Epic deals",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="🛠️ Utility",
+            value="• `/ping` - Test bot response\n• `/info` - Bot information",
+            inline=False
+        )
+        
+        embed.set_footer(text="🎯 Deals are automatically sorted by highest discount percentage")
+        await interaction.response.send_message(embed=embed)
 
-    @commands.command()
-    async def info(self, ctx: commands.Context):
+    @app_commands.command(name="info", description="Show bot information")
+    async def info(self, interaction: discord.Interaction):
         """Show bot information"""
         embed = discord.Embed(
             title="🤖 GameDealer Bot Info",
+            description="Your source for the best game deals!",
             color=0x00ff00
         )
-        embed.add_field(name="Servers", value=len(self.bot.guilds), inline=True)
-        embed.add_field(name="Users", value=sum(g.member_count for g in self.bot.guilds if g.member_count), inline=True)
-        embed.add_field(name="Commands", value=len(self.bot.commands), inline=True)
-        embed.set_footer(text=f"Requested by {ctx.author}")
-        await ctx.send(embed=embed)
-
-    # --- helper used by webhook & commands ---
-    async def send_deal_to_discord(self, deal_data: dict) -> bool:
-        if not self.bot_ready:
-            if self.log:
-                self.log.warning("Bot not ready, cannot send Discord message")
-            return False
-
-        channel_id = self.deals_channel_id or self.log_channel_id
-        channel = self.bot.get_channel(channel_id)
-        if channel is None:
-            try:
-                channel = await self.bot.fetch_channel(channel_id)
-            except Exception as e:
-                if self.log:
-                    self.log.error(f"Could not fetch deals channel {channel_id}: {e}")
-                return False
-
+        
+        # Get database stats if available
         try:
-            embed = make_deal_embed(deal_data)
-            await channel.send(embed=embed)
-            if self.log:
-                self.log.info(f"Deal message sent to channel {getattr(channel, 'name', channel_id)}")
-            return True
-        except discord.Forbidden:
-            if self.log:
-                self.log.error("Missing permissions to send messages in the deals channel.")
-            return False
-        except Exception as e:
-            if self.log:
-                self.log.exception(f"Failed to send deal message: {e}")
-            return False
+            if hasattr(self.bot, 'itad_client') and self.bot.itad_client:
+                stats = self.bot.itad_client.priority_filter.get_database_stats()
+                embed.add_field(
+                    name="📚 Game Database", 
+                    value=f"{stats['total_games']} curated games", 
+                    inline=True
+                )
+        except:
+            pass
+        
+        embed.add_field(name="🎯 Supported Stores", value="Steam, Epic, GOG + more", inline=True)
+        embed.add_field(name="🏓 Latency", value=f"{round(self.bot.latency * 1000)}ms", inline=True)
+        embed.add_field(name="🤖 Servers", value=len(self.bot.guilds), inline=True)
+        embed.add_field(name="👥 Users", value=sum(g.member_count for g in self.bot.guilds if g.member_count), inline=True)
+        embed.add_field(name="⚡ Commands", value=len(self.bot.tree.get_commands()), inline=True)
+        
+        embed.set_footer(text=f"Requested by {interaction.user}")
+        await interaction.response.send_message(embed=embed)
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(General(bot))

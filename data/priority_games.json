@@ -1,0 +1,782 @@
+{
+    "_instructions": {
+        "description": "Priority Games Database for GameDealer Quality Filtering",
+        "how_to_use": [
+            "Add games with their exact titles as they appear on ITAD API",
+            "Set priority scores: 10 (must-have AAA), 8-9 (excellent), 6-7 (good), 4-5 (decent), 1-3 (niche)",
+            "Include popular games, highly-rated titles, and community favorites",
+            "Use exact or partial titles that would match ITAD results",
+            "Higher priority games appear first in results"
+        ],
+        "title_matching": [
+            "Titles are matched using case-insensitive partial matching",
+            "Example: 'Cyberpunk' matches 'Cyberpunk 2077' and 'Cyberpunk 2077: Phantom Liberty'",
+            "Use core game names without subtitles for broader matching",
+            "Include both full titles and shortened versions for better coverage"
+        ],
+        "priority_scale": {
+            "10": "Must-have AAA titles, Game of the Year winners",
+            "9": "Exceptional games, highly acclaimed",
+            "8": "Great games, very popular",
+            "7": "Good games, well-regarded",
+            "6": "Solid games, worth playing",
+            "5": "Decent games, niche appeal",
+            "4": "OK games, specific audiences",
+            "3": "Mediocre but playable",
+            "2": "Below average",
+            "1": "Poor quality but might have deals"
+        }
+    },
+    "games": [
+        {
+            "title": "Baldur's Gate 3",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "Massively acclaimed CRPG, GOTY winner"
+        },
+        {
+            "title": "Elden Ring",
+            "priority": 10,
+            "category": "Action RPG",
+            "notes": "Open-world Soulslike, multi-award winner"
+        },
+        {
+            "title": "The Witcher 3: Wild Hunt",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "Complete Edition recommended"
+        },
+        {
+            "title": "Red Dead Redemption 2",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Rockstar epic, story & open-world benchmark"
+        },
+        {
+            "title": "Grand Theft Auto V",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Story + GTA Online; base game is paid"
+        },
+        {
+            "title": "God of War (2018)",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "PC and PS; cinematic narrative"
+        },
+        {
+            "title": "God of War Ragnarök",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Sequel to 2018; PS-first, PC port available"
+        },
+        {
+            "title": "The Last of Us Part I",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Remake; PC + PS5"
+        },
+        {
+            "title": "The Last of Us Part II",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Critically acclaimed narrative"
+        },
+        {
+            "title": "Marvel's Spider-Man Remastered",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "PC + PS; open-world superhero"
+        },
+        {
+            "title": "Marvel's Spider-Man: Miles Morales",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Standalone expansion; PC + PS"
+        },
+        {
+            "title": "Horizon Zero Dawn Complete Edition",
+            "priority": 10,
+            "category": "Action RPG",
+            "notes": "PC port; robot-dino open world"
+        },
+        {
+            "title": "Horizon Forbidden West",
+            "priority": 10,
+            "category": "Action RPG",
+            "notes": "Follow-up; PS + PC"
+        },
+        {
+            "title": "Bloodborne",
+            "priority": 10,
+            "category": "Action RPG",
+            "notes": "PS exclusive classic Soulslike"
+        },
+        {
+            "title": "Sekiro: Shadows Die Twice",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "FromSoftware GOTY winner"
+        },
+        {
+            "title": "Dark Souls III",
+            "priority": 10,
+            "category": "Action RPG",
+            "notes": "Souls trilogy high point"
+        },
+        {
+            "title": "Dark Souls Remastered",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Classic Souls, remastered"
+        },
+        {
+            "title": "Resident Evil 4",
+            "priority": 10,
+            "category": "Horror",
+            "notes": "2023 Remake; top-tier survival horror"
+        },
+        {
+            "title": "Resident Evil 2",
+            "priority": 10,
+            "category": "Horror",
+            "notes": "2019 Remake; essential"
+        },
+        {
+            "title": "Resident Evil Village",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "RE8; modern fan-favorite"
+        },
+        {
+            "title": "Resident Evil 7: Biohazard",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "First-person reboot of RE formula"
+        },
+        {
+            "title": "Cyberpunk 2077",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Overhauled post-2.0; expansion paid"
+        },
+        {
+            "title": "Ghost of Tsushima Director's Cut",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "Samurai open world; PS + PC"
+        },
+        {
+            "title": "Death Stranding Director's Cut",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Kojima's strand game; PC + PS"
+        },
+        {
+            "title": "Uncharted 4: A Thief’s End",
+            "priority": 10,
+            "category": "Action-Adventure",
+            "notes": "PS classic; Legacy of Thieves on PC"
+        },
+        {
+            "title": "Uncharted: The Lost Legacy",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Standalone; in Legacy of Thieves"
+        },
+        {
+            "title": "Persona 5 Royal",
+            "priority": 10,
+            "category": "JRPG",
+            "notes": "Definitive Persona 5"
+        },
+        {
+            "title": "Final Fantasy VII Remake Intergrade",
+            "priority": 10,
+            "category": "JRPG",
+            "notes": "Part 1 remake + Intergrade content"
+        },
+        {
+            "title": "Final Fantasy VII Rebirth",
+            "priority": 9,
+            "category": "JRPG",
+            "notes": "Remake part 2; PS-first"
+        },
+        {
+            "title": "Final Fantasy XVI",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Summon spectacle; PS-first"
+        },
+        {
+            "title": "Final Fantasy XIV Online - Complete Edition",
+            "priority": 8,
+            "category": "MMO",
+            "notes": "Sub-based MMO; expansions paid"
+        },
+        {
+            "title": "Final Fantasy X/X-2 HD Remaster",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Beloved classics"
+        },
+        {
+            "title": "Final Fantasy XII: The Zodiac Age",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Remastered PS2-era gem"
+        },
+        {
+            "title": "Nier: Automata",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Platinum action + Yoko Taro story"
+        },
+        {
+            "title": "Nioh",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Samurai Soulslike; PC + PS"
+        },
+        {
+            "title": "Nioh 2 – The Complete Edition",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Expanded sequel; PC + PS"
+        },
+        {
+            "title": "Monster Hunter: World",
+            "priority": 10,
+            "category": "Action RPG",
+            "notes": "Best-selling MH; Iceborne add-on"
+        },
+        {
+            "title": "Monster Hunter Rise",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Sunbreak expansion available"
+        },
+        {
+            "title": "Yakuza 0",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Best starting point for series"
+        },
+        {
+            "title": "Yakuza Kiwami",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Remake of Yakuza 1"
+        },
+        {
+            "title": "Yakuza Kiwami 2",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Remake of Yakuza 2"
+        },
+        {
+            "title": "Yakuza: Like a Dragon",
+            "priority": 9,
+            "category": "JRPG",
+            "notes": "Turn-based reinvention"
+        },
+        {
+            "title": "Like a Dragon: Infinite Wealth",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Newest mainline entry"
+        },
+        {
+            "title": "Judgment",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Detective spin-off"
+        },
+        {
+            "title": "Lost Judgment",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Sequel to Judgment"
+        },
+        {
+            "title": "Mass Effect Legendary Edition",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Remastered trilogy"
+        },
+        {
+            "title": "Dragon Age: Inquisition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Story-rich BioWare RPG"
+        },
+        {
+            "title": "Star Wars Jedi: Fallen Order",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Soulsy Star Wars"
+        },
+        {
+            "title": "Star Wars Jedi: Survivor",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Follow-up; performance improving"
+        },
+        {
+            "title": "DOOM Eternal",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Fast, modern id shooter"
+        },
+        {
+            "title": "DOOM (2016)",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Reboot that revived the series"
+        },
+        {
+            "title": "Wolfenstein II: The New Colossus",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Story-driven FPS"
+        },
+        {
+            "title": "Prey (2017)",
+            "priority": 8,
+            "category": "Immersive Sim",
+            "notes": "Arkane masterpiece"
+        },
+        {
+            "title": "Dishonored 2",
+            "priority": 9,
+            "category": "Immersive Sim",
+            "notes": "Stealth sandbox excellence"
+        },
+        {
+            "title": "Dishonored: Death of the Outsider",
+            "priority": 7,
+            "category": "Immersive Sim",
+            "notes": "Standalone expansion"
+        },
+        {
+            "title": "Control: Ultimate Edition",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Includes all DLC"
+        },
+        {
+            "title": "Alan Wake Remastered",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Lead-in to Alan Wake 2"
+        },
+        {
+            "title": "Alan Wake 2",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "Narrative horror hit"
+        },
+        {
+            "title": "CyberConnect2 .hack//G.U. Last Recode",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Cult favorite collection"
+        },
+        {
+            "title": "BioShock Infinite",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Part of BioShock: The Collection"
+        },
+        {
+            "title": "BioShock Remastered",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Classic immersive narrative"
+        },
+        {
+            "title": "BioShock 2 Remastered",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Solid sequel"
+        },
+        {
+            "title": "Portal 2",
+            "priority": 10,
+            "category": "Puzzle",
+            "notes": "All-time great puzzle game"
+        },
+        {
+            "title": "Portal",
+            "priority": 9,
+            "category": "Puzzle",
+            "notes": "Short, iconic"
+        },
+        {
+            "title": "Half-Life 2",
+            "priority": 10,
+            "category": "Shooter",
+            "notes": "PC classic; episodes separate"
+        },
+        {
+            "title": "Half-Life: Alyx",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "VR-only; include if catalog supports VR"
+        },
+        {
+            "title": "Metro Exodus",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Open-level survival shooter"
+        },
+        {
+            "title": "Metro 2033 Redux",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Redux remaster"
+        },
+        {
+            "title": "Metro: Last Light Redux",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Redux remaster"
+        },
+        {
+            "title": "Titanfall 2",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Legendary campaign"
+        },
+        {
+            "title": "Call of Duty: Modern Warfare (2019)",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Paid base; Warzone is F2P (exclude)"
+        },
+        {
+            "title": "Call of Duty: Modern Warfare II (2022)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Paid premium entry"
+        },
+        {
+            "title": "Call of Duty: Black Ops Cold War",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Campaign + MP/Zombies"
+        },
+        {
+            "title": "Call of Duty: WWII",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "WWII setting"
+        },
+        {
+            "title": "Battlefield 1",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "WW1 large-scale battles"
+        },
+        {
+            "title": "Battlefield 4",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Modern military FPS"
+        },
+        {
+            "title": "Battlefield V",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "WW2 era"
+        },
+        {
+            "title": "A Plague Tale: Requiem",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Sequel, story-driven"
+        },
+        {
+            "title": "A Plague Tale: Innocence",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Strong narrative stealth"
+        },
+        {
+            "title": "It Takes Two",
+            "priority": 9,
+            "category": "Co-op Adventure",
+            "notes": "Co-op only; GOTY winner"
+        },
+        {
+            "title": "Brothers: A Tale of Two Sons",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Indie story gem"
+        },
+        {
+            "title": "Sifu",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Stylish martial arts roguelite-ish"
+        },
+        {
+            "title": "Kena: Bridge of Spirits",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Pixar-like indie AAA look"
+        },
+        {
+            "title": "Hades",
+            "priority": 9,
+            "category": "Roguelike",
+            "notes": "Indie GOTY darling"
+        },
+        {
+            "title": "Dead Cells",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Fast metroidvania-rogue hybrid"
+        },
+        {
+            "title": "Hollow Knight",
+            "priority": 9,
+            "category": "Metroidvania",
+            "notes": "Indie classic"
+        },
+        {
+            "title": "Celeste",
+            "priority": 9,
+            "category": "Platformer",
+            "notes": "Precision platformer, award-winning"
+        },
+        {
+            "title": "Cuphead",
+            "priority": 8,
+            "category": "Run and Gun",
+            "notes": "DLC is Delicious Last Course"
+        },
+        {
+            "title": "Ori and the Blind Forest: Definitive Edition",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Story platformer"
+        },
+        {
+            "title": "Ori and the Will of the Wisps",
+            "priority": 9,
+            "category": "Platformer",
+            "notes": "Sequel; visually stunning"
+        },
+        {
+            "title": "The Stanley Parable: Ultra Deluxe",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Expanded definitive edition"
+        },
+        {
+            "title": "Return of the Obra Dinn",
+            "priority": 9,
+            "category": "Puzzle",
+            "notes": "Unique deduction game"
+        },
+        {
+            "title": "Papers, Please",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Indie classic paperwork sim"
+        },
+        {
+            "title": "Divinity: Original Sin 2 – Definitive Edition",
+            "priority": 10,
+            "category": "CRPG",
+            "notes": "Top-tier CRPG"
+        },
+        {
+            "title": "Divinity: Original Sin Enhanced Edition",
+            "priority": 8,
+            "category": "CRPG",
+            "notes": "Series first entry"
+        },
+        {
+            "title": "Pillars of Eternity",
+            "priority": 8,
+            "category": "CRPG",
+            "notes": "Isometric RPG revival"
+        },
+        {
+            "title": "Pillars of Eternity II: Deadfire",
+            "priority": 8,
+            "category": "CRPG",
+            "notes": "Seafaring sequel"
+        },
+        {
+            "title": "Pathfinder: Kingmaker – Enhanced Plus Edition",
+            "priority": 7,
+            "category": "CRPG",
+            "notes": "Deep systems"
+        },
+        {
+            "title": "Pathfinder: Wrath of the Righteous",
+            "priority": 8,
+            "category": "CRPG",
+            "notes": "Massive build depth"
+        },
+        {
+            "title": "Wasteland 3",
+            "priority": 8,
+            "category": "CRPG",
+            "notes": "Tactical post-apoc"
+        },
+        {
+            "title": "Diablo III",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Eternal Collection on consoles"
+        },
+        {
+            "title": "Diablo II: Resurrected",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Remaster of classic ARPG"
+        },
+        {
+            "title": "Path of Exile 2 (Supporter Packs)",
+            "priority": 6,
+            "category": "Action RPG",
+            "notes": "Base planned F2P; track paid editions only"
+        },
+        {
+            "title": "Gran Turismo 7",
+            "priority": 9,
+            "category": "Racing",
+            "notes": "Flagship PS sim racer"
+        },
+        {
+            "title": "Forza Horizon 5 (PC)",
+            "priority": 8,
+            "category": "Racing",
+            "notes": "PC paid; not on PS"
+        },
+        {
+            "title": "Need for Speed Heat",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Arcade street racer"
+        },
+        {
+            "title": "Need for Speed Unbound",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Stylized NFS entry"
+        },
+        {
+            "title": "Dirt Rally 2.0",
+            "priority": 8,
+            "category": "Racing Sim",
+            "notes": "Hardcore rally"
+        },
+        {
+            "title": "F1 24",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Annual F1 sim"
+        },
+        {
+            "title": "Street Fighter 6",
+            "priority": 9,
+            "category": "Fighting",
+            "notes": "Modern flagship fighter"
+        },
+        {
+            "title": "Tekken 8",
+            "priority": 9,
+            "category": "Fighting",
+            "notes": "New-gen Tekken"
+        },
+        {
+            "title": "Mortal Kombat 1",
+            "priority": 8,
+            "category": "Fighting",
+            "notes": "Series refresh"
+        },
+        {
+            "title": "Guilty Gear -Strive-",
+            "priority": 8,
+            "category": "Fighting",
+            "notes": "ArcSys fighter"
+        },
+        {
+            "title": "Dead Space (2023)",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "Remake of classic horror"
+        },
+        {
+            "title": "Dead Space 2",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Beloved sequel"
+        },
+        {
+            "title": "Alien: Isolation",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "Stealth-survival masterpiece"
+        },
+        {
+            "title": "SOMA",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Narrative sci-fi horror"
+        },
+        {
+            "title": "Amnesia: The Bunker",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Latest Amnesia entry"
+        },
+        {
+            "title": "Dying Light",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Parkour zombie action"
+        },
+        {
+            "title": "Dying Light 2 Stay Human",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Sequel with co-op"
+        },
+        {
+            "title": "Control",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Base listing (non-UE) for matching flexibility"
+        },
+        {
+            "title": "Shadow of the Colossus (2018)",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "PS4 remake"
+        },
+        {
+            "title": "Onimusha: Warlords",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Remaster of PS2 classic"
+        },
+        {
+            "title": "Metal Gear Solid V: The Phantom Pain",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Open-world stealth"
+        },
+        {
+            "title": "Metal Gear Solid 3: Snake Eater (Delta when listed)",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Use exact ITAD listing when live"
+        }
+    ]
+}
