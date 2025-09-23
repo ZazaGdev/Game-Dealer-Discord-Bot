@@ -210,24 +210,27 @@ DEBUG_API_RESPONSES=false
 ### Centralized Configuration (`config/logging_config.py`)
 
 **Design Philosophy:**
-- **Single Source of Truth**: All logging configuration in one module
-- **Consistent Formatting**: Uniform log format across all components  
-- **Handler Management**: Automatic cleanup and conflict prevention
-- **Separation of Concerns**: Keeps main.py clean and focused
+
+-   **Single Source of Truth**: All logging configuration in one module
+-   **Consistent Formatting**: Uniform log format across all components
+-   **Handler Management**: Automatic cleanup and conflict prevention
+-   **Separation of Concerns**: Keeps main.py clean and focused
 
 **Key Functions:**
-- `setup_logging()`: Main configuration function with conflict prevention
-- `get_logger()`: Retrieve configured logger instances
-- `get_log_directory()`: Utility for log directory management
+
+-   `setup_logging()`: Main configuration function with conflict prevention
+-   `get_logger()`: Retrieve configured logger instances
+-   `get_log_directory()`: Utility for log directory management
 
 **Usage Pattern:**
+
 ```python
 from config.logging_config import setup_logging, get_logger
 
 # In main.py
 log = setup_logging()
 
-# In other modules  
+# In other modules
 log = get_logger('module_name')
 ```
 

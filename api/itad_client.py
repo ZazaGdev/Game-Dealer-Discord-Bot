@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import List, Dict, Any, Optional
 from .http import HttpClient
 from models import Deal
+from utils.game_filters import GameQualityFilter
 
 class ITADClient:
     BASE = "https://api.isthereanydeal.com"
@@ -11,11 +12,13 @@ class ITADClient:
         headers = {}
         self.http = http or HttpClient(headers=headers)
         self.api_key = api_key
+        self.quality_filter = GameQualityFilter()
 
     async def close(self) -> None:
         await self.http.close()
 
-    async def fetch_deals(self, *, min_discount: int = 60, limit: int = 10, store_filter: str = None, log_full_response: bool = False) -> List[Deal]:
+    async def fetch_deals(self, *, min_discount: int = 60, limit: int = 10, store_filter: str = None, 
+                         log_full_response: bool = False, quality_filter: bool = True) -> List[Deal]:
         """
         Fetch deals using the correct ITAD API endpoints
         
@@ -24,6 +27,7 @@ class ITADClient:
             limit: Maximum number of deals to return (default: 10)
             store_filter: Filter by specific store name (e.g. "Steam", "Epic Game Store") 
             log_full_response: Whether to log full API response to api_responses.json
+            quality_filter: Whether to filter for quality games only (default: True)
         """
         if not self.api_key:
             raise ValueError("ITAD API key is required")
@@ -99,6 +103,10 @@ class ITADClient:
 
                 # Only include deals that meet minimum discount
                 if discount_pct and discount_pct >= min_discount:
+                    # Apply quality filtering if enabled
+                    if quality_filter and not self.quality_filter.is_quality_game(title, store):
+                        continue
+                    
                     deal: Deal = {
                         "title": title,
                         "price": prices["current"],

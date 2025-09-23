@@ -14,11 +14,34 @@ class Deals(commands.Cog):
     @commands.command(aliases=['search', 'find'])
     async def search_deals(self, ctx: commands.Context, min_discount: int = 30, limit: int = 10, *, store: str = None):
         """
-        Search for deals with custom filters
+        Search for deals with custom filters (with quality filtering enabled by default)
         Usage: !search_deals 70 15
         Usage: !search_deals 50 10 Steam
         Usage: !search_deals 60 5 Epic Game Store
         """
+        await self._search_deals_internal(ctx, min_discount, limit, store, quality_filter=True)
+    
+    @commands.command(aliases=['all_search', 'raw_search'])
+    async def search_all_deals(self, ctx: commands.Context, min_discount: int = 30, limit: int = 10, *, store: str = None):
+        """
+        Search for ALL deals including courses and tutorials (no quality filtering)
+        Usage: !search_all_deals 70 15
+        Usage: !search_all_deals 50 10 Steam
+        """
+        await self._search_deals_internal(ctx, min_discount, limit, store, quality_filter=False)
+    
+    @commands.command(aliases=['quality', 'games'])
+    async def quality_deals(self, ctx: commands.Context, min_discount: int = 30, limit: int = 10, *, store: str = None):
+        """
+        Search for quality game deals only (explicitly filtered)
+        Usage: !quality_deals 60 10
+        Usage: !quality_deals 50 15 Steam
+        """
+        await self._search_deals_internal(ctx, min_discount, limit, store, quality_filter=True)
+    
+    async def _search_deals_internal(self, ctx: commands.Context, min_discount: int = 30, limit: int = 10, 
+                                   store: str = None, quality_filter: bool = True):
+        """Internal method to handle deal searching with quality filtering option"""
         if not self.bot.itad_client:
             await ctx.send("❌ ITAD API not configured. Please check your API key.")
             return
@@ -28,7 +51,8 @@ class Deals(commands.Cog):
             await ctx.send("⚠️ Limit capped at 25 deals.")
         
         # Build search message
-        search_text = f"🔍 Searching for {limit} deals with minimum {min_discount}% discount"
+        filter_type = "quality games" if quality_filter else "all deals"
+        search_text = f"🔍 Searching for {limit} {filter_type} with minimum {min_discount}% discount"
         if store:
             search_text += f" from **{store}**"
         search_text += "..."
@@ -40,16 +64,24 @@ class Deals(commands.Cog):
                 min_discount=min_discount,
                 limit=limit,
                 store_filter=store,
-                log_full_response=True  # Always log full response for Discord commands
+                log_full_response=True,  # Always log full response for Discord commands
+                quality_filter=quality_filter
             )
             
             if not deals:
-                error_msg = f"❌ No deals found with {min_discount}% minimum discount"
+                filter_text = "quality games" if quality_filter else "deals"
+                error_msg = f"❌ No {filter_text} found with {min_discount}% minimum discount"
                 if store:
                     error_msg += f" from **{store}**"
-                    error_msg += f"\n💡 Try:\n• Lower discount threshold (e.g., `!search_deals 10 10 {store}`)\n• Different store (`!list_stores` to see available)\n• Remove store filter (`!search_deals {min_discount} {limit}`)"
+                    if quality_filter:
+                        error_msg += f"\n💡 Try:\n• Lower discount threshold (e.g., `!search_deals 10 10 {store}`)\n• Different store (`!list_stores` to see available)\n• Include all deals (`!search_all_deals {min_discount} {limit} {store}`)\n• Remove store filter (`!search_deals {min_discount} {limit}`)"
+                    else:
+                        error_msg += f"\n💡 Try:\n• Lower discount threshold (e.g., `!search_all_deals 10 10 {store}`)\n• Different store (`!list_stores` to see available)\n• Remove store filter (`!search_all_deals {min_discount} {limit}`)"
                 else:
-                    error_msg += f"\n💡 Try lowering the discount threshold (e.g., `!search_deals 10 {limit}`)"
+                    if quality_filter:
+                        error_msg += f"\n💡 Try:\n• Lower discount threshold (e.g., `!search_deals 10 {limit}`)\n• Include all deals (`!search_all_deals {min_discount} {limit}`)"
+                    else:
+                        error_msg += f"\n💡 Try lowering the discount threshold (e.g., `!search_all_deals 10 {limit}`)"
                 await search_msg.edit(content=error_msg)
                 return
             
@@ -63,9 +95,9 @@ class Deals(commands.Cog):
                 total_pages = (len(deals) + deals_per_embed - 1) // deals_per_embed
                 
                 embed = discord.Embed(
-                    title=f"🎮 Found {len(deals)} Great Deals!" + (f" (Page {page_num}/{total_pages})" if total_pages > 1 else ""),
-                    description=f"Minimum discount: {min_discount}%" + (f" • Store: **{store}**" if store else ""),
-                    color=0x00ff00,
+                    title=f"🎮 Found {len(deals)} Great {'Games' if quality_filter else 'Deals'}!" + (f" (Page {page_num}/{total_pages})" if total_pages > 1 else ""),
+                    description=f"{'Quality games only • ' if quality_filter else 'All deals • '}Minimum discount: {min_discount}%" + (f" • Store: **{store}**" if store else ""),
+                    color=0x00ff00 if quality_filter else 0xffaa00,
                     timestamp=ctx.message.created_at
                 )
                 
@@ -96,7 +128,14 @@ class Deals(commands.Cog):
                     )
                 
                 if page_num == 1:
-                    embed.set_footer(text="Use !post_best to share the top deal" + (f" • {total_pages} pages total" if total_pages > 1 else ""))
+                    footer_text = "Use !post_best to share the top deal"
+                    if quality_filter:
+                        footer_text += " • !search_all_deals for all results"
+                    else:
+                        footer_text += " • !quality_deals for games only"
+                    if total_pages > 1:
+                        footer_text += f" • {total_pages} pages total"
+                    embed.set_footer(text=footer_text)
                 else:
                     embed.set_footer(text=f"Page {page_num} of {total_pages}")
                 
@@ -161,8 +200,8 @@ class Deals(commands.Cog):
     
     @commands.command(aliases=['top', 'best'])
     async def top_deals(self, ctx: commands.Context, count: int = 5, *, store: str = None):
-        """Get top deals quickly with optional store filter"""
-        await self.search_deals.invoke(ctx, min_discount=30, limit=count, store=store)
+        """Get top quality game deals quickly with optional store filter"""
+        await self._search_deals_internal(ctx, min_discount=30, limit=count, store=store, quality_filter=True)
     
     @commands.command(aliases=['stores'])
     async def list_stores(self, ctx: commands.Context):
@@ -184,37 +223,111 @@ class Deals(commands.Cog):
     
     @commands.command(aliases=['store_deals'])
     async def deals_by_store(self, ctx: commands.Context, *, store_name: str):
-        """Find deals from a specific store
+        """Find quality game deals from a specific store
         Usage: !deals_by_store Steam
         Usage: !deals_by_store Epic Game Store
         """
-        await self.search_deals.invoke(ctx, min_discount=20, limit=15, store=store_name)
+        await self._search_deals_internal(ctx, min_discount=20, limit=15, store=store_name, quality_filter=True)
     
     @commands.command()
     async def test_api(self, ctx: commands.Context):
-        """Test the ITAD API connection"""
+        """Test the ITAD API connection and quality filtering"""
         if not self.bot.itad_client:
             await ctx.send("❌ ITAD API not configured.")
             return
             
         try:
-            # Test basic API call
-            deals = await self.bot.itad_client.fetch_deals(
+            # Test API with and without quality filtering
+            await ctx.send("🔄 Testing API and quality filtering...")
+            
+            # Get all deals
+            all_deals = await self.bot.itad_client.fetch_deals(
                 min_discount=10, 
-                limit=3, 
-                log_full_response=False
+                limit=20, 
+                log_full_response=False,
+                quality_filter=False
             )
             
-            if deals:
-                msg = f"✅ API working! Found {len(deals)} deals:\n"
-                for i, deal in enumerate(deals[:3]):
-                    msg += f"{i+1}. {deal['title'][:30]} at {deal['store']} ({deal.get('discount', 'N/A')})\n"
-                await ctx.send(msg)
+            # Get quality deals only
+            quality_deals = await self.bot.itad_client.fetch_deals(
+                min_discount=10, 
+                limit=20, 
+                log_full_response=False,
+                quality_filter=True
+            )
+            
+            if all_deals or quality_deals:
+                embed = discord.Embed(
+                    title="🧪 API & Quality Filter Test Results",
+                    color=0x00ff00
+                )
+                
+                embed.add_field(
+                    name="📊 Results Summary",
+                    value=f"• All deals found: **{len(all_deals)}**\n• Quality games found: **{len(quality_deals)}**\n• Filtered out: **{len(all_deals) - len(quality_deals)}**",
+                    inline=False
+                )
+                
+                if quality_deals:
+                    sample_games = "\n".join([f"• {deal['title'][:40]}{'...' if len(deal['title']) > 40 else ''}" for deal in quality_deals[:5]])
+                    embed.add_field(
+                        name="🎮 Sample Quality Games",
+                        value=sample_games,
+                        inline=False
+                    )
+                
+                if len(all_deals) > len(quality_deals):
+                    filtered_deals = [deal for deal in all_deals if deal not in quality_deals]
+                    sample_filtered = "\n".join([f"• {deal['title'][:40]}{'...' if len(deal['title']) > 40 else ''}" for deal in filtered_deals[:3]])
+                    embed.add_field(
+                        name="🚫 Sample Filtered Items",
+                        value=sample_filtered + f"\n... and {len(filtered_deals) - 3} more" if len(filtered_deals) > 3 else sample_filtered,
+                        inline=False
+                    )
+                
+                embed.set_footer(text="✅ API working! Quality filter is active by default.")
+                await ctx.send(embed=embed)
             else:
                 await ctx.send("⚠️ API connected but no deals found")
                 
         except Exception as e:
             await ctx.send(f"❌ API test failed: {str(e)}")
+    
+    @commands.command(aliases=['filter_help'])
+    async def filtering_help(self, ctx: commands.Context):
+        """Show information about quality filtering system"""
+        embed = discord.Embed(
+            title="🎯 Quality Game Filtering Guide",
+            description="GameDealer uses smart filtering to show you actual games instead of courses and tutorials.",
+            color=0x3498DB
+        )
+        
+        embed.add_field(
+            name="🎮 Commands with Quality Filtering",
+            value="• `!search_deals` - Quality games (default)\n• `!quality_deals` - Quality games (explicit)\n• `!top_deals` - Top quality games\n• `!deals_by_store` - Quality games from store",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="📚 Commands without Filtering",
+            value="• `!search_all_deals` - All deals including courses\n• Use these to see everything if needed",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="🚫 What Gets Filtered Out",
+            value="• Programming courses & tutorials\n• Software training\n• Educational content\n• Non-game digital products\n• Low-quality/unknown stores",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="✅ What Stays In",
+            value="• Actual video games\n• Game DLCs & expansions\n• Game soundtracks\n• From quality gaming stores\n• All price ranges (no price filtering)",
+            inline=False
+        )
+        
+        embed.set_footer(text="Quality filtering helps you find amazing game deals faster!")
+        await ctx.send(embed=embed)
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Deals(bot))

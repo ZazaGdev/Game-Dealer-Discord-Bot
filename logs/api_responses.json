@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-21T06:18:22.191186",
+  "timestamp": "2025-09-23T09:14:30.180801",
   "source": "discord_command",
   "endpoint": "/deals/v2",
   "request_params": {
@@ -8,287 +8,167 @@
     "sort": "-cut",
     "nondeals": "false",
     "mature": "false",
-    "shops": "16"
+    "shops": "61"
   },
-  "store_filter": "Epic Game Store",
+  "store_filter": "Steam",
   "response": {
     "nextOffset": 10,
     "hasMore": true,
     "list": [
       {
-        "id": "018d937e-fa59-735e-aba7-44858c0c2c52",
-        "slug": "project-winter",
-        "title": "Project Winter",
+        "id": "0197eb69-717e-7258-92dc-4a48c21a4e0a",
+        "slug": "rolling-ball-hd-remaster",
+        "title": "Rolling Ball: HD Remaster",
         "type": "game",
         "mature": false,
         "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/boxart.jpg?t=1758294373",
-          "banner145": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner145.jpg?t=1758294373",
-          "banner300": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner300.jpg?t=1758294373",
-          "banner400": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner400.jpg?t=1758294373",
-          "banner600": "https://assets.isthereanydeal.com/018d937e-fa59-735e-aba7-44858c0c2c52/banner600.jpg?t=1758294374"
+          "boxart": "https://assets.isthereanydeal.com/0197eb69-717e-7258-92dc-4a48c21a4e0a/boxart.jpg?t=1754847311",
+          "banner145": "https://assets.isthereanydeal.com/0197eb69-717e-7258-92dc-4a48c21a4e0a/banner145.jpg?t=1754847311",
+          "banner300": "https://assets.isthereanydeal.com/0197eb69-717e-7258-92dc-4a48c21a4e0a/banner300.jpg?t=1754847311",
+          "banner400": "https://assets.isthereanydeal.com/0197eb69-717e-7258-92dc-4a48c21a4e0a/banner400.jpg?t=1754847311",
+          "banner600": "https://assets.isthereanydeal.com/0197eb69-717e-7258-92dc-4a48c21a4e0a/banner600.jpg?t=1754847312"
         },
         "deal": {
           "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
+            "id": 61,
+            "name": "Steam"
           },
           "price": {
-            "amount": 0,
-            "amountInt": 0,
+            "amount": 2.99,
+            "amountInt": 299,
             "currency": "USD"
           },
           "regular": {
-            "amount": 9.99,
-            "amountInt": 999,
-            "currency": "USD"
-          },
-          "cut": 100,
-          "voucher": null,
-          "storeLow": null,
-          "historyLow": {
-            "amount": 1.99,
-            "amountInt": 199,
-            "currency": "USD"
-          },
-          "historyLow_1y": {
-            "amount": 1.99,
-            "amountInt": 199,
-            "currency": "USD"
-          },
-          "historyLow_3m": {
-            "amount": 1.99,
-            "amountInt": 199,
-            "currency": "USD"
-          },
-          "flag": "H",
-          "drm": [
-            {
-              "id": 16,
-              "name": "Epic"
-            }
-          ],
-          "platforms": [],
-          "timestamp": "2025-09-18T17:32:19+02:00",
-          "expiry": "2025-09-25T17:00:00+02:00",
-          "url": "https://itad.link/019934db-f7e5-70d3-b283-dc75274f1c63/"
-        }
-      },
-      {
-        "id": "018d937e-f9ba-71d2-997f-2fdc6f3793a0",
-        "slug": "samorost-2",
-        "title": "Samorost 2",
-        "type": "game",
-        "mature": false,
-        "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/boxart.jpg?t=1757929813",
-          "banner145": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner145.jpg?t=1757929814",
-          "banner300": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner300.jpg?t=1757929814",
-          "banner400": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner400.jpg?t=1757929814",
-          "banner600": "https://assets.isthereanydeal.com/018d937e-f9ba-71d2-997f-2fdc6f3793a0/banner600.jpg?t=1757929815"
-        },
-        "deal": {
-          "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
-          },
-          "price": {
-            "amount": 0,
-            "amountInt": 0,
-            "currency": "USD"
-          },
-          "regular": {
-            "amount": 4.99,
-            "amountInt": 499,
-            "currency": "USD"
-          },
-          "cut": 100,
-          "voucher": null,
-          "storeLow": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "historyLow": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "historyLow_1y": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "historyLow_3m": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "flag": "H",
-          "drm": [
-            {
-              "id": 16,
-              "name": "Epic"
-            }
-          ],
-          "platforms": [],
-          "timestamp": "2025-09-18T17:32:58+02:00",
-          "expiry": "2025-09-25T17:00:00+02:00",
-          "url": "https://itad.link/018d959c-5c4b-7391-94a9-996f19f473a0/"
-        }
-      },
-      {
-        "id": "018d937f-6107-7374-9b4c-f6343e5fd667",
-        "slug": "hell-division",
-        "title": "Hell Division",
-        "type": "game",
-        "mature": false,
-        "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937f-6107-7374-9b4c-f6343e5fd667/boxart.jpg?t=1755955213",
-          "banner145": "https://assets.isthereanydeal.com/018d937f-6107-7374-9b4c-f6343e5fd667/banner145.jpg?t=1755955213",
-          "banner300": "https://assets.isthereanydeal.com/018d937f-6107-7374-9b4c-f6343e5fd667/banner300.jpg?t=1755955213",
-          "banner400": "https://assets.isthereanydeal.com/018d937f-6107-7374-9b4c-f6343e5fd667/banner400.jpg?t=1755955214",
-          "banner600": "https://assets.isthereanydeal.com/018d937f-6107-7374-9b4c-f6343e5fd667/banner600.jpg?t=1755955214"
-        },
-        "deal": {
-          "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
-          },
-          "price": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "regular": {
-            "amount": 19.99,
-            "amountInt": 1999,
+            "amount": 59.99,
+            "amountInt": 5999,
             "currency": "USD"
           },
           "cut": 95,
           "voucher": null,
           "storeLow": {
-            "amount": 0.83,
-            "amountInt": 83,
+            "amount": 2.99,
+            "amountInt": 299,
             "currency": "USD"
           },
           "historyLow": {
-            "amount": 0.29,
-            "amountInt": 29,
+            "amount": 2.99,
+            "amountInt": 299,
             "currency": "USD"
           },
           "historyLow_1y": {
-            "amount": 0.29,
-            "amountInt": 29,
+            "amount": 2.99,
+            "amountInt": 299,
             "currency": "USD"
           },
           "historyLow_3m": {
-            "amount": 0.39,
-            "amountInt": 39,
+            "amount": 2.99,
+            "amountInt": 299,
+            "currency": "USD"
+          },
+          "flag": "N",
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-22T19:21:02+02:00",
+          "expiry": "2025-09-29T19:00:00+02:00",
+          "url": "https://itad.link/0198476b-8986-711f-a850-a95fbfc38d03/"
+        }
+      },
+      {
+        "id": "01980cc7-127e-71d3-bedf-18d0520e2236",
+        "slug": "livingbattle-scar-h",
+        "title": "LivingBattle SCAR-H",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01980cc7-127e-71d3-bedf-18d0520e2236/banner145.jpg?t=1752561302",
+          "banner300": "https://assets.isthereanydeal.com/01980cc7-127e-71d3-bedf-18d0520e2236/banner300.jpg?t=1752561302",
+          "banner400": "https://assets.isthereanydeal.com/01980cc7-127e-71d3-bedf-18d0520e2236/banner400.jpg?t=1752561302",
+          "banner600": "https://assets.isthereanydeal.com/01980cc7-127e-71d3-bedf-18d0520e2236/banner600.jpg?t=1752561303"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
             "currency": "USD"
           },
           "flag": null,
-          "drm": [
+          "drm": [],
+          "platforms": [
             {
-              "id": 16,
-              "name": "Epic"
+              "id": 1,
+              "name": "Windows"
             }
           ],
-          "platforms": [],
-          "timestamp": "2025-09-12T12:07:50+02:00",
-          "expiry": "2025-10-12T11:00:00+02:00",
-          "url": "https://itad.link/0191d6a9-2950-70b0-87c2-218695919ea3/"
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01980cc7-14f6-71fa-a8d3-c29f4092cb95/"
         }
       },
       {
-        "id": "0191699d-e1b2-729b-838c-c62bef254188",
-        "slug": "shadow-of-the-matrix",
-        "title": "Shadow of the matrix",
-        "type": "game",
+        "id": "0197f65d-0adf-70eb-9b70-c81211040ece",
+        "slug": "livingbattle-motorcycle-rider",
+        "title": "LivingBattle Motorcycle Rider",
+        "type": "dlc",
         "mature": false,
         "assets": {
-          "boxart": "https://assets.isthereanydeal.com/0191699d-e1b2-729b-838c-c62bef254188/boxart.jpg?t=1751486109",
-          "banner145": "https://assets.isthereanydeal.com/0191699d-e1b2-729b-838c-c62bef254188/banner145.jpg?t=1751486110",
-          "banner300": "https://assets.isthereanydeal.com/0191699d-e1b2-729b-838c-c62bef254188/banner300.jpg?t=1751486110",
-          "banner400": "https://assets.isthereanydeal.com/0191699d-e1b2-729b-838c-c62bef254188/banner400.jpg?t=1751486110",
-          "banner600": "https://assets.isthereanydeal.com/0191699d-e1b2-729b-838c-c62bef254188/banner600.jpg?t=1751486110"
+          "banner145": "https://assets.isthereanydeal.com/0197f65d-0adf-70eb-9b70-c81211040ece/banner145.jpg?t=1752185400",
+          "banner300": "https://assets.isthereanydeal.com/0197f65d-0adf-70eb-9b70-c81211040ece/banner300.jpg?t=1752185400",
+          "banner400": "https://assets.isthereanydeal.com/0197f65d-0adf-70eb-9b70-c81211040ece/banner400.jpg?t=1752185400",
+          "banner600": "https://assets.isthereanydeal.com/0197f65d-0adf-70eb-9b70-c81211040ece/banner600.jpg?t=1752185401"
         },
         "deal": {
           "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
+            "id": 61,
+            "name": "Steam"
           },
           "price": {
-            "amount": 0.99,
-            "amountInt": 99,
+            "amount": 0.79,
+            "amountInt": 79,
             "currency": "USD"
           },
           "regular": {
-            "amount": 19.99,
-            "amountInt": 1999,
-            "currency": "USD"
-          },
-          "cut": 95,
-          "voucher": null,
-          "storeLow": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "historyLow": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "historyLow_1y": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "historyLow_3m": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "flag": "H",
-          "drm": [
-            {
-              "id": 16,
-              "name": "Epic"
-            }
-          ],
-          "platforms": [],
-          "timestamp": "2025-09-04T11:33:21+02:00",
-          "expiry": "2025-10-04T11:00:00+02:00",
-          "url": "https://itad.link/0191699d-e1a4-71f3-814f-6745a2524365/"
-        }
-      },
-      {
-        "id": "019136c3-0a69-7033-a88e-f53b54fab235",
-        "slug": "space-accident-complete-edition",
-        "title": "Space Accident: Complete Edition",
-        "type": "game",
-        "mature": false,
-        "assets": {
-          "boxart": "https://assets.isthereanydeal.com/019136c3-0a69-7033-a88e-f53b54fab235/boxart.png?t=1723458906",
-          "banner145": "https://assets.isthereanydeal.com/019136c3-0a69-7033-a88e-f53b54fab235/banner145.png?t=1723458907",
-          "banner300": "https://assets.isthereanydeal.com/019136c3-0a69-7033-a88e-f53b54fab235/banner300.png?t=1723458907",
-          "banner400": "https://assets.isthereanydeal.com/019136c3-0a69-7033-a88e-f53b54fab235/banner400.png?t=1723458907",
-          "banner600": "https://assets.isthereanydeal.com/019136c3-0a69-7033-a88e-f53b54fab235/banner600.png?t=1723458907"
-        },
-        "deal": {
-          "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
-          },
-          "price": {
-            "amount": 0.59,
-            "amountInt": 59,
-            "currency": "USD"
-          },
-          "regular": {
-            "amount": 11.99,
-            "amountInt": 1199,
+            "amount": 15.99,
+            "amountInt": 1599,
             "currency": "USD"
           },
           "cut": 95,
@@ -311,290 +191,100 @@
           "historyLow_3m": {
             "amount": 0.59,
             "amountInt": 59,
-            "currency": "USD"
-          },
-          "flag": "H",
-          "drm": [
-            {
-              "id": 16,
-              "name": "Epic"
-            }
-          ],
-          "platforms": [],
-          "timestamp": "2025-09-12T12:07:50+02:00",
-          "expiry": "2025-10-12T11:00:00+02:00",
-          "url": "https://itad.link/019136c3-09e5-72fb-a6fe-4f912eb155af/"
-        }
-      },
-      {
-        "id": "018d937f-58d8-71e8-a395-ad970c8426eb",
-        "slug": "inquisitors-heart-and-soul",
-        "title": "Inquisitor's Heart and Soul",
-        "type": "game",
-        "mature": false,
-        "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937f-58d8-71e8-a395-ad970c8426eb/boxart.jpg?t=1747162502",
-          "banner145": "https://assets.isthereanydeal.com/018d937f-58d8-71e8-a395-ad970c8426eb/banner145.jpg?t=1747162503",
-          "banner300": "https://assets.isthereanydeal.com/018d937f-58d8-71e8-a395-ad970c8426eb/banner300.jpg?t=1747162503",
-          "banner400": "https://assets.isthereanydeal.com/018d937f-58d8-71e8-a395-ad970c8426eb/banner400.jpg?t=1747162503",
-          "banner600": "https://assets.isthereanydeal.com/018d937f-58d8-71e8-a395-ad970c8426eb/banner600.jpg?t=1747162503"
-        },
-        "deal": {
-          "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
-          },
-          "price": {
-            "amount": 0.99,
-            "amountInt": 99,
-            "currency": "USD"
-          },
-          "regular": {
-            "amount": 19.99,
-            "amountInt": 1999,
-            "currency": "USD"
-          },
-          "cut": 95,
-          "voucher": null,
-          "storeLow": {
-            "amount": 0.69,
-            "amountInt": 69,
-            "currency": "USD"
-          },
-          "historyLow": {
-            "amount": 0.31,
-            "amountInt": 31,
-            "currency": "USD"
-          },
-          "historyLow_1y": {
-            "amount": 0.31,
-            "amountInt": 31,
-            "currency": "USD"
-          },
-          "historyLow_3m": {
-            "amount": 0.39,
-            "amountInt": 39,
             "currency": "USD"
           },
           "flag": null,
-          "drm": [
+          "drm": [],
+          "platforms": [
             {
-              "id": 16,
-              "name": "Epic"
+              "id": 1,
+              "name": "Windows"
             }
           ],
-          "platforms": [],
-          "timestamp": "2025-09-12T12:07:52+02:00",
-          "expiry": "2025-10-12T11:00:00+02:00",
-          "url": "https://itad.link/01912907-3d00-7298-af07-d7b9bc13f323/"
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/0197f65d-1002-7322-a5f3-7e1a01dff8ed/"
         }
       },
       {
-        "id": "018d937f-4986-73a6-b6d8-6a34447db84e",
-        "slug": "cyberpunk-sfx",
-        "title": "Cyberpunk SFX",
-        "type": "game",
+        "id": "01979063-2241-7361-aaf6-9809f5fb26f0",
+        "slug": "livingbattle-simple-city",
+        "title": "LivingBattle Simple City",
+        "type": "dlc",
         "mature": false,
         "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937f-4986-73a6-b6d8-6a34447db84e/boxart.jpg?t=1756641020",
-          "banner145": "https://assets.isthereanydeal.com/018d937f-4986-73a6-b6d8-6a34447db84e/banner145.jpg?t=1756641020",
-          "banner300": "https://assets.isthereanydeal.com/018d937f-4986-73a6-b6d8-6a34447db84e/banner300.jpg?t=1756641020",
-          "banner400": "https://assets.isthereanydeal.com/018d937f-4986-73a6-b6d8-6a34447db84e/banner400.jpg?t=1756641020",
-          "banner600": "https://assets.isthereanydeal.com/018d937f-4986-73a6-b6d8-6a34447db84e/banner600.jpg?t=1756641021"
+          "banner145": "https://assets.isthereanydeal.com/01979063-2241-7361-aaf6-9809f5fb26f0/banner145.jpg?t=1750474506",
+          "banner300": "https://assets.isthereanydeal.com/01979063-2241-7361-aaf6-9809f5fb26f0/banner300.jpg?t=1750474506",
+          "banner400": "https://assets.isthereanydeal.com/01979063-2241-7361-aaf6-9809f5fb26f0/banner400.jpg?t=1750474506",
+          "banner600": "https://assets.isthereanydeal.com/01979063-2241-7361-aaf6-9809f5fb26f0/banner600.jpg?t=1750474506"
         },
         "deal": {
           "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
+            "id": 61,
+            "name": "Steam"
           },
           "price": {
-            "amount": 0.99,
-            "amountInt": 99,
+            "amount": 0.79,
+            "amountInt": 79,
             "currency": "USD"
           },
           "regular": {
-            "amount": 19.99,
-            "amountInt": 1999,
+            "amount": 15.99,
+            "amountInt": 1599,
             "currency": "USD"
           },
           "cut": 95,
           "voucher": null,
           "storeLow": {
-            "amount": 0.89,
-            "amountInt": 89,
+            "amount": 0.59,
+            "amountInt": 59,
             "currency": "USD"
           },
           "historyLow": {
-            "amount": 0.38,
-            "amountInt": 38,
+            "amount": 0.59,
+            "amountInt": 59,
             "currency": "USD"
           },
           "historyLow_1y": {
-            "amount": 0.38,
-            "amountInt": 38,
+            "amount": 0.59,
+            "amountInt": 59,
             "currency": "USD"
           },
           "historyLow_3m": {
-            "amount": 0.38,
-            "amountInt": 38,
+            "amount": 0.59,
+            "amountInt": 59,
             "currency": "USD"
           },
           "flag": null,
-          "drm": [
+          "drm": [],
+          "platforms": [
             {
-              "id": 16,
-              "name": "Epic"
+              "id": 1,
+              "name": "Windows"
             }
           ],
-          "platforms": [],
-          "timestamp": "2025-09-13T11:20:30+02:00",
-          "expiry": "2025-09-28T11:00:00+02:00",
-          "url": "https://itad.link/018fc00b-2f50-7010-b762-5468726d5e0e/"
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01979065-ccb0-73f4-89b2-82aba28c4d0a/"
         }
       },
       {
-        "id": "018d937f-4817-71ee-8dac-d0e09a65f403",
-        "slug": "dofamine",
-        "title": "Dofamine",
+        "id": "0195f0f7-1db9-728b-b5fb-951168408462",
+        "slug": "bebshoru-lodbuka",
+        "title": "Bebshoru Lodbuka",
         "type": "game",
         "mature": false,
         "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937f-4817-71ee-8dac-d0e09a65f403/boxart.jpg?t=1746257706",
-          "banner145": "https://assets.isthereanydeal.com/018d937f-4817-71ee-8dac-d0e09a65f403/banner145.jpg?t=1746257706",
-          "banner300": "https://assets.isthereanydeal.com/018d937f-4817-71ee-8dac-d0e09a65f403/banner300.jpg?t=1746257706",
-          "banner400": "https://assets.isthereanydeal.com/018d937f-4817-71ee-8dac-d0e09a65f403/banner400.jpg?t=1746257706",
-          "banner600": "https://assets.isthereanydeal.com/018d937f-4817-71ee-8dac-d0e09a65f403/banner600.jpg?t=1746257707"
+          "boxart": "https://assets.isthereanydeal.com/0195f0f7-1db9-728b-b5fb-951168408462/boxart.jpg?t=1754143211",
+          "banner145": "https://assets.isthereanydeal.com/0195f0f7-1db9-728b-b5fb-951168408462/banner145.jpg?t=1754143212",
+          "banner300": "https://assets.isthereanydeal.com/0195f0f7-1db9-728b-b5fb-951168408462/banner300.jpg?t=1754143212",
+          "banner400": "https://assets.isthereanydeal.com/0195f0f7-1db9-728b-b5fb-951168408462/banner400.jpg?t=1754143212",
+          "banner600": "https://assets.isthereanydeal.com/0195f0f7-1db9-728b-b5fb-951168408462/banner600.jpg?t=1754143213"
         },
         "deal": {
           "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
-          },
-          "price": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "regular": {
-            "amount": 14.99,
-            "amountInt": 1499,
-            "currency": "USD"
-          },
-          "cut": 95,
-          "voucher": null,
-          "storeLow": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "historyLow": {
-            "amount": 0.38,
-            "amountInt": 38,
-            "currency": "USD"
-          },
-          "historyLow_1y": {
-            "amount": 0.38,
-            "amountInt": 38,
-            "currency": "USD"
-          },
-          "historyLow_3m": {
-            "amount": 0.38,
-            "amountInt": 38,
-            "currency": "USD"
-          },
-          "flag": "S",
-          "drm": [
-            {
-              "id": 16,
-              "name": "Epic"
-            }
-          ],
-          "platforms": [],
-          "timestamp": "2025-09-04T11:33:25+02:00",
-          "expiry": "2025-10-04T11:00:00+02:00",
-          "url": "https://itad.link/018f6750-734b-7155-8825-2e697712b2ca/"
-        }
-      },
-      {
-        "id": "018d937f-4052-73ad-903f-e5857a783841",
-        "slug": "euphoria-supreme-mechanics",
-        "title": "Euphoria: Supreme Mechanics",
-        "type": "game",
-        "mature": false,
-        "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937f-4052-73ad-903f-e5857a783841/boxart.jpg?t=1747326324",
-          "banner145": "https://assets.isthereanydeal.com/018d937f-4052-73ad-903f-e5857a783841/banner145.jpg?t=1747326324",
-          "banner300": "https://assets.isthereanydeal.com/018d937f-4052-73ad-903f-e5857a783841/banner300.jpg?t=1747326324",
-          "banner400": "https://assets.isthereanydeal.com/018d937f-4052-73ad-903f-e5857a783841/banner400.jpg?t=1747326324",
-          "banner600": "https://assets.isthereanydeal.com/018d937f-4052-73ad-903f-e5857a783841/banner600.jpg?t=1747326325"
-        },
-        "deal": {
-          "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
-          },
-          "price": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "regular": {
-            "amount": 14.99,
-            "amountInt": 1499,
-            "currency": "USD"
-          },
-          "cut": 95,
-          "voucher": null,
-          "storeLow": {
-            "amount": 0.74,
-            "amountInt": 74,
-            "currency": "USD"
-          },
-          "historyLow": {
-            "amount": 0.39,
-            "amountInt": 39,
-            "currency": "USD"
-          },
-          "historyLow_1y": {
-            "amount": 0.39,
-            "amountInt": 39,
-            "currency": "USD"
-          },
-          "historyLow_3m": {
-            "amount": 0.39,
-            "amountInt": 39,
-            "currency": "USD"
-          },
-          "flag": "S",
-          "drm": [
-            {
-              "id": 16,
-              "name": "Epic"
-            }
-          ],
-          "platforms": [],
-          "timestamp": "2025-09-04T11:33:25+02:00",
-          "expiry": "2025-10-04T11:00:00+02:00",
-          "url": "https://itad.link/018f5781-558c-7290-8a79-1a5cfb874279/"
-        }
-      },
-      {
-        "id": "018d937f-4698-7181-a654-384850b72aba",
-        "slug": "cybernetic-fault",
-        "title": "Cybernetic Fault",
-        "type": "game",
-        "mature": false,
-        "assets": {
-          "boxart": "https://assets.isthereanydeal.com/018d937f-4698-7181-a654-384850b72aba/boxart.jpg?t=1747146300",
-          "banner145": "https://assets.isthereanydeal.com/018d937f-4698-7181-a654-384850b72aba/banner145.jpg?t=1747146301",
-          "banner300": "https://assets.isthereanydeal.com/018d937f-4698-7181-a654-384850b72aba/banner300.jpg?t=1747146301",
-          "banner400": "https://assets.isthereanydeal.com/018d937f-4698-7181-a654-384850b72aba/banner400.jpg?t=1747146301",
-          "banner600": "https://assets.isthereanydeal.com/018d937f-4698-7181-a654-384850b72aba/banner600.jpg?t=1747146302"
-        },
-        "deal": {
-          "shop": {
-            "id": 16,
-            "name": "Epic Game Store"
+            "id": 61,
+            "name": "Steam"
           },
           "price": {
             "amount": 0.99,
@@ -614,31 +304,341 @@
             "currency": "USD"
           },
           "historyLow": {
-            "amount": 0.38,
-            "amountInt": 38,
+            "amount": 0.99,
+            "amountInt": 99,
             "currency": "USD"
           },
           "historyLow_1y": {
-            "amount": 0.38,
-            "amountInt": 38,
+            "amount": 0.99,
+            "amountInt": 99,
             "currency": "USD"
           },
           "historyLow_3m": {
-            "amount": 0.38,
-            "amountInt": 38,
+            "amount": 0.99,
+            "amountInt": 99,
             "currency": "USD"
           },
-          "flag": "S",
-          "drm": [
+          "flag": "N",
+          "drm": [],
+          "platforms": [
             {
-              "id": 16,
-              "name": "Epic"
+              "id": 1,
+              "name": "Windows"
             }
           ],
-          "platforms": [],
-          "timestamp": "2025-09-12T12:07:57+02:00",
-          "expiry": "2025-10-12T11:00:00+02:00",
-          "url": "https://itad.link/018f5781-558b-73f0-9e39-3591bf9522f2/"
+          "timestamp": "2025-09-22T19:21:14+02:00",
+          "expiry": "2025-10-06T19:00:00+02:00",
+          "url": "https://itad.link/01978aa4-515b-736e-b5c1-14335b0791a7/"
+        }
+      },
+      {
+        "id": "01976d9f-afde-711e-ac1a-238817d369ab",
+        "slug": "livingbattle-chair",
+        "title": "LivingBattle Chair",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01976d9f-afde-711e-ac1a-238817d369ab/banner145.jpg?t=1749891301",
+          "banner300": "https://assets.isthereanydeal.com/01976d9f-afde-711e-ac1a-238817d369ab/banner300.jpg?t=1749891301",
+          "banner400": "https://assets.isthereanydeal.com/01976d9f-afde-711e-ac1a-238817d369ab/banner400.jpg?t=1749891301",
+          "banner600": "https://assets.isthereanydeal.com/01976d9f-afde-711e-ac1a-238817d369ab/banner600.jpg?t=1749891302"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01976da0-fa8e-72a1-8b9b-83982ac124df/"
+        }
+      },
+      {
+        "id": "019766a7-0530-7202-a985-d4e6ec0b0009",
+        "slug": "livingbattle-blue-mid-size-car",
+        "title": "LivingBattle Blue Mid Size Car",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/019766a7-0530-7202-a985-d4e6ec0b0009/banner145.jpg?t=1749774605",
+          "banner300": "https://assets.isthereanydeal.com/019766a7-0530-7202-a985-d4e6ec0b0009/banner300.jpg?t=1749774605",
+          "banner400": "https://assets.isthereanydeal.com/019766a7-0530-7202-a985-d4e6ec0b0009/banner400.jpg?t=1749774605",
+          "banner600": "https://assets.isthereanydeal.com/019766a7-0530-7202-a985-d4e6ec0b0009/banner600.jpg?t=1749774606"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/019766a8-3b39-73d3-9952-2e84d80263eb/"
+        }
+      },
+      {
+        "id": "01975c15-3323-73dd-86c9-97e098f8681f",
+        "slug": "livingbattle-normal-ak47",
+        "title": "LivingBattle Normal AK47",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01975c15-3323-73dd-86c9-97e098f8681f/banner145.jpg?t=1749597012",
+          "banner300": "https://assets.isthereanydeal.com/01975c15-3323-73dd-86c9-97e098f8681f/banner300.jpg?t=1749597012",
+          "banner400": "https://assets.isthereanydeal.com/01975c15-3323-73dd-86c9-97e098f8681f/banner400.jpg?t=1749597013",
+          "banner600": "https://assets.isthereanydeal.com/01975c15-3323-73dd-86c9-97e098f8681f/banner600.jpg?t=1749597013"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01975c15-3766-7049-8463-62954fe3e92a/"
+        }
+      },
+      {
+        "id": "01973d21-109b-7147-8f3d-235a2bfa55b4",
+        "slug": "livingbattle-wandering-backpacker",
+        "title": "LivingBattle Wandering Backpacker",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01973d21-109b-7147-8f3d-235a2bfa55b4/banner145.jpg?t=1749077705",
+          "banner300": "https://assets.isthereanydeal.com/01973d21-109b-7147-8f3d-235a2bfa55b4/banner300.jpg?t=1749077705",
+          "banner400": "https://assets.isthereanydeal.com/01973d21-109b-7147-8f3d-235a2bfa55b4/banner400.jpg?t=1749077705",
+          "banner600": "https://assets.isthereanydeal.com/01973d21-109b-7147-8f3d-235a2bfa55b4/banner600.jpg?t=1749077706"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/01973d22-644b-7270-9b66-6bfad9189814/"
+        }
+      },
+      {
+        "id": "0197341c-1389-7094-8aa8-a7530e898151",
+        "slug": "livingbattle-modern-city",
+        "title": "LivingBattle Modern City",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/0197341c-1389-7094-8aa8-a7530e898151/banner145.jpg?t=1748926204",
+          "banner300": "https://assets.isthereanydeal.com/0197341c-1389-7094-8aa8-a7530e898151/banner300.jpg?t=1748926204",
+          "banner400": "https://assets.isthereanydeal.com/0197341c-1389-7094-8aa8-a7530e898151/banner400.jpg?t=1748926204",
+          "banner600": "https://assets.isthereanydeal.com/0197341c-1389-7094-8aa8-a7530e898151/banner600.jpg?t=1748926205"
+        },
+        "deal": {
+          "shop": {
+            "id": 61,
+            "name": "Steam"
+          },
+          "price": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 15.99,
+            "amountInt": 1599,
+            "currency": "USD"
+          },
+          "cut": 95,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.59,
+            "amountInt": 59,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.79,
+            "amountInt": 79,
+            "currency": "USD"
+          },
+          "flag": null,
+          "drm": [],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            }
+          ],
+          "timestamp": "2025-09-11T19:18:33+02:00",
+          "expiry": "2025-09-25T19:00:00+02:00",
+          "url": "https://itad.link/0197341d-61ab-7053-8f4c-4e6d498f5524/"
         }
       }
     ]
