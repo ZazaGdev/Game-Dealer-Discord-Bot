@@ -156,13 +156,26 @@ GameDealer/
 
 - `/search_deals [amount]`: Best deals from prioritized stores
 - `/search_store [store] [amount]`: Store-specific deal search
+- `/priority_search [amount] [min_priority] [min_discount]`: **NEW** - Strict priority-only search
 
 **Advanced Features:**
 
+- **Strict Priority Filtering**: Only returns games that match the curated priority database
+- **Priority-Based Sorting**: When discount >50%, priority takes precedence over discount amount
 - **Pagination System**: Splits large results into 10-deal pages
-- **Smart Fetching**: Gets 5x requested amount to account for filtering
-- **Store Prioritization**: Prefers Steam/Epic/GOG, fills with quality alternatives
-- **Priority Filtering**: Uses curated database to show only quality games
+- **Smart Fetching**: Gets 10-15x requested amount to account for strict priority filtering
+- **Store Prioritization**: Prefers Steam/Epic/GOG, filters to priority games only
+- **Quality Assurance**: Uses curated database to guarantee all results are quality games
+
+### Priority-Based Sorting Logic
+
+**NEW FEATURE**: Smart sorting that balances priority scores with discount percentages:
+
+- **High Discount Deals (>50%)**: Sorted by priority first, then discount
+  - Example: Priority 9 game with 60% discount ranks higher than Priority 7 game with 80% discount
+- **Low Discount Deals (≤50%)**: Sorted by discount first, then priority
+  - Traditional discount-focused sorting for moderate deals
+- **Ensures Quality**: Higher priority games are favored when both deals offer substantial savings
 
 **Key Commands:**
 

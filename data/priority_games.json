@@ -1,32 +1,4 @@
-{
-    "_instructions": {
-        "description": "Priority Games Database for GameDealer Quality Filtering",
-        "how_to_use": [
-            "Add games with their exact titles as they appear on ITAD API",
-            "Set priority scores: 10 (must-have AAA), 8-9 (excellent), 6-7 (good), 4-5 (decent), 1-3 (niche)",
-            "Include popular games, highly-rated titles, and community favorites",
-            "Use exact or partial titles that would match ITAD results",
-            "Higher priority games appear first in results"
-        ],
-        "title_matching": [
-            "Titles are matched using case-insensitive partial matching",
-            "Example: 'Cyberpunk' matches 'Cyberpunk 2077' and 'Cyberpunk 2077: Phantom Liberty'",
-            "Use core game names without subtitles for broader matching",
-            "Include both full titles and shortened versions for better coverage"
-        ],
-        "priority_scale": {
-            "10": "Must-have AAA titles, Game of the Year winners",
-            "9": "Exceptional games, highly acclaimed",
-            "8": "Great games, very popular",
-            "7": "Good games, well-regarded",
-            "6": "Solid games, worth playing",
-            "5": "Decent games, niche appeal",
-            "4": "OK games, specific audiences",
-            "3": "Mediocre but playable",
-            "2": "Below average",
-            "1": "Poor quality but might have deals"
-        }
-    },
+﻿{
     "games": [
         {
             "title": "Baldur's Gate 3",
@@ -777,6 +749,6379 @@
             "priority": 8,
             "category": "Action-Adventure",
             "notes": "Use exact ITAD listing when live"
+        },
+        {
+            "title": "Assassin's Creed IV: Black Flag",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Pirate-era AC, fan-favorite"
+        },
+        {
+            "title": "Assassin's Creed Origins",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Series soft-reboot in Egypt"
+        },
+        {
+            "title": "Assassin's Creed Odyssey",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Massive Greek open world"
+        },
+        {
+            "title": "Assassin's Creed Valhalla",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Viking saga, long campaign"
+        },
+        {
+            "title": "Assassin's Creed Mirage",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Back-to-roots stealth focus"
+        },
+        {
+            "title": "Assassin's Creed Unity",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Paris setting; improved post-patches"
+        },
+        {
+            "title": "Assassin's Creed Syndicate",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Victorian London duo protagonists"
+        },
+        {
+            "title": "Assassin's Creed Rogue Remastered",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Templar perspective entry"
+        },
+        {
+            "title": "Far Cry 3",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Iconic villain, tropical sandbox"
+        },
+        {
+            "title": "Far Cry 4",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Himalayan setting, co-op"
+        },
+        {
+            "title": "Far Cry 5",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Montana cult storyline"
+        },
+        {
+            "title": "Far Cry 6",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Yara revolution theme"
+        },
+        {
+            "title": "Far Cry Primal",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Stone age spin-off"
+        },
+        {
+            "title": "Watch Dogs",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Hacking-focused open world"
+        },
+        {
+            "title": "Watch Dogs 2",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Refined, bright San Francisco"
+        },
+        {
+            "title": "Watch Dogs: Legion",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Recruit-anyone gimmick"
+        },
+        {
+            "title": "Tom Clancy's Rainbow Six Siege",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Tactical PvP; paid base game"
+        },
+        {
+            "title": "Tom Clancy's Ghost Recon Wildlands",
+            "priority": 7,
+            "category": "Tactical Shooter",
+            "notes": "Co-op open-world ops"
+        },
+        {
+            "title": "Tom Clancy's Ghost Recon Breakpoint",
+            "priority": 6,
+            "category": "Tactical Shooter",
+            "notes": "Survival twist on formula"
+        },
+        {
+            "title": "Tom Clancy's The Division",
+            "priority": 7,
+            "category": "Looter Shooter",
+            "notes": "NYC outbreak setting"
+        },
+        {
+            "title": "Tom Clancy's The Division 2",
+            "priority": 8,
+            "category": "Looter Shooter",
+            "notes": "Washington D.C., strong endgame"
+        },
+        {
+            "title": "HITMAN World of Assassination",
+            "priority": 9,
+            "category": "Stealth",
+            "notes": "Unified modern Hitman package"
+        },
+        {
+            "title": "HITMAN 2",
+            "priority": 8,
+            "category": "Stealth",
+            "notes": "Excellent sandbox assassination"
+        },
+        {
+            "title": "HITMAN (2016)",
+            "priority": 7,
+            "category": "Stealth",
+            "notes": "Episodic reboot, foundational levels"
+        },
+        {
+            "title": "Sniper Elite 5",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Invasion mode, x-ray kills"
+        },
+        {
+            "title": "Sniper Elite 4",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Open-ended sniping maps"
+        },
+        {
+            "title": "Dishonored",
+            "priority": 9,
+            "category": "Immersive Sim",
+            "notes": "Stealth powers, Arkane classic"
+        },
+        {
+            "title": "Thief (2014)",
+            "priority": 5,
+            "category": "Stealth",
+            "notes": "Reboot with mixed reception"
+        },
+        {
+            "title": "Deus Ex: Mankind Divided",
+            "priority": 7,
+            "category": "Immersive Sim",
+            "notes": "Cyberpunk stealth-action"
+        },
+        {
+            "title": "Deus Ex: Human Revolution - Director's Cut",
+            "priority": 8,
+            "category": "Immersive Sim",
+            "notes": "Beloved prequel, DC preferred"
+        },
+        {
+            "title": "Mafia: Definitive Edition",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Full remake of Mafia 1"
+        },
+        {
+            "title": "Mafia II: Definitive Edition",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Remastered mob tale"
+        },
+        {
+            "title": "Mafia III: Definitive Edition",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Story strengths, repetitive loops"
+        },
+        {
+            "title": "L.A. Noire",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Facial capture, detective cases"
+        },
+        {
+            "title": "Max Payne 3",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Cinematic gunplay"
+        },
+        {
+            "title": "Sleeping Dogs: Definitive Edition",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Martial-arts open world"
+        },
+        {
+            "title": "Yakuza 6: The Song of Life",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Kiryu’s saga finale"
+        },
+        {
+            "title": "Like a Dragon Gaiden: The Man Who Erased His Name",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Bridges 6 and Infinite Wealth"
+        },
+        {
+            "title": "Dragon's Dogma: Dark Arisen",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Pawn system, cult classic"
+        },
+        {
+            "title": "Dragon's Dogma 2",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Modern sequel, systems depth"
+        },
+        {
+            "title": "DRAGON QUEST XI S: Echoes of an Elusive Age",
+            "priority": 9,
+            "category": "JRPG",
+            "notes": "Definitive version recommended"
+        },
+        {
+            "title": "Persona 4 Golden",
+            "priority": 9,
+            "category": "JRPG",
+            "notes": "All-time great Persona entry"
+        },
+        {
+            "title": "Persona 3 Reload",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Modernized classic"
+        },
+        {
+            "title": "KINGDOM HEARTS III",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Disney/Square crossover"
+        },
+        {
+            "title": "KINGDOM HEARTS HD 1.5 + 2.5 ReMIX",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Core collection"
+        },
+        {
+            "title": "KINGDOM HEARTS HD 2.8 Final Chapter Prologue",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Bridge content to KH3"
+        },
+        {
+            "title": "Tales of Berseria",
+            "priority": 7,
+            "category": "JRPG",
+            "notes": "Character-driven entry"
+        },
+        {
+            "title": "Tales of Zestiria",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Earlier Tales, more niche"
+        },
+        {
+            "title": "NieR Replicant ver.1.22474487139...",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Reimagined prequel to Automata"
+        },
+        {
+            "title": "Scarlet Nexus",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Brainpunk aesthetic"
+        },
+        {
+            "title": "Code Vein",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Anime Soulslike"
+        },
+        {
+            "title": "DRAGON BALL Z: KAKAROT",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Story-focused DBZ adventure"
+        },
+        {
+            "title": "Age of Empires II: Definitive Edition",
+            "priority": 9,
+            "category": "RTS",
+            "notes": "Definitive version, huge support"
+        },
+        {
+            "title": "Age of Empires IV: Anniversary Edition",
+            "priority": 8,
+            "category": "RTS",
+            "notes": "Modern AoE entry"
+        },
+        {
+            "title": "Total War: ROME II - Emperor Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Grand strategy with battles"
+        },
+        {
+            "title": "Total War: SHOGUN 2",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Fan-favorite historical entry"
+        },
+        {
+            "title": "Total War: ATTILA",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Challenging campaign"
+        },
+        {
+            "title": "Company of Heroes 3",
+            "priority": 7,
+            "category": "RTS",
+            "notes": "Mediterranean theater"
+        },
+        {
+            "title": "Company of Heroes 2",
+            "priority": 7,
+            "category": "RTS",
+            "notes": "Eastern Front"
+        },
+        {
+            "title": "Stellaris",
+            "priority": 8,
+            "category": "Grand Strategy",
+            "notes": "Paradox space 4X"
+        },
+        {
+            "title": "HUMANKIND",
+            "priority": 7,
+            "category": "4X Strategy",
+            "notes": "Civ-like with culture blending"
+        },
+        {
+            "title": "StarCraft II: Campaign Collection",
+            "priority": 7,
+            "category": "RTS",
+            "notes": "Paid campaigns (MP F2P excluded)"
+        },
+        {
+            "title": "Warhammer 40,000: Dawn of War II - Retribution",
+            "priority": 7,
+            "category": "RTS",
+            "notes": "Standalone expansion"
+        },
+        {
+            "title": "Warhammer 40,000: Space Marine 2",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Modern sequel"
+        },
+        {
+            "title": "Warhammer: Vermintide 2",
+            "priority": 7,
+            "category": "Co-op Action",
+            "notes": "Melee horde slayer"
+        },
+        {
+            "title": "Warhammer 40,000: Boltgun",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Retro-styled boomer shooter"
+        },
+        {
+            "title": "Shadow Tactics: Blades of the Shogun",
+            "priority": 8,
+            "category": "Tactics",
+            "notes": "Real-time stealth tactics"
+        },
+        {
+            "title": "Desperados III",
+            "priority": 8,
+            "category": "Tactics",
+            "notes": "Western stealth tactics"
+        },
+        {
+            "title": "Tropico 6",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Dictator city-builder"
+        },
+        {
+            "title": "Surviving Mars",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Colony management on Mars"
+        },
+        {
+            "title": "Banished",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Survival city-builder"
+        },
+        {
+            "title": "Foundation",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Gridless medieval builder"
+        },
+        {
+            "title": "ANNO 1404: History Edition",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Classic city-builder remaster"
+        },
+        {
+            "title": "Elite Dangerous",
+            "priority": 6,
+            "category": "Space Sim",
+            "notes": "Space trading & exploration"
+        },
+        {
+            "title": "Microsoft Flight Simulator (2020)",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "High-fidelity flight sim (PC)"
+        },
+        {
+            "title": "FTL: Faster Than Light",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Foundational indie roguelike"
+        },
+        {
+            "title": "X4: Foundations",
+            "priority": 7,
+            "category": "Space Sim",
+            "notes": "Deep economic sandbox"
+        },
+        {
+            "title": "EVERSPACE 2",
+            "priority": 7,
+            "category": "Space Action",
+            "notes": "Single-player looter-shooter in space"
+        },
+        {
+            "title": "Valheim",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Co-op Viking survival"
+        },
+        {
+            "title": "Deep Rock Galactic",
+            "priority": 8,
+            "category": "Co-op Shooter",
+            "notes": "Dwarven mining & bugs"
+        },
+        {
+            "title": "Project Zomboid",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Hardcore zombie sim"
+        },
+        {
+            "title": "7 Days to Die",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Voxel survival with hordes"
+        },
+        {
+            "title": "Grounded",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Honey-I-Shrunk survival"
+        },
+        {
+            "title": "Green Hell",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Realistic jungle survival"
+        },
+        {
+            "title": "The Long Dark",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Atmospheric, story + sandbox"
+        },
+        {
+            "title": "The Witness",
+            "priority": 8,
+            "category": "Puzzle",
+            "notes": "Island-wide puzzle masterpiece"
+        },
+        {
+            "title": "INSIDE",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Dark cinematic platformer"
+        },
+        {
+            "title": "LIMBO",
+            "priority": 7,
+            "category": "Platformer",
+            "notes": "Monochrome indie classic"
+        },
+        {
+            "title": "Outer Wilds",
+            "priority": 9,
+            "category": "Adventure",
+            "notes": "Time-loop exploration gem"
+        },
+        {
+            "title": "Firewatch",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Narrative hiking mystery"
+        },
+        {
+            "title": "Oxenfree",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Dialogue-driven supernatural tale"
+        },
+        {
+            "title": "Oxenfree II: Lost Signals",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Sequel with expanded systems"
+        },
+        {
+            "title": "What Remains of Edith Finch",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Vignette storytelling classic"
+        },
+        {
+            "title": "The Talos Principle",
+            "priority": 8,
+            "category": "Puzzle",
+            "notes": "Philosophical first-person puzzles"
+        },
+        {
+            "title": "The Talos Principle 2",
+            "priority": 8,
+            "category": "Puzzle",
+            "notes": "Bigger sequel with great design"
+        },
+        {
+            "title": "Superliminal",
+            "priority": 7,
+            "category": "Puzzle",
+            "notes": "Forced-perspective puzzler"
+        },
+        {
+            "title": "The Turing Test",
+            "priority": 6,
+            "category": "Puzzle",
+            "notes": "Portal-like sci-fi puzzles"
+        },
+        {
+            "title": "Disco Elysium: The Final Cut",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Narrative-heavy isometric RPG"
+        },
+        {
+            "title": "Hellblade: Senua's Sacrifice",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Psychological journey"
+        },
+        {
+            "title": "Detroit: Become Human",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Choice-driven cinematic story"
+        },
+        {
+            "title": "Heavy Rain",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Interactive thriller"
+        },
+        {
+            "title": "Beyond: Two Souls",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Supernatural drama"
+        },
+        {
+            "title": "Little Nightmares",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Creepy side-scrolling horror"
+        },
+        {
+            "title": "Little Nightmares II",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Stronger, unsettling sequel"
+        },
+        {
+            "title": "Resident Evil 3",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "2020 remake of RE3"
+        },
+        {
+            "title": "Resident Evil 0 HD Remaster",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Prequel remaster"
+        },
+        {
+            "title": "Resident Evil (HD Remaster)",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Classic mansion horror remade"
+        },
+        {
+            "title": "Silent Hill 2 (Remake)",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Modern remake of cult classic"
+        },
+        {
+            "title": "Silent Hill HD Collection",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Includes SH2 and SH3 remasters"
+        },
+        {
+            "title": "The Evil Within",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Shinji Mikami-directed survival horror"
+        },
+        {
+            "title": "The Evil Within 2",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Expanded sequel with open areas"
+        },
+        {
+            "title": "Outlast",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "First-person asylum horror"
+        },
+        {
+            "title": "Outlast 2",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Controversial desert cult story"
+        },
+        {
+            "title": "Amnesia: Rebirth",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Narrative-heavy Amnesia entry"
+        },
+        {
+            "title": "Amnesia: The Dark Descent",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Influential indie horror"
+        },
+        {
+            "title": "Layers of Fear (2023)",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Unreal Engine remake collection"
+        },
+        {
+            "title": "Alan Wake's American Nightmare",
+            "priority": 5,
+            "category": "Action-Horror",
+            "notes": "Standalone spin-off"
+        },
+        {
+            "title": "Callisto Protocol",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Dead Space spiritual successor"
+        },
+
+        {
+            "title": "Middle-earth: Shadow of Mordor",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Nemesis system debut"
+        },
+        {
+            "title": "Middle-earth: Shadow of War",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Expanded Nemesis sequel"
+        },
+        {
+            "title": "Batman: Arkham Asylum",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Start of Arkham trilogy"
+        },
+        {
+            "title": "Batman: Arkham City",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Open-world Gotham excellence"
+        },
+        {
+            "title": "Batman: Arkham Knight",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Finale, Batmobile divisive"
+        },
+        {
+            "title": "Batman: Arkham Origins",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Prequel by WB Montreal"
+        },
+        {
+            "title": "Gotham Knights",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Co-op focus, mixed reception"
+        },
+        {
+            "title": "Injustice 2",
+            "priority": 7,
+            "category": "Fighting",
+            "notes": "DC fighter from Mortal Kombat devs"
+        },
+        {
+            "title": "Mortal Kombat 11",
+            "priority": 8,
+            "category": "Fighting",
+            "notes": "Refined combat, story mode"
+        },
+        {
+            "title": "Mortal Kombat X",
+            "priority": 7,
+            "category": "Fighting",
+            "notes": "Predecessor to MK11"
+        },
+
+        {
+            "title": "Street Fighter V",
+            "priority": 7,
+            "category": "Fighting",
+            "notes": "Improved via expansions"
+        },
+        {
+            "title": "Street Fighter IV",
+            "priority": 7,
+            "category": "Fighting",
+            "notes": "Revival of the series"
+        },
+        {
+            "title": "Tekken 7",
+            "priority": 8,
+            "category": "Fighting",
+            "notes": "Strong competitive scene"
+        },
+        {
+            "title": "Soulcalibur VI",
+            "priority": 7,
+            "category": "Fighting",
+            "notes": "Weapon-based fighter"
+        },
+        {
+            "title": "Dragon Ball FighterZ",
+            "priority": 8,
+            "category": "Fighting",
+            "notes": "ArcSys DBZ fighter"
+        },
+        {
+            "title": "BlazBlue: Cross Tag Battle",
+            "priority": 6,
+            "category": "Fighting",
+            "notes": "Anime crossover fighter"
+        },
+        {
+            "title": "Virtua Fighter 5: Ultimate Showdown",
+            "priority": 6,
+            "category": "Fighting",
+            "notes": "Modernized remaster"
+        },
+        {
+            "title": "Dead or Alive 6",
+            "priority": 5,
+            "category": "Fighting",
+            "notes": "Mixed reviews, niche"
+        },
+        {
+            "title": "Killer Instinct (Definitive Edition)",
+            "priority": 6,
+            "category": "Fighting",
+            "notes": "Rebooted franchise"
+        },
+        {
+            "title": "JoJo's Bizarre Adventure: All-Star Battle R",
+            "priority": 6,
+            "category": "Fighting",
+            "notes": "Anime fighter remake"
+        },
+
+        {
+            "title": "Halo: The Master Chief Collection (PC)",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Includes mainline Halo 1–4, Reach, ODST"
+        },
+        {
+            "title": "Halo Infinite Campaign",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Paid campaign; MP is F2P"
+        },
+        {
+            "title": "Destiny 2: The Final Shape",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Paid expansion; base F2P excluded"
+        },
+        {
+            "title": "Destiny 2: Beyond Light",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Major expansion"
+        },
+        {
+            "title": "Destiny 2: The Witch Queen",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Highly praised expansion"
+        },
+        {
+            "title": "Destiny 2: Lightfall",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Mixed expansion"
+        },
+        {
+            "title": "Crysis Remastered",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Graphical benchmark"
+        },
+        {
+            "title": "Crysis 2 Remastered",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Modernized visuals"
+        },
+        {
+            "title": "Crysis 3 Remastered",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Final Crysis remaster"
+        },
+        {
+            "title": "TimeSplitters 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Cult classic FPS"
+        },
+
+        {
+            "title": "Quake",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Remastered classic FPS"
+        },
+        {
+            "title": "Quake II Remastered",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Modernized classic"
+        },
+        {
+            "title": "Quake III Arena",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Competitive multiplayer focus"
+        },
+        {
+            "title": "Quake 4",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Less acclaimed entry"
+        },
+        {
+            "title": "Unreal Tournament 2004",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Multiplayer arena shooter"
+        },
+        {
+            "title": "Unreal Tournament 3 Black",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Later UT entry"
+        },
+        {
+            "title": "Bulletstorm: Full Clip Edition",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Arcade-style FPS"
+        },
+        {
+            "title": "RAGE 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Colorful open-world FPS"
+        },
+        {
+            "title": "Mad Max",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Post-apocalyptic open world"
+        },
+        {
+            "title": "Just Cause 4",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Explosions & chaos"
+        },
+
+        {
+            "title": "Just Cause 3",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Well-loved chaos sandbox"
+        },
+        {
+            "title": "RICO",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Stylized co-op FPS"
+        },
+        {
+            "title": "Payday 2",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Heist co-op shooter"
+        },
+        {
+            "title": "Payday 3",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "New release with issues"
+        },
+        {
+            "title": "Saints Row IV: Re-Elected",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Over-the-top GTA-like"
+        },
+        {
+            "title": "Saints Row: The Third Remastered",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Fan-favorite remaster"
+        },
+        {
+            "title": "Saints Row (2022)",
+            "priority": 5,
+            "category": "Action-Adventure",
+            "notes": "Reboot, mixed reception"
+        },
+        {
+            "title": "Spec Ops: The Line",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Narrative-driven war story"
+        },
+        {
+            "title": "Vanquish",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Platinum fast-paced action"
+        },
+        {
+            "title": "Bayonetta",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Platinum character action"
+        },
+
+        {
+            "title": "Bayonetta 2 (Switch only)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (not PC/PS)"
+        },
+        {
+            "title": "Bayonetta 3 (Switch only)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (not PC/PS)"
+        },
+        {
+            "title": "Metal Gear Rising: Revengeance",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Over-the-top hack-and-slash"
+        },
+        {
+            "title": "Devil May Cry 4: Special Edition",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Upgraded version of DMC4"
+        },
+        {
+            "title": "Devil May Cry HD Collection",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Classic trilogy remaster"
+        },
+        {
+            "title": "Onimusha: Warlords HD",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Remaster of PS2 title"
+        },
+        {
+            "title": "Tenchu: Stealth Assassins",
+            "priority": 5,
+            "category": "Stealth",
+            "notes": "PS classic; limited modern availability"
+        },
+        {
+            "title": "Ninja Gaiden: Master Collection",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Sigma versions of 3D Ninja Gaiden"
+        },
+        {
+            "title": "Ninja Gaiden Black",
+            "priority": 5,
+            "category": "Action",
+            "notes": "Classic Xbox; niche modern play"
+        },
+        {
+            "title": "Shenmue I & II HD",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Remaster collection"
+        },
+
+        {
+            "title": "Shenmue III",
+            "priority": 5,
+            "category": "Adventure",
+            "notes": "Kickstarter sequel"
+        },
+        {
+            "title": "Yakuza Remastered Collection",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Yakuza 3, 4, 5 remasters"
+        },
+        {
+            "title": "Persona 5 Strikers",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Musou spin-off of P5"
+        },
+        {
+            "title": "Catherine Classic",
+            "priority": 6,
+            "category": "Puzzle",
+            "notes": "Original Catherine release"
+        },
+        {
+            "title": "Catherine: Full Body",
+            "priority": 7,
+            "category": "Puzzle",
+            "notes": "Expanded definitive edition"
+        },
+        {
+            "title": "Danganronpa: Trigger Happy Havoc Anniversary Edition",
+            "priority": 7,
+            "category": "Visual Novel",
+            "notes": "Murder mystery start"
+        },
+        {
+            "title": "Danganronpa 2: Goodbye Despair Anniversary Edition",
+            "priority": 7,
+            "category": "Visual Novel",
+            "notes": "Sequel to Danganronpa"
+        },
+        {
+            "title": "Danganronpa V3: Killing Harmony Anniversary Edition",
+            "priority": 7,
+            "category": "Visual Novel",
+            "notes": "Latest mainline entry"
+        },
+        {
+            "title": "Zero Escape: The Nonary Games",
+            "priority": 7,
+            "category": "Visual Novel",
+            "notes": "Includes 999 and VLR"
+        },
+        {
+            "title": "Zero Escape: Zero Time Dilemma",
+            "priority": 6,
+            "category": "Visual Novel",
+            "notes": "Third in trilogy"
+        },
+        {
+            "title": "Phoenix Wright: Ace Attorney Trilogy",
+            "priority": 8,
+            "category": "Visual Novel",
+            "notes": "Classic courtroom adventures"
+        },
+        {
+            "title": "AI: The Somnium Files",
+            "priority": 7,
+            "category": "Visual Novel",
+            "notes": "Sci-fi detective mystery"
+        },
+        {
+            "title": "AI: The Somnium Files - nirvanA Initiative",
+            "priority": 7,
+            "category": "Visual Novel",
+            "notes": "Sequel expanding systems"
+        },
+        {
+            "title": "Steins;Gate Elite",
+            "priority": 8,
+            "category": "Visual Novel",
+            "notes": "Definitive edition of the time travel classic"
+        },
+        {
+            "title": "Chaos;Child",
+            "priority": 6,
+            "category": "Visual Novel",
+            "notes": "Dark mystery spin-off from Science Adventure series"
+        },
+        {
+            "title": "428: Shibuya Scramble",
+            "priority": 6,
+            "category": "Visual Novel",
+            "notes": "Live-action VN cult hit"
+        },
+        {
+            "title": "The Great Ace Attorney Chronicles",
+            "priority": 8,
+            "category": "Visual Novel",
+            "notes": "Prequel duology, Sherlock Holmes inspired"
+        },
+        {
+            "title": "World End Syndrome",
+            "priority": 5,
+            "category": "Visual Novel",
+            "notes": "Romantic mystery niche VN"
+        },
+        {
+            "title": "Root Letter: Last Answer",
+            "priority": 5,
+            "category": "Visual Novel",
+            "notes": "Mystery-driven VN"
+        },
+        {
+            "title": "428: Shibuya Scramble",
+            "priority": 5,
+            "category": "Visual Novel",
+            "notes": "Unique Japanese VN with multiple perspectives"
+        },
+
+        {
+            "title": "Gran Turismo 5",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Classic PS3 sim racer"
+        },
+        {
+            "title": "Gran Turismo 6",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "PS3 final entry"
+        },
+        {
+            "title": "Gran Turismo Sport",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Focused on esports racing"
+        },
+        {
+            "title": "Need for Speed: Most Wanted (2012)",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Criterion reboot"
+        },
+        {
+            "title": "Need for Speed: Rivals",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Cross-gen entry"
+        },
+        {
+            "title": "Need for Speed: Payback",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Story-heavy but criticized"
+        },
+        {
+            "title": "Burnout Paradise Remastered",
+            "priority": 8,
+            "category": "Racing",
+            "notes": "Open-world arcade racing classic"
+        },
+        {
+            "title": "Burnout Revenge",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Crash-focused racing fun"
+        },
+        {
+            "title": "Split/Second",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Cinematic arcade racer"
+        },
+        {
+            "title": "Blur",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Arcade racer with power-ups"
+        },
+
+        {
+            "title": "Colin McRae: DiRT 2",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Earlier rally entry"
+        },
+        {
+            "title": "DiRT 4",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Accessible rally racing"
+        },
+        {
+            "title": "GRID (2019)",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Reboot of Codemasters GRID"
+        },
+        {
+            "title": "GRID Autosport",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Semi-sim racing entry"
+        },
+        {
+            "title": "F1 22",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Annual F1 entry"
+        },
+        {
+            "title": "WRC 10 FIA World Rally Championship",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Licensed rally series"
+        },
+        {
+            "title": "WRC Generations",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Final KT Racing WRC game"
+        },
+        {
+            "title": "Assetto Corsa",
+            "priority": 8,
+            "category": "Racing Sim",
+            "notes": "Highly moddable PC sim"
+        },
+        {
+            "title": "Assetto Corsa Competizione",
+            "priority": 8,
+            "category": "Racing Sim",
+            "notes": "Official GT racing sim"
+        },
+        {
+            "title": "Project CARS 2",
+            "priority": 7,
+            "category": "Racing Sim",
+            "notes": "Feature-rich racing sim"
+        },
+
+        {
+            "title": "Project CARS 3",
+            "priority": 5,
+            "category": "Racing",
+            "notes": "Arcade-leaning, mixed reception"
+        },
+        {
+            "title": "Forza Motorsport 7 (PC)",
+            "priority": 7,
+            "category": "Racing Sim",
+            "notes": "PC sim racing entry"
+        },
+        {
+            "title": "SnowRunner",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Off-road trucking sim"
+        },
+        {
+            "title": "MudRunner",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Predecessor to SnowRunner"
+        },
+        {
+            "title": "Spintires",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Original off-road sim"
+        },
+        {
+            "title": "Euro Truck Simulator 2",
+            "priority": 9,
+            "category": "Simulation",
+            "notes": "Beloved long-running trucking sim"
+        },
+        {
+            "title": "American Truck Simulator",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "US-focused truck sim"
+        },
+        {
+            "title": "Train Sim World 3",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Detailed train sim"
+        },
+        {
+            "title": "Train Simulator Classic",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Long-running PC sim"
+        },
+        {
+            "title": "Microsoft Flight Simulator X: Steam Edition",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Classic flight sim"
+        },
+
+        {
+            "title": "RollerCoaster Tycoon Classic",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Remake of RCT 1 & 2"
+        },
+        {
+            "title": "RollerCoaster Tycoon 3: Complete Edition",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Park sim classic remaster"
+        },
+        {
+            "title": "Planet Coaster",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Modern coaster builder"
+        },
+        {
+            "title": "Planet Zoo",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Zoo management sim"
+        },
+        {
+            "title": "Jurassic World Evolution 2",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Dinosaur park sim"
+        },
+        {
+            "title": "Jurassic World Evolution",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Original dino park entry"
+        },
+        {
+            "title": "Cities: Skylines",
+            "priority": 9,
+            "category": "City Builder",
+            "notes": "Benchmark city sim"
+        },
+        {
+            "title": "Cities: Skylines II",
+            "priority": 7,
+            "category": "City Builder",
+            "notes": "Launch issues but improving"
+        },
+        {
+            "title": "SimCity 4 Deluxe",
+            "priority": 7,
+            "category": "City Builder",
+            "notes": "Classic city sim"
+        },
+        {
+            "title": "Tropico 5",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Dictator city-builder"
+        },
+
+        {
+            "title": "Tropico 4",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Earlier Tropico entry"
+        },
+        {
+            "title": "Two Point Hospital",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Spiritual successor to Theme Hospital"
+        },
+        {
+            "title": "Two Point Campus",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Humorous campus sim"
+        },
+        {
+            "title": "Theme Hospital",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Classic inspiration"
+        },
+        {
+            "title": "Theme Park",
+            "priority": 5,
+            "category": "Simulation",
+            "notes": "Retro Bullfrog classic"
+        },
+        {
+            "title": "Frostpunk",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Survival city-builder"
+        },
+        {
+            "title": "Frostpunk 2",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Upcoming sequel"
+        },
+        {
+            "title": "Surviving the Aftermath",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Post-apocalyptic survival colony sim"
+        },
+        {
+            "title": "Banished",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Indie survival builder"
+        },
+        {
+            "title": "RimWorld",
+            "priority": 9,
+            "category": "Simulation",
+            "notes": "Indie colony management classic"
+        },
+
+        {
+            "title": "Prison Architect",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Prison management sim"
+        },
+        {
+            "title": "Factorio",
+            "priority": 9,
+            "category": "Simulation",
+            "notes": "Automation classic"
+        },
+        {
+            "title": "Satisfactory",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "3D factory builder"
+        },
+        {
+            "title": "Dyson Sphere Program",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Space megastructure builder"
+        },
+        {
+            "title": "Oxygen Not Included",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Space colony sim"
+        },
+        {
+            "title": "Don't Starve Together",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Multiplayer survival crafting"
+        },
+        {
+            "title": "Don't Starve",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Single-player classic"
+        },
+        {
+            "title": "The Forest",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Cult survival horror"
+        },
+        {
+            "title": "Sons of the Forest",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Sequel, early access"
+        },
+        {
+            "title": "ARK: Survival Evolved",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Popular dino survival"
+        },
+
+        {
+            "title": "ARK: Survival Ascended",
+            "priority": 6,
+            "category": "Survival",
+            "notes": "Remake with UE5, mixed reviews"
+        },
+        {
+            "title": "Rust",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "PvP-focused survival"
+        },
+        {
+            "title": "Conan Exiles",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Barbarian-themed survival"
+        },
+        {
+            "title": "No Man's Sky",
+            "priority": 9,
+            "category": "Survival",
+            "notes": "Massively updated space exploration"
+        },
+        {
+            "title": "Subnautica",
+            "priority": 9,
+            "category": "Survival",
+            "notes": "Underwater exploration survival"
+        },
+        {
+            "title": "Subnautica: Below Zero",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Standalone sequel"
+        },
+        {
+            "title": "The Long Dark",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Atmospheric survival sim"
+        },
+        {
+            "title": "Green Hell",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Realistic jungle survival"
+        },
+        {
+            "title": "Scum",
+            "priority": 6,
+            "category": "Survival",
+            "notes": "Hardcore PvP survival"
+        },
+        {
+            "title": "Raft",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Ocean-based survival crafting"
+        },
+
+        {
+            "title": "Slime Rancher",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Wholesome ranch management"
+        },
+        {
+            "title": "Slime Rancher 2",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Sequel in early access"
+        },
+        {
+            "title": "My Time at Portia",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Farming RPG lite"
+        },
+        {
+            "title": "My Time at Sandrock",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Sequel with expanded systems"
+        },
+        {
+            "title": "Story of Seasons: Friends of Mineral Town",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Harvest Moon remake"
+        },
+        {
+            "title": "Story of Seasons: Pioneers of Olive Town",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "New farming sim entry"
+        },
+        {
+            "title": "Rune Factory 4 Special",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Farming RPG hybrid"
+        },
+        {
+            "title": "Rune Factory 5",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Newest entry, mixed reviews"
+        },
+        {
+            "title": "Stardew Valley",
+            "priority": 9,
+            "category": "Simulation",
+            "notes": "Indie farming sim classic"
+        },
+        {
+            "title": "Graveyard Keeper",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Dark humor Stardew-like"
+        },
+        {
+            "title": "Terraria",
+            "priority": 9,
+            "category": "Sandbox",
+            "notes": "Massively popular 2D crafting/adventure"
+        },
+        {
+            "title": "Starbound",
+            "priority": 7,
+            "category": "Sandbox",
+            "notes": "Space exploration sandbox"
+        },
+        {
+            "title": "Core Keeper",
+            "priority": 7,
+            "category": "Sandbox",
+            "notes": "Indie underground survival sim"
+        },
+        {
+            "title": "Vintage Story",
+            "priority": 6,
+            "category": "Sandbox",
+            "notes": "Hardcore voxel survival"
+        },
+        {
+            "title": "Dragon Quest Builders 2",
+            "priority": 7,
+            "category": "Sandbox RPG",
+            "notes": "DQ meets Minecraft-like building"
+        },
+        {
+            "title": "Minecraft Dungeons",
+            "priority": 6,
+            "category": "Action RPG",
+            "notes": "Simplified Minecraft spin-off"
+        },
+        {
+            "title": "LEGO Star Wars: The Skywalker Saga",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Massive LEGO collection"
+        },
+        {
+            "title": "LEGO Harry Potter Collection",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Classic LEGO series bundle"
+        },
+        {
+            "title": "LEGO Marvel Super Heroes",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Fan-favorite LEGO Marvel entry"
+        },
+        {
+            "title": "LEGO Marvel Super Heroes 2",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Sequel with expanded roster"
+        },
+
+        {
+            "title": "LEGO Batman 3: Beyond Gotham",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Batman + Justice League"
+        },
+        {
+            "title": "LEGO DC Super-Villains",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Villain-focused story"
+        },
+        {
+            "title": "LEGO City Undercover",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Open-world LEGO GTA-lite"
+        },
+        {
+            "title": "LEGO Jurassic World",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Covers Jurassic Park films"
+        },
+        {
+            "title": "Skylanders Imaginators",
+            "priority": 4,
+            "category": "Action",
+            "notes": "Toys-to-life, less active today"
+        },
+        {
+            "title": "Disney Infinity 3.0",
+            "priority": 3,
+            "category": "Action",
+            "notes": "Discontinued toys-to-life"
+        },
+        {
+            "title": "Marvel's Avengers",
+            "priority": 5,
+            "category": "Action-Adventure",
+            "notes": "Shut down live service; story still playable"
+        },
+        {
+            "title": "Guardians of the Galaxy",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Strong single-player Marvel game"
+        },
+        {
+            "title": "Deadpool",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Humorous Marvel brawler"
+        },
+        {
+            "title": "X-Men Origins: Wolverine",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Surprisingly solid licensed game"
+        },
+
+        {
+            "title": "Spider-Man: Shattered Dimensions",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Multiple Spider-Men adventure"
+        },
+        {
+            "title": "Spider-Man: Edge of Time",
+            "priority": 5,
+            "category": "Action",
+            "notes": "Lesser Spider-Man title"
+        },
+        {
+            "title": "Ultimate Spider-Man",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Comic-styled PS2/PC title"
+        },
+        {
+            "title": "Batman Begins",
+            "priority": 5,
+            "category": "Action",
+            "notes": "Movie tie-in with stealth focus"
+        },
+        {
+            "title": "Superman Returns",
+            "priority": 3,
+            "category": "Action",
+            "notes": "Notorious but playable licensed title"
+        },
+        {
+            "title": "Middle-earth: War in the North",
+            "priority": 5,
+            "category": "Action RPG",
+            "notes": "Co-op LOTR action"
+        },
+        {
+            "title": "The Lord of the Rings: Conquest",
+            "priority": 5,
+            "category": "Action",
+            "notes": "Battlefront-style LOTR"
+        },
+        {
+            "title": "The Lord of the Rings: War of the Ring",
+            "priority": 4,
+            "category": "Strategy",
+            "notes": "RTS spin-off"
+        },
+        {
+            "title": "The Lord of the Rings Online: Shadows of Angmar",
+            "priority": 4,
+            "category": "MMO",
+            "notes": "Subscription-based at launch"
+        },
+        {
+            "title": "The Lord of the Rings: Return of the King",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Movie tie-in hack-and-slash"
+        },
+
+        {
+            "title": "The Hobbit (2003)",
+            "priority": 4,
+            "category": "Action",
+            "notes": "Platformer adventure"
+        },
+        {
+            "title": "Shadowrun Returns",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Kickstarted CRPG revival"
+        },
+        {
+            "title": "Shadowrun: Dragonfall - Director's Cut",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Best Shadowrun campaign"
+        },
+        {
+            "title": "Shadowrun: Hong Kong",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Cyberpunk tactical RPG"
+        },
+        {
+            "title": "Gears 5",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Microsoft cover-shooter; PC available"
+        },
+        {
+            "title": "Gears of War 4 (PC)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Earlier coalition entry"
+        },
+        {
+            "title": "Gears of War: Ultimate Edition (PC)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Remake of first Gears"
+        },
+        {
+            "title": "Quantum Break",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Time-bending Remedy shooter"
+        },
+        {
+            "title": "Sunset Overdrive",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Insomniac’s colorful chaos"
+        },
+        {
+            "title": "Crackdown 3",
+            "priority": 4,
+            "category": "Action",
+            "notes": "Disappointing exclusive, but paid"
+        },
+
+        {
+            "title": "Alan Wake",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Original 2010 release"
+        },
+        {
+            "title": "Control: Ultimate Edition",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Remedy’s supernatural shooter"
+        },
+        {
+            "title": "Hellblade II: Senua’s Saga",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Upcoming sequel"
+        },
+        {
+            "title": "Enslaved: Odyssey to the West",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Underrated Ninja Theory title"
+        },
+        {
+            "title": "Heavenly Sword",
+            "priority": 6,
+            "category": "Action",
+            "notes": "PS3 launch-era hack-and-slash"
+        },
+        {
+            "title": "Lair",
+            "priority": 4,
+            "category": "Action",
+            "notes": "PS3 dragon-riding game, infamous"
+        },
+        {
+            "title": "Killzone: Shadow Fall",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "PS4 launch shooter"
+        },
+        {
+            "title": "Killzone 3",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "PS3 FPS staple"
+        },
+        {
+            "title": "Resistance 3",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Alternate-history PS3 FPS"
+        },
+        {
+            "title": "Resistance 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Earlier Insomniac FPS"
+        },
+
+        {
+            "title": "Resistance: Fall of Man",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "PS3 launch exclusive"
+        },
+        {
+            "title": "SOCOM 4: U.S. Navy SEALs",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Last SOCOM on PS3"
+        },
+        {
+            "title": "SOCOM: Confrontation",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Online-only SOCOM entry"
+        },
+        {
+            "title": "SOCOM II: U.S. Navy SEALs",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Classic PS2 tactical shooter"
+        },
+        {
+            "title": "MAG",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "256-player PS3 exclusive"
+        },
+        {
+            "title": "Warhawk (2007)",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "PS3 multiplayer exclusive"
+        },
+        {
+            "title": "Starhawk",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Spiritual successor to Warhawk"
+        },
+        {
+            "title": "Granblue Fantasy: Relink",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Recent co-op action RPG"
+        },
+        {
+            "title": "Granblue Fantasy Versus: Rising",
+            "priority": 7,
+            "category": "Fighting",
+            "notes": "ArcSys fighting spin-off"
+        },
+        {
+            "title": "Dragon's Crown Pro",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Vanillaware brawler RPG"
+        },
+
+        {
+            "title": "Odin Sphere Leifthrasir",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Vanillaware HD remake"
+        },
+        {
+            "title": "Muramasa Rebirth",
+            "priority": 6,
+            "category": "Action RPG",
+            "notes": "PS Vita classic, niche now"
+        },
+        {
+            "title": "13 Sentinels: Aegis Rim",
+            "priority": 9,
+            "category": "Visual Novel/Strategy",
+            "notes": "Critically acclaimed Vanillaware title"
+        },
+        {
+            "title": "Grim Fandango Remastered",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "LucasArts classic remastered"
+        },
+        {
+            "title": "Full Throttle Remastered",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Classic biker adventure"
+        },
+        {
+            "title": "Day of the Tentacle Remastered",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Classic point-and-click"
+        },
+        {
+            "title": "Monkey Island: Special Edition Bundle",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "MI1 & MI2 classic remakes"
+        },
+        {
+            "title": "Return to Monkey Island",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Modern revival"
+        },
+        {
+            "title": "Broken Age",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Double Fine Kickstarter title"
+        },
+        {
+            "title": "The Walking Dead: The Telltale Definitive Series",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "All seasons of TWD"
+        },
+
+        {
+            "title": "The Wolf Among Us",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Cult Telltale favorite"
+        },
+        {
+            "title": "Tales from the Borderlands",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Comedy Telltale spin-off"
+        },
+        {
+            "title": "Tales of Monkey Island",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Episodic MI entry"
+        },
+        {
+            "title": "Batman: The Telltale Series",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Dark Batman narrative"
+        },
+        {
+            "title": "Batman: The Enemy Within",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Follow-up to Telltale Batman"
+        },
+        {
+            "title": "Game of Thrones: A Telltale Games Series",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Telltale spin on GoT"
+        },
+        {
+            "title": "Guardians of the Galaxy: The Telltale Series",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Telltale Marvel story"
+        },
+        {
+            "title": "Sam & Max Save the World Remastered",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Classic remade"
+        },
+        {
+            "title": "Sam & Max: Beyond Time and Space Remastered",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Season 2 remaster"
+        },
+        {
+            "title": "Sam & Max: This Time It's Virtual!",
+            "priority": 5,
+            "category": "Adventure",
+            "notes": "VR-only spin-off"
+        },
+        {
+            "title": "Gris",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Artful indie platformer"
+        },
+        {
+            "title": "Journey",
+            "priority": 9,
+            "category": "Adventure",
+            "notes": "Iconic PS3/PS4 indie adventure"
+        },
+        {
+            "title": "Flower",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Relaxing indie from thatgamecompany"
+        },
+        {
+            "title": "Abzû",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Underwater exploration"
+        },
+        {
+            "title": "Inside My Radio",
+            "priority": 5,
+            "category": "Platformer",
+            "notes": "Rhythm-based indie platformer"
+        },
+        {
+            "title": "Hyper Light Drifter",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Stylized indie action"
+        },
+        {
+            "title": "Transistor",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Sci-fi tactical combat"
+        },
+        {
+            "title": "Bastion",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Narrator-driven indie"
+        },
+        {
+            "title": "Pyre",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Unique blend of sports + story"
+        },
+        {
+            "title": "Hades II (Early Access)",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Sequel in development"
+        },
+
+        {
+            "title": "Slay the Spire",
+            "priority": 9,
+            "category": "Card Battler",
+            "notes": "Influential roguelike deckbuilder"
+        },
+        {
+            "title": "Monster Train",
+            "priority": 8,
+            "category": "Card Battler",
+            "notes": "Deckbuilder with multi-lanes"
+        },
+        {
+            "title": "Griftlands",
+            "priority": 7,
+            "category": "Card Battler",
+            "notes": "Deckbuilding RPG with negotiation"
+        },
+        {
+            "title": "Hand of Fate 2",
+            "priority": 7,
+            "category": "Card Battler",
+            "notes": "Deckbuilding + action combat"
+        },
+        {
+            "title": "Loop Hero",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Innovative auto-battler loop"
+        },
+        {
+            "title": "Vampire Survivors",
+            "priority": 9,
+            "category": "Roguelike",
+            "notes": "Indie phenomenon auto-shooter"
+        },
+        {
+            "title": "20 Minutes Till Dawn",
+            "priority": 7,
+            "category": "Roguelike",
+            "notes": "Survivors-like with upgrades"
+        },
+        {
+            "title": "Risk of Rain 2",
+            "priority": 9,
+            "category": "Roguelike",
+            "notes": "3D co-op roguelike"
+        },
+        {
+            "title": "Risk of Rain Returns",
+            "priority": 7,
+            "category": "Roguelike",
+            "notes": "Remake of the original"
+        },
+        {
+            "title": "Spelunky 2",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Hardcore platforming roguelike"
+        },
+
+        {
+            "title": "Spelunky HD",
+            "priority": 7,
+            "category": "Roguelike",
+            "notes": "Classic roguelike platformer"
+        },
+        {
+            "title": "Rogue Legacy 2",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Expanded sequel"
+        },
+        {
+            "title": "Rogue Legacy",
+            "priority": 7,
+            "category": "Roguelike",
+            "notes": "Early roguelite classic"
+        },
+        {
+            "title": "Children of Morta",
+            "priority": 7,
+            "category": "Roguelike",
+            "notes": "Family-driven roguelite"
+        },
+        {
+            "title": "Moonlighter",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Shopkeeping + dungeon crawling"
+        },
+        {
+            "title": "Enter the Gungeon",
+            "priority": 9,
+            "category": "Roguelike",
+            "notes": "Bullet hell roguelike"
+        },
+        {
+            "title": "Exit the Gungeon",
+            "priority": 6,
+            "category": "Roguelike",
+            "notes": "Arcade sequel spin-off"
+        },
+        {
+            "title": "Gunfire Reborn",
+            "priority": 7,
+            "category": "Roguelike",
+            "notes": "FPS roguelite with co-op"
+        },
+        {
+            "title": "Immortals Fenyx Rising",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Zelda-inspired Ubisoft open world"
+        },
+        {
+            "title": "Kena: Bridge of Spirits",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Pixar-like indie AAA look"
+        },
+
+        {
+            "title": "Sifu",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Stylish martial arts roguelite-ish"
+        },
+        {
+            "title": "Stray",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Indie cat exploration game"
+        },
+        {
+            "title": "Tunic",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Zelda-like fox adventure"
+        },
+        {
+            "title": "The Pathless",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Stylized open-world indie"
+        },
+        {
+            "title": "Solar Ash",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "From Hyper Light Drifter devs"
+        },
+        {
+            "title": "Journey to the Savage Planet",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Humorous exploration FPS"
+        },
+        {
+            "title": "Outer Wilds: Echoes of the Eye",
+            "priority": 9,
+            "category": "Adventure",
+            "notes": "Masterful DLC expansion"
+        },
+        {
+            "title": "Kentucky Route Zero",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Surreal narrative episodic game"
+        },
+        {
+            "title": "Night in the Woods",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Indie story-driven favorite"
+        },
+        {
+            "title": "Oxenfree II: Lost Signals",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Narrative sequel"
+        },
+
+        {
+            "title": "Return to Obra Dinn",
+            "priority": 9,
+            "category": "Puzzle",
+            "notes": "Unique deduction game"
+        },
+        {
+            "title": "Heaven's Vault",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Linguistic archaeology narrative"
+        },
+        {
+            "title": "Her Story",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "FMV detective indie"
+        },
+        {
+            "title": "Telling Lies",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "FMV narrative follow-up"
+        },
+        {
+            "title": "Immortality",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "FMV masterpiece from Sam Barlow"
+        },
+        {
+            "title": "Contradiction: Spot the Liar!",
+            "priority": 5,
+            "category": "Adventure",
+            "notes": "Cult FMV detective game"
+        },
+        {
+            "title": "The Quarry",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Supermassive’s teen horror"
+        },
+        {
+            "title": "Until Dawn: Rush of Blood",
+            "priority": 5,
+            "category": "Horror",
+            "notes": "VR-only spin-off"
+        },
+        {
+            "title": "The Dark Pictures Anthology: Man of Medan",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "First anthology entry"
+        },
+        {
+            "title": "The Dark Pictures Anthology: Little Hope",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Second anthology entry"
+        },
+
+        {
+            "title": "The Dark Pictures Anthology: House of Ashes",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Stronger entry in anthology"
+        },
+        {
+            "title": "The Dark Pictures Anthology: The Devil in Me",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Latest anthology entry"
+        },
+        {
+            "title": "Manhunt",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Controversial Rockstar stealth horror"
+        },
+        {
+            "title": "Manhunt 2",
+            "priority": 5,
+            "category": "Horror",
+            "notes": "Sequel with censorship controversy"
+        },
+        {
+            "title": "Condemned: Criminal Origins",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Cult horror FPS"
+        },
+        {
+            "title": "Condemned 2: Bloodshot",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Sequel to Condemned"
+        },
+        {
+            "title": "F.E.A.R.",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Horror FPS with AI innovation"
+        },
+        {
+            "title": "F.E.A.R. 2: Project Origin",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Direct sequel"
+        },
+        {
+            "title": "F.E.A.R. 3",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Co-op focus, less acclaimed"
+        },
+        {
+            "title": "Alan Wake 2",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "Remedy’s latest acclaimed horror"
+        },
+
+        {
+            "title": "Control",
+            "priority": 9,
+            "category": "Action-Adventure",
+            "notes": "Core listing (non-Ultimate)"
+        },
+        {
+            "title": "Prey (2006)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Original alien FPS"
+        },
+        {
+            "title": "Singularity",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Underrated time-bending FPS"
+        },
+        {
+            "title": "Eternal Darkness: Sanity’s Requiem",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "GameCube exclusive, excluded"
+        },
+        {
+            "title": "Spec Ops: The Line",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Narrative-driven war story"
+        },
+        {
+            "title": "Brothers in Arms: Hell’s Highway",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Tactical WW2 shooter"
+        },
+        {
+            "title": "Brothers in Arms: Road to Hill 30",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Older tactical shooter"
+        },
+        {
+            "title": "Medal of Honor: Allied Assault War Chest",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Classic WW2 FPS"
+        },
+        {
+            "title": "Medal of Honor (2010)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Modern reboot"
+        },
+        {
+            "title": "Medal of Honor: Warfighter",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Poorly received sequel"
+        },
+
+        {
+            "title": "Battlefield 2042",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Large-scale FPS with troubled launch"
+        },
+        {
+            "title": "Battlefield Hardline",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Police-themed spin-off"
+        },
+        {
+            "title": "Battlefield: Bad Company 2",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Beloved Battlefield entry"
+        },
+        {
+            "title": "Battlefield: Bad Company",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Introduced destruction mechanics"
+        },
+        {
+            "title": "Call of Duty: Black Ops II",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Fan-favorite COD campaign"
+        },
+        {
+            "title": "Call of Duty: Black Ops III",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Futuristic COD"
+        },
+        {
+            "title": "Call of Duty: Black Ops 4",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "No campaign, MP focus"
+        },
+        {
+            "title": "Call of Duty: Ghosts",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Less acclaimed COD"
+        },
+        {
+            "title": "Call of Duty: Advanced Warfare",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Exosuit gameplay"
+        },
+        {
+            "title": "Call of Duty: Infinite Warfare",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Space setting COD"
+        },
+
+        {
+            "title": "Call of Duty: World at War",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "WW2 era, zombies mode"
+        },
+        {
+            "title": "Call of Duty 2",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Classic WW2 FPS"
+        },
+        {
+            "title": "Call of Duty 3",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Console-focused entry"
+        },
+        {
+            "title": "Call of Duty: Modern Warfare Remastered",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "HD remake of COD4"
+        },
+        {
+            "title": "Call of Duty: Modern Warfare III (2011)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Concludes MW trilogy"
+        },
+        {
+            "title": "Call of Duty: Modern Warfare II (2009)",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Iconic COD entry"
+        },
+        {
+            "title": "Call of Duty 4: Modern Warfare",
+            "priority": 10,
+            "category": "Shooter",
+            "notes": "Genre-defining COD"
+        },
+        {
+            "title": "Call of Duty",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Original WW2 entry"
+        },
+        {
+            "title": "Call of Duty: United Offensive",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Expansion to COD1"
+        },
+        {
+            "title": "Call of Duty: Finest Hour",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Console-only spin-off"
+        },
+        {
+            "title": "Wolfenstein: The New Order",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Narrative-driven reboot"
+        },
+        {
+            "title": "Wolfenstein: The Old Blood",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Standalone prequel expansion"
+        },
+        {
+            "title": "Wolfenstein: Youngblood",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Co-op spin-off, mixed reception"
+        },
+        {
+            "title": "Return to Castle Wolfenstein",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Classic early 2000s Wolfenstein"
+        },
+        {
+            "title": "Enemy Territory: Quake Wars",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Multiplayer-focused Wolfenstein spin"
+        },
+        {
+            "title": "Halo 2: Anniversary (MCC)",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Part of Master Chief Collection"
+        },
+        {
+            "title": "Halo 3 (MCC)",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Fan-favorite Halo campaign"
+        },
+        {
+            "title": "Halo: Reach (MCC)",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Critically acclaimed prequel"
+        },
+        {
+            "title": "Halo: Combat Evolved Anniversary (MCC)",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Classic remastered"
+        },
+        {
+            "title": "Halo 4 (MCC)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "343 Industries’ first Halo"
+        },
+
+        {
+            "title": "Half-Life",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Groundbreaking PC FPS"
+        },
+        {
+            "title": "Half-Life: Opposing Force",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Gearbox expansion"
+        },
+        {
+            "title": "Half-Life: Blue Shift",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Expansion from security guard’s POV"
+        },
+        {
+            "title": "Half-Life: Decay",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "PS2-only co-op expansion"
+        },
+        {
+            "title": "Counter-Strike: Condition Zero",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Single-player missions for CS"
+        },
+        {
+            "title": "Counter-Strike: Source",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Source engine reimagining"
+        },
+        {
+            "title": "Counter-Strike: Global Offensive (Prime)",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Paid Prime matchmaking"
+        },
+        {
+            "title": "Team Fortress 2 (Premium)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Free-to-play but premium packs paid"
+        },
+        {
+            "title": "Day of Defeat: Source",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "WW2 multiplayer shooter"
+        },
+        {
+            "title": "Left 4 Dead",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Co-op zombie survival"
+        },
+
+        {
+            "title": "Left 4 Dead 2",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Massively popular co-op FPS"
+        },
+        {
+            "title": "Evolve",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Asymmetrical multiplayer, servers down"
+        },
+        {
+            "title": "Warhammer 40,000: Darktide",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Co-op horde shooter"
+        },
+        {
+            "title": "Vermintide",
+            "priority": 6,
+            "category": "Co-op Action",
+            "notes": "Predecessor to Vermintide 2"
+        },
+        {
+            "title": "Killing Floor 2",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Wave-based zombie shooter"
+        },
+        {
+            "title": "Killing Floor",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Original cult hit"
+        },
+        {
+            "title": "Serious Sam HD: The First Encounter",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Remake of classic horde shooter"
+        },
+        {
+            "title": "Serious Sam HD: The Second Encounter",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Remake sequel"
+        },
+        {
+            "title": "Serious Sam 3: BFE",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Modernized Serious Sam"
+        },
+        {
+            "title": "Serious Sam 4",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Recent entry, mixed reception"
+        },
+
+        {
+            "title": "Painkiller Black Edition",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Cult classic arena shooter"
+        },
+        {
+            "title": "Painkiller: Hell & Damnation",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "HD remake"
+        },
+        {
+            "title": "Bulletstorm: Full Clip Edition",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Arcade shooter from Epic"
+        },
+        {
+            "title": "Shadow Warrior (2013)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Reboot of classic"
+        },
+        {
+            "title": "Shadow Warrior 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "More looter-shooter focused"
+        },
+        {
+            "title": "Shadow Warrior 3",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Linear sequel, divisive"
+        },
+        {
+            "title": "Hard Reset Redux",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Cyberpunk shooter by Flying Wild Hog"
+        },
+        {
+            "title": "Singularity",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Time-manipulation FPS from Raven"
+        },
+        {
+            "title": "The Darkness II",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Stylized supernatural FPS"
+        },
+        {
+            "title": "The Darkness",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Atmospheric original entry"
+        },
+
+        {
+            "title": "Prey (2006)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Original alien FPS"
+        },
+        {
+            "title": "Timeshift",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Time-manipulating FPS, niche"
+        },
+        {
+            "title": "Section 8",
+            "priority": 4,
+            "category": "Shooter",
+            "notes": "Sci-fi multiplayer shooter"
+        },
+        {
+            "title": "Binary Domain",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Underrated squad shooter"
+        },
+        {
+            "title": "Vanquish",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Platinum fast-paced shooter"
+        },
+        {
+            "title": "Lost Planet: Extreme Condition",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Capcom sci-fi shooter"
+        },
+        {
+            "title": "Lost Planet 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Co-op focus"
+        },
+        {
+            "title": "Lost Planet 3",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Prequel, less acclaimed"
+        },
+        {
+            "title": "Earth Defense Force 5",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Campy bug-shooting co-op"
+        },
+        {
+            "title": "Earth Defense Force 4.1: The Shadow of New Despair",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Earlier EDF cult hit"
+        },
+
+        {
+            "title": "EDF: World Brothers",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Voxel EDF spin-off"
+        },
+        {
+            "title": "EDF 6",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Latest EDF installment"
+        },
+        {
+            "title": "Turok Remastered",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "N64 classic revived"
+        },
+        {
+            "title": "Turok 2: Seeds of Evil Remastered",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Sequel remastered"
+        },
+        {
+            "title": "RoboCop: Rogue City",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Surprisingly solid 2023 FPS"
+        },
+        {
+            "title": "Aliens: Colonial Marines",
+            "priority": 3,
+            "category": "Shooter",
+            "notes": "Infamous bad Alien game"
+        },
+        {
+            "title": "Aliens vs. Predator (2010)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Three campaigns (Alien, Marine, Predator)"
+        },
+        {
+            "title": "Alien: Isolation",
+            "priority": 9,
+            "category": "Horror",
+            "notes": "Stealth survival masterpiece"
+        },
+        {
+            "title": "Star Wars: Battlefront (2015)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Rebooted Battlefront"
+        },
+        {
+            "title": "Star Wars Battlefront II (2017)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Improved after rocky launch"
+        },
+
+        {
+            "title": "Star Wars: Republic Commando",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Cult squad FPS"
+        },
+        {
+            "title": "Star Wars: Dark Forces Remaster",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Classic FPS revived"
+        },
+        {
+            "title": "Star Wars Jedi Knight II: Jedi Outcast",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Lightsaber combat classic"
+        },
+        {
+            "title": "Star Wars Jedi Academy",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Expanded lightsaber gameplay"
+        },
+        {
+            "title": "Star Wars: The Force Unleashed",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Force powers-focused"
+        },
+        {
+            "title": "Star Wars: The Force Unleashed II",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Shorter sequel"
+        },
+        {
+            "title": "Star Wars: Knights of the Old Republic",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Bioware’s Star Wars RPG classic"
+        },
+        {
+            "title": "Star Wars: Knights of the Old Republic II - The Sith Lords",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Obsidian sequel"
+        },
+        {
+            "title": "Star Wars: The Old Republic (subscription version)",
+            "priority": 6,
+            "category": "MMO",
+            "notes": "Base is free, sub content paid"
+        },
+        {
+            "title": "Star Wars: Empire at War Gold",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Beloved RTS"
+        },
+        {
+            "title": "Mass Effect",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "First entry in Bioware’s space opera"
+        },
+        {
+            "title": "Mass Effect 2",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "Critically acclaimed, fan-favorite"
+        },
+        {
+            "title": "Mass Effect 3",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Concludes trilogy with controversy"
+        },
+        {
+            "title": "Dragon Age: Origins",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Classic fantasy RPG"
+        },
+        {
+            "title": "Dragon Age II",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "More focused story, mixed gameplay"
+        },
+        {
+            "title": "Dragon Age: Inquisition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Large-scale RPG with tactical combat"
+        },
+        {
+            "title": "Baldur’s Gate",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Foundational Bioware RPG"
+        },
+        {
+            "title": "Baldur’s Gate II: Shadows of Amn",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "All-time classic CRPG"
+        },
+        {
+            "title": "Planescape: Torment",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Narrative-rich CRPG"
+        },
+        {
+            "title": "Icewind Dale Enhanced Edition",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Combat-focused CRPG"
+        },
+
+        {
+            "title": "Neverwinter Nights Enhanced Edition",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "D&D CRPG with modules"
+        },
+        {
+            "title": "Neverwinter Nights 2 Complete",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Obsidian sequel with strong campaigns"
+        },
+        {
+            "title": "Pillars of Eternity",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Modern isometric CRPG revival"
+        },
+        {
+            "title": "Pillars of Eternity II: Deadfire",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Seafaring CRPG sequel"
+        },
+        {
+            "title": "Divinity: Original Sin",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Co-op tactical RPG"
+        },
+        {
+            "title": "Divinity: Original Sin 2",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "One of the best modern CRPGs"
+        },
+        {
+            "title": "Tyranny",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Evil choices-focused CRPG"
+        },
+        {
+            "title": "Disco Elysium: The Final Cut",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "Narrative-driven detective RPG"
+        },
+        {
+            "title": "Torment: Tides of Numenera",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Spiritual successor to Planescape"
+        },
+        {
+            "title": "Wasteland 2 Director’s Cut",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Revival of the classic series"
+        },
+
+        {
+            "title": "Wasteland 3",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Strong modern tactical RPG"
+        },
+        {
+            "title": "Fallout 3",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "First 3D Fallout, beloved"
+        },
+        {
+            "title": "Fallout: New Vegas",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "Obsidian’s masterpiece RPG"
+        },
+        {
+            "title": "Fallout 4",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Crafting-heavy Bethesda RPG"
+        },
+        {
+            "title": "Fallout 76",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Troubled launch MMO-lite"
+        },
+        {
+            "title": "The Outer Worlds",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Obsidian sci-fi RPG"
+        },
+        {
+            "title": "The Outer Worlds: Spacer’s Choice Edition",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Updated visuals, mixed reception"
+        },
+        {
+            "title": "GreedFall",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "AA RPG with colonial setting"
+        },
+        {
+            "title": "ELEX",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Eurojank open-world RPG"
+        },
+        {
+            "title": "ELEX II",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Sequel, poorly received"
+        },
+
+        {
+            "title": "Kingdom Come: Deliverance",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Historical open-world RPG"
+        },
+        {
+            "title": "Gothic",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Cult classic RPG"
+        },
+        {
+            "title": "Gothic II Gold Edition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Fan-favorite Gothic entry"
+        },
+        {
+            "title": "Gothic 3",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Ambitious but buggy"
+        },
+        {
+            "title": "Risen",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Spiritual successor to Gothic"
+        },
+        {
+            "title": "Risen 2: Dark Waters",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Pirate-themed RPG"
+        },
+        {
+            "title": "Risen 3: Titan Lords",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Mediocre Gothic-like"
+        },
+        {
+            "title": "Arcania: Gothic 4",
+            "priority": 4,
+            "category": "RPG",
+            "notes": "Poorly received Gothic spin-off"
+        },
+        {
+            "title": "Two Worlds Epic Edition",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Janky Oblivion-like"
+        },
+        {
+            "title": "Two Worlds II HD",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Improved but niche"
+        },
+
+        {
+            "title": "Sacred Gold",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Classic Diablo-like"
+        },
+        {
+            "title": "Sacred 2 Gold",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Well-regarded ARPG"
+        },
+        {
+            "title": "Titan Quest Anniversary Edition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Mythology-based ARPG"
+        },
+        {
+            "title": "Titan Quest: Eternal Embers",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Latest expansion"
+        },
+        {
+            "title": "Grim Dawn",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Beloved indie ARPG"
+        },
+        {
+            "title": "Grim Dawn: Ashes of Malmouth",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Expansion pack"
+        },
+        {
+            "title": "Torchlight II",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Colorful ARPG"
+        },
+        {
+            "title": "Torchlight III",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Disappointing sequel"
+        },
+        {
+            "title": "Torchlight",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Original indie ARPG"
+        },
+        {
+            "title": "Diablo II: Resurrected",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Classic Diablo remastered"
+        },
+
+        {
+            "title": "Diablo III: Reaper of Souls",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Expansion that fixed D3"
+        },
+        {
+            "title": "Diablo IV",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Latest Diablo entry"
+        },
+        {
+            "title": "Path of Exile (Supporter Packs)",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Free base, but paid expansions/supporter packs"
+        },
+        {
+            "title": "Last Epoch",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Newer ARPG rival to PoE"
+        },
+        {
+            "title": "Hellgate: London",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Infamous failed ARPG"
+        },
+        {
+            "title": "Lost Ark (Founder’s Pack)",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Free-to-play base, paid early access"
+        },
+        {
+            "title": "Marvel Heroes Omega (retired)",
+            "priority": 3,
+            "category": "RPG",
+            "notes": "Shut down, but was paid packs"
+        },
+        {
+            "title": "Victor Vran ARPG",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Niche Diablo-like"
+        },
+        {
+            "title": "The Incredible Adventures of Van Helsing Final Cut",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Steampunk ARPG trilogy bundle"
+        },
+        {
+            "title": "Gauntlet Slayer Edition",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Modernized Gauntlet reboot"
+        },
+
+        {
+            "title": "Sacred 3",
+            "priority": 4,
+            "category": "RPG",
+            "notes": "Poorly received ARPG sequel"
+        },
+        {
+            "title": "Bastion",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Stylized indie classic"
+        },
+        {
+            "title": "Magicka",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Spell-mixing co-op chaos"
+        },
+        {
+            "title": "Magicka 2",
+            "priority": 6,
+            "category": "Action RPG",
+            "notes": "Sequel, less popular"
+        },
+        {
+            "title": "Nine Parchments",
+            "priority": 5,
+            "category": "Action RPG",
+            "notes": "Co-op spellcasting RPG"
+        },
+        {
+            "title": "For the King",
+            "priority": 8,
+            "category": "Strategy RPG",
+            "notes": "Tabletop-inspired co-op RPG"
+        },
+        {
+            "title": "For the King II",
+            "priority": 7,
+            "category": "Strategy RPG",
+            "notes": "Recent sequel"
+        },
+        {
+            "title": "Banners of Ruin",
+            "priority": 6,
+            "category": "Card RPG",
+            "notes": "Deckbuilder with furries"
+        },
+        {
+            "title": "Across the Obelisk",
+            "priority": 7,
+            "category": "Card RPG",
+            "notes": "Co-op deckbuilder RPG"
+        },
+        {
+            "title": "Darkest Dungeon",
+            "priority": 9,
+            "category": "RPG",
+            "notes": "Lovecraftian roguelike RPG"
+        },
+        {
+            "title": "Darkest Dungeon II",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Sequel with roguelike travel system"
+        },
+        {
+            "title": "FTL: Faster Than Light",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Indie space roguelike classic"
+        },
+        {
+            "title": "Into the Breach",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Critically acclaimed tactics indie"
+        },
+        {
+            "title": "Battle Brothers",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Mercenary company tactical RPG"
+        },
+        {
+            "title": "Gears Tactics",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "XCOM-style Gears spin-off"
+        },
+        {
+            "title": "Xenonauts",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Indie spiritual successor to X-COM"
+        },
+        {
+            "title": "Xenonauts 2",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Sequel released recently"
+        },
+        {
+            "title": "Jagged Alliance 2",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Classic tactical RPG"
+        },
+        {
+            "title": "Jagged Alliance 3",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Modern sequel with positive reception"
+        },
+        {
+            "title": "Shadow Tactics: Blades of the Shogun",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Stealth tactics masterpiece"
+        },
+
+        {
+            "title": "Desperados III",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Strong tactics revival"
+        },
+        {
+            "title": "Commandos 2 HD Remaster",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Remaster of classic stealth tactics"
+        },
+        {
+            "title": "Commandos 3 HD Remaster",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Updated third entry"
+        },
+        {
+            "title": "Commandos: Behind Enemy Lines",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "1998 stealth tactics classic"
+        },
+        {
+            "title": "Commandos: Men of Courage",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Second game in series"
+        },
+        {
+            "title": "Men of War: Assault Squad 2",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "WW2 RTS with micro focus"
+        },
+        {
+            "title": "Men of War II",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Latest entry in series"
+        },
+        {
+            "title": "Company of Heroes",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Revolutionary WW2 RTS"
+        },
+        {
+            "title": "Company of Heroes 2",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Eastern Front sequel"
+        },
+        {
+            "title": "Company of Heroes 3",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Mediterranean-focused"
+        },
+
+        {
+            "title": "Warhammer 40,000: Dawn of War",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Classic WH40K RTS"
+        },
+        {
+            "title": "Warhammer 40,000: Dawn of War II",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "More tactical, RPG-lite"
+        },
+        {
+            "title": "Warhammer 40,000: Dawn of War III",
+            "priority": 5,
+            "category": "Strategy",
+            "notes": "Poorly received sequel"
+        },
+        {
+            "title": "Total War: Shogun 2",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Beloved TW entry"
+        },
+        {
+            "title": "Total War: Rome II",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Rome-era grand strategy"
+        },
+        {
+            "title": "Total War: Attila",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Challenging strategy"
+        },
+        {
+            "title": "Total War: Medieval II",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Fan-favorite TW classic"
+        },
+        {
+            "title": "Total War: Empire",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "18th-century TW"
+        },
+        {
+            "title": "Total War: Napoleon",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Focused Napoleonic campaign"
+        },
+        {
+            "title": "Total War: Troy",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Myth/history hybrid"
+        },
+
+        {
+            "title": "Age of Empires II: Definitive Edition",
+            "priority": 10,
+            "category": "Strategy",
+            "notes": "Most iconic AoE entry remastered"
+        },
+        {
+            "title": "Age of Empires IV",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Newest AoE release"
+        },
+        {
+            "title": "Age of Mythology: Extended Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Fan-favorite mythological spin-off"
+        },
+        {
+            "title": "Rise of Nations: Extended Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Classic RTS remaster"
+        },
+        {
+            "title": "Empire Earth",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Classic time-spanning RTS"
+        },
+        {
+            "title": "Empire Earth II",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Sequel with improvements"
+        },
+        {
+            "title": "Empire Earth III",
+            "priority": 4,
+            "category": "Strategy",
+            "notes": "Poorly received sequel"
+        },
+        {
+            "title": "Stronghold HD",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Castle sim classic remaster"
+        },
+        {
+            "title": "Stronghold: Crusader HD",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Fan-favorite entry"
+        },
+        {
+            "title": "Stronghold 2",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "3D entry, divisive"
+        },
+
+        {
+            "title": "Stronghold 3",
+            "priority": 4,
+            "category": "Strategy",
+            "notes": "Weakest Stronghold game"
+        },
+        {
+            "title": "Stronghold Legends",
+            "priority": 5,
+            "category": "Strategy",
+            "notes": "Fantasy spin-off"
+        },
+        {
+            "title": "Supreme Commander",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Massive-scale RTS"
+        },
+        {
+            "title": "Supreme Commander: Forged Alliance",
+            "priority": 10,
+            "category": "Strategy",
+            "notes": "Best RTS expansions ever"
+        },
+        {
+            "title": "Supreme Commander 2",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Simplified sequel"
+        },
+        {
+            "title": "Warcraft III: Reforged",
+            "priority": 5,
+            "category": "Strategy",
+            "notes": "Remake, widely criticized"
+        },
+        {
+            "title": "Warcraft III: The Frozen Throne",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Classic RTS expansion"
+        },
+        {
+            "title": "Warcraft II: Battle.net Edition",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Classic RTS, still playable"
+        },
+        {
+            "title": "Warcraft: Orcs & Humans",
+            "priority": 5,
+            "category": "Strategy",
+            "notes": "First in series, outdated"
+        },
+        {
+            "title": "Starcraft Remastered",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Classic RTS modernized"
+        },
+
+        {
+            "title": "Starcraft II: Wings of Liberty",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Base SC2 campaign (paid)"
+        },
+        {
+            "title": "Starcraft II: Heart of the Swarm",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Zerg-focused expansion"
+        },
+        {
+            "title": "Starcraft II: Legacy of the Void",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Protoss-focused expansion"
+        },
+        {
+            "title": "Starcraft II: Nova Covert Ops",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Mission pack DLC"
+        },
+        {
+            "title": "Halo Wars",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Console RTS spinoff"
+        },
+        {
+            "title": "Halo Wars 2",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Sequel with PC support"
+        },
+        {
+            "title": "Battle Realms",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Unique RTS with Asian themes"
+        },
+        {
+            "title": "Cossacks 3",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Revival of Cossacks RTS"
+        },
+        {
+            "title": "American Conquest",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Cossacks-like RTS"
+        },
+        {
+            "title": "Homeworld Remastered Collection",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Classic space RTS revived"
+        },
+
+        {
+            "title": "Homeworld: Deserts of Kharak",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Ground RTS prequel"
+        },
+        {
+            "title": "Homeworld 3",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Upcoming space RTS sequel"
+        },
+        {
+            "title": "Sins of a Solar Empire: Rebellion",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "4X RTS hybrid"
+        },
+        {
+            "title": "Galactic Civilizations III",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "4X strategy"
+        },
+        {
+            "title": "Galactic Civilizations IV",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Newest entry"
+        },
+        {
+            "title": "Endless Space 2",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Amplitude’s sci-fi 4X"
+        },
+        {
+            "title": "Endless Legend",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Fantasy 4X by Amplitude"
+        },
+        {
+            "title": "Humankind",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Amplitude’s historical 4X"
+        },
+        {
+            "title": "Sid Meier’s Alpha Centauri",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Cult classic sci-fi 4X"
+        },
+        {
+            "title": "Civilization IV",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Beloved Civ entry"
+        },
+        {
+            "title": "Sid Meier’s Civilization V",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Classic Civ entry, huge mod support"
+        },
+        {
+            "title": "Sid Meier’s Civilization VI",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Latest major Civ release"
+        },
+        {
+            "title": "Civilization: Beyond Earth",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Spiritual successor to Alpha Centauri"
+        },
+        {
+            "title": "Anno 1404: History Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Fan-favorite Anno entry"
+        },
+        {
+            "title": "Anno 2205",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Mixed futuristic Anno game"
+        },
+        {
+            "title": "Anno 1800",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Critically acclaimed Anno entry"
+        },
+        {
+            "title": "Pharaoh: A New Era",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Remake of classic city-builder"
+        },
+        {
+            "title": "Caesar IV",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Classic Roman city-builder"
+        },
+        {
+            "title": "Zeus + Poseidon",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Greek city-building classic"
+        },
+        {
+            "title": "Emperor: Rise of the Middle Kingdom",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Chinese city-building classic"
+        },
+
+        {
+            "title": "Banished",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Indie survival city-builder"
+        },
+        {
+            "title": "Frostpunk",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Post-apocalyptic survival city-builder"
+        },
+        {
+            "title": "Frostpunk 2",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Upcoming sequel"
+        },
+        {
+            "title": "Tropico 6",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Latest dictator city-builder"
+        },
+        {
+            "title": "Tropico 3",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Earlier entry in series"
+        },
+        {
+            "title": "Dungeon Keeper Gold",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Cult classic dungeon management"
+        },
+        {
+            "title": "Dungeon Keeper 2",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Follow-up dungeon sim"
+        },
+        {
+            "title": "War for the Overworld",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Spiritual successor to Dungeon Keeper"
+        },
+        {
+            "title": "Evil Genius",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Villain lair management sim"
+        },
+        {
+            "title": "Evil Genius 2: World Domination",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Sequel to cult classic"
+        },
+
+        {
+            "title": "Crusader Kings II",
+            "priority": 9,
+            "category": "Grand Strategy",
+            "notes": "Paradox classic, now mostly free but expansions paid"
+        },
+        {
+            "title": "Crusader Kings III",
+            "priority": 9,
+            "category": "Grand Strategy",
+            "notes": "Latest CK, highly rated"
+        },
+        {
+            "title": "Europa Universalis III Complete",
+            "priority": 7,
+            "category": "Grand Strategy",
+            "notes": "Earlier EU entry"
+        },
+        {
+            "title": "Europa Universalis IV",
+            "priority": 9,
+            "category": "Grand Strategy",
+            "notes": "Flagship Paradox game"
+        },
+        {
+            "title": "Hearts of Iron III",
+            "priority": 7,
+            "category": "Grand Strategy",
+            "notes": "Earlier WW2 Paradox entry"
+        },
+        {
+            "title": "Hearts of Iron IV",
+            "priority": 9,
+            "category": "Grand Strategy",
+            "notes": "Massively popular WW2 strategy"
+        },
+        {
+            "title": "Victoria II",
+            "priority": 8,
+            "category": "Grand Strategy",
+            "notes": "Cult Paradox classic"
+        },
+        {
+            "title": "Victoria 3",
+            "priority": 8,
+            "category": "Grand Strategy",
+            "notes": "Latest Paradox release"
+        },
+        {
+            "title": "Stellaris",
+            "priority": 9,
+            "category": "Grand Strategy",
+            "notes": "Space 4X grand strategy"
+        },
+        {
+            "title": "Endless Space",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Predecessor to Endless Space 2"
+        },
+
+        {
+            "title": "Endless Dungeon",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Rogue-lite tactical twin-stick"
+        },
+        {
+            "title": "Dune: Spice Wars",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "RTS/4X hybrid in Dune universe"
+        },
+        {
+            "title": "Northgard",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Norse RTS survival"
+        },
+        {
+            "title": "They Are Billions",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Zombie survival RTS"
+        },
+        {
+            "title": "Age of Wonders III",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Fantasy strategy"
+        },
+        {
+            "title": "Age of Wonders: Planetfall",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Sci-fi entry in series"
+        },
+        {
+            "title": "Age of Wonders 4",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Latest AoW, highly rated"
+        },
+        {
+            "title": "Total Annihilation",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Classic large-scale RTS"
+        },
+        {
+            "title": "Planetary Annihilation: TITANS",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Spiritual successor to TA"
+        },
+        {
+            "title": "BattleTech",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Turn-based mech tactics"
+        },
+
+        {
+            "title": "MechWarrior 5: Mercenaries",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Modern mech simulator"
+        },
+        {
+            "title": "MechWarrior Online",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Multiplayer-focused mech sim"
+        },
+        {
+            "title": "Steel Battalion (Xbox only)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (not PC/PS)"
+        },
+        {
+            "title": "Armored Core VI: Fires of Rubicon",
+            "priority": 9,
+            "category": "Action",
+            "notes": "FromSoftware’s mech revival"
+        },
+        {
+            "title": "Armored Core V",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Earlier AC mech game"
+        },
+        {
+            "title": "Armored Core: Verdict Day",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Direct sequel to AC V"
+        },
+        {
+            "title": "Front Mission Evolved",
+            "priority": 5,
+            "category": "Action",
+            "notes": "Action spin-off of tactical series"
+        },
+        {
+            "title": "Front Mission 1st: Remake",
+            "priority": 7,
+            "category": "Strategy RPG",
+            "notes": "Classic tactical RPG remade"
+        },
+        {
+            "title": "Front Mission 2 Remake",
+            "priority": 6,
+            "category": "Strategy RPG",
+            "notes": "Remade sequel"
+        },
+        {
+            "title": "Front Mission 3",
+            "priority": 8,
+            "category": "Strategy RPG",
+            "notes": "Fan-favorite tactical RPG"
+        },
+
+        {
+            "title": "Disgaea 1 Complete",
+            "priority": 7,
+            "category": "Strategy RPG",
+            "notes": "Remake of cult SRPG"
+        },
+        {
+            "title": "Disgaea 5 Complete",
+            "priority": 7,
+            "category": "Strategy RPG",
+            "notes": "Modern Disgaea with huge numbers"
+        },
+        {
+            "title": "Disgaea 6 Complete",
+            "priority": 6,
+            "category": "Strategy RPG",
+            "notes": "Latest entry, mixed reception"
+        },
+        {
+            "title": "Fire Emblem: Three Houses",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (Switch-only)"
+        },
+        {
+            "title": "Valkyria Chronicles",
+            "priority": 9,
+            "category": "Strategy RPG",
+            "notes": "Unique tactics/real-time hybrid"
+        },
+        {
+            "title": "Valkyria Chronicles 4",
+            "priority": 8,
+            "category": "Strategy RPG",
+            "notes": "Well-received sequel"
+        },
+        {
+            "title": "Final Fantasy Tactics: The War of the Lions",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (PSP only)"
+        },
+        {
+            "title": "Tactics Ogre: Reborn",
+            "priority": 9,
+            "category": "Strategy RPG",
+            "notes": "Revived SRPG classic"
+        },
+        {
+            "title": "Triangle Strategy",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (Switch-only)"
+        },
+        {
+            "title": "La Pucelle: Ragnarok",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (PSP only)"
+        },
+
+        {
+            "title": "Suikoden I & II HD Remaster",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Upcoming remaster collection"
+        },
+        {
+            "title": "Suikoden III",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "PS2 cult RPG"
+        },
+        {
+            "title": "Suikoden IV",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Weaker entry"
+        },
+        {
+            "title": "Suikoden V",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Return to form"
+        },
+        {
+            "title": "Chrono Trigger",
+            "priority": 10,
+            "category": "RPG",
+            "notes": "Legendary RPG (PC version available)"
+        },
+        {
+            "title": "Chrono Cross: The Radical Dreamers Edition",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "HD remaster of PS classic"
+        },
+        {
+            "title": "Secret of Mana",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Action RPG classic"
+        },
+        {
+            "title": "Trials of Mana",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "3D remake of Seiken Densetsu 3"
+        },
+        {
+            "title": "Legend of Mana Remastered",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Remaster of PS1 classic"
+        },
+        {
+            "title": "Mana Collection (Switch only)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Excluded (not PC/PS)"
+        },
+
+        {
+            "title": "Ys VIII: Lacrimosa of Dana",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Fan-favorite Ys entry"
+        },
+        {
+            "title": "Ys IX: Monstrum Nox",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Latest Ys mainline"
+        },
+        {
+            "title": "The Legend of Heroes: Trails in the Sky FC",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Start of Trails subseries"
+        },
+        {
+            "title": "The Legend of Heroes: Trails in the Sky SC",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Second Sky entry"
+        },
+        {
+            "title": "The Legend of Heroes: Trails in the Sky the 3rd",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Side story in Sky trilogy"
+        },
+        {
+            "title": "The Legend of Heroes: Trails of Cold Steel",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Modern Trails subseries start"
+        },
+        {
+            "title": "The Legend of Heroes: Trails of Cold Steel II",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Strong sequel"
+        },
+        {
+            "title": "The Legend of Heroes: Trails of Cold Steel III",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Later Cold Steel entry"
+        },
+        {
+            "title": "The Legend of Heroes: Trails of Cold Steel IV",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Closes Cold Steel arc"
+        },
+        {
+            "title": "The Legend of Heroes: Trails into Reverie",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Crossover Trails entry"
+        },
+
+        {
+            "title": "The Legend of Heroes: Kuro no Kiseki",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Japan-only currently"
+        },
+        {
+            "title": "Atelier Ryza: Ever Darkness & the Secret Hideout",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Popular Atelier entry"
+        },
+        {
+            "title": "Atelier Ryza 2: Lost Legends & the Secret Fairy",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Sequel"
+        },
+        {
+            "title": "Atelier Ryza 3: Alchemist of the End & the Secret Key",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "Latest Ryza game"
+        },
+        {
+            "title": "Atelier Sophie 2: The Alchemist of the Mysterious Dream",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Mysterious subseries entry"
+        },
+        {
+            "title": "Blue Reflection",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Magical girl RPG"
+        },
+        {
+            "title": "Blue Reflection: Second Light",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Sequel with improved systems"
+        },
+        {
+            "title": "Ar tonelico: Melody of Elemia",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "PS2 only, excluded"
+        },
+        {
+            "title": "Ar tonelico II: Melody of Metafalica",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "PS2 only, excluded"
+        },
+        {
+            "title": "Ar tonelico Qoga: Knell of Ar Ciel",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "PS3 exclusive, unavailable"
+        },
+        {
+            "title": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "PC classic; frequently discounted"
+        },
+        {
+            "title": "S.T.A.L.K.E.R.: Clear Sky",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Prequel; goes on sale often"
+        },
+        {
+            "title": "S.T.A.L.K.E.R.: Call of Pripyat",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Fan-favorite; frequent sales"
+        },
+        {
+            "title": "ARMA 3",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Military sandbox; deep discounts during sales"
+        },
+        {
+            "title": "DayZ",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Paid base game; often discounted"
+        },
+        {
+            "title": "Insurgency: Sandstorm",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Tactical FPS; regular sales"
+        },
+        {
+            "title": "Insurgency",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Classic tactical shooter; cheap on sale"
+        },
+        {
+            "title": "Squad",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Large-scale tactical FPS; sale cycles"
+        },
+        {
+            "title": "Ready or Not",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "SWAT-style FPS; discounted during events"
+        },
+        {
+            "title": "Hunt: Showdown",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "Extraction PvPvE; frequent sales"
+        },
+
+        {
+            "title": "Rainbow Six: Extraction",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Co-op; often discounted"
+        },
+        {
+            "title": "Ghost Recon: Future Soldier",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Older Ubisoft title; cheap on sale"
+        },
+        {
+            "title": "Tom Clancy’s Splinter Cell",
+            "priority": 8,
+            "category": "Stealth",
+            "notes": "Classic; frequent discounts"
+        },
+        {
+            "title": "Tom Clancy’s Splinter Cell: Pandora Tomorrow",
+            "priority": 7,
+            "category": "Stealth",
+            "notes": "Older title; low sale price"
+        },
+        {
+            "title": "Tom Clancy’s Splinter Cell: Chaos Theory",
+            "priority": 9,
+            "category": "Stealth",
+            "notes": "Genre landmark; often on sale"
+        },
+        {
+            "title": "Tom Clancy’s Splinter Cell: Double Agent",
+            "priority": 7,
+            "category": "Stealth",
+            "notes": "Mixed reception; discounted"
+        },
+        {
+            "title": "Tom Clancy’s Splinter Cell: Conviction",
+            "priority": 7,
+            "category": "Stealth",
+            "notes": "Action-leaning; regularly discounted"
+        },
+        {
+            "title": "Tom Clancy’s Splinter Cell: Blacklist",
+            "priority": 8,
+            "category": "Stealth",
+            "notes": "Great stealth toolbox; frequent sales"
+        },
+        {
+            "title": "Prince of Persia: Warrior Within",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Classic; cheap during sales"
+        },
+        {
+            "title": "Prince of Persia: The Two Thrones",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Trilogy closer; discounts common"
+        },
+
+        {
+            "title": "Prince of Persia (2008)",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Stylized reboot; goes on sale"
+        },
+        {
+            "title": "Prince of Persia: The Lost Crown",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "New Ubisoft release; promo sales"
+        },
+        {
+            "title": "Tomb Raider: Anniversary",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Remake; often bundled cheap"
+        },
+        {
+            "title": "Tomb Raider: Legend",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Well-liked; frequent sales"
+        },
+        {
+            "title": "Tomb Raider: Underworld",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Older entry; heavy discounts"
+        },
+        {
+            "title": "Mirror’s Edge Catalyst",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Parkour sequel; discounted often"
+        },
+        {
+            "title": "Mirror’s Edge",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Cult classic; very cheap on sale"
+        },
+        {
+            "title": "The Saboteur",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "EA cult hit; discounted"
+        },
+        {
+            "title": "Bulletstorm",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Arcadey FPS; deep discounts"
+        },
+        {
+            "title": "Spec Ops: The Line",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "Narrative standout; on sale when available"
+        },
+
+        {
+            "title": "Star Wars: The Force Unleashed Ultimate Sith Edition (PC)",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Older SW; discounts common"
+        },
+        {
+            "title": "Star Wars: The Force Unleashed II (PC)",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Short; cheap on sale"
+        },
+        {
+            "title": "Star Wars: Squadrons",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Space combat; frequent sales"
+        },
+        {
+            "title": "Star Wars: Bounty Hunter (PS/PC remaster)",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Remastered classic; discounts"
+        },
+        {
+            "title": "Star Wars: Racer",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Remaster; low price during sales"
+        },
+        {
+            "title": "STAR WARS Jedi Knight: Dark Forces II",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Classic; cheap"
+        },
+        {
+            "title": "Star Wars: Dark Forces (Classic)",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Classic FPS; low-cost sales"
+        },
+        {
+            "title": "Star Wars: Knights of the Old Republic Remake (track listing when live)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "Future release placeholder; skip for now"
+        },
+        {
+            "title": "The Outer Worlds",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Gets discounted regularly"
+        },
+        {
+            "title": "GreedFall Gold Edition",
+            "priority": 7,
+            "category": "RPG",
+            "notes": "AA RPG; frequent sales"
+        },
+
+        {
+            "title": "Ni no Kuni: Wrath of the White Witch Remastered",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Ghibli charm; discounted often"
+        },
+        {
+            "title": "Ni no Kuni II: Revenant Kingdom",
+            "priority": 7,
+            "category": "JRPG",
+            "notes": "Sequel; regular sales"
+        },
+        {
+            "title": "Valkyria Chronicles Remastered",
+            "priority": 8,
+            "category": "Strategy RPG",
+            "notes": "PS/PC; frequent discounts"
+        },
+        {
+            "title": "Valkyria Chronicles 4 Complete Edition",
+            "priority": 8,
+            "category": "Strategy RPG",
+            "notes": "Goes on sale often"
+        },
+        {
+            "title": "Tactics Ogre: Reborn",
+            "priority": 9,
+            "category": "Strategy RPG",
+            "notes": "Highly rated; promo sales"
+        },
+        {
+            "title": "Triangle Strategy (PC)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "If PC/PS version available, include; otherwise skip"
+        },
+        {
+            "title": "Octopath Traveler II (PC/PS)",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Common discounts"
+        },
+        {
+            "title": "Octopath Traveler (PC)",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Goes on sale"
+        },
+        {
+            "title": "Bravely Default II (PC)",
+            "priority": 7,
+            "category": "JRPG",
+            "notes": "PC port; discounted"
+        },
+        {
+            "title": "Chrono Trigger (PC)",
+            "priority": 10,
+            "category": "JRPG",
+            "notes": "GOAT; frequent discounts"
+        },
+
+        {
+            "title": "Crisis Core – Final Fantasy VII – Reunion",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Remaster; promo sales"
+        },
+        {
+            "title": "Stranger of Paradise: Final Fantasy Origin",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Koei Tecmo collab; discounts"
+        },
+        {
+            "title": "World of Final Fantasy Maxima",
+            "priority": 7,
+            "category": "JRPG",
+            "notes": "Chibi spin-off; goes on sale"
+        },
+        {
+            "title": "Final Fantasy Type-0 HD",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Portable origin; frequent sales"
+        },
+        {
+            "title": "The DioField Chronicle",
+            "priority": 6,
+            "category": "Strategy RPG",
+            "notes": "Square Enix; discounts"
+        },
+        {
+            "title": "Star Ocean The Second Story R",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Beloved remake; goes on sale"
+        },
+        {
+            "title": "Star Ocean: The Divine Force",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Mixed; frequently discounted"
+        },
+        {
+            "title": "The Last Remnant Remastered",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Cult classic; cheap on sale"
+        },
+        {
+            "title": "Ys: Memories of Celceta",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Falcom action; discounted often"
+        },
+        {
+            "title": "Ys: Origin",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Older Falcom title; cheap on sale"
+        },
+
+        {
+            "title": "Tales of Vesperia: Definitive Edition",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Fan-favorite; frequent sales"
+        },
+        {
+            "title": "Tales of Symphonia Remastered",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Mixed port; discounted"
+        },
+        {
+            "title": "Tales of Zestiria",
+            "priority": 6,
+            "category": "JRPG",
+            "notes": "Older Tales; low sale price"
+        },
+        {
+            "title": "Star Wars Pinball VR (PCVR/PSVR)",
+            "priority": 5,
+            "category": "Simulation",
+            "notes": "VR niche; discounted"
+        },
+        {
+            "title": "Beat Saber (PCVR/PSVR)",
+            "priority": 8,
+            "category": "Rhythm",
+            "notes": "VR hit; DLC paid, base discounted sometimes"
+        },
+        {
+            "title": "Pistol Whip (VR)",
+            "priority": 7,
+            "category": "Rhythm",
+            "notes": "VR rhythm shooter; sales"
+        },
+        {
+            "title": "SUPERHOT VR",
+            "priority": 8,
+            "category": "Action",
+            "notes": "VR classic; discounted frequently"
+        },
+        {
+            "title": "Boneworks",
+            "priority": 6,
+            "category": "Action",
+            "notes": "VR physics sandbox; sale cycles"
+        },
+        {
+            "title": "Half-Life: Alyx",
+            "priority": 9,
+            "category": "Shooter",
+            "notes": "VR benchmark; occasional discounts"
+        },
+        {
+            "title": "Arizona Sunshine 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "VR zombie shooter; sales"
+        },
+
+        {
+            "title": "Five Nights at Freddy’s",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Iconic indie; often cheap"
+        },
+        {
+            "title": "Five Nights at Freddy’s 2",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Sequel; low price"
+        },
+        {
+            "title": "Five Nights at Freddy’s 3",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Follow-up; discounted"
+        },
+        {
+            "title": "Five Nights at Freddy’s 4",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "More of the series; cheap"
+        },
+        {
+            "title": "Five Nights at Freddy’s: Security Breach",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "3D entry; frequent discounts"
+        },
+        {
+            "title": "Phasmophobia",
+            "priority": 8,
+            "category": "Horror",
+            "notes": "Co-op ghost hunting; sales"
+        },
+        {
+            "title": "MADiSON",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Indie horror; discounted"
+        },
+        {
+            "title": "Visage",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "PT-like; goes on sale"
+        },
+        {
+            "title": "Observer: System Redux",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Cyberpunk horror; on sale often"
+        },
+        {
+            "title": "The Medium",
+            "priority": 6,
+            "category": "Horror",
+            "notes": "Bloober Team; discounted"
+        },
+
+        {
+            "title": "Resident Evil Revelations",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Spin-off; frequently discounted"
+        },
+        {
+            "title": "Resident Evil Revelations 2",
+            "priority": 7,
+            "category": "Horror",
+            "notes": "Episodic; cheap on sale"
+        },
+        {
+            "title": "Dead Rising",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Remastered; discounted"
+        },
+        {
+            "title": "Dead Rising 2",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Co-op; goes on sale"
+        },
+        {
+            "title": "Dead Rising 2: Off the Record",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Alt campaign; discounted"
+        },
+        {
+            "title": "Dead Rising 3 (PC)",
+            "priority": 6,
+            "category": "Action",
+            "notes": "PC port; discounted"
+        },
+        {
+            "title": "Dead Rising 4",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Mixed; frequent sales"
+        },
+        {
+            "title": "State of Decay 2: Juggernaut Edition (PC)",
+            "priority": 6,
+            "category": "Survival",
+            "notes": "Xbox Game Studios; on sale"
+        },
+        {
+            "title": "We Happy Few",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Stylish dystopia; discounted"
+        },
+        {
+            "title": "Dishonored: Definitive Edition",
+            "priority": 9,
+            "category": "Immersive Sim",
+            "notes": "Remaster; cheap during sales"
+        },
+
+        {
+            "title": "System Shock (2023 Remake)",
+            "priority": 8,
+            "category": "Immersive Sim",
+            "notes": "Nightdive remake; discounted"
+        },
+        {
+            "title": "System Shock 2",
+            "priority": 9,
+            "category": "Immersive Sim",
+            "notes": "Classic; very low sale price"
+        },
+        {
+            "title": "Thief Gold",
+            "priority": 8,
+            "category": "Stealth",
+            "notes": "PC classic; frequent deep discounts"
+        },
+        {
+            "title": "Thief II: The Metal Age",
+            "priority": 8,
+            "category": "Stealth",
+            "notes": "Classic stealth; sales often"
+        },
+        {
+            "title": "Thief: Deadly Shadows",
+            "priority": 7,
+            "category": "Stealth",
+            "notes": "Ion Storm entry; discounted"
+        },
+        {
+            "title": "Thief (2014)",
+            "priority": 6,
+            "category": "Stealth",
+            "notes": "Reboot; heavily discounted"
+        },
+        {
+            "title": "Deus Ex: Game of the Year Edition",
+            "priority": 9,
+            "category": "Immersive Sim",
+            "notes": "Legendary; dollar-store sales"
+        },
+        {
+            "title": "Deus Ex: Invisible War",
+            "priority": 6,
+            "category": "Immersive Sim",
+            "notes": "Divisive; cheap"
+        },
+        {
+            "title": "Deus Ex: Human Revolution",
+            "priority": 9,
+            "category": "Immersive Sim",
+            "notes": "Director’s Cut preferred; discounted"
+        },
+        {
+            "title": "Deus Ex: Mankind Divided - Digital Deluxe",
+            "priority": 7,
+            "category": "Immersive Sim",
+            "notes": "Often bundled on sale"
+        },
+
+        {
+            "title": "Command & Conquer Remastered Collection",
+            "priority": 9,
+            "category": "Strategy",
+            "notes": "Tiberian Dawn & Red Alert; frequent sales"
+        },
+        {
+            "title": "Command & Conquer 3: Tiberium Wars",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "EA; goes on sale"
+        },
+        {
+            "title": "Command & Conquer 3: Kane’s Wrath",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Standalone expansion; discounted"
+        },
+        {
+            "title": "Command & Conquer: Red Alert 3",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Campy RTS; discounted"
+        },
+        {
+            "title": "Command & Conquer: Red Alert 3 – Uprising",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Standalone expansion; sales"
+        },
+        {
+            "title": "Command & Conquer: Generals",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Classic RTS; Origin sales"
+        },
+        {
+            "title": "Command & Conquer: Generals – Zero Hour",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Expansion; discounted"
+        },
+        {
+            "title": "Age of Empires III: Definitive Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Remaster; frequent discounts"
+        },
+        {
+            "title": "Stronghold Crusader 2",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Sequel; on sale regularly"
+        },
+        {
+            "title": "Warhammer 40,000: Mechanicus",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Turn-based tactics; discounted"
+        },
+
+        {
+            "title": "Total War Saga: Thrones of Britannia",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Saga entry; heavily discounted"
+        },
+        {
+            "title": "Total War: PHARAOH",
+            "priority": 6,
+            "category": "Strategy",
+            "notes": "Recent; saw rapid discounts"
+        },
+        {
+            "title": "Endless Dungeon",
+            "priority": 7,
+            "category": "Action Roguelite",
+            "notes": "Amplitude; discounted"
+        },
+        {
+            "title": "Northgard",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Norse RTS; frequent sales"
+        },
+        {
+            "title": "Frostpunk: Season Pass",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "DLC bundle; discounted"
+        },
+        {
+            "title": "They Are Billions",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Zombie RTS; sales often"
+        },
+        {
+            "title": "Kingdoms of Amalur: Re-Reckoning",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Remaster; frequent sales"
+        },
+        {
+            "title": "The Witcher: Enhanced Edition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Very cheap on sale"
+        },
+        {
+            "title": "The Witcher 2: Assassins of Kings Enhanced Edition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Often deeply discounted"
+        },
+        {
+            "title": "Dragon’s Dogma: Dark Arisen",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Goes on sale regularly"
+        },
+
+        {
+            "title": "Dark Souls II: Scholar of the First Sin",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Definitive edition; discounts"
+        },
+        {
+            "title": "Tales of Arise – Beyond the Dawn Edition",
+            "priority": 7,
+            "category": "JRPG",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Scarlet Nexus – Ultimate Edition",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Bundled DLC; sales"
+        },
+        {
+            "title": "Nier Replicant ver.1.2247…",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Goes on sale"
+        },
+        {
+            "title": "NieR: Automata Game of the YoRHa Edition",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Often discounted"
+        },
+        {
+            "title": "Shin Megami Tensei III Nocturne HD Remaster (PC/PS)",
+            "priority": 7,
+            "category": "JRPG",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Persona 5 Tactica",
+            "priority": 7,
+            "category": "Strategy RPG",
+            "notes": "Recent; promo sales"
+        },
+        {
+            "title": "Catherine Classic (PC)",
+            "priority": 6,
+            "category": "Puzzle Adventure",
+            "notes": "Cheap during sales"
+        },
+        {
+            "title": "Catherine: Full Body (PS/PC)",
+            "priority": 7,
+            "category": "Puzzle Adventure",
+            "notes": "Discounts"
+        },
+        {
+            "title": "Dragon Quest XI S – Definitive Edition",
+            "priority": 9,
+            "category": "JRPG",
+            "notes": "Sales fairly often"
+        },
+
+        {
+            "title": "Dragon Quest Heroes",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Musou spin-off; discounted"
+        },
+        {
+            "title": "Dragon Quest Heroes II",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Sequel; frequent sales"
+        },
+        {
+            "title": "Dragon Quest Builders",
+            "priority": 6,
+            "category": "Sandbox RPG",
+            "notes": "Discounts apply"
+        },
+        {
+            "title": "Dragon Quest Builders 2",
+            "priority": 7,
+            "category": "Sandbox RPG",
+            "notes": "Goes on sale"
+        },
+        {
+            "title": "Nioh – Complete Edition",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Nioh 2 – The Complete Edition",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Frequent sales"
+        },
+        {
+            "title": "Wo Long: Fallen Dynasty",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Discounted regularly"
+        },
+        {
+            "title": "Wild Hearts",
+            "priority": 6,
+            "category": "Action",
+            "notes": "EA hunting title; rapid discounts"
+        },
+        {
+            "title": "Monster Hunter: World – Iceborne Master Edition",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Bundle; sales"
+        },
+        {
+            "title": "Monster Hunter Rise + Sunbreak Deluxe",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Bundle; discounts"
+        },
+
+        {
+            "title": "Salt and Sanctuary",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Soulslike 2D; cheap on sale"
+        },
+        {
+            "title": "Salt and Sacrifice",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Sequel; discounted"
+        },
+        {
+            "title": "Blasphemous",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "Sales frequently"
+        },
+        {
+            "title": "Blasphemous 2",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "Newer; promo discounts"
+        },
+        {
+            "title": "Axiom Verge",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "Indie classic; cheap"
+        },
+        {
+            "title": "Axiom Verge 2",
+            "priority": 7,
+            "category": "Metroidvania",
+            "notes": "Discounted"
+        },
+        {
+            "title": "Guacamelee! Super Turbo Championship Edition",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "Sales often"
+        },
+        {
+            "title": "Guacamelee! 2",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Shovel Knight: Treasure Trove",
+            "priority": 9,
+            "category": "Platformer",
+            "notes": "Beloved; discounted"
+        },
+        {
+            "title": "The Messenger",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Indie hit; cheap during sales"
+        },
+
+        {
+            "title": "Katana ZERO",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Stylish indie; discounted"
+        },
+        {
+            "title": "Hotline Miami Collection",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Two games; frequent sales"
+        },
+        {
+            "title": "Hyper Light Drifter",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Goes on sale often"
+        },
+        {
+            "title": "Sable",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Exploration; discounted"
+        },
+        {
+            "title": "ABZU",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Short, beautiful; discounts"
+        },
+        {
+            "title": "Journey",
+            "priority": 9,
+            "category": "Adventure",
+            "notes": "Iconic; occasional discounts"
+        },
+        {
+            "title": "Firewatch",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Cheap on sale"
+        },
+        {
+            "title": "What Remains of Edith Finch",
+            "priority": 9,
+            "category": "Adventure",
+            "notes": "Discounts often"
+        },
+        {
+            "title": "The Vanishing of Ethan Carter",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Narrative mystery; discounted"
+        },
+        {
+            "title": "Everybody’s Gone to the Rapture",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Walking sim; sales"
+        },
+
+        {
+            "title": "Sherlock Holmes: Crimes & Punishments",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Often very cheap"
+        },
+        {
+            "title": "Sherlock Holmes Chapter One",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Newer; frequent sales"
+        },
+        {
+            "title": "Sherlock Holmes The Awakened (2023)",
+            "priority": 7,
+            "category": "Adventure",
+            "notes": "Remake; discounted"
+        },
+        {
+            "title": "The Sinking City",
+            "priority": 6,
+            "category": "Adventure",
+            "notes": "Lovecraftian; sales"
+        },
+        {
+            "title": "LA Noire",
+            "priority": 8,
+            "category": "Adventure",
+            "notes": "Rockstar; discounted"
+        },
+        {
+            "title": "Mafia: Definitive Edition",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Goes on sale"
+        },
+        {
+            "title": "Mafia II: Definitive Edition",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Frequent discounts"
+        },
+        {
+            "title": "Mafia III: Definitive Edition",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Discounted regularly"
+        },
+        {
+            "title": "Kingdom Come: Deliverance Royal Edition",
+            "priority": 8,
+            "category": "RPG",
+            "notes": "Bundle; heavy discounts"
+        },
+        {
+            "title": "ELEX",
+            "priority": 6,
+            "category": "RPG",
+            "notes": "Eurojank; cheap"
+        },
+
+        {
+            "title": "ELEX II",
+            "priority": 5,
+            "category": "RPG",
+            "notes": "Sequel; discounted"
+        },
+        {
+            "title": "Dying Light: Enhanced Edition",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Bundle; sales often"
+        },
+        {
+            "title": "Dying Light 2: Bloody Ties Edition",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Bundle; discounts"
+        },
+        {
+            "title": "Shadow Warrior (2013) Definitive",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Cheap"
+        },
+        {
+            "title": "Crysis Remastered Trilogy",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Far Cry 2",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Older Ubisoft; low sale price"
+        },
+        {
+            "title": "Far Cry Classic (PS3-era)",
+            "priority": 0,
+            "category": "N/A",
+            "notes": "List current PC/PS store version only"
+        },
+        {
+            "title": "RAGE",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "id shooter; cheap"
+        },
+        {
+            "title": "RAGE 2 Deluxe",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Homefront: The Revolution",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Mixed; often very cheap"
+        },
+
+        {
+            "title": "Metro Redux Bundle",
+            "priority": 8,
+            "category": "Shooter",
+            "notes": "2033 + Last Light; discounted"
+        },
+        {
+            "title": "Sniper Ghost Warrior Contracts 2",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Sniping; frequent sales"
+        },
+        {
+            "title": "Sniper Ghost Warrior 3",
+            "priority": 5,
+            "category": "Shooter",
+            "notes": "Discounted heavily"
+        },
+        {
+            "title": "Sniper Elite 3",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Older; cheap"
+        },
+        {
+            "title": "Sniper Elite V2 Remastered",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Remaster; discounted"
+        },
+        {
+            "title": "Payday 2: Legacy Collection",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Bundle; sales"
+        },
+        {
+            "title": "Payday 3 (Standard)",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Discounts after launch"
+        },
+        {
+            "title": "Deep Rock Galactic",
+            "priority": 9,
+            "category": "Co-op Shooter",
+            "notes": "Frequent discounts"
+        },
+        {
+            "title": "Vermintide 2 – Ultimate Edition",
+            "priority": 7,
+            "category": "Co-op Action",
+            "notes": "Bundle; sales"
+        },
+        {
+            "title": "Warhammer 40,000: Darktide Imperial Edition",
+            "priority": 7,
+            "category": "Co-op Action",
+            "notes": "Bundle; discounted"
+        },
+
+        {
+            "title": "HEROES OF MIGHT & MAGIC III – HD Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Classic; cheap on sale"
+        },
+        {
+            "title": "Might & Magic: Clash of Heroes – Definitive Edition",
+            "priority": 7,
+            "category": "Strategy",
+            "notes": "Puzzle tactics; discounted"
+        },
+        {
+            "title": "Endless Legend – Definitive Edition",
+            "priority": 8,
+            "category": "Strategy",
+            "notes": "Amplitude; sales"
+        },
+        {
+            "title": "Sid Meier’s Pirates! (PC)",
+            "priority": 7,
+            "category": "Strategy/Adventure",
+            "notes": "Classic; very cheap"
+        },
+        {
+            "title": "Mount & Blade: Warband",
+            "priority": 9,
+            "category": "Action RPG",
+            "notes": "Frequent deep discounts"
+        },
+        {
+            "title": "Mount & Blade II: Bannerlord",
+            "priority": 8,
+            "category": "Action RPG",
+            "notes": "Discounts in seasonal sales"
+        },
+        {
+            "title": "Kingdoms of Amalur: Re-Reckoning FATE Edition",
+            "priority": 7,
+            "category": "Action RPG",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Pathfinder: Wrath of the Righteous – Enhanced Edition",
+            "priority": 8,
+            "category": "CRPG",
+            "notes": "Goes on sale regularly"
+        },
+        {
+            "title": "Pathfinder: Kingmaker – Definitive Edition",
+            "priority": 7,
+            "category": "CRPG",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Wasteland 2: Director’s Cut",
+            "priority": 7,
+            "category": "CRPG",
+            "notes": "Very cheap on sale"
+        },
+
+        {
+            "title": "Torchlight II",
+            "priority": 8,
+            "category": "ARPG",
+            "notes": "Low price during sales"
+        },
+        {
+            "title": "Grim Dawn Definitive Edition",
+            "priority": 9,
+            "category": "ARPG",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Last Epoch",
+            "priority": 8,
+            "category": "ARPG",
+            "notes": "Sales happen"
+        },
+        {
+            "title": "Warhammer: Chaosbane Slayer Edition",
+            "priority": 6,
+            "category": "ARPG",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Hades",
+            "priority": 9,
+            "category": "Roguelike",
+            "notes": "Frequent promo sales"
+        },
+        {
+            "title": "Dead Cells: Return to Castlevania Bundle",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Enter the Gungeon",
+            "priority": 9,
+            "category": "Roguelike",
+            "notes": "Cheap on sale"
+        },
+        {
+            "title": "Risk of Rain 2: Survivors of the Void Bundle",
+            "priority": 8,
+            "category": "Roguelike",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Slay the Spire",
+            "priority": 9,
+            "category": "Card Battler",
+            "notes": "Frequent sales"
+        },
+        {
+            "title": "Monster Train: The Last Divinity",
+            "priority": 7,
+            "category": "Card Battler",
+            "notes": "Bundle/DLC; discounted"
+        },
+
+        {
+            "title": "Cuphead + The Delicious Last Course",
+            "priority": 9,
+            "category": "Action",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Ori and the Blind Forest: Definitive Edition",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Sales"
+        },
+        {
+            "title": "Ori and the Will of the Wisps",
+            "priority": 9,
+            "category": "Platformer",
+            "notes": "Discounts often"
+        },
+        {
+            "title": "Rayman Origins",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Ubi classic; cheap"
+        },
+        {
+            "title": "Sonic Mania",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Sonic Frontiers",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Frequent sales"
+        },
+        {
+            "title": "Sonic Origins Plus",
+            "priority": 7,
+            "category": "Compilation",
+            "notes": "Discounts"
+        },
+        {
+            "title": "Crash Bandicoot N. Sane Trilogy",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Often on sale"
+        },
+        {
+            "title": "Crash Team Racing Nitro-Fueled (PS)",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "PS; discounted"
+        },
+        {
+            "title": "Spyro Reignited Trilogy",
+            "priority": 8,
+            "category": "Platformer",
+            "notes": "Discounts frequently"
+        },
+
+        {
+            "title": "Castlevania Anniversary Collection",
+            "priority": 7,
+            "category": "Compilation",
+            "notes": "Konami; discounted"
+        },
+        {
+            "title": "Castlevania Advance Collection",
+            "priority": 7,
+            "category": "Compilation",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Bloodstained: Ritual of the Night",
+            "priority": 8,
+            "category": "Metroidvania",
+            "notes": "Frequent sales"
+        },
+        {
+            "title": "Bloodstained: Curse of the Moon",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Cheap on sale"
+        },
+        {
+            "title": "Bloodstained: Curse of the Moon 2",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Discounts"
+        },
+        {
+            "title": "Hollow Knight",
+            "priority": 9,
+            "category": "Metroidvania",
+            "notes": "Low sale price"
+        },
+        {
+            "title": "Katamari Damacy REROLL",
+            "priority": 7,
+            "category": "Puzzle",
+            "notes": "Discounts often"
+        },
+        {
+            "title": "We Love Katamari REROLL+ Royal Reverie",
+            "priority": 7,
+            "category": "Puzzle",
+            "notes": "Sales"
+        },
+        {
+            "title": "Tetris Effect: Connected",
+            "priority": 8,
+            "category": "Puzzle",
+            "notes": "PS/PC; discounted"
+        },
+        {
+            "title": "Puyo Puyo Tetris 2",
+            "priority": 6,
+            "category": "Puzzle",
+            "notes": "Sales common"
+        },
+
+        {
+            "title": "Football Manager 2024",
+            "priority": 8,
+            "category": "Sports/Sim",
+            "notes": "SEGA; regular discounts"
+        },
+        {
+            "title": "Football Manager 2023",
+            "priority": 7,
+            "category": "Sports/Sim",
+            "notes": "Heavily discounted now"
+        },
+        {
+            "title": "NBA 2K23",
+            "priority": 6,
+            "category": "Sports",
+            "notes": "Annual sports; cheap"
+        },
+        {
+            "title": "NBA 2K22",
+            "priority": 5,
+            "category": "Sports",
+            "notes": "Older; very cheap"
+        },
+        {
+            "title": "EA SPORTS FC 24",
+            "priority": 8,
+            "category": "Sports",
+            "notes": "Regular sales"
+        },
+        {
+            "title": "F1 22",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Annual; discounted"
+        },
+        {
+            "title": "F1 21",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Older; cheap"
+        },
+        {
+            "title": "F1 Manager 2023",
+            "priority": 6,
+            "category": "Strategy/Sim",
+            "notes": "Discounts frequent"
+        },
+        {
+            "title": "WRC 10",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Sales"
+        },
+        {
+            "title": "Ride 4",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Bike sim; discounted"
+        },
+
+        {
+            "title": "Ride 5",
+            "priority": 7,
+            "category": "Racing",
+            "notes": "Newer; promo sales"
+        },
+        {
+            "title": "Assetto Corsa Ultimate Edition",
+            "priority": 9,
+            "category": "Racing Sim",
+            "notes": "Very cheap on sale"
+        },
+        {
+            "title": "Assetto Corsa Competizione – 2023 GT World Challenge Pack",
+            "priority": 7,
+            "category": "Racing Sim",
+            "notes": "DLC bundle; discounted"
+        },
+        {
+            "title": "Project CARS 2 Deluxe",
+            "priority": 6,
+            "category": "Racing",
+            "notes": "Delisted some places; if listed, discounted"
+        },
+        {
+            "title": "SnowRunner Premium Edition",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Bundle; frequent sales"
+        },
+        {
+            "title": "House Flipper",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Deep discounts"
+        },
+        {
+            "title": "House Flipper 2",
+            "priority": 6,
+            "category": "Simulation",
+            "notes": "Newer; discounted"
+        },
+        {
+            "title": "PowerWash Simulator",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Car Mechanic Simulator 2021",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Sales"
+        },
+        {
+            "title": "Farming Simulator 22",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Very frequent discounts"
+        },
+
+        {
+            "title": "Transport Fever 2",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Transport tycoon; discounted"
+        },
+        {
+            "title": "Railway Empire",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Rails management; sales"
+        },
+        {
+            "title": "Factorio",
+            "priority": 9,
+            "category": "Simulation",
+            "notes": "Rarely discounted; flag accordingly"
+        },
+        {
+            "title": "Satisfactory",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Discounts during seasonal sales"
+        },
+        {
+            "title": "Dyson Sphere Program",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "On sale often"
+        },
+        {
+            "title": "Timberborn",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Beaver builder; discounts"
+        },
+        {
+            "title": "Cities: Skylines Deluxe Edition",
+            "priority": 9,
+            "category": "City Builder",
+            "notes": "Very frequent discounts"
+        },
+        {
+            "title": "Cities: Skylines II – Ultimate Edition",
+            "priority": 6,
+            "category": "City Builder",
+            "notes": "Discounts amid improvements"
+        },
+        {
+            "title": "Planet Coaster: Complete the Collection",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "DLC bundle; sales"
+        },
+        {
+            "title": "Planet Zoo: Ultimate Edition",
+            "priority": 8,
+            "category": "Simulation",
+            "notes": "Bundle; discounted"
+        },
+
+        {
+            "title": "Jurassic World Evolution 2 – Deluxe Edition",
+            "priority": 7,
+            "category": "Simulation",
+            "notes": "Bundle; discounts"
+        },
+        {
+            "title": "No Man’s Sky",
+            "priority": 9,
+            "category": "Adventure/Survival",
+            "notes": "Frequent discounts"
+        },
+        {
+            "title": "Teardown",
+            "priority": 8,
+            "category": "Sandbox",
+            "notes": "Techy destruction; discounted"
+        },
+        {
+            "title": "Besiege",
+            "priority": 7,
+            "category": "Sandbox",
+            "notes": "Cheap on sale"
+        },
+        {
+            "title": "Space Engineers",
+            "priority": 7,
+            "category": "Sandbox",
+            "notes": "Sales happen often"
+        },
+        {
+            "title": "Scrap Mechanic",
+            "priority": 6,
+            "category": "Sandbox",
+            "notes": "Discounts"
+        },
+        {
+            "title": "Empyrion – Galactic Survival",
+            "priority": 6,
+            "category": "Survival",
+            "notes": "Sales common"
+        },
+        {
+            "title": "Subnautica",
+            "priority": 9,
+            "category": "Survival",
+            "notes": "Frequent discounts"
+        },
+        {
+            "title": "Subnautica: Below Zero",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "On sale often"
+        },
+        {
+            "title": "The Long Dark",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Discounts frequently"
+        },
+
+        {
+            "title": "Green Hell",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Regular sales"
+        },
+        {
+            "title": "The Forest",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Often discounted"
+        },
+        {
+            "title": "Sons of the Forest",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Discounts"
+        },
+        {
+            "title": "Raft",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Sale cycles"
+        },
+        {
+            "title": "Valheim",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Frequent discounts"
+        },
+        {
+            "title": "Project Zomboid",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Rust",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Sales regularly"
+        },
+        {
+            "title": "Conan Exiles",
+            "priority": 7,
+            "category": "Survival",
+            "notes": "Discounts"
+        },
+        {
+            "title": "ARK: Survival Evolved",
+            "priority": 8,
+            "category": "Survival",
+            "notes": "Heavy discounts"
+        },
+        {
+            "title": "ARK: Survival Ascended",
+            "priority": 6,
+            "category": "Survival",
+            "notes": "Discounted despite controversy"
+        },
+
+        {
+            "title": "Devil May Cry 5 Deluxe Edition",
+            "priority": 9,
+            "category": "Action",
+            "notes": "Frequent sales"
+        },
+        {
+            "title": "Devil May Cry HD Collection",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Discounted often"
+        },
+        {
+            "title": "Metal Gear Rising: Revengeance",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Goes on sale"
+        },
+        {
+            "title": "Metal Gear Solid V: Ground Zeroes",
+            "priority": 6,
+            "category": "Action",
+            "notes": "Very cheap"
+        },
+        {
+            "title": "Metal Gear Solid V: The Phantom Pain – Definitive",
+            "priority": 9,
+            "category": "Action",
+            "notes": "Frequently discounted"
+        },
+        {
+            "title": "Yakuza: Like a Dragon – Legendary Hero Edition",
+            "priority": 8,
+            "category": "JRPG",
+            "notes": "Bundles discounted"
+        },
+        {
+            "title": "Like a Dragon: Ishin!",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Recent; on sale"
+        },
+        {
+            "title": "Judgment Remastered",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Discounts"
+        },
+        {
+            "title": "Lost Judgment Digital Deluxe",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Sleeping Dogs: Definitive Edition",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Frequent deep discounts"
+        },
+
+        {
+            "title": "Just Cause 3 XL",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Bundle; cheap"
+        },
+        {
+            "title": "Just Cause 4: Complete Edition",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Bundle; discounted"
+        },
+        {
+            "title": "Mad Max",
+            "priority": 8,
+            "category": "Action-Adventure",
+            "notes": "Heavily discounted often"
+        },
+        {
+            "title": "RoboCop: Rogue City",
+            "priority": 7,
+            "category": "Shooter",
+            "notes": "Sale cycles"
+        },
+        {
+            "title": "Terminator: Resistance Enhanced",
+            "priority": 6,
+            "category": "Shooter",
+            "notes": "Discounted"
+        },
+        {
+            "title": "Darksiders Warmastered Edition",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Cheap on sale"
+        },
+        {
+            "title": "Darksiders II Deathinitive Edition",
+            "priority": 7,
+            "category": "Action-Adventure",
+            "notes": "Discounts common"
+        },
+        {
+            "title": "Darksiders III",
+            "priority": 6,
+            "category": "Action-Adventure",
+            "notes": "Frequent sales"
+        },
+        {
+            "title": "Bayonetta",
+            "priority": 8,
+            "category": "Action",
+            "notes": "Often discounted on PC"
+        },
+        {
+            "title": "Vanquish",
+            "priority": 7,
+            "category": "Action",
+            "notes": "Discounts common"
         }
     ]
 }

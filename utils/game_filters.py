@@ -38,9 +38,27 @@ class PriorityGameFilter:
                 print(f"Warning: Priority games database not found at {self.priority_db_path}")
                 return []
             
-            with open(self.priority_db_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            # Try multiple encoding strategies to handle BOM and encoding issues
+            encodings_to_try = ['utf-8-sig', 'utf-8', 'ascii', 'latin-1']
+            
+            for encoding in encodings_to_try:
+                try:
+                    with open(self.priority_db_path, 'r', encoding=encoding) as f:
+                        data = json.load(f)
+                        return data.get('games', [])
+                except (UnicodeDecodeError, json.JSONDecodeError):
+                    continue
+            
+            # If all encodings fail, try reading as binary and removing BOM manually
+            with open(self.priority_db_path, 'rb') as f:
+                content = f.read()
+                # Remove UTF-8 BOM if present
+                if content.startswith(b'\xef\xbb\xbf'):
+                    content = content[3:]
+                # Try to decode and parse
+                data = json.loads(content.decode('utf-8'))
                 return data.get('games', [])
+                
         except Exception as e:
             print(f"Error loading priority games database: {e}")
             return []
@@ -173,7 +191,8 @@ class PriorityGameFilter:
     def filter_deals_by_priority(self, deals: List[Dict[str, Any]], 
                                 min_priority: int = 5, 
                                 min_match_score: float = 0.6,
-                                max_results: int = None) -> List[Dict[str, Any]]:
+                                max_results: int = None,
+                                strict_mode: bool = True) -> List[Dict[str, Any]]:
         """
         Filter a list of deals to only include priority games.
         
@@ -182,6 +201,7 @@ class PriorityGameFilter:
             min_priority: Minimum priority score required (1-10)
             min_match_score: Minimum match score required (0.0-1.0)
             max_results: Maximum number of results to return
+            strict_mode: If True, only return games that match priority database
             
         Returns:
             Filtered list of deals, sorted by priority then original order
@@ -210,15 +230,67 @@ class PriorityGameFilter:
                 deal_copy['_match_score'] = best_match[1]
                 deal_copy['_priority_game'] = best_match[0]
                 priority_deals.append(deal_copy)
+            elif not strict_mode:
+                # In non-strict mode, include non-priority games but mark them
+                deal_copy = deal.copy()
+                deal_copy['_priority'] = 0
+                deal_copy['_match_score'] = 0.0
+                deal_copy['_priority_game'] = None
+                priority_deals.append(deal_copy)
         
-        # Sort by priority (descending), then by match score (descending)
-        priority_deals.sort(key=lambda x: (x['_priority'], x['_match_score']), reverse=True)
+        # Custom sorting: Priority takes precedence over discount only if discount is above 50%
+        def sort_key(deal):
+            priority = deal.get('_priority', 0)
+            discount_str = deal.get('discount', '0%')
+            
+            # Extract numeric discount value
+            try:
+                discount_num = int(discount_str.replace('%', '')) if discount_str else 0
+            except (ValueError, AttributeError):
+                discount_num = 0
+            
+            # If discount is above 50%, sort by priority first, then by discount
+            if discount_num > 50:
+                return (priority, discount_num, deal.get('_match_score', 0))
+            else:
+                # If discount is 50% or below, sort by discount first, then by priority
+                return (discount_num, priority, deal.get('_match_score', 0))
+        
+        priority_deals.sort(key=sort_key, reverse=True)
         
         if max_results:
             priority_deals = priority_deals[:max_results]
         
         return priority_deals
     
+    def debug_game_matching(self, game_title: str) -> Dict[str, Any]:
+        """
+        Debug method to see how a game title matches against the priority database.
+        
+        Args:
+            game_title: The game title to debug
+            
+        Returns:
+            Debug information about matching
+        """
+        matches = self.find_matching_games(game_title)
+        
+        debug_info = {
+            "search_title": game_title,
+            "total_matches": len(matches),
+            "matches": []
+        }
+        
+        for game_data, match_score in matches[:5]:  # Show top 5 matches
+            debug_info["matches"].append({
+                "db_title": game_data['title'],
+                "priority": game_data['priority'],
+                "match_score": match_score,
+                "category": game_data.get('category', 'Unknown')
+            })
+        
+        return debug_info
+
     def get_database_stats(self) -> Dict[str, Any]:
         """Get statistics about the priority games database."""
         if not self.priority_games:

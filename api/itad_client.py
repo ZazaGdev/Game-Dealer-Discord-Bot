@@ -45,11 +45,12 @@ class ITADClient:
                 return []
 
         # Use the correct ITAD API endpoint - deals/v2
-        # Fetch more deals when quality filtering is enabled to ensure we have enough after filtering
+        # Fetch more deals when quality filtering is enabled to ensure we have enough after strict filtering
         api_limit = limit
         if quality_filter:
-            # Request 4-5x more deals to account for filtering
-            api_limit = min(limit * 5, 200)  # ITAD v2 allows up to 200
+            # Request significantly more deals since we're now doing strict priority filtering
+            # If we need N deals after filtering, request up to 15x more to account for strict filtering
+            api_limit = min(limit * 15, 200)  # ITAD v2 allows up to 200
         
         params: Dict[str, Any] = {
             "key": self.api_key,
@@ -123,13 +124,29 @@ class ITADClient:
                     }
                     all_deals.append(deal)
 
-            # Apply priority filtering if enabled
+            # Apply priority filtering if enabled - STRICT MODE ONLY
             if quality_filter:
                 deals = self.priority_filter.filter_deals_by_priority(
                     all_deals, 
                     min_priority=min_priority,
-                    max_results=limit
+                    max_results=limit,
+                    strict_mode=True  # Only return games that match the priority database
                 )
+                
+                # If we don't have enough deals after strict filtering, try to get more
+                if len(deals) < limit and len(all_deals) > len(deals):
+                    # Try with a lower priority threshold to get more results
+                    if min_priority > 1:
+                        additional_deals = self.priority_filter.filter_deals_by_priority(
+                            all_deals,
+                            min_priority=max(1, min_priority - 2),  # Lower threshold
+                            max_results=limit,
+                            strict_mode=True
+                        )
+                        
+                        # If we got more deals with lower threshold, use those
+                        if len(additional_deals) > len(deals):
+                            deals = additional_deals
             else:
                 deals = all_deals[:limit]  # Just limit without filtering
 
@@ -271,32 +288,57 @@ class ITADClient:
 
     async def _log_full_api_response(self, data: Dict, params: Dict, store_filter: str = None) -> None:
         """Log full API response to api_responses.json for Discord command analysis"""
-        import json
-        import os
-        from datetime import datetime
-        
-        log_dir = "logs"
-        if not os.path.exists(log_dir):
-            os.makedirs(log_dir)
-        
-        # Create detailed log entry with full response data
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "source": "discord_command",
-            "endpoint": "/deals/v2",
-            "request_params": {k: v for k, v in params.items() if k != "key"},  # Don't log API key
-            "store_filter": store_filter,
-            "response": data,  # Full response data
-            "summary": {
-                "total_items": len(data.get("list", [])) if isinstance(data, dict) else 0,
-                "has_more": data.get("hasMore", False) if isinstance(data, dict) else False,
-                "next_offset": data.get("nextOffset") if isinstance(data, dict) else None
+        try:
+            import json
+            import os
+            from datetime import datetime
+            
+            log_dir = "logs"
+            if not os.path.exists(log_dir):
+                os.makedirs(log_dir)
+            
+            # Create detailed log entry with full response data
+            log_entry = {
+                "timestamp": datetime.now().isoformat(),
+                "source": "discord_command",
+                "endpoint": "/deals/v2",
+                "request_params": {k: v for k, v in params.items() if k != "key"},  # Don't log API key
+                "store_filter": store_filter,
+                "response_summary": {
+                    "total_items": len(data.get("list", [])) if isinstance(data, dict) else 0,
+                    "has_more": data.get("hasMore", False) if isinstance(data, dict) else False,
+                    "next_offset": data.get("nextOffset") if isinstance(data, dict) else None
+                },
+                "first_5_deals": data.get("list", [])[:5] if isinstance(data, dict) else []  # Store only first 5 for space
             }
-        }
-        
-        # Write to file with pretty formatting
-        with open(f"{log_dir}/api_responses.json", "w", encoding="utf-8") as f:
-            json.dump(log_entry, f, indent=2, ensure_ascii=False)
+            
+            api_log_file = f"{log_dir}/api_responses.json"
+            
+            # Read existing entries if file exists
+            existing_entries = []
+            if os.path.exists(api_log_file):
+                try:
+                    with open(api_log_file, "r", encoding="utf-8") as f:
+                        content = f.read().strip()
+                        if content:
+                            existing_entries = json.loads(content) if content.startswith('[') else [json.loads(content)]
+                except (json.JSONDecodeError, FileNotFoundError):
+                    existing_entries = []
+            
+            # Add new entry
+            existing_entries.append(log_entry)
+            
+            # Keep only last 50 entries to prevent file from growing too large
+            if len(existing_entries) > 50:
+                existing_entries = existing_entries[-50:]
+            
+            # Write back to file
+            with open(api_log_file, "w", encoding="utf-8") as f:
+                json.dump(existing_entries, f, indent=2, ensure_ascii=False)
+                
+        except Exception as e:
+            # Don't let logging errors affect the main functionality
+            print(f"Warning: Failed to log API response: {e}")
     
     def get_available_stores(self) -> list:
         """Return a list of common store names for filtering"""

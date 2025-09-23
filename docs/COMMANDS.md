@@ -20,8 +20,9 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 
 -   Prioritizes Steam, Epic, and GOG stores
 -   Shows deals sorted by highest discount percentage
--   Uses curated game database for quality filtering
+-   **Only displays games from curated priority database** (80+ quality games)
 -   Displays results in paginated format (10 deals per page)
+-   Automatically filters out unknown or low-quality games
 
 **Examples:**
 
@@ -44,7 +45,42 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 
 -   Searches specific store for quality game deals
 -   Sorts results by discount percentage
--   Uses quality filtering from curated database
+-   **Only shows games from curated priority database**
+-   Filters out unknown games automatically
+
+#### `/priority_search [amount] [min_priority] [min_discount]`
+
+**Description:** 🎯 **STRICT PRIORITY SEARCH** - Search ONLY for deals from your curated priority games database
+
+**Parameters:**
+
+-   `amount` (optional): Number of deals to show (1-25, default: 10)
+-   `min_priority` (optional): Minimum priority level (1-10, default: 5)
+-   `min_discount` (optional): Minimum discount percentage (1-100, default: 1)
+
+**Features:**
+
+-   **100% CURATED**: Only returns games from the 873-game priority database
+-   **Priority-Based Sorting**: Games with higher priority scores rank higher
+-   **Quality Guaranteed**: Every result is a vetted, quality game
+-   **Advanced Filtering**: Combine priority level and discount requirements
+-   **Priority Indicators**: Shows priority levels and quality ratings
+-   **Debug Information**: Displays matching scores and database stats
+
+**Examples:**
+
+```
+/priority_search
+/priority_search amount:15 min_priority:7 min_discount:50
+/priority_search amount:20 min_priority:8
+/priority_search amount:5 min_priority:9 min_discount:75
+```
+
+**Use Cases:**
+- Find high-quality games with substantial discounts
+- Discover AAA titles you might have missed
+- Filter by priority level to match your gaming preferences
+- Ensure every deal is for a proven, quality game
 
 **Examples:**
 
