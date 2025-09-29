@@ -1,5 +1,7 @@
 # GameDealer Bot Commands Documentation
 
+> 📖 **For complete technical reference with all parameters, validation rules, and advanced examples, see [COMMAND_REFERENCE.md](COMMAND_REFERENCE.md)**
+
 ## Overview
 
 GameDealer is a Discord bot that helps you find the best game deals from popular stores like Steam, Epic Games Store, and GOG. The bot uses a curated database of quality games and automatically prioritizes deals by discount percentage.
@@ -84,6 +86,7 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 **Features:**
 
 -   **100% CURATED**: Only returns games from the 1,173-game priority database
+-   **EXACT MATCHING**: Uses exact title matching (ignoring ™®© symbols) to prevent false positives
 -   **Manual Matching**: Fetches all discounted games and matches against priority database
 -   **Store Filtering**: Search specific store or all major stores (Steam, Epic, GOG)
 -   **Priority-Based Sorting**: Games with higher priority scores rank higher
@@ -155,22 +158,22 @@ GameDealer is a Discord bot that helps you find the best game deals from popular
 
 ### 📅 Scheduler Management
 
-_Note: These commands require administrator permissions and use the old text-based format_
+_Note: These commands are currently disabled and not available_
 
-#### `!enable_daily_deals`
+#### ~~`!enable_daily_deals`~~ (Disabled)
 
 **Description:** Enable automatic daily deal posting
-**Permissions:** Administrator only
+**Status:** Currently disabled - functionality not in use
 
-#### `!disable_daily_deals`
+#### ~~`!disable_daily_deals`~~ (Disabled)
 
-**Description:** Disable automatic daily deal posting
-**Permissions:** Administrator only
+**Description:** Disable automatic daily deal posting  
+**Status:** Currently disabled - functionality not in use
 
-#### `!trigger_daily_deals`
+#### ~~`!trigger_daily_deals`~~ (Disabled)
 
 **Description:** Manually trigger daily deal posting
-**Permissions:** Administrator only
+**Status:** Currently disabled - functionality not in use
 
 ## Features & Technical Details
 
@@ -190,7 +193,7 @@ _Note: These commands require administrator permissions and use the old text-bas
 
 ### 🔄 Automatic Features
 
--   **Daily Scheduling:** Automatically posts daily deals at 9 AM
+-   ~~**Daily Scheduling:** Automatically posts daily deals at 9 AM~~ (Currently disabled)
 -   **Quality Filtering:** Filters out low-quality games and content
 -   **Smart Fetching:** Gets more deals than requested to account for filtering
 -   **Error Handling:** Graceful handling of API issues and edge cases

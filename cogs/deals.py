@@ -499,11 +499,32 @@ class Deals(commands.Cog):
                     await interaction_or_ctx.edit_original_response(content=no_deals_msg)
                 return
             
-            # Step 3: Match deals against priority database
+            # Helper function to normalize game titles for exact matching
+            def normalize_title_for_matching(title):
+                """Normalize title by removing special characters that don't affect matching"""
+                import re
+                # Remove trademark, registered, copyright symbols and similar special chars
+                normalized = re.sub(r'[™®©℗℠]', '', title)
+                # Remove extra whitespace and convert to lowercase
+                normalized = ' '.join(normalized.split()).lower().strip()
+                return normalized
+            
+            # Step 3: Match deals against priority database with EXACT MATCHING + DEDUPLICATION
             matched_deals = []
+            seen_titles = set()  # Track unique titles to prevent duplicates
             
             for deal in all_deals:
-                deal_title = deal.get('title', '').lower().strip()
+                deal_title = deal.get('title', '').strip()
+                if not deal_title:
+                    continue
+                    
+                # Normalize title for both matching and duplicate checking
+                normalized_deal_title = normalize_title_for_matching(deal_title)
+                
+                # Skip if we've already processed this exact title
+                if normalized_deal_title in seen_titles:
+                    continue
+                
                 deal_discount = deal.get('discount', '0%')
                 
                 # Extract discount percentage
@@ -516,30 +537,48 @@ class Deals(commands.Cog):
                 if discount_pct < min_discount:
                     continue
                 
-                # Find matching priority game
+                # Find matching priority game using EXACT matching only
+                best_match = None
+                best_match_priority = 0
+                
                 for priority_game in priority_games:
-                    priority_title = priority_game.get('title', '').lower().strip()
+                    priority_title = priority_game.get('title', '').strip()
                     priority_level = priority_game.get('priority', 0)
                     
                     # Skip if priority doesn't meet minimum requirement
                     if priority_level < min_priority:
                         continue
                     
-                    # Check for title match (exact match or contains)
-                    if (priority_title == deal_title or 
-                        priority_title in deal_title or 
-                        deal_title in priority_title):
+                    # Normalize priority game title for exact comparison
+                    normalized_priority_title = normalize_title_for_matching(priority_title)
+                    
+                    # EXACT MATCH ONLY - no partial matching to avoid false positives like "Raft" matching "Minecraft Raft Edition"
+                    if normalized_deal_title == normalized_priority_title:
+                        # If we found an exact match, prefer higher priority games
+                        if priority_level > best_match_priority:
+                            best_match = priority_game
+                            best_match_priority = priority_level
+                
+                # If we found an exact match, add it and mark title as seen
+                if best_match:
+                    # Use the priority game's canonical title for deduplication (more reliable)
+                    canonical_title = normalize_title_for_matching(best_match.get('title', ''))
+                    
+                    # Check if we've already seen this canonical game title
+                    if canonical_title not in seen_titles:
+                        # Mark this canonical title as seen to prevent future duplicates
+                        seen_titles.add(canonical_title)
                         
                         # Add priority info to deal
                         enhanced_deal = deal.copy()
-                        enhanced_deal['_priority'] = priority_level
-                        enhanced_deal['_priority_title'] = priority_game.get('title', '')
-                        enhanced_deal['_category'] = priority_game.get('category', '')
-                        enhanced_deal['_notes'] = priority_game.get('notes', '')
-                        enhanced_deal['_match_score'] = len(priority_title) / max(len(deal_title), 1)  # Simple match confidence
+                        enhanced_deal['_priority'] = best_match.get('priority', 0)
+                        enhanced_deal['_priority_title'] = best_match.get('title', '')
+                        enhanced_deal['_category'] = best_match.get('category', '')
+                        enhanced_deal['_notes'] = best_match.get('notes', '')
+                        enhanced_deal['_match_score'] = 1.0  # Always 1.0 for exact matches
+                        enhanced_deal['_discount_pct'] = discount_pct
                         
                         matched_deals.append(enhanced_deal)
-                        break  # Stop searching after first match
             
             # Step 4: Filter and sort matched deals
             if not matched_deals:
@@ -548,7 +587,6 @@ class Deals(commands.Cog):
                     f"• Priority: {min_priority}/10 or higher\n"
                     f"• Discount: {min_discount}% or higher\n"
                     f"• Store: {store if store else 'Steam, Epic, GOG'}\n"
-                    f"• Database: {len(priority_games)} curated games\n\n"
                     f"💡 Try lowering the priority or discount requirements, or check different stores."
                 )
                 if is_prefix:
@@ -557,8 +595,18 @@ class Deals(commands.Cog):
                     await interaction_or_ctx.edit_original_response(content=no_matches_msg)
                 return
             
-            # Sort by priority first, then discount
-            matched_deals.sort(key=lambda x: (-x.get('_priority', 0), -int(x.get('discount', '0%').replace('%', '') or 0)))
+            # Sort by priority first, then discount (with 50% discount rule)
+            def priority_sort_key(deal):
+                priority = deal.get('_priority', 0)
+                discount = deal.get('_discount_pct', 0)
+                
+                # If discount > 50%, prioritize by priority score first
+                if discount > 50:
+                    return (-priority, -discount)  # Higher priority first, then higher discount
+                else:
+                    return (-discount, -priority)  # Higher discount first, then higher priority
+            
+            matched_deals.sort(key=priority_sort_key)
             
             # Limit to requested amount
             final_deals = matched_deals[:amount]
@@ -588,7 +636,6 @@ class Deals(commands.Cog):
         summary = (
             f"🎯 **Priority Search Results** ({len(deals)}/{requested_amount} requested, {total_matches} total matches)\n"
             f"**Criteria:** Priority {min_priority}+, Discount {min_discount}%+, Store: {store_text}\n"
-            f"**Database:** {total_priority_games} curated games\n\n"
         )
         
         # Add top matches info

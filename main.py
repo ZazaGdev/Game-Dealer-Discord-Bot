@@ -37,9 +37,9 @@ async def main():
     )
     
     try:
-        # Load the scheduler cog for automated deal posting
-        await bot.load_extension('bot.scheduler')
-        log.info("Deal scheduler loaded successfully - daily deals at 9 AM")
+        # Note: Daily scheduler functionality disabled for now
+        # await bot.load_extension('bot.scheduler')
+        # log.info("Deal scheduler loaded successfully - daily deals at 9 AM")
         
         # Start the bot (this blocks until bot stops)
         await bot.start(config.discord_token)

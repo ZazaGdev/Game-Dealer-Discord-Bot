@@ -59,14 +59,25 @@ async def test_new_priority_search():
         
         print(f"   Total deals fetched: {len(all_deals)}")
         
-        # Step 3: Manual matching
-        print("\n🎯 Step 3: Matching deals against priority database...")
+        # Step 3: Manual matching with deduplication
+        print("\n🎯 Step 3: Matching deals against priority database (with deduplication)...")
         matched_deals = []
+        seen_titles = set()  # Track unique titles to prevent duplicates
         min_priority = 5
         min_discount = 10
         
         for deal in all_deals:
-            deal_title = deal.get('title', '').lower().strip()
+            deal_title = deal.get('title', '').strip()
+            if not deal_title:
+                continue
+                
+            # Normalize title for duplicate checking
+            normalized_title = deal_title.lower().strip()
+            
+            # Skip if we've already processed this title
+            if normalized_title in seen_titles:
+                continue
+                
             deal_discount = deal.get('discount', '0%')
             
             # Extract discount percentage
@@ -79,7 +90,10 @@ async def test_new_priority_search():
             if discount_pct < min_discount:
                 continue
             
-            # Find matching priority game
+            # Find best matching priority game
+            best_match = None
+            best_match_score = 0
+            
             for priority_game in priority_games:
                 priority_title = priority_game.get('title', '').lower().strip()
                 priority_level = priority_game.get('priority', 0)
@@ -88,27 +102,61 @@ async def test_new_priority_search():
                 if priority_level < min_priority:
                     continue
                 
-                # Check for title match
-                if (priority_title == deal_title or 
-                    priority_title in deal_title or 
-                    deal_title in priority_title):
+                # Calculate match score
+                match_score = 0
+                if priority_title == normalized_title:
+                    match_score = 1.0  # Exact match
+                elif priority_title in normalized_title or normalized_title in priority_title:
+                    match_score = 0.8  # Contains match
+                
+                # Keep track of best match
+                if match_score > 0 and (best_match is None or 
+                                       priority_level > best_match[0].get('priority', 0) or
+                                       (priority_level == best_match[0].get('priority', 0) and match_score > best_match_score)):
+                    best_match = (priority_game, match_score)
+                    best_match_score = match_score
+            
+            # If we found a good match, add it and mark title as seen
+            if best_match and best_match_score >= 0.8:
+                priority_game, match_score = best_match
+                
+                # Use the priority game's canonical title for deduplication (more reliable)
+                canonical_title = priority_game.get('title', '').lower().strip()
+                
+                # Check if we've already seen this canonical game title
+                if canonical_title not in seen_titles:
+                    # Mark this canonical title as seen to prevent duplicates
+                    seen_titles.add(canonical_title)
                     
                     # Add priority info to deal
                     enhanced_deal = deal.copy()
-                    enhanced_deal['_priority'] = priority_level
+                    enhanced_deal['_priority'] = priority_game.get('priority', 0)
                     enhanced_deal['_priority_title'] = priority_game.get('title', '')
                     enhanced_deal['_category'] = priority_game.get('category', '')
                     enhanced_deal['_notes'] = priority_game.get('notes', '')
+                    enhanced_deal['_match_score'] = match_score
+                    enhanced_deal['_discount_pct'] = discount_pct
                     
                     matched_deals.append(enhanced_deal)
-                    break  # Stop after first match
         
-        print(f"   Matches found: {len(matched_deals)}")
+        print(f"   Unique matches found: {len(matched_deals)} (duplicates removed)")
+        print(f"   Duplicate titles processed: {len(seen_titles)} unique titles")
         
-        # Step 4: Sort and display results
+        # Step 4: Sort and display results (with 50% discount rule)
         if matched_deals:
-            print("\n🏆 Step 4: Top priority game deals found:")
-            matched_deals.sort(key=lambda x: (-x.get('_priority', 0), -int(x.get('discount', '0%').replace('%', '') or 0)))
+            print("\n🏆 Step 4: Top unique priority game deals found:")
+            
+            def priority_sort_key(deal):
+                priority = deal.get('_priority', 0)
+                discount = deal.get('_discount_pct', 0)
+                
+                # If discount > 50%, prioritize by priority score first
+                if discount > 50:
+                    return (-priority, -discount)  # Higher priority first, then higher discount
+                else:
+                    return (-discount, -priority)  # Higher discount first, then higher priority
+            
+            matched_deals.sort(key=priority_sort_key)
             
             for i, deal in enumerate(matched_deals[:10], 1):
                 priority = deal.get('_priority', 0)

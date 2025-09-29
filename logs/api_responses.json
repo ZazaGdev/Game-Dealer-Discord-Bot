@@ -1258,5 +1258,340 @@
         }
       }
     ]
+  },
+  {
+    "timestamp": "2025-09-29T20:07:02.091341",
+    "source": "discord_command",
+    "endpoint": "/deals/v2",
+    "request_params": {
+      "offset": 0,
+      "limit": 150,
+      "sort": "-cut",
+      "nondeals": "false",
+      "mature": "false"
+    },
+    "store_filter": null,
+    "response_summary": {
+      "total_items": 150,
+      "has_more": true,
+      "next_offset": 150
+    },
+    "first_5_deals": [
+      {
+        "id": "01989d94-8b70-70ae-9beb-ad06af3183dc",
+        "slug": "ultimate-content-creator-hyper-sounds-bundle",
+        "title": "Ultimate Content Creator Hyper Sounds Bundle",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/01989d94-8b70-70ae-9beb-ad06af3183dc/banner145.jpg?t=1754990713",
+          "banner300": "https://assets.isthereanydeal.com/01989d94-8b70-70ae-9beb-ad06af3183dc/banner300.jpg?t=1754990713",
+          "banner400": "https://assets.isthereanydeal.com/01989d94-8b70-70ae-9beb-ad06af3183dc/banner400.jpg?t=1754990713"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 600,
+            "amountInt": 60000,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 1,
+            "amountInt": 100,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-08-12T11:20:19+02:00",
+          "expiry": "2025-10-07T09:00:00+02:00",
+          "url": "https://itad.link/01989d94-8a8f-71e1-8094-177b177dc738/"
+        }
+      },
+      {
+        "id": "018d937f-6f8a-71c7-ab02-6e3b9f643ea0",
+        "slug": "jorels-brother-and-the-most-important-game-of-the-galaxy",
+        "title": "Jorel's Brother and The Most Important Game of the Galaxy",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-6f8a-71c7-ab02-6e3b9f643ea0/boxart.png?t=1752076804",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-6f8a-71c7-ab02-6e3b9f643ea0/banner145.png?t=1752076804",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-6f8a-71c7-ab02-6e3b9f643ea0/banner300.png?t=1752076804",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-6f8a-71c7-ab02-6e3b9f643ea0/banner400.png?t=1752076805",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-6f8a-71c7-ab02-6e3b9f643ea0/banner600.png?t=1752076805"
+        },
+        "deal": {
+          "shop": {
+            "id": 16,
+            "name": "Epic Game Store"
+          },
+          "price": {
+            "amount": 0,
+            "amountInt": 0,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 14.99,
+            "amountInt": 1499,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 16,
+              "name": "Epic"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-09-25T17:05:33+02:00",
+          "expiry": "2025-10-02T17:00:00+02:00",
+          "url": "https://itad.link/0197ef63-1452-73db-9812-42e90ad301a7/"
+        }
+      },
+      {
+        "id": "018d937f-4380-72e6-80f2-1ee6b3ec5cf9",
+        "slug": "eastern-exorcist",
+        "title": "Eastern Exorcist",
+        "type": "game",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-4380-72e6-80f2-1ee6b3ec5cf9/boxart.jpg?t=1735636202",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-4380-72e6-80f2-1ee6b3ec5cf9/banner145.jpg?t=1735636202",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-4380-72e6-80f2-1ee6b3ec5cf9/banner300.jpg?t=1735636202",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-4380-72e6-80f2-1ee6b3ec5cf9/banner400.jpg?t=1735636202",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-4380-72e6-80f2-1ee6b3ec5cf9/banner600.jpg?t=1735636203"
+        },
+        "deal": {
+          "shop": {
+            "id": 16,
+            "name": "Epic Game Store"
+          },
+          "price": {
+            "amount": 0,
+            "amountInt": 0,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 17.99,
+            "amountInt": 1799,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 8.99,
+            "amountInt": 899,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 8.99,
+            "amountInt": 899,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 14.78,
+            "amountInt": 1478,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 17.99,
+            "amountInt": 1799,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 16,
+              "name": "Epic"
+            }
+          ],
+          "platforms": [],
+          "timestamp": "2025-09-25T17:06:06+02:00",
+          "expiry": "2025-10-02T17:00:00+02:00",
+          "url": "https://itad.link/018d959b-b54e-73f4-9030-502e0ffe7f89/"
+        }
+      },
+      {
+        "id": "018d937f-675b-708f-9581-026a9dcbdefb",
+        "slug": "online-tutor-python-programming-bundle",
+        "title": "Online Tutor-Python Programming Bundle",
+        "type": null,
+        "mature": false,
+        "assets": {
+          "banner145": "https://assets.isthereanydeal.com/018d937f-675b-708f-9581-026a9dcbdefb/banner145.jpg",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-675b-708f-9581-026a9dcbdefb/banner300.jpg",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-675b-708f-9581-026a9dcbdefb/banner400.jpg"
+        },
+        "deal": {
+          "shop": {
+            "id": 6,
+            "name": "Fanatical"
+          },
+          "price": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 3202.64,
+            "amountInt": 320264,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 9.99,
+            "amountInt": 999,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [],
+          "platforms": [],
+          "timestamp": "2025-02-13T16:30:19+01:00",
+          "expiry": null,
+          "url": "https://itad.link/018d9386-a6f9-73dd-9091-85ea13813f7c/"
+        }
+      },
+      {
+        "id": "018d937f-463b-71ec-bc9b-ae84a09ba58c",
+        "slug": "lynn-hd-wallpaper",
+        "title": "Lynn , HD WallPaper",
+        "type": "dlc",
+        "mature": false,
+        "assets": {
+          "boxart": "https://assets.isthereanydeal.com/018d937f-463b-71ec-bc9b-ae84a09ba58c/boxart.jpg?t=1733594490",
+          "banner145": "https://assets.isthereanydeal.com/018d937f-463b-71ec-bc9b-ae84a09ba58c/banner145.jpg?t=1733594490",
+          "banner300": "https://assets.isthereanydeal.com/018d937f-463b-71ec-bc9b-ae84a09ba58c/banner300.jpg?t=1733594490",
+          "banner400": "https://assets.isthereanydeal.com/018d937f-463b-71ec-bc9b-ae84a09ba58c/banner400.jpg?t=1733594490",
+          "banner600": "https://assets.isthereanydeal.com/018d937f-463b-71ec-bc9b-ae84a09ba58c/banner600.jpg?t=1733594491"
+        },
+        "deal": {
+          "shop": {
+            "id": 35,
+            "name": "GOG"
+          },
+          "price": {
+            "amount": 0,
+            "amountInt": 0,
+            "currency": "USD"
+          },
+          "regular": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "cut": 100,
+          "voucher": null,
+          "storeLow": {
+            "amount": 0.19,
+            "amountInt": 19,
+            "currency": "USD"
+          },
+          "historyLow": {
+            "amount": 0.19,
+            "amountInt": 19,
+            "currency": "USD"
+          },
+          "historyLow_1y": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "historyLow_3m": {
+            "amount": 0.99,
+            "amountInt": 99,
+            "currency": "USD"
+          },
+          "flag": "H",
+          "drm": [
+            {
+              "id": 1000,
+              "name": "Drm Free"
+            }
+          ],
+          "platforms": [
+            {
+              "id": 1,
+              "name": "Windows"
+            },
+            {
+              "id": 2,
+              "name": "Mac"
+            }
+          ],
+          "timestamp": "2025-09-25T15:23:31+02:00",
+          "expiry": null,
+          "url": "https://itad.link/018d9386-90ab-7246-a8dd-af009f25b8e3/"
+        }
+      }
+    ]
   }
 ]

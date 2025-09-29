@@ -69,6 +69,15 @@ class ITADClient:
             # Use the correct endpoint for deals list
             data = await self.http.get_json(f"{self.BASE}/deals/v2", params=params)
             
+            # Check if the API returned an error response
+            if isinstance(data, dict) and "error" in data:
+                error_details = data.get("error", {})
+                if isinstance(error_details, dict):
+                    error_message = error_details.get("message", "Unknown API error")
+                else:
+                    error_message = str(error_details)
+                raise ValueError(f"ITAD API returned error: {error_message}")
+            
             # Log full API responses when requested (typically from Discord commands)
             if log_full_response:
                 await self._log_full_api_response(data, params, store_filter)
@@ -96,11 +105,18 @@ class ITADClient:
             
             deals: List[Deal] = []
             
-            # Handle the v2 response structure
+            # Handle the v2 response structure with better error reporting
             if isinstance(data, dict) and "list" in data:
                 deals_data = data["list"]
             else:
-                raise ValueError("Unexpected API response format")
+                # Log what we actually received for debugging
+                import json
+                response_preview = json.dumps(data, indent=2)[:500] if data else "None"
+                error_msg = f"Unexpected API response format. Expected dict with 'list' key, got: {type(data).__name__}"
+                if isinstance(data, dict):
+                    error_msg += f" with keys: {list(data.keys())}"
+                error_msg += f". Response preview: {response_preview}"
+                raise ValueError(error_msg)
 
             # First, collect all qualifying deals (discount threshold)
             all_deals = []

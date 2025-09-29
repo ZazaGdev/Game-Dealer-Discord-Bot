@@ -68,13 +68,13 @@ class General(commands.Cog):
         
         embed.add_field(
             name="📊 Deal Commands",
-            value="• `/search_deals [amount]` - Best deals from Steam, Epic & GOG\n• `/search_store [store] [amount]` - Deals from specific store",
+            value="• `/search_deals [amount]` - Best deals from Steam, Epic & GOG\n• `/search_store [store] [amount]` - Deals from specific store\n• `/priority_search [amount] [min_priority] [min_discount] [store]` - Curated priority games only",
             inline=False
         )
         
         embed.add_field(
-            name="💡 Examples",
-            value="• `/search_deals 15` - Get 15 best deals\n• `/search_store Steam 20` - Get 20 Steam deals\n• `/search_store Epic 10` - Get 10 Epic deals",
+            name="💡 Examples", 
+            value="• `/search_deals 15` - Get 15 best deals\n• `/search_store Steam 20` - Get 20 Steam deals\n• `/priority_search 10 7 50 Steam` - Priority games with 50%+ discount",
             inline=False
         )
         
