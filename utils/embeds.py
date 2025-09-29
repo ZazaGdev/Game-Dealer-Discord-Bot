@@ -1,13 +1,16 @@
 # utils/embeds.py
 import discord
 from datetime import datetime, timezone
+from typing import Union, Optional
+from models import Deal
 
-GREEN = 0x00FF00
-ORANGE = 0xFF6B35
-RED = 0xE74C3C
-BLUE = 0x3498DB
+GREEN: int = 0x00FF00
+ORANGE: int = 0xFF6B35
+RED: int = 0xE74C3C
+BLUE: int = 0x3498DB
 
-def make_startup_embed(user: discord.abc.User) -> discord.Embed:
+def make_startup_embed(user: Union[discord.User, discord.Member, discord.abc.User]) -> discord.Embed:
+    """Create a startup embed with proper type safety"""
     e = discord.Embed(
         title="✅ Bot online",
         description="GameDealer is running and ready to post deals.",
@@ -17,16 +20,17 @@ def make_startup_embed(user: discord.abc.User) -> discord.Embed:
     e.set_footer(text=f"Logged in as {user}")
     return e
 
-def make_deal_embed(deal_data: dict) -> discord.Embed:
-    title = deal_data.get("title", "Game Deal")
-    price = deal_data.get("price", "Unknown")
-    store = deal_data.get("store", "Unknown Store")
-    url = deal_data.get("url", "")
-    discount = deal_data.get("discount", "")
-    original_price = deal_data.get("original_price", "")
+def make_deal_embed(deal_data: Deal) -> discord.Embed:
+    """Create a deal embed with type safety and validation"""
+    title: str = deal_data.get("title", "Game Deal")
+    price: str = deal_data.get("price", "Unknown")
+    store: str = deal_data.get("store", "Unknown Store")
+    url: str = deal_data.get("url", "")
+    discount: Optional[str] = deal_data.get("discount")
+    original_price: Optional[str] = deal_data.get("original_price")
 
     # Choose color based on discount percentage
-    color = ORANGE  # default
+    color: int = ORANGE  # default
     if discount:
         try:
             discount_num = int(discount.replace('%', ''))

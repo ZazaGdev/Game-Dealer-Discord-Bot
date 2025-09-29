@@ -1,15 +1,18 @@
 # api/itad_client.py
 from __future__ import annotations
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Union, Tuple, Literal
 import aiohttp
+import logging
+import os
 from .http import HttpClient
-from models import Deal
+from models import Deal, ITADGameItem, StoreFilter, APIError
 from utils.game_filters import PriorityGameFilter
 
 class ITADClient:
-    BASE = "https://api.isthereanydeal.com"
+    """Client for IsThereAnyDeal API with type safety and error handling"""
+    BASE: str = "https://api.isthereanydeal.com"
 
-    def __init__(self, api_key: Optional[str] = None, http: Optional[HttpClient] = None):
+    def __init__(self, api_key: Optional[str] = None, http: Optional[HttpClient] = None) -> None:
         headers = {}
         self.http = http or HttpClient(headers=headers)
         self.api_key = api_key
@@ -18,9 +21,16 @@ class ITADClient:
     async def close(self) -> None:
         await self.http.close()
 
-    async def fetch_deals(self, *, min_discount: int = 60, limit: int = 10, store_filter: str = None, 
-                         log_full_response: bool = False, quality_filter: bool = True, 
-                         min_priority: int = 5) -> List[Deal]:
+    async def fetch_deals(
+        self, 
+        *, 
+        min_discount: int = 60, 
+        limit: int = 10, 
+        store_filter: Optional[Union[str, StoreFilter]] = None, 
+        log_full_response: bool = False, 
+        quality_filter: bool = True, 
+        min_priority: int = 5
+    ) -> List[Deal]:
         """
         Fetch deals using the correct ITAD API endpoints with priority-based filtering
         
@@ -36,9 +46,9 @@ class ITADClient:
             raise ValueError("ITAD API key is required")
 
         # Convert store name to shop ID if store_filter is provided
-        shop_ids = None
+        shop_ids: Optional[List[int]] = None
         if store_filter:
-            shop_id = self._get_shop_id(store_filter)
+            shop_id: Optional[int] = self._get_shop_id(store_filter)
             if shop_id:
                 shop_ids = [shop_id]
             else:
@@ -197,11 +207,11 @@ class ITADClient:
             # General network or other errors
             raise ValueError(f"ITAD API error: {str(e)}")
 
-    def _get_title_v2(self, item: dict) -> str:
+    def _get_title_v2(self, item: ITADGameItem) -> str:
         """Extract title from v2 API structure"""
         return item.get("title", "Unknown Game")
 
-    def _get_store_v2(self, item: dict) -> str:
+    def _get_store_v2(self, item: ITADGameItem) -> str:
         """Extract store name from v2 API structure"""
         # Based on actual API response: store is in item["deal"]["shop"]["name"]
         deal = item.get("deal", {})
@@ -225,18 +235,18 @@ class ITADClient:
         
         return "Unknown Store"
 
-    def _get_prices_v2(self, item: dict) -> dict:
+    def _get_prices_v2(self, item: ITADGameItem) -> Dict[str, str]:
         """Extract current and original prices from v2 API"""
         deal = item.get("deal", {})
         
         # Get current price
         price_data = deal.get("price", {})
-        price_new = price_data.get("amount", 0)
-        currency = price_data.get("currency", "USD")
+        price_new: float = price_data.get("amount", 0.0)
+        currency: str = price_data.get("currency", "USD")
         
         # Get regular/original price
         regular_data = deal.get("regular", {})
-        price_old = regular_data.get("amount", 0)
+        price_old: float = regular_data.get("amount", 0.0)
         
         # Format prices
         if currency == "USD":
@@ -248,24 +258,24 @@ class ITADClient:
         
         return {"current": current, "original": original}
 
-    def _get_discount_v2(self, item: dict) -> Optional[int]:
+    def _get_discount_v2(self, item: ITADGameItem) -> Optional[int]:
         """Extract discount percentage from v2 API"""
         deal = item.get("deal", {})
-        discount = deal.get("cut")
+        discount: Any = deal.get("cut")
         if isinstance(discount, (int, float)):
             return int(discount)
         return None
 
-    def _get_url_v2(self, item: dict) -> str:
+    def _get_url_v2(self, item: ITADGameItem) -> str:
         """Extract deal URL from v2 API"""
         deal = item.get("deal", {})
         return deal.get("url", "")
     
-    def _matches_store_filter(self, store_name: str, store_filter: str) -> bool:
+    def _matches_store_filter(self, store_name: str, store_filter: Union[str, StoreFilter]) -> bool:
         """Check if store name matches the filter (case-insensitive partial match)"""
-        return store_filter.lower() in store_name.lower()
+        return str(store_filter).lower() in store_name.lower()
     
-    def _get_shop_id(self, store_name: str) -> Optional[int]:
+    def _get_shop_id(self, store_name: Union[str, StoreFilter]) -> Optional[int]:
         """
         Convert store name to shop ID based on ITAD API mappings
         
@@ -321,7 +331,7 @@ class ITADClient:
         normalized_name = store_name.lower().strip()
         return store_mappings.get(normalized_name)
 
-    async def _log_full_api_response(self, data: Dict, params: Dict, store_filter: str = None) -> None:
+    async def _log_full_api_response(self, data: Dict[str, Any], params: Dict[str, Any], store_filter: Optional[str] = None) -> None:
         """Log full API response to api_responses.json for Discord command analysis"""
         try:
             import json

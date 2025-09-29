@@ -2,16 +2,20 @@
 from __future__ import annotations
 import asyncio
 import random
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union, TYPE_CHECKING
 import aiohttp
+from models import APIError
+
+if TYPE_CHECKING:
+    from aiohttp import ClientResponse, ClientSession
 
 DEFAULT_TIMEOUT = aiohttp.ClientTimeout(total=10)  # seconds
 
 class HttpClient:
-    def __init__(self, *, headers: Optional[Dict[str, str]] = None, timeout: aiohttp.ClientTimeout | None = None):
-        self._session: aiohttp.ClientSession | None = None
-        self._headers = headers or {}
-        self._timeout = timeout or DEFAULT_TIMEOUT
+    def __init__(self, *, headers: Optional[Dict[str, str]] = None, timeout: Optional[aiohttp.ClientTimeout] = None) -> None:
+        self._session: Optional[aiohttp.ClientSession] = None
+        self._headers: Dict[str, str] = headers or {}
+        self._timeout: aiohttp.ClientTimeout = timeout or DEFAULT_TIMEOUT
 
     @property
     def session(self) -> aiohttp.ClientSession:
@@ -24,7 +28,7 @@ class HttpClient:
             await self._session.close()
 
     async def get_json(self, url: str, *, params: Optional[Dict[str, Any]] = None, retries: int = 3) -> Any:
-        delay = 0.5
+        delay: float = 0.5
         for attempt in range(1, retries + 1):
             try:
                 async with self.session.get(url, params=params) as resp:

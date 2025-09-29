@@ -3,31 +3,39 @@ from __future__ import annotations
 import discord
 from discord.ext import commands
 from discord import app_commands
-from typing import Optional
+from typing import Optional, List, TYPE_CHECKING
+import logging
 from utils.embeds import make_startup_embed
 from api.itad_client import ITADClient
 
+if TYPE_CHECKING:
+    from config.app_config import AppConfig
+
 class GameDealerBot(commands.Bot):
+    """Custom Discord bot for GameDealer with enhanced type safety"""
+    
     def __init__(self, *, command_prefix: str="!", intents: Optional[discord.Intents]=None,
-                 log=None, log_channel_id: int=0, deals_channel_id: int=0, itad_api_key: str | None = None):
+                 log: Optional[logging.Logger] = None, log_channel_id: int = 0, 
+                 deals_channel_id: int = 0, itad_api_key: Optional[str] = None) -> None:
         if intents is None:
             intents = discord.Intents.default()
             intents.message_content = True
         super().__init__(command_prefix=command_prefix, intents=intents)
 
-        self.log = log
-        self.log_channel_id = log_channel_id
-        self.deals_channel_id = deals_channel_id
-        self.itad_api_key = itad_api_key
+        self.log: Optional[logging.Logger] = log
+        self.log_channel_id: int = log_channel_id
+        self.deals_channel_id: int = deals_channel_id
+        self.itad_api_key: Optional[str] = itad_api_key
 
         # Initialize ITAD client if API key is provided
-        self.itad_client: ITADClient | None = None
+        self.itad_client: Optional[ITADClient] = None
         if itad_api_key:
             self.itad_client = ITADClient(api_key=itad_api_key)
 
     async def setup_hook(self) -> None:
+        """Initialize bot setup with proper error handling"""
         # Load cogs with individual error handling
-        cogs_to_load = ["cogs.general", "cogs.deals"]
+        cogs_to_load: List[str] = ["cogs.general", "cogs.deals"]
         
         for cog in cogs_to_load:
             try:
@@ -52,8 +60,8 @@ class GameDealerBot(commands.Bot):
             if self.log:
                 self.log.error(f"Failed to sync commands: {e}")
 
-    async def on_command_error(self, ctx: commands.Context, error: commands.CommandError):
-        """Global error handler for commands"""
+    async def on_command_error(self, ctx: commands.Context, error: commands.CommandError) -> None:
+        """Global error handler for commands with proper logging"""
         if isinstance(error, commands.CommandNotFound):
             await ctx.send(f"❌ Command `{ctx.invoked_with}` not found. Type `!help` for available commands.")
         elif isinstance(error, commands.MissingRequiredArgument):

@@ -6,8 +6,9 @@ Uses a curated database of prioritized games for accurate filtering.
 
 import json
 import os
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional, Tuple, Union, Pattern
 import re
+from models import Deal, PriorityGame, FilterResult, DatabaseStats
 
 
 class PriorityGameFilter:
@@ -16,7 +17,7 @@ class PriorityGameFilter:
     This approach is more reliable than keyword filtering.
     """
     
-    def __init__(self, priority_db_path: str = None):
+    def __init__(self, priority_db_path: Optional[str] = None) -> None:
         """
         Initialize the priority game filter.
         
@@ -25,13 +26,13 @@ class PriorityGameFilter:
         """
         if priority_db_path is None:
             # Default path relative to project root
-            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            project_root: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             priority_db_path = os.path.join(project_root, "data", "priority_games.json")
         
-        self.priority_db_path = priority_db_path
-        self.priority_games = self._load_priority_games()
+        self.priority_db_path: str = priority_db_path
+        self.priority_games: List[PriorityGame] = self._load_priority_games()
         
-    def _load_priority_games(self) -> List[Dict[str, Any]]:
+    def _load_priority_games(self) -> List[PriorityGame]:
         """Load the priority games database from JSON file."""
         try:
             if not os.path.exists(self.priority_db_path):
@@ -39,7 +40,7 @@ class PriorityGameFilter:
                 return []
             
             # Try multiple encoding strategies to handle BOM and encoding issues
-            encodings_to_try = ['utf-8-sig', 'utf-8', 'ascii', 'latin-1']
+            encodings_to_try: List[str] = ['utf-8-sig', 'utf-8', 'ascii', 'latin-1']
             
             for encoding in encodings_to_try:
                 try:
@@ -188,11 +189,11 @@ class PriorityGameFilter:
         
         return None
     
-    def filter_deals_by_priority(self, deals: List[Dict[str, Any]], 
+    def filter_deals_by_priority(self, deals: List[Deal], 
                                 min_priority: int = 5, 
                                 min_match_score: float = 0.6,
-                                max_results: int = None,
-                                strict_mode: bool = True) -> List[Dict[str, Any]]:
+                                max_results: Optional[int] = None,
+                                strict_mode: bool = True) -> List[Deal]:
         """
         Filter a list of deals to only include priority games.
         
@@ -291,10 +292,10 @@ class PriorityGameFilter:
         
         return debug_info
 
-    def get_database_stats(self) -> Dict[str, Any]:
+    def get_database_stats(self) -> DatabaseStats:
         """Get statistics about the priority games database."""
         if not self.priority_games:
-            return {"total_games": 0, "priority_distribution": {}}
+            return DatabaseStats(total_games=0, priority_distribution={}, categories=[])
         
         priority_distribution = {}
         categories = {}

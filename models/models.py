@@ -1,5 +1,5 @@
 # models/models.py
-from typing import TypedDict, Optional, Literal, Union
+from typing import TypedDict, Optional, Literal, Union, Protocol, Any, Dict, List, runtime_checkable
 from datetime import datetime
 
 # Store filtering types
@@ -10,6 +10,54 @@ StoreFilter = Literal[
     "PlayStation Store", "PSN", "Nintendo eShop", "Nintendo", 
     "Battle.net", "Blizzard", "itch.io", "itch"
 ]
+
+# Priority game data structure
+class PriorityGame(TypedDict):
+    title: str
+    priority: int  # 1-10 scale
+    category: str
+    notes: str
+
+# ITAD API response structures
+class ITADShop(TypedDict):
+    id: int
+    name: str
+
+class ITADPrice(TypedDict):
+    amount: float
+    amountInt: int
+    currency: str
+
+class ITADDealData(TypedDict, total=False):
+    shop: ITADShop
+    price: ITADPrice
+    regular: ITADPrice
+    cut: int  # Discount percentage
+    voucher: Optional[str]
+    storeLow: Optional[ITADPrice]
+    historyLow: Optional[ITADPrice]
+    flag: Optional[str]
+    drm: List[Dict[str, Any]]
+    platforms: List[str]
+    timestamp: str
+    expiry: Optional[str]
+    url: str
+
+class ITADGameAssets(TypedDict, total=False):
+    boxart: Optional[str]
+    banner145: Optional[str]
+    banner300: Optional[str]
+    banner400: Optional[str]
+    banner600: Optional[str]
+
+class ITADGameItem(TypedDict, total=False):
+    id: str
+    slug: str
+    title: str
+    type: Optional[str]
+    mature: bool
+    assets: ITADGameAssets
+    deal: ITADDealData
 
 # Basic deal data structure
 class Deal(TypedDict, total=False):
@@ -43,3 +91,42 @@ class BotConfig(TypedDict):
     deals_channel_id: int
     itad_api_key: str
     debug_api_responses: bool
+
+# Protocol interfaces for better type safety
+@runtime_checkable
+class InteractionLike(Protocol):
+    """Protocol for Discord interaction-like objects"""
+    async def response_send_message(self, content: str, *, ephemeral: bool = False) -> None: ...
+    async def edit_original_response(self, *, content: Optional[str] = None, embed: Optional[Any] = None) -> None: ...
+    async def followup_send(self, *, content: Optional[str] = None, embed: Optional[Any] = None) -> None: ...
+    @property
+    def response(self) -> Any: ...
+    @property
+    def followup(self) -> Any: ...
+
+@runtime_checkable 
+class ContextLike(Protocol):
+    """Protocol for Discord context-like objects"""
+    async def send(self, content: Optional[str] = None, *, embed: Optional[Any] = None) -> Any: ...
+
+# Union type for command handlers that work with both interactions and contexts
+InteractionOrContext = Union[InteractionLike, ContextLike]
+
+# Game filtering result types
+class FilterResult(TypedDict):
+    matched_deals: List[Deal]
+    total_matches: int
+    total_games_checked: int
+    priority_distribution: Dict[str, int]
+
+class DatabaseStats(TypedDict):
+    total_games: int
+    priority_distribution: Dict[str, int]
+    categories: List[str]
+
+# Error types for better error handling
+class APIError(TypedDict):
+    error_type: str
+    message: str
+    status_code: Optional[int]
+    retry_after: Optional[int]

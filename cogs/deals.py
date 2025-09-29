@@ -2,15 +2,21 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
+from typing import Optional, Union, List, Any, TYPE_CHECKING
+import logging
 from utils.embeds import make_deal_embed
+from models import Deal, InteractionOrContext, StoreFilter
+
+if TYPE_CHECKING:
+    from api.itad_client import ITADClient
 
 class Deals(commands.Cog):
     """Essential deal commands for GameDealer bot"""
     
-    def __init__(self, bot: commands.Bot):
-        self.bot = bot
-        self.log = getattr(bot, 'log', None)
-        self.deals_channel_id = getattr(bot, 'deals_channel_id', 0)
+    def __init__(self, bot: commands.Bot) -> None:
+        self.bot: commands.Bot = bot
+        self.log: Optional[logging.Logger] = getattr(bot, 'log', None)
+        self.deals_channel_id: int = getattr(bot, 'deals_channel_id', 0)
     
     # Traditional prefix command
     @commands.command(name="search_deals", help="Search for best deals from Steam, Epic, or GOG")
@@ -21,32 +27,32 @@ class Deals(commands.Cog):
         """
         # Convert to interaction-like behavior for code reuse
         class MockInteraction:
-            def __init__(self, ctx):
-                self.ctx = ctx
-                self._response_sent = False
+            def __init__(self, ctx: commands.Context) -> None:
+                self.ctx: commands.Context = ctx
+                self._response_sent: bool = False
             
-            async def response_send_message(self, content, ephemeral=False):
+            async def response_send_message(self, content: str, ephemeral: bool = False) -> None:
                 await self.ctx.send(content)
                 self._response_sent = True
             
-            async def edit_original_response(self, content=None, embed=None):
+            async def edit_original_response(self, content: Optional[str] = None, embed: Optional[discord.Embed] = None) -> None:
                 if embed:
                     await self.ctx.send(content=content, embed=embed)
                 else:
                     await self.ctx.send(content)
             
-            async def followup_send(self, content=None, embed=None):
+            async def followup_send(self, content: Optional[str] = None, embed: Optional[discord.Embed] = None) -> None:
                 if embed:
                     await self.ctx.send(content=content, embed=embed)
                 else:
                     await self.ctx.send(content)
             
             @property
-            def response(self):
+            def response(self) -> 'MockInteraction':
                 return self
             
             @property
-            def followup(self):
+            def followup(self) -> 'MockInteraction':
                 return self
         
         mock_interaction = MockInteraction(ctx)
@@ -62,7 +68,7 @@ class Deals(commands.Cog):
         """
         await self._search_deals_logic(interaction, amount, is_prefix=False)
 
-    async def _search_deals_logic(self, interaction_or_ctx, amount: int, is_prefix: bool = False):
+    async def _search_deals_logic(self, interaction_or_ctx: InteractionOrContext, amount: int, is_prefix: bool = False) -> None:
         """
         Shared logic for both slash and prefix commands
         """
