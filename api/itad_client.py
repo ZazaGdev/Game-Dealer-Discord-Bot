@@ -1,6 +1,7 @@
 # api/itad_client.py
 from __future__ import annotations
 from typing import List, Dict, Any, Optional
+import aiohttp
 from .http import HttpClient
 from models import Deal
 from utils.game_filters import PriorityGameFilter
@@ -168,15 +169,33 @@ class ITADClient:
 
             return deals
 
-        except Exception as e:
-            # Handle specific API errors
-            if hasattr(e, 'status') and e.status == 403:
+        except aiohttp.ClientResponseError as e:
+            # Handle specific HTTP errors with better messages
+            if e.status == 403:
                 raise ValueError("ITAD API key is invalid or expired. Please register your app at https://isthereanydeal.com/apps/my/ to get a valid API key.")
-            elif hasattr(e, 'status') and e.status == 404:
+            elif e.status == 404:
                 raise ValueError("ITAD API endpoint not found. The API may have changed.")
+            elif e.status >= 500:
+                # Server errors - more user-friendly messages
+                if e.status == 502:
+                    raise ValueError("ITAD API service is temporarily unavailable (Bad Gateway). Please try again later.")
+                elif e.status == 503:
+                    raise ValueError("ITAD API service is temporarily unavailable (Service Unavailable). Please try again later.")
+                elif e.status == 504:
+                    raise ValueError("ITAD API request timed out (Gateway Timeout). Please try again later.")
+                else:
+                    raise ValueError(f"ITAD API server error (HTTP {e.status}). Please try again later.")
             else:
-                # Re-raise the exception with more context
-                raise ValueError(f"ITAD API error: {str(e)}")
+                raise ValueError(f"ITAD API client error: HTTP {e.status}")
+        except ValueError as e:
+            # API response format issues
+            if "Unexpected API response format" in str(e):
+                raise ValueError(f"ITAD API returned invalid data format. This may be due to a temporary service issue. Please try again later.")
+            else:
+                raise
+        except Exception as e:
+            # General network or other errors
+            raise ValueError(f"ITAD API error: {str(e)}")
 
     def _get_title_v2(self, item: dict) -> str:
         """Extract title from v2 API structure"""

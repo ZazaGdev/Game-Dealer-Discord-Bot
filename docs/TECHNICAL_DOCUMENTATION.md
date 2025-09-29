@@ -1,71 +1,98 @@
-# GameDealer Bot - Technical Documentation
+# GameDealer Bot - Technical Reference
 
-## Project Overview
+## Architecture Overview
 
-GameDealer is a Discord bot that fetches game deals from the IsThereAnyDeal (ITAD) API using modern Discord slash commands. The bot features a curated game database for quality filtering, automatic deal scheduling, and prioritized store selection focusing on Steam, Epic Games Store, and GOG.
+GameDealer is a Discord bot built with Discord.py that integrates with the IsThereAnyDeal (ITAD) API to provide curated game deal searches. The bot emphasizes quality over quantity through a manually curated game database and intelligent filtering.
 
-## Architecture
+### Key Technical Features
 
-### Core Design Principles
+-   **Modern Discord Integration**: Full slash command support with autocomplete
+-   **Exact Title Matching**: Prevents false positives using normalized string comparison
+-   **Curated Quality Database**: 1,173+ games with priority ratings (1-10 scale)
+-   **Robust Error Handling**: Graceful API failure management with user-friendly messages
+-   **Automated Scheduling**: Daily deal updates at 9 AM using Discord.py tasks
+-   **Connection Pooling**: Efficient HTTP client with retry logic and timeouts
 
--   **Modern Slash Commands**: Full Discord slash command implementation with autocomplete
--   **Curated Quality Filtering**: Database-driven game prioritization system
--   **Scheduled Operations**: Daily deal fetching at 9 AM using Discord.py tasks
--   **Smart Store Prioritization**: Prefers Steam, Epic, GOG but includes other quality stores
--   **Pagination Support**: Handles large result sets with multiple embed pages
--   **Error Transparency**: Real error messages with helpful suggestions
--   **Clean Logging**: Centralized logging to `logs/` directory
--   **Modular Cogs**: Organized command modules for maintainability
-
-## File Structure
+### Component Architecture
 
 ```
-GameDealer/
-├── api/                    # External API integration
-│   ├── __init__.py
-│   ├── http.py            # HTTP client with retry logic
-│   └── itad_client.py     # ITAD API client with priority filtering
-│
-├── bot/                   # Discord bot core
-│   ├── __init__.py
-│   ├── core.py           # Bot initialization and slash command sync
-│   └── scheduler.py      # Daily deal scheduling system
-│
-├── cogs/                  # Discord command modules (slash commands)
-│   ├── __init__.py
-│   ├── deals.py          # Deal search commands with pagination
-│   └── general.py        # Utility commands (ping, help, info)
-│
-├── config/                # Configuration management
-│   ├── __init__.py
-│   ├── app_config.py     # Environment variable loading
-│   └── logging_config.py # Logging setup utilities
-│
-├── data/                  # Game database
-│   └── priority_games.json # Curated game database with priority scores
-│
-├── docs/                  # Documentation
-│   ├── COMMANDS.md       # Complete command documentation
-│   ├── PRIORITY_DATABASE_GUIDE.md # Game database management
-│   ├── TECHNICAL_DOCUMENTATION.md # This file
-│   └── api_templates.md  # ITAD API response examples
-│
-├── logs/                  # Log files (auto-created)
-│   ├── discord.log       # Bot operational logs
-│   └── api_responses.json # API response debugging logs
-│
-├── models/                # Data models
-│   ├── __init__.py
-│   └── models.py         # Deal data structure definitions
-│
-├── utils/                 # Utility modules
-│   ├── __init__.py
-│   ├── embeds.py         # Discord embed formatting
-│   └── game_filters.py   # Priority game filtering system
-│
-├── main.py               # Bot entry point
-├── requirements.txt      # Python dependencies
-└── README.md            # Project overview
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Discord Bot   │◄──►│   ITAD API       │◄──►│ Priority Games  │
+│   (Cogs System) │    │   (HTTP Client)  │    │ Database (JSON) │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                        │                       │
+         ▼                        ▼                       ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│ Slash Commands  │    │ Retry Logic &    │    │ Exact Matching  │
+│ & Embeds        │    │ Rate Limiting    │    │ & Filtering     │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+## Core Components
+
+### 1. API Layer (`api/`)
+
+**`http.py`**: HTTP client wrapper with:
+
+-   Exponential backoff retry logic
+-   Connection pooling and timeout handling
+-   JSON response validation
+-   Enhanced error messages for 5xx server errors
+
+**`itad_client.py`**: ITAD API integration with:
+
+-   Deal fetching from multiple stores
+-   Priority game filtering and matching
+-   Store-specific search capabilities
+-   Comprehensive error handling and logging
+
+### 2. Bot Core (`bot/`)
+
+**`core.py`**: Discord bot initialization:
+
+-   Automatic slash command synchronization
+-   Cog loading and error handling
+-   Graceful shutdown procedures
+
+**`scheduler.py`**: Automated task management:
+
+-   Daily deal refresh at 9:00 AM
+-   Background task error recovery
+-   Configurable scheduling intervals
+
+### 3. Commands (`cogs/`)
+
+**`deals.py`**: Primary deal search functionality:
+
+-   `/search_deals`: General deal browsing
+-   `/search_store`: Store-specific searches
+-   `/priority_search`: Curated quality games with exact matching
+-   Paginated embed responses with reaction controls
+
+**`general.py`**: Utility commands:
+
+-   `/ping`: Latency testing
+-   `/info`: Bot statistics and status
+-   `/help`: Command reference
+    │ └── api_templates.md # ITAD API response examples
+    │
+    ├── logs/ # Log files (auto-created)
+    │ ├── discord.log # Bot operational logs
+    │ └── api_responses.json # API response debugging logs
+    │
+    ├── models/ # Data models
+    │ ├── **init**.py
+    │ └── models.py # Deal data structure definitions
+    │
+    ├── utils/ # Utility modules
+    │ ├── **init**.py
+    │ ├── embeds.py # Discord embed formatting
+    │ └── game_filters.py # Priority game filtering system
+    │
+    ├── main.py # Bot entry point
+    ├── requirements.txt # Python dependencies
+    └── README.md # Project overview
+
 ```
 
 │
@@ -117,65 +144,65 @@ GameDealer/
 
 **Primary Functionality:**
 
-- Discord bot initialization with slash command support
-- Automatic command tree synchronization
-- Cog loading with error handling
-- ITAD client integration with priority filtering
+-   Discord bot initialization with slash command support
+-   Automatic command tree synchronization
+-   Cog loading with error handling
+-   ITAD client integration with priority filtering
 
 **Key Features:**
 
-- Automatic cog loading: `cogs.general`, `cogs.deals`
-- Slash command sync on startup
-- Clean shutdown handling
-- Priority game database integration
+-   Automatic cog loading: `cogs.general`, `cogs.deals`
+-   Slash command sync on startup
+-   Clean shutdown handling
+-   Priority game database integration
 
 ### 3. Deal Scheduler (`bot/scheduler.py`)
 
 **Primary Functionality:**
 
-- Daily deal posting at 9 AM
-- Administrative controls for scheduling
-- Deal fetching automation
+-   Daily deal posting at 9 AM
+-   Administrative controls for scheduling
+-   Deal fetching automation
 
 **Key Commands (Text-based, Admin only):**
 
-- `!enable_daily_deals`: Enable automatic posting
-- `!disable_daily_deals`: Disable automatic posting
-- `!trigger_daily_deals`: Manual trigger
+-   `!enable_daily_deals`: Enable automatic posting
+-   `!disable_daily_deals`: Disable automatic posting
+-   `!trigger_daily_deals`: Manual trigger
 
 ### 4. Deal Commands (`cogs/deals.py`)
 
 **Primary Functionality:**
 
-- Modern slash command interface
-- Curated game database filtering
-- Smart pagination for large result sets
-- Store prioritization (Steam, Epic, GOG)
+-   Modern slash command interface
+-   Curated game database filtering
+-   Smart pagination for large result sets
+-   Store prioritization (Steam, Epic, GOG)
 
 **Key Slash Commands:**
 
-- `/search_deals [amount]`: Best deals from prioritized stores
-- `/search_store [store] [amount]`: Store-specific deal search
-- `/priority_search [amount] [min_priority] [min_discount]`: **NEW** - Strict priority-only search
+-   `/search_deals [amount]`: Best deals from prioritized stores
+-   `/search_store [store] [amount]`: Store-specific deal search
+-   `/priority_search [amount] [min_priority] [min_discount]`: **NEW** - Strict priority-only search
 
 **Advanced Features:**
 
-- **Strict Priority Filtering**: Only returns games that match the curated priority database
-- **Priority-Based Sorting**: When discount >50%, priority takes precedence over discount amount
-- **Pagination System**: Splits large results into 10-deal pages
-- **Smart Fetching**: Gets 10-15x requested amount to account for strict priority filtering
-- **Store Prioritization**: Prefers Steam/Epic/GOG, filters to priority games only
-- **Quality Assurance**: Uses curated database to guarantee all results are quality games
+-   **Strict Priority Filtering**: Only returns games that match the curated priority database
+-   **Priority-Based Sorting**: When discount >50%, priority takes precedence over discount amount
+-   **Pagination System**: Splits large results into 10-deal pages
+-   **Smart Fetching**: Gets 10-15x requested amount to account for strict priority filtering
+-   **Store Prioritization**: Prefers Steam/Epic/GOG, filters to priority games only
+-   **Quality Assurance**: Uses curated database to guarantee all results are quality games
 
 ### Priority-Based Sorting Logic
 
 **NEW FEATURE**: Smart sorting that balances priority scores with discount percentages:
 
-- **High Discount Deals (>50%)**: Sorted by priority first, then discount
-  - Example: Priority 9 game with 60% discount ranks higher than Priority 7 game with 80% discount
-- **Low Discount Deals (≤50%)**: Sorted by discount first, then priority
-  - Traditional discount-focused sorting for moderate deals
-- **Ensures Quality**: Higher priority games are favored when both deals offer substantial savings
+-   **High Discount Deals (>50%)**: Sorted by priority first, then discount
+    -   Example: Priority 9 game with 60% discount ranks higher than Priority 7 game with 80% discount
+-   **Low Discount Deals (≤50%)**: Sorted by discount first, then priority
+    -   Traditional discount-focused sorting for moderate deals
+-   **Ensures Quality**: Higher priority games are favored when both deals offer substantial savings
 
 **Key Commands:**
 
@@ -199,7 +226,7 @@ GameDealer/
 !search_deals 50 20 Steam # 20 Steam deals (multiple embeds if needed)
 !search_deals 60 25 Epic Game Store # 25 Epic deals with smart pagination
 
-````
+```
 
 **Multi-Embed Behavior:**
 
@@ -234,7 +261,7 @@ class Deal(TypedDict, total=False):
     url: str                     # Deal URL
     discount: Optional[str]      # Discount percentage
     original_price: Optional[str] # Original price (formatted)
-````
+```
 
 ## Configuration
 

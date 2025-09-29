@@ -1,52 +1,58 @@
-# Priority Games Database Guide
+# Game Database Management
 
 ## Overview
 
-The `priority_games.json` file contains a curated database of quality games with priority scores. This system is used by the `/search_deals` and `/search_store` slash commands to filter and prioritize game deals, ensuring users see only quality games rather than unknown or low-quality titles.
+The `data/priority_games.json` file contains 1,173+ curated games with priority ratings. This database powers the quality filtering system that ensures users only see worthwhile deals instead of random low-quality games.
 
-## How to Add Games
+## Adding New Games
 
-### 1. Basic Game Entry Structure
+### Basic Entry Format
 
 ```json
 {
     "title": "Game Name",
     "priority": 8,
-    "category": "Genre",
-    "notes": "Optional description or notes"
+    "category": "RPG",
+    "notes": "Brief description or franchise info"
 }
 ```
 
-### 2. Priority Scoring Scale (1-10)
+### Priority Rating Scale
 
--   **10**: Game of the Year winners, absolute must-haves (e.g., The Witcher 3, Elden Ring)
--   **9**: Exceptional AAA games, universally acclaimed (e.g., Cyberpunk 2077, Red Dead Redemption 2)
--   **8**: Great games, very popular and well-reviewed (e.g., Call of Duty, Hollow Knight)
--   **7**: Good games, solid titles worth playing (e.g., Assassin's Creed, Rocket League)
--   **6**: Decent games, niche appeal or specific audiences (e.g., Among Us, Stardew Valley)
--   **5**: OK games, casual or specific interest (e.g., Truck Simulator)
--   **4**: Below average but playable
--   **3**: Mediocre games
--   **2**: Poor quality games
--   **1**: Very low quality but might occasionally have amazing deals
+| Rating  | Quality Level   | Examples                               |
+| ------- | --------------- | -------------------------------------- |
+| **10**  | GOTY Winners    | The Witcher 3, Elden Ring, Hades       |
+| **9**   | Exceptional AAA | Cyberpunk 2077, Red Dead Redemption 2  |
+| **8**   | Great Games     | Hollow Knight, Divinity Original Sin 2 |
+| **7**   | Solid Titles    | Assassin's Creed series, Rocket League |
+| **6**   | Good Niche      | Stardew Valley, Among Us               |
+| **5**   | Casual/OK       | Various simulator games                |
+| **1-4** | Lower Quality   | Still included for amazing deals       |
 
-### 3. Title Matching Strategy
+### Title Matching (Important!)
 
-The system uses intelligent partial matching, so you can:
+The bot uses **exact matching** with special character normalization:
 
-#### Use Core Game Names
+✅ **Good Entry**: `"title": "Raft"`
 
-```json
-{ "title": "Witcher 3", "priority": 10, "category": "RPG" }
-```
+-   Matches: "Raft", "Raft™", "Raft®"
+-   Does NOT match: "Minecraft: Raft Edition", "Raft Survival Multiplayer"
 
-This will match:
+✅ **Franchise Entry**: `"title": "Call of Duty"`
 
--   "The Witcher 3: Wild Hunt"
--   "Witcher 3: Complete Edition"
--   "The Witcher 3 - Game of the Year Edition"
+-   Matches: "Call of Duty: Modern Warfare", "Call of Duty Black Ops"
 
-#### Include Multiple Variations
+❌ **Avoid Generic Terms**: `"title": "Survival"`
+
+-   Would match too many unrelated games
+
+### Categories
+
+Use consistent category names:
+
+-   **RPG**, **Action**, **Adventure**, **Strategy**, **Simulation**
+-   **Shooter**, **Racing**, **Sports**, **Puzzle**, **Indie**
+-   **MMO**, **Roguelike**, **Platformer**, **Fighting**
 
 ```json
 {"title": "Grand Theft Auto", "priority": 9, "category": "Action"},
