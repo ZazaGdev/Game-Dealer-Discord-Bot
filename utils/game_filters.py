@@ -295,7 +295,7 @@ class PriorityGameFilter:
     def get_database_stats(self) -> DatabaseStats:
         """Get statistics about the priority games database."""
         if not self.priority_games:
-            return DatabaseStats(total_games=0, priority_distribution={}, categories=[])
+            return {"total_games": 0, "priority_distribution": {}, "categories": []}
         
         priority_distribution = {}
         categories = {}
@@ -310,8 +310,7 @@ class PriorityGameFilter:
         return {
             "total_games": len(self.priority_games),
             "priority_distribution": priority_distribution,
-            "category_distribution": categories,
-            "database_path": self.priority_db_path
+            "categories": list(categories.keys())
         }
 
 

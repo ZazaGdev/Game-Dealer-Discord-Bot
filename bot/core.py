@@ -90,7 +90,7 @@ class GameDealerBot(commands.Bot):
         return await cog.send_deal_to_discord(deal_data)
 
 # Factory function that main.py expects
-def create_bot(*, log=None, log_channel_id: int = 0, deals_channel_id: int = 0, itad_api_key: str | None = None) -> GameDealerBot:
+def create_bot(*, log: Optional[logging.Logger] = None, log_channel_id: int = 0, deals_channel_id: int = 0, itad_api_key: Optional[str] = None) -> GameDealerBot:
     """Create and return a GameDealerBot instance"""
     return GameDealerBot(
         log=log,
