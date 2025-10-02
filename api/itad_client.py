@@ -638,6 +638,334 @@ class ITADClient:
             logging.error(f"Failed to fetch quality deals using ITAD method: {e}")
             raise
     
+    async def fetch_native_priority_deals(
+        self,
+        *,
+        limit: int = 10,
+        min_discount: int = 30,
+        store_filter: Optional[Union[str, StoreFilter]] = None,
+        priority_method: str = "popular_deals"  # "popular_deals", "waitlisted_deals", "collected_deals", "hybrid"
+    ) -> List[Deal]:
+        """
+        Fetch priority deals using native ITAD API approaches without local JSON database
+        
+        This method uses ITAD's own popularity data and advanced deals/v2 parameters to find
+        the most interesting and popular games currently on sale.
+        
+        Methods:
+        - popular_deals: Uses most-popular endpoint + deals intersection
+        - waitlisted_deals: Uses most-waitlisted endpoint + deals intersection  
+        - collected_deals: Uses most-collected endpoint + deals intersection
+        - hybrid: Combines multiple approaches for best results
+        
+        Args:
+            limit: Number of deals to return
+            min_discount: Minimum discount percentage
+            store_filter: Optional store filter
+            priority_method: Method to determine priority games
+        """
+        if not self.api_key:
+            raise ValueError("ITAD API key is required")
+        
+        # Convert store filter to shop IDs
+        shop_ids: Optional[List[int]] = None
+        if store_filter:
+            shop_id = self._get_shop_id(store_filter)
+            if shop_id:
+                shop_ids = [shop_id]
+            else:
+                return []
+        
+        try:
+            if priority_method == "hybrid":
+                return await self._fetch_hybrid_priority_deals(limit, min_discount, shop_ids)
+            elif priority_method == "popular_deals":
+                return await self._fetch_popular_intersection_deals(limit, min_discount, shop_ids, "popular")
+            elif priority_method == "waitlisted_deals":
+                return await self._fetch_popular_intersection_deals(limit, min_discount, shop_ids, "waitlisted")
+            elif priority_method == "collected_deals":
+                return await self._fetch_popular_intersection_deals(limit, min_discount, shop_ids, "collected")
+            else:
+                raise ValueError(f"Unknown priority method: {priority_method}")
+                
+        except Exception as e:
+            logging.error(f"Failed to fetch native priority deals: {e}")
+            raise
+
+    async def _fetch_popular_intersection_deals(
+        self, 
+        limit: int, 
+        min_discount: int, 
+        shop_ids: Optional[List[int]], 
+        popularity_type: str
+    ) -> List[Deal]:
+        """
+        Fetch deals by intersecting popular games with current deals
+        
+        Strategy:
+        1. Get popular games from ITAD stats endpoints
+        2. Get current deals from deals/v2 with optimized parameters
+        3. Find intersection of popular games that are currently on sale
+        4. Rank by popularity score and discount
+        """
+        # Step 1: Get popular games IDs and titles
+        popular_games_data = {}
+        
+        if popularity_type == "popular":
+            endpoint = f"{self.BASE}/stats/most-popular/v1"
+        elif popularity_type == "waitlisted":
+            endpoint = f"{self.BASE}/stats/most-waitlisted/v1"
+        elif popularity_type == "collected":
+            endpoint = f"{self.BASE}/stats/most-collected/v1"
+        else:
+            raise ValueError(f"Unknown popularity type: {popularity_type}")
+        
+        # Fetch popular games (get more to improve intersection chances)
+        params = {
+            "key": self.api_key,
+            "limit": 500,  # Get top 500 popular games
+            "offset": 0
+        }
+        
+        popular_data = await self.http.get_json(endpoint, params=params)
+        
+        # Build lookup for popular games with their scores
+        for item in popular_data:
+            game_id = item.get("id")
+            title = item.get("title", "").lower()
+            slug = item.get("slug", "")
+            count = item.get("count", 0)
+            position = item.get("position", 999)
+            
+            if title and (game_id or slug):
+                popular_games_data[title] = {
+                    "id": game_id,
+                    "title": item.get("title", ""),
+                    "slug": slug,
+                    "count": count,
+                    "position": position,
+                    "popularity_score": max(0, 600 - position)  # Higher position = higher score
+                }
+        
+        logging.info(f"Loaded {len(popular_games_data)} {popularity_type} games from ITAD")
+        
+        # Step 2: Get current deals with optimized parameters
+        deals_params = {
+            "key": self.api_key,
+            "offset": 0,
+            "limit": 200,  # Get many deals for better intersection
+            "sort": "-cut",  # Sort by discount for good deals
+            "nondeals": "false",
+            "mature": "false"
+        }
+        
+        # Add shop filter if specified
+        if shop_ids:
+            deals_params["shops"] = ",".join(map(str, shop_ids))
+        
+        deals_data = await self.http.get_json(f"{self.BASE}/deals/v2", params=deals_params)
+        
+        if not isinstance(deals_data, dict) or "list" not in deals_data:
+            raise ValueError(f"Unexpected deals API response: {type(deals_data)}")
+        
+        # Step 3: Find intersection - deals for popular games
+        matched_deals = []
+        
+        for deal_item in deals_data["list"]:
+            title = self._get_title_v2(deal_item)
+            discount_pct = self._get_discount_v2(deal_item)
+            
+            # Check minimum discount
+            if discount_pct < min_discount:
+                continue
+            
+            title_lower = title.lower()
+            
+            # Check if this deal is for a popular game
+            popularity_info = None
+            
+            # Direct title match
+            if title_lower in popular_games_data:
+                popularity_info = popular_games_data[title_lower]
+            else:
+                # Fuzzy title matching for variations
+                for popular_title, info in popular_games_data.items():
+                    if self._titles_match_fuzzy(title_lower, popular_title):
+                        popularity_info = info
+                        break
+            
+            if popularity_info:
+                # This is a deal for a popular game!
+                store = self._get_store_v2(deal_item)
+                prices = self._get_prices_v2(deal_item)
+                url = self._get_url_v2(deal_item)
+                
+                deal: Deal = {
+                    "title": title,
+                    "price": prices["current"],
+                    "store": store,
+                    "url": url,
+                    "discount": f"{discount_pct}%" if discount_pct else None,
+                    "original_price": prices["original"],
+                }
+                
+                # Add popularity metadata for sorting
+                deal["_popularity_score"] = popularity_info["popularity_score"]
+                deal["_popularity_count"] = popularity_info["count"]
+                deal["_popularity_position"] = popularity_info["position"]
+                
+                matched_deals.append(deal)
+        
+        # Step 4: Rank by popularity and discount
+        matched_deals.sort(
+            key=lambda x: (
+                x.get("_popularity_score", 0),  # Primary: popularity
+                int(x.get("discount", "0%").replace("%", "")) if x.get("discount") else 0,  # Secondary: discount
+                -x.get("_popularity_position", 999)  # Tertiary: position (lower is better)
+            ),
+            reverse=True
+        )
+        
+        # Clean up metadata and return
+        final_deals = []
+        for deal in matched_deals[:limit]:
+            # Remove internal fields
+            for key in list(deal.keys()):
+                if key.startswith("_"):
+                    del deal[key]
+            final_deals.append(deal)
+        
+        logging.info(f"Found {len(final_deals)} popular {popularity_type} deals from {len(matched_deals)} total matches")
+        return final_deals
+
+    async def _fetch_hybrid_priority_deals(
+        self, 
+        limit: int, 
+        min_discount: int, 
+        shop_ids: Optional[List[int]]
+    ) -> List[Deal]:
+        """
+        Hybrid approach combining multiple ITAD popularity sources for best results
+        
+        Strategy:
+        1. Get deals from most-popular (40% weight)
+        2. Get deals from most-waitlisted (35% weight) 
+        3. Get deals from most-collected (25% weight)
+        4. Combine and deduplicate with weighted scoring
+        """
+        # Fetch from all three popularity sources
+        popular_deals = await self._fetch_popular_intersection_deals(
+            limit * 2, min_discount, shop_ids, "popular"
+        )
+        
+        waitlisted_deals = await self._fetch_popular_intersection_deals(
+            limit * 2, min_discount, shop_ids, "waitlisted"
+        )
+        
+        collected_deals = await self._fetch_popular_intersection_deals(
+            limit * 2, min_discount, shop_ids, "collected"
+        )
+        
+        # Combine with weighted scoring
+        combined_deals = {}
+        
+        # Add popular deals (40% weight)
+        for i, deal in enumerate(popular_deals):
+            title_key = deal["title"].lower()
+            score = (len(popular_deals) - i) * 0.4
+            combined_deals[title_key] = {
+                "deal": deal,
+                "score": score,
+                "sources": ["popular"]
+            }
+        
+        # Add waitlisted deals (35% weight)  
+        for i, deal in enumerate(waitlisted_deals):
+            title_key = deal["title"].lower()
+            score = (len(waitlisted_deals) - i) * 0.35
+            
+            if title_key in combined_deals:
+                combined_deals[title_key]["score"] += score
+                combined_deals[title_key]["sources"].append("waitlisted")
+            else:
+                combined_deals[title_key] = {
+                    "deal": deal,
+                    "score": score,
+                    "sources": ["waitlisted"]
+                }
+        
+        # Add collected deals (25% weight)
+        for i, deal in enumerate(collected_deals):
+            title_key = deal["title"].lower()
+            score = (len(collected_deals) - i) * 0.25
+            
+            if title_key in combined_deals:
+                combined_deals[title_key]["score"] += score
+                combined_deals[title_key]["sources"].append("collected")
+            else:
+                combined_deals[title_key] = {
+                    "deal": deal,
+                    "score": score,
+                    "sources": ["collected"]
+                }
+        
+        # Sort by combined score and return top deals
+        sorted_deals = sorted(
+            combined_deals.values(),
+            key=lambda x: (x["score"], len(x["sources"])),  # Score first, then source diversity
+            reverse=True
+        )
+        
+        final_deals = [item["deal"] for item in sorted_deals[:limit]]
+        
+        logging.info(f"Hybrid method combined {len(combined_deals)} unique games, returning top {len(final_deals)}")
+        return final_deals
+
+    def _titles_match_fuzzy(self, title1: str, title2: str) -> bool:
+        """
+        Fuzzy title matching for game variations
+        """
+        # Quick exact match
+        if title1 == title2:
+            return True
+        
+        # Remove common variations and normalize
+        def normalize_title(title: str) -> str:
+            # Remove edition suffixes
+            editions = [
+                " complete edition", " definitive edition", " goty", 
+                " enhanced edition", " director's cut", " remastered",
+                " game of the year", " ultimate edition", " deluxe edition"
+            ]
+            
+            normalized = title.lower().strip()
+            for edition in editions:
+                normalized = normalized.replace(edition, "")
+            
+            # Remove punctuation and extra spaces
+            import re
+            normalized = re.sub(r'[^\w\s]', ' ', normalized)
+            normalized = ' '.join(normalized.split())
+            
+            return normalized
+        
+        norm1 = normalize_title(title1)
+        norm2 = normalize_title(title2)
+        
+        # Check normalized match
+        if norm1 == norm2:
+            return True
+        
+        # Check substring match for longer titles
+        if len(norm1) > 8 and len(norm2) > 8:
+            shorter = norm1 if len(norm1) < len(norm2) else norm2
+            longer = norm1 if len(norm1) >= len(norm2) else norm2
+            
+            if shorter in longer:
+                return True
+        
+        return False
+
     def get_available_stores(self) -> list:
         """Return a list of common store names for filtering"""
         return [

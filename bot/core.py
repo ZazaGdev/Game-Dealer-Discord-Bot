@@ -35,7 +35,7 @@ class GameDealerBot(commands.Bot):
     async def setup_hook(self) -> None:
         """Initialize bot setup with proper error handling"""
         # Load cogs with individual error handling
-        cogs_to_load: List[str] = ["cogs.general", "cogs.deals"]
+        cogs_to_load: List[str] = ["cogs.general", "cogs.deals", "cogs.quality_deals", "cogs.native_priority"]
         
         for cog in cogs_to_load:
             try:
