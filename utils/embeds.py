@@ -75,3 +75,58 @@ def make_deal_embed(deal_data: Deal) -> discord.Embed:
     
     embed.set_footer(text=footer_text)
     return embed
+
+
+def create_deals_embed(deals: list, title: str, description: str, footer_text: str = None) -> discord.Embed:
+    """Create an embed showing multiple deals"""
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        color=GREEN,
+        timestamp=datetime.now(timezone.utc)
+    )
+    
+    for i, deal in enumerate(deals[:10], 1):  # Limit to 10 deals
+        deal_title = deal.get("title", "Unknown Game")
+        price = deal.get("price", "Unknown")
+        discount = deal.get("discount", "")
+        store = deal.get("store", "Unknown Store")
+        url = deal.get("url", "")
+        
+        field_name = f"{i}. {deal_title}"
+        field_value = f"💰 **{price}** {f'({discount})' if discount else ''} on {store}"
+        if url:
+            field_value += f"\n🎯 [View Deal]({url})"
+        
+        embed.add_field(
+            name=field_name,
+            value=field_value,
+            inline=False
+        )
+    
+    if footer_text:
+        embed.set_footer(text=footer_text)
+    
+    return embed
+
+
+def create_error_embed(title: str, description: str) -> discord.Embed:
+    """Create an error embed"""
+    embed = discord.Embed(
+        title=f"❌ {title}",
+        description=description,
+        color=RED,
+        timestamp=datetime.now(timezone.utc)
+    )
+    return embed
+
+
+def create_no_deals_embed(title: str, description: str) -> discord.Embed:
+    """Create a no deals found embed"""
+    embed = discord.Embed(
+        title=f"😔 {title}",
+        description=description,
+        color=ORANGE,
+        timestamp=datetime.now(timezone.utc)
+    )
+    return embed

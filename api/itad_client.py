@@ -7,6 +7,7 @@ import os
 from .http import HttpClient
 from models import Deal, ITADGameItem, StoreFilter, APIError
 from utils.game_filters import PriorityGameFilter
+from utils.itad_quality import ITADQualityFilter, EnhancedAssetFlipDetector
 
 class ITADClient:
     """Client for IsThereAnyDeal API with type safety and error handling"""
@@ -17,6 +18,9 @@ class ITADClient:
         self.http = http or HttpClient(headers=headers)
         self.api_key = api_key
         self.priority_filter = PriorityGameFilter()
+        # Initialize quality filtering system
+        self.quality_filter = ITADQualityFilter(api_key) if api_key else None
+        self.asset_flip_detector = EnhancedAssetFlipDetector()
 
     async def close(self) -> None:
         await self.http.close()
@@ -464,6 +468,175 @@ class ITADClient:
         except Exception as e:
             # Don't let logging errors affect the main functionality
             print(f"Warning: Failed to log API response: {e}")
+    
+    async def fetch_quality_deals_itad_method(
+        self,
+        *,
+        limit: int = 10,
+        min_discount: int = 50,
+        sort_by: str = "hottest",  # "hottest", "newest", "price", "cut"
+        store_filter: Optional[Union[str, StoreFilter]] = None,
+        use_popularity_stats: bool = True
+    ) -> List[Deal]:
+        """
+        Fetch quality deals using ITAD's own approach for showing "interesting games"
+        
+        This method replicates how ITAD website shows quality games by:
+        1. Using ITAD's sorting options (hottest = most popular)
+        2. Leveraging community popularity stats (waitlisted/collected counts)
+        3. Enhanced asset flip detection
+        4. Multi-criteria quality scoring
+        
+        Args:
+            limit: Number of deals to return
+            min_discount: Minimum discount percentage
+            sort_by: ITAD sorting method ("hottest" for popular games)
+            store_filter: Optional store filter
+            use_popularity_stats: Whether to use ITAD popularity data for quality scoring
+        """
+        if not self.api_key:
+            raise ValueError("ITAD API key is required")
+            
+        if not self.quality_filter:
+            raise ValueError("Quality filter not initialized - API key required")
+        
+        # Convert store filter to shop IDs
+        shop_ids: Optional[List[int]] = None
+        if store_filter:
+            shop_id = self._get_shop_id(store_filter)
+            if shop_id:
+                shop_ids = [shop_id]
+            else:
+                return []
+        
+        # Fetch popular games stats if requested
+        popular_games = {}
+        if use_popularity_stats:
+            try:
+                popular_games = await self.quality_filter.get_popular_games_stats(limit=500)
+                logging.info(f"Loaded popularity stats for {len(popular_games)} games")
+            except Exception as e:
+                logging.warning(f"Failed to load popularity stats: {e}")
+        
+        # Map sort options to ITAD API parameters
+        sort_mapping = {
+            "hottest": "-waitlisted",  # Most waitlisted (popular) games first
+            "popular": "-waitlisted",  # Alias for hottest
+            "newest": "-time",         # Newest deals first
+            "price": "price",          # Lowest price first
+            "discount": "-cut",        # Highest discount first
+            "cut": "-cut"              # Alias for discount
+        }
+        
+        sort_param = sort_mapping.get(sort_by, "-cut")
+        
+        # Request more deals to account for quality filtering
+        api_limit = min(limit * 10, 200)  # Request 10x more for quality filtering
+        
+        params: Dict[str, Any] = {
+            "key": self.api_key,
+            "offset": 0,
+            "limit": api_limit,
+            "sort": sort_param,
+            "nondeals": "false",
+            "mature": "false"
+        }
+        
+        # Add shop filter if specified
+        if shop_ids:
+            params["shops"] = ",".join(map(str, shop_ids))
+        
+        try:
+            data = await self.http.get_json(f"{self.BASE}/deals/v2", params=params)
+            
+            if isinstance(data, dict) and "error" in data:
+                error_details = data.get("error", {})
+                error_message = error_details.get("message", "Unknown API error") if isinstance(error_details, dict) else str(error_details)
+                raise ValueError(f"ITAD API returned error: {error_message}")
+            
+            deals: List[Deal] = []
+            
+            if not isinstance(data, dict) or "list" not in data:
+                raise ValueError(f"Unexpected API response format: {type(data).__name__}")
+            
+            deals_data = data["list"]
+            quality_deals = []
+            
+            for item in deals_data:
+                title = self._get_title_v2(item)
+                store = self._get_store_v2(item)
+                prices = self._get_prices_v2(item)
+                discount_pct = self._get_discount_v2(item)
+                url = self._get_url_v2(item)
+                
+                # Apply minimum discount filter
+                if discount_pct and discount_pct >= min_discount:
+                    # Extract price for asset flip detection
+                    current_price = 0
+                    try:
+                        price_str = prices["current"].replace("$", "").replace(",", "")
+                        current_price = float(price_str)
+                    except (ValueError, AttributeError):
+                        pass
+                    
+                    # Get popularity stats for this game
+                    popularity_stats = None
+                    if use_popularity_stats and popular_games:
+                        is_quality, quality_score = self.quality_filter.is_quality_game(title, popular_games)
+                        if is_quality:
+                            # Find the exact stats for enhanced asset flip detection
+                            title_lower = title.lower()
+                            if title_lower in popular_games:
+                                popularity_stats = popular_games[title_lower]
+                    
+                    # Enhanced asset flip detection
+                    is_asset_flip = self.asset_flip_detector.is_likely_asset_flip(
+                        title, current_price, discount_pct, popularity_stats
+                    )
+                    
+                    # Only include high-quality games
+                    if not is_asset_flip:
+                        # Calculate quality score
+                        quality_score = 0
+                        if popularity_stats:
+                            quality_score = popularity_stats.quality_score
+                        elif not use_popularity_stats:
+                            # Base quality score without popularity data
+                            quality_score = 50  # Neutral score
+                        
+                        deal: Deal = {
+                            "title": title,
+                            "price": prices["current"], 
+                            "store": store,
+                            "url": url,
+                            "discount": f"{discount_pct}%" if discount_pct else None,
+                            "original_price": prices["original"],
+                        }
+                        
+                        # Add quality score for sorting
+                        deal["_quality_score"] = quality_score
+                        quality_deals.append(deal)
+            
+            # Sort deals by quality score (highest first), then by discount
+            quality_deals.sort(
+                key=lambda x: (x.get("_quality_score", 0), 
+                             int(x.get("discount", "0%").replace("%", "")) if x.get("discount") else 0),
+                reverse=True
+            )
+            
+            # Remove quality score from final results and limit
+            final_deals = []
+            for deal in quality_deals[:limit]:
+                if "_quality_score" in deal:
+                    del deal["_quality_score"]
+                final_deals.append(deal)
+            
+            logging.info(f"ITAD Quality Method: Found {len(final_deals)} quality games from {len(deals_data)} total deals")
+            return final_deals
+            
+        except Exception as e:
+            logging.error(f"Failed to fetch quality deals using ITAD method: {e}")
+            raise
     
     def get_available_stores(self) -> list:
         """Return a list of common store names for filtering"""

@@ -2,15 +2,43 @@
 
 ## Overview
 
-Successfully implemented improved priority search functionality with asset flip filtering to address the issue where only low-quality games were being returned instead of expected AAA titles.
+Successfully implemented improved priority search functionality with **CRITICAL MATCHING FIX** (October 2025) to address the issue where priority search was returning games NOT in the priority database due to overly permissive matching logic.
 
-## Root Cause Analysis
+## Root Cause Analysis - UPDATED (October 2025)
 
-The issue was not with the code logic, but with the ITAD API returning predominantly low-quality "asset flip" games (like "LivingForest Baton", "LivingBattle Car Muscle") instead of quality AAA games.
+**CRITICAL BUG DISCOVERED**: The priority search was returning games like "PolyClassic: Wild", "The Wraith of the Galaxy", "Shadow of the matrix" that were NOT in the priority_games.json database due to extremely lenient word matching.
+
+**Original Issue**: ITAD API returning low-quality "asset flip" games instead of quality AAA titles.  
+**New Critical Issue**: Matching algorithm giving 0.6+ scores to games based on common words like "The", "of", numbers, etc.
 
 ## Implemented Solutions
 
-### 1. Asset Flip Detection (`utils/game_filters.py`)
+### 1. CRITICAL FIX: Strict Priority Game Matching (October 2025)
+
+**Location**: `utils/game_filters.py` - `PriorityGameFilter._calculate_match_score()` method
+
+**Problem**: Matching algorithm was too permissive, giving 0.6+ scores to games based on:
+
+-   Common words: "The", "of", "and"
+-   Numbers: "2", "4"
+-   Generic terms: "Wild", "City", "Shadow"
+
+**Examples of False Matches (FIXED)**:
+
+-   "PolyClassic: Wild" → "The Witcher 3: **Wild** Hunt" (word "Wild")
+-   "The Wraith of the Galaxy" → "**The** Last **of** Us Part I" (words "The" and "of")
+-   "Wordle 4" → "Resident Evil **4**" (number "4")
+
+**Solution Implemented**:
+
+-   Added comprehensive meaningless words filter (65+ common words/numbers)
+-   Require minimum 2 meaningful words for multi-word games
+-   Increased overlap thresholds to 60%+ for meaningful words only
+-   Eliminated false positive matches while preserving legitimate ones
+
+**Result**: Priority search now ONLY returns games actually in priority_games.json database
+
+### 2. Asset Flip Detection (`utils/game_filters.py`)
 
 -   **Location**: `GameQualityFilter.is_asset_flip()` method
 -   **Function**: Detects and filters out obvious asset flip games

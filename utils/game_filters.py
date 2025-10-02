@@ -105,23 +105,20 @@ class PriorityGameFilter:
     
     def _calculate_match_score(self, search_title: str, db_title: str) -> float:
         """
-        Calculate how well two titles match.
+        Calculate how well two titles match using VERY STRICT matching criteria.
         
         Returns:
             0.0: No match
-            0.1-0.5: Partial word match
-            0.6-0.8: Good partial match
+            0.6-0.8: Good partial match (meaningful words only)
             0.9-1.0: Excellent match
         """
         # Exact match
         if search_title == db_title:
             return 1.0
         
-        # One title contains the other completely
-        if db_title in search_title:
-            return 0.9
-        if search_title in db_title:
-            return 0.85
+        # REMOVED: Substring matching is too lenient and causes false positives
+        # Examples: "Winter" matching "Neverwinter", "White Flower" matching "Flower"
+        # Only allow exact word-based matching from this point forward
         
         # Split into words for word-based matching
         search_words = set(re.findall(r'\w+', search_title))
@@ -130,23 +127,73 @@ class PriorityGameFilter:
         if not search_words or not db_words:
             return 0.0
         
-        # Calculate word overlap
-        common_words = search_words.intersection(db_words)
+        # Filter out common/meaningless words that shouldn't count for matching
+        # These words are too common and lead to false matches
+        meaningless_words = {
+            'the', 'of', 'and', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'with', 'by', 
+            'from', 'is', 'are', 'was', 'were', 'be', 'been', 'have', 'has', 'had',
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'i', 'ii', 'iii', 'iv', 'v',
+            'game', 'edition', 'complete', 'definitive', 'ultimate', 'deluxe', 'premium',
+            'remaster', 'remastered', 'remake', 'hd', 'collection', 'wild', 'new', 'original',
+            'special', 'enhanced', 'director', 'directors', 'gold', 'silver', 'platinum',
+            'standard', 'goty', 'bundle', 'pack', 'set', 'simulator', 'sim', 'magic', 'super',
+            'mega', 'ultra', 'extreme', 'classic', 'legendary', 'epic', 'pro', 'plus', 'max',
+            'mini', 'tiny', 'small', 'big', 'large', 'great', 'grand', 'royal', 'master'
+        }
         
-        if not common_words:
+        # Also filter out very short words (2 characters or less) as they're too generic
+        # Examples: "MAG", "VI", "XI", etc.
+        short_word_threshold = 3
+        
+        # Remove meaningless words and very short words
+        meaningful_search_words = {word for word in search_words 
+                                 if word.lower() not in meaningless_words and len(word) >= short_word_threshold}
+        meaningful_db_words = {word for word in db_words 
+                             if word.lower() not in meaningless_words and len(word) >= short_word_threshold}
+        
+        # If no meaningful words remain, no match
+        if not meaningful_search_words or not meaningful_db_words:
             return 0.0
         
-        # Score based on word overlap percentage
-        overlap_ratio = len(common_words) / min(len(search_words), len(db_words))
+        # Calculate word overlap using only meaningful words
+        common_meaningful_words = meaningful_search_words.intersection(meaningful_db_words)
         
-        if overlap_ratio >= 0.8:
+        if not common_meaningful_words:
+            return 0.0
+        
+        # Require significant overlap of meaningful words for a match
+        overlap_ratio = len(common_meaningful_words) / min(len(meaningful_search_words), len(meaningful_db_words))
+        
+        # EXTREMELY strict thresholds - require substantial meaningful word overlap
+        # Require at least 2 common meaningful words for most matches
+        # For single-word games, require very high overlap AND longer words
+        min_common_words = 2
+        
+        # Special case: if both titles have only 1 meaningful word each, allow matching
+        # but require the words to be at least 5 characters long and very similar
+        if len(meaningful_search_words) == 1 and len(meaningful_db_words) == 1:
+            search_word = next(iter(meaningful_search_words))
+            db_word = next(iter(meaningful_db_words))
+            
+            # Only match single words if they're long enough and very similar
+            if (len(search_word) >= 5 and len(db_word) >= 5 and 
+                (search_word.lower() == db_word.lower() or 
+                 search_word.lower() in db_word.lower() or 
+                 db_word.lower() in search_word.lower())):
+                min_common_words = 1
+            else:
+                return 0.0  # Reject short single-word matches
+        
+        if len(common_meaningful_words) < min_common_words:
+            return 0.0
+            
+        # Higher thresholds for better matches
+        if overlap_ratio >= 0.9:
             return 0.8
-        elif overlap_ratio >= 0.6:
+        elif overlap_ratio >= 0.8:
             return 0.7
-        elif overlap_ratio >= 0.4:
+        elif overlap_ratio >= 0.7:
             return 0.6
-        elif overlap_ratio >= 0.2:
-            return 0.4
         else:
             return 0.1
     
@@ -239,7 +286,7 @@ class PriorityGameFilter:
                 deal_copy['_priority_game'] = None
                 priority_deals.append(deal_copy)
         
-        # Custom sorting: Priority takes precedence over discount only if discount is above 50%
+        # Custom sorting: PRIORITY FIRST, then discount as secondary factor
         def sort_key(deal):
             priority = deal.get('_priority', 0)
             discount_str = deal.get('discount', '0%')
@@ -250,14 +297,12 @@ class PriorityGameFilter:
             except (ValueError, AttributeError):
                 discount_num = 0
             
-            # If discount is above 50%, sort by priority first, then by discount
-            if discount_num > 50:
-                return (priority, discount_num, deal.get('_match_score', 0))
-            else:
-                # If discount is 50% or below, sort by discount first, then by priority
-                return (discount_num, priority, deal.get('_match_score', 0))
+            # PRIORITY-FIRST sorting: Game priority is the primary factor
+            # Secondary factor is discount, but much less important
+            # This ensures high-priority games always come first regardless of discount
+            return (-priority, -discount_num, -deal.get('_match_score', 0))
         
-        priority_deals.sort(key=sort_key, reverse=True)
+        priority_deals.sort(key=sort_key)
         
         if max_results:
             priority_deals = priority_deals[:max_results]

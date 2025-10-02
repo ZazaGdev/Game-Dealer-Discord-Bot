@@ -410,6 +410,20 @@ class Deals(commands.Cog):
         4. Filter by priority level and discount requirements
         5. Return only matched games or friendly error if no matches
         """
+        # Validate store - Priority search only works with Steam, Epic, and GOG
+        allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com']
+        if store and store.lower() not in allowed_stores:
+            error_msg = (
+                f"❌ Priority search only supports Steam, Epic Game Store, and GOG.\n"
+                f"You requested: {store}\n"
+                f"Please use one of: Steam, Epic, GOG"
+            )
+            if is_prefix:
+                await interaction_or_ctx.ctx.send(error_msg)
+            else:
+                await interaction_or_ctx.edit_original_response(content=error_msg)
+            return
+            
         # Normalize input parameters
         if amount > 25:
             amount = 25
@@ -598,7 +612,7 @@ class Deals(commands.Cog):
             for embed in embeds[1:]:
                 await interaction_or_ctx.followup.send(embed=embed)
     
-    def _get_priority_emoji(self, priority: int) -> str:
+    @commands.command(name="quality_deals", aliases=["quality", "q", "interesting"])\n    async def quality_deals_command(\n        self, \n        ctx: commands.Context, \n        store: Optional[str] = None,\n        min_discount: int = 50,\n        sort_by: str = \"hottest\"\n    ) -> None:\n        \"\"\"\n        Show quality game deals using ITAD's own approach for \"interesting games\"\n        \n        Uses ITAD's popularity data and quality filtering to show games similar to\n        what you see on isthereanydeal.com/deals (interesting, not asset flips)\n        \n        Usage: !quality_deals [store] [min_discount] [sort]\n        Example: !quality_deals steam 60 hottest\n        \n        Args:\n            store: Store to filter by (Steam, Epic, GOG)\n            min_discount: Minimum discount % (default: 50)\n            sort_by: Sort method - hottest, newest, price, discount (default: hottest)\n        \"\"\"\n        # Validate store parameter\n        if store:\n            store = store.lower().strip()\n            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com']\n            if store not in allowed_stores:\n                embed = create_error_embed(\n                    \"Invalid Store\",\n                    f\"Quality deals only work with: {', '.join(['Steam', 'Epic Game Store', 'GOG'])}\\n\"\n                    f\"You provided: `{store}`\"\n                )\n                await ctx.send(embed=embed)\n                return\n        \n        # Validate sort parameter\n        valid_sorts = ['hottest', 'popular', 'newest', 'price', 'discount', 'cut']\n        if sort_by.lower() not in valid_sorts:\n            embed = create_error_embed(\n                \"Invalid Sort Method\", \n                f\"Valid options: {', '.join(valid_sorts)}\\n\"\n                f\"You provided: `{sort_by}`\"\n            )\n            await ctx.send(embed=embed)\n            return\n            \n        await self._send_typing(ctx)\n        \n        try:\n            # Use ITAD quality method\n            deals = await self.itad_client.fetch_quality_deals_itad_method(\n                limit=10,\n                min_discount=min_discount,\n                sort_by=sort_by.lower(),\n                store_filter=store,\n                use_popularity_stats=True\n            )\n            \n            if not deals:\n                embed = create_no_deals_embed(\n                    \"No Quality Deals Found\",\n                    f\"No interesting games found with {min_discount}%+ discount\"\n                    f\"{f' on {store.title()}' if store else ''}\\n\"\n                    \"Try lowering the discount percentage or different store.\"\n                )\n                await ctx.send(embed=embed)\n                return\n            \n            # Create embed with quality deals\n            embed = create_deals_embed(\n                deals=deals,\n                title=f\"🌟 Quality Game Deals ({sort_by.title()} Sort)\",\n                description=f\"Showing {len(deals)} interesting games \"\n                           f\"({min_discount}%+ discount{f', {store.title()} only' if store else ''})\",\n                footer_text=\"✨ Curated using ITAD's popularity data and quality filtering\"\n            )\n            \n            await ctx.send(embed=embed)\n            \n        except ValueError as e:\n            embed = create_error_embed(\"API Error\", str(e))\n            await ctx.send(embed=embed)\n        except Exception as e:\n            logging.error(f\"Error in quality deals command: {e}\")\n            embed = create_error_embed(\n                \"Command Error\", \n                \"Failed to fetch quality deals. Please try again.\"\n            )\n            await ctx.send(embed=embed)\n\n    def _get_priority_emoji(self, priority: int) -> str:
         """Get emoji representation for priority level"""
         if priority >= 9:
             return "🏆"  # Trophy for top-tier games
