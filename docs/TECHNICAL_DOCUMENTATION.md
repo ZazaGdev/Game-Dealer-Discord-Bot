@@ -473,12 +473,33 @@ This logs full API responses to `logs/api_responses.json` for analysis.
 
 ## Contributing
 
-### Code Style
+### Code Style & Type Safety
 
+-   **Comprehensive Type Annotations**: All functions use proper type hints
+-   **TypedDict Definitions**: Structured data uses TypedDict for validation
+-   **Protocol Interfaces**: Duck typing with Protocol classes
+-   **Union Types**: Flexible parameter handling with Union types
+-   **Optional Types**: Explicit nullable value handling
 -   Follow PEP 8 conventions
--   Use type hints where appropriate
 -   Add docstrings for public methods
 -   Keep functions focused and small
+
+### Type System Components
+
+**Models (`models/models.py`)**:
+
+-   `PriorityGame`: Game database structure
+-   `ITADGameItem`, `ITADShop`, `ITADPrice`: API response types
+-   `InteractionLike`: Protocol for Discord interactions
+-   `FilterResult`: Search filtering results
+-   `DatabaseStats`: Priority database statistics
+
+**Benefits**:
+
+-   Early error detection during development
+-   Better IDE support and autocomplete
+-   Self-documenting code structure
+-   Reduced runtime errors
 
 ### Testing
 

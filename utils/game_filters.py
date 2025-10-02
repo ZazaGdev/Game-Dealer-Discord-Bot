@@ -380,3 +380,60 @@ class GameQualityFilter:
         """Check if a store is considered quality - always returns True now."""
         # Since we're using curated games, store quality is less important
         return True
+
+    def is_asset_flip(self, title: str, price: float = 0, discount: int = 0) -> bool:
+        """
+        Detect potential asset flip games based on common patterns.
+        
+        Args:
+            title: Game title to check
+            price: Current price (optional)
+            discount: Discount percentage (optional)
+            
+        Returns:
+            True if the game appears to be an asset flip
+        """
+        title_lower = title.lower().strip()
+        
+        # Common asset flip patterns
+        asset_flip_indicators = [
+            # Common prefixes used by asset flip publishers
+            r'^living\w+',  # LivingForest, LivingBattle, etc.
+            r'^pixel\s+\w+',  # Pixel + random word combinations
+            r'^super\s+\w+\s+simulator',  # Super X Simulator games
+            r'^ultimate\s+\w+',  # Ultimate X games
+            r'^extreme\s+\w+',  # Extreme X games
+            
+            # Suspicious word combinations
+            r'\b(baton|bandage|bustop)\b',  # Weird random objects
+            r'\b(muscle|sniper hunting rifle)\b',  # Odd combinations
+            r'\bmeat\s*(ball|stick|punch)\b',  # Meat-themed games
+            
+            # Games with numbers/versions that seem inflated
+            r'\bhd\s+remaster\b',  # HD Remaster of simple games
+            r'\bdeluxe\s+edition\b.*\bsimulator\b',  # Deluxe Edition Simulators
+            
+            # Suspiciously generic titles
+            r'^(grab|kill|play)\s+(and|with)\s+(guts|my|kill)\b',  # Violent/crude titles
+            r'^(skidaddle|skidoodle)\b',  # Nonsensical names
+        ]
+        
+        # Check for asset flip patterns
+        for pattern in asset_flip_indicators:
+            if re.search(pattern, title_lower, re.IGNORECASE):
+                return True
+        
+        # Additional heuristics based on pricing
+        if discount >= 90 and price < 2.0:
+            # Very high discounts on very cheap games are suspicious
+            # Many asset flips use fake high original prices with 90%+ discounts
+            suspicious_cheap_patterns = [
+                r'\b(simulator|remaster|deluxe|ultimate|extreme)\b',
+                r'^[a-z]+\s+[a-z]+$',  # Simple two-word titles
+            ]
+            
+            for pattern in suspicious_cheap_patterns:
+                if re.search(pattern, title_lower, re.IGNORECASE):
+                    return True
+        
+        return False

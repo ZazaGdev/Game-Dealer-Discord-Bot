@@ -57,11 +57,15 @@ class ITADClient:
 
         # Use the correct ITAD API endpoint - deals/v2
         # Fetch more deals when quality filtering is enabled to ensure we have enough after strict filtering
+        # Also fetch more deals to account for asset flip filtering
         api_limit = limit
         if quality_filter:
-            # Request significantly more deals since we're now doing strict priority filtering
-            # If we need N deals after filtering, request up to 15x more to account for strict filtering
-            api_limit = min(limit * 15, 200)  # ITAD v2 allows up to 200
+            # Request significantly more deals since we're now doing strict priority + asset flip filtering
+            # If we need N deals after filtering, request up to 25x more to account for filtering
+            api_limit = min(limit * 25, 200)  # ITAD v2 allows up to 200
+        else:
+            # Even without quality filter, fetch more to account for asset flip filtering
+            api_limit = min(limit * 5, 200)
         
         params: Dict[str, Any] = {
             "key": self.api_key,
@@ -129,7 +133,7 @@ class ITADClient:
                 error_msg += f". Response preview: {response_preview}"
                 raise ValueError(error_msg)
 
-            # First, collect all qualifying deals (discount threshold)
+            # First, collect all qualifying deals (discount threshold + asset flip filtering)
             all_deals = []
             for item in deals_data:
                 # Parse deal data from the v2 API structure
@@ -141,6 +145,21 @@ class ITADClient:
 
                 # Only include deals that meet minimum discount
                 if discount_pct and discount_pct >= min_discount:
+                    # Filter out obvious asset flip games to improve quality
+                    current_price = 0
+                    try:
+                        # Extract numeric price for asset flip detection
+                        price_str = prices["current"].replace("$", "").replace(",", "")
+                        current_price = float(price_str)
+                    except (ValueError, AttributeError):
+                        pass
+                    
+                    # Skip obvious asset flip games
+                    from utils.game_filters import GameQualityFilter
+                    quality_filter_obj = GameQualityFilter()
+                    if quality_filter_obj.is_asset_flip(title, current_price, discount_pct):
+                        continue  # Skip this asset flip game
+                    
                     deal: Deal = {
                         "title": title,
                         "price": prices["current"],
@@ -160,20 +179,81 @@ class ITADClient:
                     strict_mode=True  # Only return games that match the priority database
                 )
                 
-                # If we don't have enough deals after strict filtering, try to get more
-                if len(deals) < limit and len(all_deals) > len(deals):
-                    # Try with a lower priority threshold to get more results
-                    if min_priority > 1:
-                        additional_deals = self.priority_filter.filter_deals_by_priority(
-                            all_deals,
-                            min_priority=max(1, min_priority - 2),  # Lower threshold
-                            max_results=limit,
-                            strict_mode=True
-                        )
+                # If we don't have enough deals after strict filtering, try to get more from API
+                if len(deals) < limit and data.get("hasMore", False):
+                    # Make additional API requests with higher offsets to find more quality games
+                    additional_offset = api_limit
+                    max_additional_requests = 3
+                    
+                    for request_num in range(max_additional_requests):
+                        if len(deals) >= limit:
+                            break
+                            
+                        # Request more deals with offset
+                        additional_params = params.copy()
+                        additional_params["offset"] = additional_offset
+                        additional_params["limit"] = api_limit
                         
-                        # If we got more deals with lower threshold, use those
-                        if len(additional_deals) > len(deals):
-                            deals = additional_deals
+                        additional_data = await self.http.get_json(f"{self.BASE}/deals/v2", params=additional_params)
+                        
+                        if "list" in additional_data:
+                            additional_deals = []
+                            for item in additional_data["list"]:
+                                title = self._get_title_v2(item)
+                                store = self._get_store_v2(item)
+                                prices = self._get_prices_v2(item)
+                                discount_pct = self._get_discount_v2(item)
+                                url = self._get_url_v2(item)
+
+                                if discount_pct and discount_pct >= min_discount:
+                                    current_price = 0
+                                    try:
+                                        price_str = prices["current"].replace("$", "").replace(",", "")
+                                        current_price = float(price_str)
+                                    except (ValueError, AttributeError):
+                                        pass
+                                    
+                                    # Skip asset flip games
+                                    from utils.game_filters import GameQualityFilter
+                                    quality_filter_obj = GameQualityFilter()
+                                    if quality_filter_obj.is_asset_flip(title, current_price, discount_pct):
+                                        continue
+                                    
+                                    deal: Deal = {
+                                        "title": title,
+                                        "price": prices["current"],
+                                        "store": store,
+                                        "url": url,
+                                        "discount": f"{discount_pct}%" if discount_pct else None,
+                                        "original_price": prices["original"],
+                                    }
+                                    additional_deals.append(deal)
+                            
+                            # Filter additional deals by priority
+                            additional_priority_deals = self.priority_filter.filter_deals_by_priority(
+                                additional_deals,
+                                min_priority=min_priority,
+                                max_results=limit - len(deals),
+                                strict_mode=True
+                            )
+                            
+                            deals.extend(additional_priority_deals)
+                            additional_offset += api_limit
+                        
+                        if not additional_data.get("hasMore", False):
+                            break
+                
+                # If still not enough, try with lower priority threshold
+                if len(deals) < limit and min_priority > 1:
+                    lower_priority_deals = self.priority_filter.filter_deals_by_priority(
+                        all_deals,
+                        min_priority=max(1, min_priority - 2),
+                        max_results=limit,
+                        strict_mode=True
+                    )
+                    
+                    if len(lower_priority_deals) > len(deals):
+                        deals = lower_priority_deals
             else:
                 deals = all_deals[:limit]  # Just limit without filtering
 

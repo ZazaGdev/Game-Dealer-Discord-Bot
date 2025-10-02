@@ -372,10 +372,10 @@ class Deals(commands.Cog):
 
     # Traditional prefix command
     @commands.command(name="priority_search", help="Search ONLY for deals from curated priority games database")
-    async def priority_search_prefix(self, ctx: commands.Context, amount: int = 10, min_priority: int = 5, min_discount: int = 1, store: str = None):
+    async def priority_search_prefix(self, ctx: commands.Context, amount: int = 10, min_priority: int = 1, min_discount: int = 1, store: str = None):
         """
         Traditional prefix command for priority search
-        Usage: !priority_search 15 7 50 Steam (15 deals, priority 7+, 50%+ discount, Steam only)
+        Usage: !priority_search 15 3 25 Steam (15 deals, priority 3+, 25%+ discount, Steam only)
         """
         # Convert to interaction-like behavior for code reuse
         class MockInteraction:
@@ -390,14 +390,14 @@ class Deals(commands.Cog):
     @app_commands.command(name="priority_search", description="Search ONLY for deals from your curated priority games database")
     @app_commands.describe(
         amount="Number of deals to show (1-25)",
-        min_priority="Minimum priority level (1-10, default: 5)",
+        min_priority="Minimum priority level (1-10, default: 1)",
         min_discount="Minimum discount percentage (default: 1%)",
         store="Store name (e.g., Steam, Epic, GOG - optional)"
     )
-    async def priority_search(self, interaction: discord.Interaction, amount: int = 10, min_priority: int = 5, min_discount: int = 1, store: str = None):
+    async def priority_search(self, interaction: discord.Interaction, amount: int = 10, min_priority: int = 1, min_discount: int = 1, store: str = None):
         """
         Slash command for priority search
-        Usage: /priority_search amount:15 min_priority:7 min_discount:50 store:Steam
+        Usage: /priority_search amount:15 min_priority:3 min_discount:25 store:Steam
         """
         await self._priority_search_logic(interaction, amount, min_priority, min_discount, store, is_prefix=False)
 
@@ -462,163 +462,52 @@ class Deals(commands.Cog):
                     await interaction_or_ctx.edit_original_response(content=error_msg)
                 return
             
-            # Step 2: Fetch a large number of discounted games from ITAD
-            # Fetch from specified store or default stores (Steam, Epic, GOG)
-            all_deals = []
-            
-            if store:
-                # Fetch from specific store
-                try:
-                    store_deals = await self.bot.itad_client.fetch_deals(
-                        min_discount=1,  # Get all discounted games
-                        limit=200,      # Fetch lots of deals
-                        store_filter=store,
-                        quality_filter=False,  # Don't filter yet, we'll do manual filtering
-                        log_full_response=False
-                    )
-                    all_deals.extend(store_deals)
-                except Exception as e:
-                    if self.log:
-                        self.log.warning(f"Failed to fetch deals from {store}: {e}")
-            else:
-                # Fetch from Steam, Epic, GOG
-                default_stores = ["Steam", "Epic Game Store", "GOG"]
-                for store_name in default_stores:
-                    try:
-                        store_deals = await self.bot.itad_client.fetch_deals(
-                            min_discount=1,  # Get all discounted games
-                            limit=200,      # Fetch lots of deals per store
-                            store_filter=store_name,
-                            quality_filter=False,  # Don't filter yet
-                            log_full_response=False
-                        )
-                        all_deals.extend(store_deals)
-                    except Exception as e:
-                        if self.log:
-                            self.log.warning(f"Failed to fetch deals from {store_name}: {e}")
-            
-            if not all_deals:
-                no_deals_msg = f"❌ No discounted games found{store_text}. Try again later."
-                if is_prefix:
-                    await interaction_or_ctx.ctx.send(no_deals_msg)
-                else:
-                    await interaction_or_ctx.edit_original_response(content=no_deals_msg)
-                return
-            
-            # Helper function to normalize game titles for exact matching
-            def normalize_title_for_matching(title):
-                """Normalize title by removing special characters that don't affect matching"""
-                import re
-                # Remove trademark, registered, copyright symbols and similar special chars
-                normalized = re.sub(r'[™®©℗℠]', '', title)
-                # Remove extra whitespace and convert to lowercase
-                normalized = ' '.join(normalized.split()).lower().strip()
-                return normalized
-            
-            # Step 3: Match deals against priority database with EXACT MATCHING + DEDUPLICATION
-            matched_deals = []
-            seen_titles = set()  # Track unique titles to prevent duplicates
-            
-            for deal in all_deals:
-                deal_title = deal.get('title', '').strip()
-                if not deal_title:
-                    continue
-                    
-                # Normalize title for both matching and duplicate checking
-                normalized_deal_title = normalize_title_for_matching(deal_title)
-                
-                # Skip if we've already processed this exact title
-                if normalized_deal_title in seen_titles:
-                    continue
-                
-                deal_discount = deal.get('discount', '0%')
-                
-                # Extract discount percentage
-                try:
-                    discount_pct = int(deal_discount.replace('%', ''))
-                except (ValueError, AttributeError):
-                    discount_pct = 0
-                
-                # Skip if discount doesn't meet minimum requirement
-                if discount_pct < min_discount:
-                    continue
-                
-                # Find matching priority game using EXACT matching only
-                best_match = None
-                best_match_priority = 0
-                
-                for priority_game in priority_games:
-                    priority_title = priority_game.get('title', '').strip()
-                    priority_level = priority_game.get('priority', 0)
-                    
-                    # Skip if priority doesn't meet minimum requirement
-                    if priority_level < min_priority:
-                        continue
-                    
-                    # Normalize priority game title for exact comparison
-                    normalized_priority_title = normalize_title_for_matching(priority_title)
-                    
-                    # EXACT MATCH ONLY - no partial matching to avoid false positives like "Raft" matching "Minecraft Raft Edition"
-                    if normalized_deal_title == normalized_priority_title:
-                        # If we found an exact match, prefer higher priority games
-                        if priority_level > best_match_priority:
-                            best_match = priority_game
-                            best_match_priority = priority_level
-                
-                # If we found an exact match, add it and mark title as seen
-                if best_match:
-                    # Use the priority game's canonical title for deduplication (more reliable)
-                    canonical_title = normalize_title_for_matching(best_match.get('title', ''))
-                    
-                    # Check if we've already seen this canonical game title
-                    if canonical_title not in seen_titles:
-                        # Mark this canonical title as seen to prevent future duplicates
-                        seen_titles.add(canonical_title)
-                        
-                        # Add priority info to deal
-                        enhanced_deal = deal.copy()
-                        enhanced_deal['_priority'] = best_match.get('priority', 0)
-                        enhanced_deal['_priority_title'] = best_match.get('title', '')
-                        enhanced_deal['_category'] = best_match.get('category', '')
-                        enhanced_deal['_notes'] = best_match.get('notes', '')
-                        enhanced_deal['_match_score'] = 1.0  # Always 1.0 for exact matches
-                        enhanced_deal['_discount_pct'] = discount_pct
-                        
-                        matched_deals.append(enhanced_deal)
-            
-            # Step 4: Filter and sort matched deals
-            if not matched_deals:
-                no_matches_msg = (
-                    f"❌ No priority games found matching your criteria:\n"
-                    f"• Priority: {min_priority}/10 or higher\n"
-                    f"• Discount: {min_discount}% or higher\n"
-                    f"• Store: {store if store else 'Steam, Epic, GOG'}\n"
-                    f"💡 Try lowering the priority or discount requirements, or check different stores."
+            # Step 2: Use ITAD client's built-in priority filtering (much more effective!)
+            try:
+                priority_deals = await self.bot.itad_client.fetch_deals(
+                    limit=amount * 3,  # Get more than requested to account for sorting/filtering
+                    min_discount=min_discount,
+                    store_filter=store,
+                    quality_filter=True,  # Use ITAD client's priority filtering
+                    min_priority=min_priority,
+                    log_full_response=False
                 )
-                if is_prefix:
-                    await interaction_or_ctx.ctx.send(no_matches_msg)
-                else:
-                    await interaction_or_ctx.edit_original_response(content=no_matches_msg)
-                return
-            
-            # Sort by priority first, then discount (with 50% discount rule)
-            def priority_sort_key(deal):
-                priority = deal.get('_priority', 0)
-                discount = deal.get('_discount_pct', 0)
                 
-                # If discount > 50%, prioritize by priority score first
-                if discount > 50:
-                    return (-priority, -discount)  # Higher priority first, then higher discount
-                else:
-                    return (-discount, -priority)  # Higher discount first, then higher priority
+                if not priority_deals:
+                    no_deals_msg = (
+                        f"❌ No priority games found matching your criteria:\n"
+                        f"• Priority: {min_priority}/10 or higher\n"
+                        f"• Discount: {min_discount}% or higher\n"
+                        f"• Store: {store if store else 'Steam, Epic, GOG'}\n"
+                        f"💡 Try lowering the priority or discount requirements, or check different stores."
+                    )
+                    if is_prefix:
+                        await interaction_or_ctx.ctx.send(no_deals_msg)
+                    else:
+                        await interaction_or_ctx.edit_original_response(content=no_deals_msg)
+                    return
+                
+                # Limit to requested amount
+                final_deals = priority_deals[:amount]
+                
+                # Step 3: Create and send results
+                await self._display_priority_results(interaction_or_ctx, final_deals, min_priority, min_discount, store, amount, len(priority_deals), len(priority_games), is_prefix)
+                return
+                
+            except Exception as e:
+                if self.log:
+                    self.log.error(f"ITAD client priority search failed: {e}")
+                # Fall back to manual matching if ITAD client fails
+                pass
             
-            matched_deals.sort(key=priority_sort_key)
-            
-            # Limit to requested amount
-            final_deals = matched_deals[:amount]
-            
-            # Step 5: Create and send results
-            await self._display_priority_results(interaction_or_ctx, final_deals, min_priority, min_discount, store, amount, len(matched_deals), len(priority_games), is_prefix)
+            # Fallback manual matching (only if ITAD client failed)
+            # This code should not normally be reached since we use ITAD client priority filtering above
+            error_msg = f"❌ Priority search temporarily unavailable. Please try again later."
+            if is_prefix:
+                await interaction_or_ctx.ctx.send(error_msg)
+            else:
+                await interaction_or_ctx.edit_original_response(content=error_msg)
+            return
                 
         except Exception as e:
             error_msg = f"❌ Error during priority search: {str(e)}"
