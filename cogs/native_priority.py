@@ -52,7 +52,8 @@ class NativePriority(commands.Cog):
     @app_commands.choices(store=[
         app_commands.Choice(name="Steam", value="steam"),
         app_commands.Choice(name="Epic Games Store", value="epic"),
-        app_commands.Choice(name="GOG", value="gog")
+        app_commands.Choice(name="GOG", value="gog"),
+        app_commands.Choice(name="🎮 Xbox/Microsoft Store", value="xbox")
     ])
     async def native_priority_command(
         self,
@@ -78,7 +79,7 @@ class NativePriority(commands.Cog):
         
         Args:
             method: Priority calculation method (default: hybrid)
-            store: Store to filter by (Steam, Epic, GOG)
+            store: Store to filter by (Steam, Epic, GOG, Xbox)
             min_discount: Minimum discount % (default: 30)
         """
         # Validate method parameter
@@ -99,11 +100,11 @@ class NativePriority(commands.Cog):
         # Validate store parameter
         if store:
             store = store.lower().strip()
-            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com']
+            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com', 'microsoft store', 'xbox', 'microsoft']
             if store not in allowed_stores:
                 embed = create_error_embed(
                     "Invalid Store",
-                    f"Supported stores: {', '.join(['Steam', 'Epic Game Store', 'GOG'])}\\n"
+                    f"Supported stores: {', '.join(['Steam', 'Epic Game Store', 'GOG', 'Xbox/Microsoft Store'])}\\n"
                     f"You provided: `{store}`"
                 )
                 await ctx.send(embed=embed)
@@ -200,7 +201,8 @@ class NativePriority(commands.Cog):
     @app_commands.choices(store=[
         app_commands.Choice(name="Steam", value="steam"),
         app_commands.Choice(name="Epic Games Store", value="epic"),
-        app_commands.Choice(name="GOG", value="gog")
+        app_commands.Choice(name="GOG", value="gog"),
+        app_commands.Choice(name="🎮 Xbox/Microsoft Store", value="xbox")
     ])
     async def priority_comparison_command(
         self,
@@ -223,11 +225,11 @@ class NativePriority(commands.Cog):
         # Validate store parameter
         if store:
             store = store.lower().strip()
-            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com']
+            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com', 'microsoft store', 'xbox', 'microsoft']
             if store not in allowed_stores:
                 embed = create_error_embed(
                     "Invalid Store",
-                    f"Supported stores: {', '.join(['Steam', 'Epic Game Store', 'GOG'])}\\n"
+                    f"Supported stores: {', '.join(['Steam', 'Epic Game Store', 'GOG', 'Xbox/Microsoft Store'])}\\n"
                     f"You provided: `{store}`"
                 )
                 await ctx.send(embed=embed)

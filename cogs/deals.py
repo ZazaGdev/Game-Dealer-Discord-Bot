@@ -411,7 +411,7 @@ class Deals(commands.Cog):
         5. Return only matched games or friendly error if no matches
         """
         # Validate store - Priority search only works with Steam, Epic, and GOG
-        allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com']
+        allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com', 'microsoft store', 'xbox', 'microsoft']
         if store and store.lower() not in allowed_stores:
             error_msg = (
                 f"❌ Priority search only supports Steam, Epic Game Store, and GOG.\n"

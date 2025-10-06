@@ -46,7 +46,8 @@ class QualityDeals(commands.Cog):
     @app_commands.choices(store=[
         app_commands.Choice(name="Steam", value="steam"),
         app_commands.Choice(name="Epic Games Store", value="epic"),
-        app_commands.Choice(name="GOG", value="gog")
+        app_commands.Choice(name="GOG", value="gog"),
+        app_commands.Choice(name="🎮 Xbox/Microsoft Store", value="xbox")
     ])
     @app_commands.choices(sort_by=[
         app_commands.Choice(name="🔥 Hottest", value="hottest"),
@@ -71,18 +72,18 @@ class QualityDeals(commands.Cog):
         Example: !quality_deals steam 60 hottest
         
         Args:
-            store: Store to filter by (Steam, Epic, GOG)
+            store: Store to filter by (Steam, Epic, GOG, Xbox)
             min_discount: Minimum discount % (default: 50)
             sort_by: Sort method - hottest, newest, price, discount (default: hottest)
         """
         # Validate store parameter
         if store:
             store = store.lower().strip()
-            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com']
+            allowed_stores = ['steam', 'epic', 'epic game store', 'gog', 'gog.com', 'microsoft store', 'xbox', 'microsoft']
             if store not in allowed_stores:
                 embed = create_error_embed(
                     "Invalid Store",
-                    f"Quality deals only work with: {', '.join(['Steam', 'Epic Game Store', 'GOG'])}\\n"
+                    f"Quality deals only work with: {', '.join(['Steam', 'Epic Game Store', 'GOG', 'Xbox/Microsoft Store'])}\\n"
                     f"You provided: `{store}`"
                 )
                 await ctx.send(embed=embed)
