@@ -10,6 +10,7 @@ from typing import Optional
 
 import discord
 from discord.ext import commands
+from discord import app_commands
 
 from api.itad_client import ITADClient
 from utils.embeds import create_deals_embed, create_error_embed, create_no_deals_embed
@@ -20,7 +21,9 @@ class QualityDeals(commands.Cog):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.itad_client = ITADClient()
+        # Use the bot's API key if available
+        api_key = getattr(bot, 'itad_api_key', None)
+        self.itad_client = ITADClient(api_key=api_key) if api_key else None
 
     async def cog_unload(self):
         """Clean up when cog is unloaded"""
@@ -34,7 +37,23 @@ class QualityDeals(commands.Cog):
         except Exception:
             pass  # Ignore typing errors
 
-    @commands.command(name="quality_deals", aliases=["quality", "q", "interesting"])
+    @commands.hybrid_command(name="quality_deals", aliases=["quality", "q", "interesting"])
+    @app_commands.describe(
+        store="Store to filter by",
+        min_discount="Minimum discount percentage (default: 50)",
+        sort_by="Sort method"
+    )
+    @app_commands.choices(store=[
+        app_commands.Choice(name="Steam", value="steam"),
+        app_commands.Choice(name="Epic Games Store", value="epic"),
+        app_commands.Choice(name="GOG", value="gog")
+    ])
+    @app_commands.choices(sort_by=[
+        app_commands.Choice(name="🔥 Hottest", value="hottest"),
+        app_commands.Choice(name="🆕 Newest", value="newest"),
+        app_commands.Choice(name="💰 Price (Low to High)", value="price"),
+        app_commands.Choice(name="📊 Discount %", value="discount")
+    ])
     async def quality_deals_command(
         self, 
         ctx: commands.Context, 
@@ -76,6 +95,15 @@ class QualityDeals(commands.Cog):
                 "Invalid Sort Method", 
                 f"Valid options: {', '.join(valid_sorts)}\\n"
                 f"You provided: `{sort_by}`"
+            )
+            await ctx.send(embed=embed)
+            return
+        
+        # Check if ITAD client is available
+        if not self.itad_client:
+            embed = create_error_embed(
+                "API Key Missing",
+                "ITAD API key is not configured. Please contact the bot administrator."
             )
             await ctx.send(embed=embed)
             return

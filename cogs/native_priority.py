@@ -10,6 +10,7 @@ from typing import Optional
 
 import discord
 from discord.ext import commands
+from discord import app_commands
 
 from api.itad_client import ITADClient
 from utils.embeds import create_deals_embed, create_error_embed, create_no_deals_embed
@@ -20,7 +21,9 @@ class NativePriority(commands.Cog):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.itad_client = ITADClient()
+        # Use the bot's API key if available
+        api_key = getattr(bot, 'itad_api_key', None)
+        self.itad_client = ITADClient(api_key=api_key) if api_key else None
 
     async def cog_unload(self):
         """Clean up when cog is unloaded"""
@@ -34,7 +37,23 @@ class NativePriority(commands.Cog):
         except Exception:
             pass
 
-    @commands.command(name="native_priority", aliases=["np", "native", "itad_priority"])
+    @commands.hybrid_command(name="native_priority", aliases=["np", "native", "itad_priority"])
+    @app_commands.describe(
+        method="Priority calculation method",
+        store="Store to filter by",
+        min_discount="Minimum discount percentage (default: 30)"
+    )
+    @app_commands.choices(method=[
+        app_commands.Choice(name="🔥 Hybrid (Recommended)", value="hybrid"),
+        app_commands.Choice(name="📊 Popular Deals", value="popular_deals"),
+        app_commands.Choice(name="💝 Waitlisted Deals", value="waitlisted_deals"),
+        app_commands.Choice(name="🎮 Collected Deals", value="collected_deals")
+    ])
+    @app_commands.choices(store=[
+        app_commands.Choice(name="Steam", value="steam"),
+        app_commands.Choice(name="Epic Games Store", value="epic"),
+        app_commands.Choice(name="GOG", value="gog")
+    ])
     async def native_priority_command(
         self,
         ctx: commands.Context,
@@ -96,6 +115,15 @@ class NativePriority(commands.Cog):
                 "Invalid Discount",
                 f"Discount must be between 0 and 99\\n"
                 f"You provided: `{min_discount}%`"
+            )
+            await ctx.send(embed=embed)
+            return
+        
+        # Check if ITAD client is available
+        if not self.itad_client:
+            embed = create_error_embed(
+                "API Key Missing",
+                "ITAD API key is not configured. Please contact the bot administrator."
             )
             await ctx.send(embed=embed)
             return
@@ -164,7 +192,16 @@ class NativePriority(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.command(name="priority_comparison", aliases=["pc", "compare_priority"])
+    @commands.hybrid_command(name="priority_comparison", aliases=["pc", "compare_priority"])
+    @app_commands.describe(
+        store="Store to filter by",
+        min_discount="Minimum discount percentage (default: 40)"
+    )
+    @app_commands.choices(store=[
+        app_commands.Choice(name="Steam", value="steam"),
+        app_commands.Choice(name="Epic Games Store", value="epic"),
+        app_commands.Choice(name="GOG", value="gog")
+    ])
     async def priority_comparison_command(
         self,
         ctx: commands.Context,
@@ -195,6 +232,15 @@ class NativePriority(commands.Cog):
                 )
                 await ctx.send(embed=embed)
                 return
+        
+        # Check if ITAD client is available
+        if not self.itad_client:
+            embed = create_error_embed(
+                "API Key Missing", 
+                "ITAD API key is not configured. Please contact the bot administrator."
+            )
+            await ctx.send(embed=embed)
+            return
         
         await self._send_typing(ctx)
         
