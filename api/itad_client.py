@@ -58,6 +58,12 @@ class ITADClient:
             else:
                 # If store not found, return empty list rather than error
                 return []
+        else:
+            # Default to main PC gaming stores when no store specified
+            steam_id = self._get_shop_id("steam")
+            epic_id = self._get_shop_id("epic")
+            gog_id = self._get_shop_id("gog")
+            shop_ids = [shop_id for shop_id in [steam_id, epic_id, gog_id] if shop_id is not None]
 
         # Use the correct ITAD API endpoint - deals/v2
         # Fetch more deals when quality filtering is enabled to ensure we have enough after strict filtering
@@ -384,8 +390,9 @@ class ITADClient:
             "origin": 4,
             "uplay": 1,
             "ubisoft connect": 1,  # Updated name
-            "microsoft store": 47,
-            "xbox": 47,  # Common association
+            "microsoft store": 48,
+            "xbox": 48,  # Common association
+            "microsoft": 48,  # Alternative name
             "playstation store": 43,
             "psn": 43,  # Common abbreviation
             "nintendo eshop": 49,
@@ -508,6 +515,12 @@ class ITADClient:
                 shop_ids = [shop_id]
             else:
                 return []
+        else:
+            # Default to main PC gaming stores when no store specified
+            steam_id = self._get_shop_id("steam")
+            epic_id = self._get_shop_id("epic")
+            gog_id = self._get_shop_id("gog")
+            shop_ids = [shop_id for shop_id in [steam_id, epic_id, gog_id] if shop_id is not None]
         
         # Fetch popular games stats if requested
         popular_games = {}
@@ -675,6 +688,12 @@ class ITADClient:
                 shop_ids = [shop_id]
             else:
                 return []
+        else:
+            # Default to main PC gaming stores when no store specified
+            steam_id = self._get_shop_id("steam")
+            epic_id = self._get_shop_id("epic")
+            gog_id = self._get_shop_id("gog")
+            shop_ids = [shop_id for shop_id in [steam_id, epic_id, gog_id] if shop_id is not None]
         
         try:
             if priority_method == "hybrid":
@@ -826,17 +845,201 @@ class ITADClient:
             reverse=True
         )
         
-        # Clean up metadata and return
-        final_deals = []
-        for deal in matched_deals[:limit]:
-            # Remove internal fields
-            for key in list(deal.keys()):
-                if key.startswith("_"):
-                    del deal[key]
-            final_deals.append(deal)
+        # Clean up metadata and convert to Deal objects
+        final_deals: List[Deal] = []
+        for deal_dict in matched_deals[:limit]:
+            # Remove internal fields and create proper Deal object
+            clean_deal: Deal = {
+                "title": deal_dict["title"],
+                "price": deal_dict["price"],
+                "store": deal_dict["store"],
+                "url": deal_dict["url"],
+                "discount": deal_dict.get("discount"),
+                "original_price": deal_dict.get("original_price")
+            }
+            final_deals.append(clean_deal)
         
         logging.info(f"Found {len(final_deals)} popular {popularity_type} deals from {len(matched_deals)} total matches")
+        
+        # If we found very few matches, expand the search to include more games
+        if len(final_deals) < limit // 2:  # If we got less than half requested
+            logging.info(f"Low intersection results ({len(final_deals)}), expanding search with relaxed criteria")
+            additional_deals = await self._fetch_expanded_popularity_deals(
+                limit - len(final_deals),
+                min_discount,
+                shop_ids,
+                popularity_type,
+                exclude_titles=[deal["title"] for deal in final_deals]
+            )
+            final_deals.extend(additional_deals)
+        
         return final_deals
+
+    async def _fetch_expanded_popularity_deals(
+        self,
+        limit: int,
+        min_discount: int,
+        shop_ids: Optional[List[int]],
+        popularity_type: str,
+        exclude_titles: List[str]
+    ) -> List[Deal]:
+        """
+        Fallback method when strict intersection yields few results.
+        Uses relaxed criteria to find more deals.
+        
+        Strategy:
+        1. Get popular games from a larger set (top 1000)
+        2. Use multiple matching techniques (fuzzy, partial, keyword)
+        3. Include high-discount deals from quality publishers
+        4. Apply quality scoring to filter out shovelware
+        """
+        logging.info(f"Expanding {popularity_type} search with relaxed criteria")
+        
+        try:
+            # Get a much larger set of popular games
+            if popularity_type == "popular":
+                endpoint = f"{self.BASE}/stats/most-popular/v1"
+            elif popularity_type == "waitlisted":
+                endpoint = f"{self.BASE}/stats/most-waitlisted/v1"
+            elif popularity_type == "collected":
+                endpoint = f"{self.BASE}/stats/most-collected/v1"
+            else:
+                # Fallback to popular for unknown types
+                endpoint = f"{self.BASE}/stats/most-popular/v1"
+            
+            # Get larger set of popular games
+            params = {
+                "key": self.api_key,
+                "limit": 1000,  # Much larger set
+                "offset": 0
+            }
+            
+            popular_data = await self.http.get_json(endpoint, params=params)
+            
+            # Build comprehensive lookup including keywords
+            popular_lookup = {}
+            popular_keywords = set()
+            
+            for item in popular_data:
+                title = item.get("title", "").lower()
+                if title and title not in [t.lower() for t in exclude_titles]:
+                    popular_lookup[title] = {
+                        "title": item.get("title", ""),
+                        "count": item.get("count", 0),
+                        "position": item.get("position", 999),
+                        "popularity_score": max(0, 1000 - item.get("position", 999))
+                    }
+                    
+                    # Extract keywords from popular titles
+                    words = title.replace("'", "").split()
+                    for word in words:
+                        if len(word) > 3 and word not in {'game', 'edition', 'collection', 'remastered'}:
+                            popular_keywords.add(word)
+            
+            # Get current deals with larger limit
+            deals_params = {
+                "key": self.api_key,
+                "offset": 0,
+                "limit": 200,  # Get more deals (max supported)
+                "sort": "-cut",  # Sort by discount
+                "nondeals": "false",
+                "mature": "false"
+            }
+            
+            if shop_ids:
+                deals_params["shops"] = ",".join(map(str, shop_ids))
+            
+            deals_data = await self.http.get_json(f"{self.BASE}/deals/v2", params=deals_params)
+            
+            if not isinstance(deals_data, dict) or "list" not in deals_data:
+                return []
+            
+            expanded_matches = []
+            exclude_titles_lower = [t.lower() for t in exclude_titles]
+            
+            for deal_item in deals_data["list"]:
+                title = self._get_title_v2(deal_item)
+                title_lower = title.lower()
+                
+                # Skip already included titles
+                if title_lower in exclude_titles_lower:
+                    continue
+                
+                discount_pct = self._get_discount_v2(deal_item)
+                if discount_pct < min_discount:
+                    continue
+                
+                match_score = 0
+                popularity_info = None
+                
+                # Direct match (highest priority)
+                if title_lower in popular_lookup:
+                    popularity_info = popular_lookup[title_lower]
+                    match_score = 100
+                
+                # Fuzzy matching for close variants
+                elif not popularity_info:
+                    for pop_title, info in popular_lookup.items():
+                        if self._titles_match_fuzzy(title_lower, pop_title):
+                            popularity_info = info
+                            match_score = 80
+                            break
+                
+                # Keyword matching for broader relevance
+                elif not popularity_info and discount_pct >= 50:  # High discount threshold
+                    title_words = set(title_lower.replace("'", "").split())
+                    keyword_matches = title_words.intersection(popular_keywords)
+                    
+                    if len(keyword_matches) >= 2:  # At least 2 keyword matches
+                        # Create synthetic popularity info for keyword matches
+                        popularity_info = {
+                            "title": title,
+                            "count": 100,  # Low synthetic count
+                            "position": 900,  # Low priority position
+                            "popularity_score": 100  # Low score
+                        }
+                        match_score = 40
+                
+                if popularity_info and match_score > 0:
+                    store = self._get_store_v2(deal_item)
+                    prices = self._get_prices_v2(deal_item)
+                    url = self._get_url_v2(deal_item)
+                    
+                    deal: Deal = {
+                        "title": title,
+                        "price": prices["current"],
+                        "store": store,
+                        "url": url,
+                        "discount": f"{discount_pct}%" if discount_pct else None,
+                        "original_price": prices["original"]
+                    }
+                    
+                    expanded_matches.append({
+                        "deal": deal,
+                        "match_score": match_score,
+                        "popularity_score": popularity_info["popularity_score"],
+                        "discount_pct": discount_pct
+                    })
+            
+            # Sort by combined score (match quality + popularity + discount)
+            expanded_matches.sort(
+                key=lambda x: (
+                    x["match_score"],
+                    x["popularity_score"],
+                    x["discount_pct"]
+                ),
+                reverse=True
+            )
+            
+            # Return top deals
+            result_deals = [match["deal"] for match in expanded_matches[:limit]]
+            logging.info(f"Expanded search found {len(result_deals)} additional deals")
+            
+            return result_deals
+            
+        except Exception as e:
+            logging.error(f"Error in expanded popularity search: {e}")
+            return []
 
     async def _fetch_hybrid_priority_deals(
         self, 
@@ -845,13 +1048,301 @@ class ITADClient:
         shop_ids: Optional[List[int]]
     ) -> List[Deal]:
         """
-        Hybrid approach combining multiple ITAD popularity sources for best results
+        NEW HYBRID APPROACH: Smart quality-based scoring instead of strict intersection
         
         Strategy:
-        1. Get deals from most-popular (40% weight)
-        2. Get deals from most-waitlisted (35% weight) 
-        3. Get deals from most-collected (25% weight)
-        4. Combine and deduplicate with weighted scoring
+        1. Get current deals sorted by discount (best deals first)
+        2. Score each deal based on multiple quality indicators:
+           - Discount percentage (higher = better)
+           - Publisher reputation (known good publishers)
+           - Title characteristics (avoid obvious shovelware)
+           - Review indicators (when available)
+           - Historical popularity (loose matching)
+        3. Return top-scored deals that provide genuine value
+        """
+        logging.info("Using improved hybrid approach with quality scoring")
+        
+        try:
+            # Get a large set of current deals for analysis
+            deals_params = {
+                "key": self.api_key,
+                "offset": 0,
+                "limit": 200,  # Maximum supported
+                "sort": "-cut",  # Sort by discount percentage
+                "nondeals": "false",
+                "mature": "false"
+            }
+            
+            if shop_ids:
+                deals_params["shops"] = ",".join(map(str, shop_ids))
+            
+            deals_data = await self.http.get_json(f"{self.BASE}/deals/v2", params=deals_params)
+            
+            if not isinstance(deals_data, dict) or "list" not in deals_data:
+                raise ValueError(f"Unexpected deals response: {type(deals_data)}")
+            
+            # Load popularity data for reference (loose matching)
+            popular_games = await self._load_popularity_reference()
+            
+            # Score each deal
+            scored_deals = []
+            
+            for deal_item in deals_data["list"]:
+                title = self._get_title_v2(deal_item)
+                discount_pct = self._get_discount_v2(deal_item)
+                
+                # Skip deals below minimum discount
+                if discount_pct < min_discount:
+                    continue
+                
+                # Calculate quality score
+                quality_score = self._calculate_deal_quality_score(
+                    deal_item, title, discount_pct, popular_games
+                )
+                
+                if quality_score > 0:  # Only include deals with positive scores
+                    store = self._get_store_v2(deal_item)
+                    prices = self._get_prices_v2(deal_item)
+                    url = self._get_url_v2(deal_item)
+                    
+                    deal: Deal = {
+                        "title": title,
+                        "price": prices["current"],
+                        "store": store,
+                        "url": url,
+                        "discount": f"{discount_pct}%" if discount_pct else None,
+                        "original_price": prices["original"]
+                    }
+                    
+                    scored_deals.append({
+                        "deal": deal,
+                        "quality_score": quality_score,
+                        "discount_pct": discount_pct
+                    })
+            
+            # Sort by quality score (highest first)
+            scored_deals.sort(key=lambda x: x["quality_score"], reverse=True)
+            
+            # Return top deals
+            result_deals = [item["deal"] for item in scored_deals[:limit]]
+            
+            logging.info(f"Hybrid approach found {len(result_deals)} quality deals from {len(scored_deals)} candidates")
+            return result_deals
+            
+        except Exception as e:
+            logging.error(f"Error in hybrid priority deals: {e}")
+            # Fallback to simple discount-sorted deals
+            return await self._fetch_fallback_deals(limit, min_discount, shop_ids)
+
+    async def _load_popularity_reference(self) -> dict:
+        """Load popularity data for loose reference matching"""
+        try:
+            # Get a large set from multiple popularity sources
+            all_popular = {}
+            
+            for endpoint_type in ["most-popular", "most-waitlisted", "most-collected"]:
+                params = {
+                    "key": self.api_key,
+                    "limit": 500,  # Large set for comprehensive reference
+                    "offset": 0
+                }
+                
+                endpoint = f"{self.BASE}/stats/{endpoint_type}/v1"
+                data = await self.http.get_json(endpoint, params=params)
+                
+                for item in data:
+                    title = item.get("title", "").lower()
+                    if title:
+                        # Use highest position if already exists
+                        existing_pos = all_popular.get(title, {}).get("position", 999)
+                        new_pos = item.get("position", 999)
+                        
+                        if new_pos < existing_pos:  # Better position
+                            all_popular[title] = {
+                                "title": item.get("title", ""),
+                                "position": new_pos,
+                                "count": item.get("count", 0),
+                                "type": endpoint_type
+                            }
+            
+            logging.info(f"Loaded {len(all_popular)} games for popularity reference")
+            return all_popular
+            
+        except Exception as e:
+            logging.error(f"Error loading popularity reference: {e}")
+            return {}
+
+    def _calculate_deal_quality_score(
+        self, 
+        deal_item: dict, 
+        title: str, 
+        discount_pct: int,
+        popular_games: dict
+    ) -> float:
+        """
+        Calculate quality score for a deal based on multiple factors
+        Score components:
+        - Discount bonus: 0-40 points (higher discount = more points)
+        - Popularity bonus: 0-30 points (known popular games get bonus)
+        - Publisher quality: 0-20 points (reputable publishers get bonus)  
+        - Title quality: -10 to +10 points (avoid obvious shovelware)
+        """
+        score = 0.0
+        title_lower = title.lower()
+        
+        # 1. Discount Score (0-40 points)
+        # More aggressive scoring for higher discounts
+        if discount_pct >= 90:
+            score += 40
+        elif discount_pct >= 80:
+            score += 35
+        elif discount_pct >= 70:
+            score += 30
+        elif discount_pct >= 60:
+            score += 25
+        elif discount_pct >= 50:
+            score += 20
+        elif discount_pct >= 30:
+            score += 15
+        else:
+            score += discount_pct * 0.3  # Proportional for smaller discounts
+        
+        # 2. Popularity Bonus (0-30 points)
+        popularity_bonus = 0
+        
+        # Direct match
+        if title_lower in popular_games:
+            position = popular_games[title_lower]["position"]
+            if position <= 50:
+                popularity_bonus = 30
+            elif position <= 100:
+                popularity_bonus = 25
+            elif position <= 200:
+                popularity_bonus = 20
+            elif position <= 500:
+                popularity_bonus = 15
+            else:
+                popularity_bonus = 10
+        else:
+            # Fuzzy matching for variants
+            for pop_title, info in popular_games.items():
+                if self._titles_match_fuzzy(title_lower, pop_title):
+                    position = info["position"]
+                    # Reduced bonus for fuzzy matches
+                    if position <= 100:
+                        popularity_bonus = 15
+                    elif position <= 300:
+                        popularity_bonus = 10
+                    else:
+                        popularity_bonus = 5
+                    break
+        
+        score += popularity_bonus
+        
+        # 3. Publisher/Quality Indicators (0-20 points)
+        quality_indicators = [
+            # Known quality publishers/franchises (partial matching)
+            'valve', 'nintendo', 'sony', 'microsoft', 'blizzard', 'rockstar',
+            'bethesda', 'ubisoft', 'ea', 'activision', 'square enix', 'capcom',
+            'fromsoftware', 'cd projekt', 'larian', 'obsidian', 'insomniac',
+            # Quality franchise keywords
+            'call of duty', 'assassin', 'final fantasy', 'grand theft', 'elder scrolls',
+            'fallout', 'bioshock', 'borderlands', 'civilization', 'total war',
+            'resident evil', 'street fighter', 'mortal kombat', 'tekken',
+            'dark souls', 'sekiro', 'bloodborne', 'witcher', 'cyberpunk',
+            # Well-reviewed indie keywords
+            'stardew', 'terraria', 'hollow knight', 'celeste', 'hades',
+            'cuphead', 'ori and', 'steamworld', 'shovel knight', 'undertale'
+        ]
+        
+        quality_bonus = 0
+        for indicator in quality_indicators:
+            if indicator in title_lower:
+                quality_bonus = 20
+                break
+        
+        score += quality_bonus
+        
+        # 4. Negative Quality Indicators (-10 points for shovelware signs)
+        shovelware_indicators = [
+            # Common shovelware patterns
+            'hentai', 'anime girl', 'waifu', 'strip', 'adult only',
+            'quick ', 'simple ', 'easy ', 'basic ', 'mini ',
+            'volume', 'pack', 'bundle', 'collection',
+            # Asset flip indicators
+            'livingforest', 'gamemaker', 'unity asset',
+            # Low-effort patterns  
+            'simulator 20', 'tycoon 20', 'manager 20',
+            'vr chat', 'vrchat', 'metaverse'
+        ]
+        
+        for indicator in shovelware_indicators:
+            if indicator in title_lower:
+                score -= 10
+                break
+        
+        return max(0, score)  # Never return negative scores
+
+    async def _fetch_fallback_deals(
+        self,
+        limit: int,
+        min_discount: int,
+        shop_ids: Optional[List[int]]
+    ) -> List[Deal]:
+        """Simple fallback that returns highest discount deals"""
+        try:
+            deals_params = {
+                "key": self.api_key,
+                "offset": 0,
+                "limit": limit,
+                "sort": "-cut",
+                "nondeals": "false",
+                "mature": "false"
+            }
+            
+            if shop_ids:
+                deals_params["shops"] = ",".join(map(str, shop_ids))
+            
+            deals_data = await self.http.get_json(f"{self.BASE}/deals/v2", params=deals_params)
+            
+            if not isinstance(deals_data, dict) or "list" not in deals_data:
+                return []
+            
+            fallback_deals = []
+            for deal_item in deals_data["list"]:
+                discount_pct = self._get_discount_v2(deal_item)
+                if discount_pct >= min_discount:
+                    title = self._get_title_v2(deal_item)
+                    store = self._get_store_v2(deal_item)
+                    prices = self._get_prices_v2(deal_item)
+                    url = self._get_url_v2(deal_item)
+                    
+                    deal: Deal = {
+                        "title": title,
+                        "price": prices["current"],
+                        "store": store,
+                        "url": url,
+                        "discount": f"{discount_pct}%" if discount_pct else None,
+                        "original_price": prices["original"]
+                    }
+                    
+                    fallback_deals.append(deal)
+            
+            return fallback_deals
+            
+        except Exception as e:
+            logging.error(f"Error in fallback deals: {e}")
+            return []
+
+    async def _fetch_old_hybrid_priority_deals(
+        self, 
+        limit: int, 
+        min_discount: int, 
+        shop_ids: Optional[List[int]]
+    ) -> List[Deal]:
+        """
+        OLD HYBRID APPROACH: Keep as backup 
+        (Renamed to avoid conflicts)
         """
         # Fetch from all three popularity sources
         popular_deals = await self._fetch_popular_intersection_deals(
